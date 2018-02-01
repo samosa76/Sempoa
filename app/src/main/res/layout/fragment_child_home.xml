@@ -25,21 +25,23 @@
 
                 <TextView
                     android:id="@+id/tvNameChildHome"
-                    style="@style/textRegular"
+                    style="@style/textRegularSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
                 <TextView
                     android:id="@+id/tvNumberChildHome"
-                    style="@style/textRegular"
+                    style="@style/textRegularSmall"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textColor="#dedede" />
 
                 <TextView
                     android:id="@+id/tvPlaceChildHome"
-                    style="@style/textRegular"
+                    style="@style/textRegularSmall"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textColor="#dedede" />
 
             </LinearLayout>
 

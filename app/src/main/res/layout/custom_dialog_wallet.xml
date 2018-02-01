@@ -14,7 +14,7 @@
         app:cardCornerRadius="5dp">
 
         <TextView
-            style="@style/textRegular"
+            style="@style/textRegularSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -34,7 +34,7 @@
         app:cardCornerRadius="5dp">
 
         <TextView
-            style="@style/textRegular"
+            style="@style/textRegularSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

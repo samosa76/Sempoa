@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <TextView
-        style="@style/textRegular"
+        style="@style/textRegularSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -17,7 +17,7 @@
 
     <Button
         android:id="@+id/btnOkForgot"
-        style="@style/textRegular"
+        style="@style/textRegularSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#fff"

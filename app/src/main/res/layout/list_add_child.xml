@@ -32,14 +32,15 @@
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/edtIdAddChild"
-                    style="@style/textRegular"
+                    style="@style/textRegularSmall"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/margin_small"
                     android:background="@color/transparent"
                     android:hint="Child's ID"
-                    android:lines="1" />
+                    android:lines="1"
+                    android:textColorHint="#dedede" />
 
             </LinearLayout>
 
@@ -59,14 +60,15 @@
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/edtNameAddChild"
-                    style="@style/textRegular"
+                    style="@style/textRegularSmall"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/margin_small"
                     android:background="@color/transparent"
                     android:hint="Child's Name"
-                    android:lines="1" />
+                    android:lines="1"
+                    android:textColorHint="#dedede" />
 
             </LinearLayout>
 
@@ -86,20 +88,21 @@
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/edtBirthAddChild"
-                    style="@style/textRegular"
+                    style="@style/textRegularSmall"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/margin_small"
                     android:background="@color/transparent"
                     android:hint="Child's Date of Birth"
-                    android:lines="1" />
+                    android:lines="1"
+                    android:textColorHint="#dedede" />
 
             </LinearLayout>
 
             <Button
                 android:id="@+id/btnDeleteAddChild"
-                style="@style/textRegular"
+                style="@style/textRegularSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

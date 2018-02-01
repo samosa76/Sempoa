@@ -40,13 +40,13 @@
                         android:padding="@dimen/activity_vertical_margin">
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Book 1A" />
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
@@ -62,13 +62,13 @@
                         android:paddingRight="@dimen/activity_horizontal_margin">
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Book 1B" />
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
@@ -87,7 +87,7 @@
                         android:padding="@dimen/activity_vertical_margin">
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignBottom="@id/ivArrow1"
@@ -137,17 +137,17 @@
                             android:orientation="vertical">
 
                             <TextView
-                                style="@style/textRegular"
+                                style="@style/textRegularSmall"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Miss Jane Doe"
-                                android:textColor="#000000" />
+                                android:text="Miss Jane Doe" />
 
                             <TextView
-                                style="@style/textRegular"
+                                style="@style/textRegularSmall"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="12 Aug 2017 - 20:22 WIB" />
+                                android:text="12 Aug 2017 - 20:22 WIB"
+                                android:textColor="#dedede" />
 
                         </LinearLayout>
 
@@ -181,34 +181,32 @@
                         android:paddingRight="@dimen/activity_horizontal_margin">
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/activity_vertical_margin"
-                            android:text="Anak ibu pinter banget bisa ngerjain 2 halaman sekaligus dalam 1 pertemuan, minggu depan pasti dia semakin pandai"
-                            android:textColor="#000000" />
+                            android:text="Anak ibu pinter banget bisa ngerjain 2 halaman sekaligus dalam 1 pertemuan, minggu depan pasti dia semakin pandai" />
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/activity_vertical_margin"
-                            android:text="Your Reply"
-                            android:textColor="#000000" />
+                            android:text="Your Reply" />
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="12 Aug 2017 - 20:22 WIB" />
+                            android:text="12 Aug 2017 - 20:22 WIB"
+                            android:textColor="#dedede" />
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/activity_vertical_margin"
-                            android:text="Terimakasih bu, saya ga tahu kenapa saya reply disini, padahal kalau ibu baca juga, ibu ga bisa reply saya lagi, terus saya reply ibu buat apa ya ? ngucapin makasih aja deh bu. :)"
-                            android:textColor="#000000" />
+                            android:text="Terimakasih bu, saya ga tahu kenapa saya reply disini, padahal kalau ibu baca juga, ibu ga bisa reply saya lagi, terus saya reply ibu buat apa ya ? ngucapin makasih aja deh bu. :)" />
 
                     </LinearLayout>
 
