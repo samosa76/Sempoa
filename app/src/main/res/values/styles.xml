@@ -13,7 +13,7 @@
         <item name="android:textColor">@color/text</item>
     </style>
 
-    <style name="textMedium" parent="@android:style/TextAppearance.Medium">
+    <style name="textMedium" parent="@android:style/TextAppearance.Small">
         <item name="fontPath">fonts/textRegular.otf</item>
         <item name="android:textColor">@color/text</item>
     </style>
