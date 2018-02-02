@@ -37,11 +37,11 @@
                         android:padding="@dimen/activity_vertical_margin">
 
                         <TextView
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Name"
-                            android:textColor="#dedede" />
+                            android:textColor="@color/text_secondary" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -50,7 +50,7 @@
 
                             <TextView
                                 android:id="@+id/tvNameAccountSetting"
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
@@ -59,7 +59,7 @@
 
                             <TextView
                                 android:id="@+id/tvChangeNameAccountSetting"
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="CHANGE"
@@ -81,11 +81,11 @@
                         android:padding="@dimen/activity_vertical_margin">
 
                         <TextView
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Email"
-                            android:textColor="#dedede" />
+                            android:textColor="@color/text_secondary" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -94,7 +94,7 @@
 
                             <TextView
                                 android:id="@+id/tvEmailAccountSetting"
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
@@ -103,7 +103,7 @@
 
                             <TextView
                                 android:id="@+id/tvChangeEmailAccountSetting"
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="CHANGE"
@@ -125,11 +125,11 @@
                         android:padding="@dimen/activity_vertical_margin">
 
                         <TextView
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Phone Number"
-                            android:textColor="#dedede" />
+                            android:textColor="@color/text_secondary" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -138,7 +138,7 @@
 
                             <TextView
                                 android:id="@+id/tvPhoneAccountSetting"
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
@@ -147,7 +147,7 @@
 
                             <TextView
                                 android:id="@+id/tvChangePhoneAccountSetting"
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="CHANGE"
@@ -169,11 +169,11 @@
                         android:padding="@dimen/activity_vertical_margin">
 
                         <TextView
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Password"
-                            android:textColor="#dedede" />
+                            android:textColorHint="@color/text_secondary" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -182,7 +182,7 @@
 
                             <TextView
                                 android:id="@+id/tvPassAccountSetting"
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
@@ -193,7 +193,7 @@
 
                             <TextView
                                 android:id="@+id/tvChangePassAccountSetting"
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="CHANGE"

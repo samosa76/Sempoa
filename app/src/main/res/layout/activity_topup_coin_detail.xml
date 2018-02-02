@@ -20,7 +20,7 @@
             <include layout="@layout/back_navigation" />
 
             <TextView
-                style="@style/textRegularSmall"
+                style="@style/textMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/activity_vertical_margin"
@@ -46,13 +46,13 @@
                         android:padding="@dimen/activity_vertical_margin">
 
                         <TextView
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Amount" />
 
                         <TextView
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
@@ -71,13 +71,13 @@
                         android:padding="@dimen/activity_vertical_margin">
 
                         <TextView
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Price" />
 
                         <TextView
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
@@ -96,13 +96,13 @@
                         android:padding="@dimen/activity_vertical_margin">
 
                         <TextView
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Payment Method" />
 
                         <TextView
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
@@ -121,21 +121,21 @@
                         android:padding="@dimen/activity_vertical_margin">
 
                         <TextView
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Bank Account" />
 
                         <TextView
                             android:id="@+id/tvBankTopupCoin"
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:text="BCA 751121313" />
 
                         <TextView
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
@@ -155,7 +155,7 @@
                         android:padding="@dimen/activity_vertical_margin">
 
                         <TextView
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="We'll send the coin to Mark's Wallet" />
@@ -173,7 +173,7 @@
                         android:padding="@dimen/activity_vertical_margin">
 
                         <TextView
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="We will process your payment\nautomatically maximal 30 minutes after\nyou made the payment, if you're having a\ntrouble, contact Sempoa SIP" />
@@ -182,7 +182,7 @@
 
                     <Button
                         android:id="@+id/btnDoneTopup"
-                        style="@style/textRegularSmall"
+                        style="@style/textSmall"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/activity_vertical_margin"

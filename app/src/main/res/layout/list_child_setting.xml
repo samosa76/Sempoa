@@ -24,14 +24,14 @@
 
                 <TextView
                     android:id="@+id/tvNameChildSetting"
-                    style="@style/textRegularSmall"
+                    style="@style/textMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Middleston Henry" />
 
                 <TextView
                     android:id="@+id/tvEditChildSetting"
-                    style="@style/textRegularSmall"
+                    style="@style/textMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -42,36 +42,36 @@
 
             <TextView
                 android:id="@+id/tvNumberChildSetting"
-                style="@style/textRegularSmall"
+                style="@style/textMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="11121310"
-                android:textColor="#dedede" />
+                android:textColor="@color/text_secondary" />
 
             <TextView
                 android:id="@+id/tvPlaceChildSetting"
-                style="@style/textRegularSmall"
+                style="@style/textMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:text="Pejaten Village"
-                android:textColor="#dedede" />
+                android:textColor="@color/text_secondary" />
 
             <TextView
                 android:id="@+id/tvTitlePassChildSetting"
-                style="@style/textRegularSmall"
+                style="@style/textMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Password For Middleston" />
+                android:text="Password For Middleston"
+                android:textColor="@color/text_secondary" />
 
             <TextView
                 android:id="@+id/tvPassChildSetting"
-                style="@style/textRegularSmall"
+                style="@style/textMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:text="Mid123"
-                android:textColor="#dedede" />
+                android:text="Mid123" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -79,10 +79,11 @@
 
                 <TextView
                     android:id="@+id/tvSwitchChildSetting"
-                    style="@style/textRegularSmall"
+                    style="@style/textMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Active" />
+                    android:text="Active"
+                    android:textColor="#fdb17e" />
 
                 <Switch
                     android:id="@+id/switchChildSetting"
