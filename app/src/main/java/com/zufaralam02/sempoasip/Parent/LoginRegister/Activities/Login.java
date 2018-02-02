@@ -16,6 +16,7 @@ import com.zufaralam02.sempoasip.ApiHelper.BaseApiService;
 import com.zufaralam02.sempoasip.Parent.Utils.Helper;
 import com.zufaralam02.sempoasip.Parent.Utils.ParentPref;
 import com.zufaralam02.sempoasip.R;
+import com.zufaralam02.sempoasip.Student.BottomNavigation.BottomNavigationStudent;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -93,9 +94,9 @@ public class Login extends BaseActivitySempoa {
                                         String success = jsonObject.getString("status_message");
                                         Toast.makeText(context, success, Toast.LENGTH_SHORT).show();
 
-                                        JSONObject j = jsonObject.getJSONObject("result");
-                                        j.toString();
-                                        Helper.saveUser(Login.this, j.toString());
+//                                        JSONObject j = jsonObject.getJSONObject("result");
+//                                        j.toString();
+//                                        Helper.saveUser(Login.this, j.toString());
                                         //User user = Helper.getUser(Login.this);
                                         //user.getName();
                                         // user.getEmail();
@@ -104,16 +105,22 @@ public class Login extends BaseActivitySempoa {
                                         String email = jsonObject.getJSONObject("result").getString("parent_email");
                                         String hp = jsonObject.getJSONObject("result").getString("parent_hp_nr");
                                         String pwd = jsonObject.getJSONObject("result").getString("parent_pwd");
-                                        Intent intent = new Intent(context, BottomNavigationParent.class);
-                                        intent.putExtra("resultName", fullName);
-                                        intent.putExtra("resultEmail", email);
-                                        intent.putExtra("resultHp", hp);
-                                        intent.putExtra("resultPwd", pwd);
-                                        startActivity(intent);
 
-                                        ParentPref.getInstance(Login.this).setBoolean(ParentPref.PARENT_IS_LOGGED_IN, true);
+                                        if (email.trim().equalsIgnoreCase("yupi@gmail.com")) {
+                                            startActivity(new Intent(context, BottomNavigationStudent.class));
+                                        } else {
+                                            Intent intent = new Intent(context, BottomNavigationParent.class);
+                                            intent.putExtra("resultName", fullName);
+                                            intent.putExtra("resultEmail", email);
+                                            intent.putExtra("resultHp", hp);
+                                            intent.putExtra("resultPwd", pwd);
+                                            startActivity(intent);
+//                                            finish();
+                                        }
 
-                                        ParentPref.getInstance(Login.this).getBoolean(ParentPref.PARENT_IS_LOGGED_IN);
+//                                        ParentPref.getInstance(Login.this).setBoolean(ParentPref.PARENT_IS_LOGGED_IN, true);
+//
+//                                        ParentPref.getInstance(Login.this).getBoolean(ParentPref.PARENT_IS_LOGGED_IN);
                                     } else {
                                         String error = jsonObject.getString("status_message");
                                         Toast.makeText(context, error, Toast.LENGTH_SHORT).show();

@@ -34,7 +34,7 @@
 
                 <Button
                     android:id="@+id/btnAddChildHome"
-                    style="@style/textRegular"
+                    style="@style/textRegularSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -75,13 +75,13 @@
                         android:layout_margin="@dimen/activity_vertical_margin">
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Foundation" />
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
@@ -97,13 +97,13 @@
                         android:layout_marginTop="@dimen/activity_vertical_margin">
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Book 1A" />
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
@@ -120,13 +120,13 @@
                         android:layout_marginTop="@dimen/margin_med">
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Book 1B" />
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
@@ -144,7 +144,7 @@
                         android:layout_height="wrap_content">
 
                         <Button
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/transparent"
@@ -198,18 +198,18 @@
 
                         <TextView
                             android:id="@+id/tvChildWallet"
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Middlestone's Wallet"
-                            android:textColor="#000000" />
+                            android:text="Middlestone's Wallet" />
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/margin_small"
-                            android:text="1000 Coin" />
+                            android:text="1000 Coin"
+                            android:textColor="#dedede" />
 
                     </LinearLayout>
 
@@ -253,22 +253,23 @@
 
                         <TextView
                             android:id="@+id/tvChildRank"
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Middlestone's Rank"
-                            android:textColor="#000000" />
+                            android:text="Middlestone's Rank" />
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/margin_small"
-                            android:text="Weekly Challenge 1" />
+                            android:text="Weekly Challenge 1"
+                            android:textColor="#dedede" />
 
                     </LinearLayout>
 
                     <TextView
+                        style="@style/textRegularSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"

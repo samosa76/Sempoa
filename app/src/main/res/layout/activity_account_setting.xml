@@ -37,10 +37,11 @@
                         android:padding="@dimen/activity_vertical_margin">
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Name" />
+                            android:text="Name"
+                            android:textColor="#dedede" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -49,17 +50,16 @@
 
                             <TextView
                                 android:id="@+id/tvNameAccountSetting"
-                                style="@style/textRegular"
+                                style="@style/textRegularSmall"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_weight="1"
-                                android:text="Meisy Henry"
-                                android:textColor="#000000" />
+                                android:text="Meisy Henry" />
 
                             <TextView
                                 android:id="@+id/tvChangeNameAccountSetting"
-                                style="@style/textRegular"
+                                style="@style/textRegularSmall"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="CHANGE"
@@ -81,10 +81,11 @@
                         android:padding="@dimen/activity_vertical_margin">
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Email" />
+                            android:text="Email"
+                            android:textColor="#dedede" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -93,17 +94,16 @@
 
                             <TextView
                                 android:id="@+id/tvEmailAccountSetting"
-                                style="@style/textRegular"
+                                style="@style/textRegularSmall"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_weight="1"
-                                android:text="meisy@henry.com"
-                                android:textColor="#000000" />
+                                android:text="meisy@henry.com" />
 
                             <TextView
                                 android:id="@+id/tvChangeEmailAccountSetting"
-                                style="@style/textRegular"
+                                style="@style/textRegularSmall"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="CHANGE"
@@ -125,10 +125,11 @@
                         android:padding="@dimen/activity_vertical_margin">
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Phone Number" />
+                            android:text="Phone Number"
+                            android:textColor="#dedede" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -137,17 +138,16 @@
 
                             <TextView
                                 android:id="@+id/tvPhoneAccountSetting"
-                                style="@style/textRegular"
+                                style="@style/textRegularSmall"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_weight="1"
-                                android:text="0813 0813 0813"
-                                android:textColor="#000000" />
+                                android:text="0813 0813 0813" />
 
                             <TextView
                                 android:id="@+id/tvChangePhoneAccountSetting"
-                                style="@style/textRegular"
+                                style="@style/textRegularSmall"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="CHANGE"
@@ -169,10 +169,11 @@
                         android:padding="@dimen/activity_vertical_margin">
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Password" />
+                            android:text="Password"
+                            android:textColor="#dedede" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -181,7 +182,7 @@
 
                             <TextView
                                 android:id="@+id/tvPassAccountSetting"
-                                style="@style/textRegular"
+                                style="@style/textRegularSmall"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
@@ -192,7 +193,7 @@
 
                             <TextView
                                 android:id="@+id/tvChangePassAccountSetting"
-                                style="@style/textRegular"
+                                style="@style/textRegularSmall"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="CHANGE"

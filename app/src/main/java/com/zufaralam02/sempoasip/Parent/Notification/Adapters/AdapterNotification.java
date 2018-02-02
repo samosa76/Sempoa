@@ -115,8 +115,8 @@ public class AdapterNotification extends BaseRecyclerAdapter {
         Picasso.with(getContext()).load(modelNotification.getImageNotif()).into(holder.ivNotification);
 
         if (modelNotification.isReaded()) {
-            holder.tvTitleNotification.setTextColor(Color.parseColor("#000000"));
-            holder.tvDetailNotification.setTextColor(Color.parseColor("#000000"));
+//            holder.tvTitleNotification.setTextColor(Color.parseColor("#000000"));
+//            holder.tvDetailNotification.setTextColor(Color.parseColor("#000000"));
         } else {
             holder.tvTitleNotification.setTextColor(Color.parseColor("#fdb17e"));
             holder.tvDetailNotification.setTextColor(Color.parseColor("#fdb17e"));

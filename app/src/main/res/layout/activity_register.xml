@@ -28,7 +28,7 @@
                 android:src="@drawable/ic_profile_white_register" />
 
             <TextView
-                style="@style/textRegular"
+                style="@style/textRegularSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -49,11 +49,12 @@
                     android:orientation="vertical">
 
                     <TextView
-                        style="@style/textRegular"
+                        style="@style/textRegularSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_med"
-                        android:text="Full Name" />
+                        android:text="Full Name"
+                        android:textColor="#dedede" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -71,7 +72,7 @@
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/edtNameRegister"
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_gravity="center_vertical"
@@ -82,11 +83,12 @@
                     </LinearLayout>
 
                     <TextView
-                        style="@style/textRegular"
+                        style="@style/textRegularSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_med"
-                        android:text="Your Email" />
+                        android:text="Your Email"
+                        android:textColor="#dedede" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -104,7 +106,7 @@
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/edtEmailRegister"
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_gravity="center_vertical"
@@ -115,11 +117,12 @@
                     </LinearLayout>
 
                     <TextView
-                        style="@style/textRegular"
+                        style="@style/textRegularSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_med"
-                        android:text="Your Phone" />
+                        android:text="Your Phone"
+                        android:textColor="#dedede" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -137,7 +140,7 @@
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/edtPhoneRegister"
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_gravity="center_vertical"
@@ -149,11 +152,12 @@
                     </LinearLayout>
 
                     <TextView
-                        style="@style/textRegular"
+                        style="@style/textRegularSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_med"
-                        android:text="Set New Password" />
+                        android:text="Set New Password"
+                        android:textColor="#dedede" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -171,7 +175,7 @@
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/edtPassRegister"
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_gravity="center_vertical"
@@ -184,7 +188,7 @@
 
                     <Button
                         android:id="@+id/btnRegisterRegister"
-                        style="@style/textRegular"
+                        style="@style/textRegularSmall"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -200,14 +204,14 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Already have an account ? " />
 
                         <TextView
                             android:id="@+id/tvLoginRegister"
-                            style="@style/textRegular"
+                            style="@style/textRegularSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="LOGIN HERE"

@@ -14,16 +14,15 @@
         android:paddingTop="@dimen/activity_vertical_margin">
 
         <TextView
-            style="@style/textRegular"
             android:id="@+id/tvNameWalletHistory"
+            style="@style/textRegularSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Topup for Mark"
-            android:textColor="#000000" />
+            android:text="Topup for Mark" />
 
         <TextView
-            style="@style/textRegular"
             android:id="@+id/tvPendingWalletHistory"
+            style="@style/textRegularSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -43,20 +42,20 @@
         android:paddingRight="@dimen/activity_horizontal_margin">
 
         <TextView
-            style="@style/textRegular"
             android:id="@+id/tvTimeWalletHistory"
+            style="@style/textRegularSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="12 Aug 2017" />
+            android:text="12 Aug 2017"
+            android:textColor="#dedede" />
 
         <TextView
-            style="@style/textRegular"
             android:id="@+id/tvCoinWalletHistory"
+            style="@style/textRegularSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="+ 1.000 Coin"
-            android:textColor="#000000" />
+            android:text="+ 1.000 Coin" />
 
     </LinearLayout>
 

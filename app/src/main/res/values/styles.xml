@@ -52,6 +52,10 @@
         <item name="fontPath">fonts/textRegular.otf</item>
     </style>
 
+    <style name="textRegularSmall" parent="@android:style/TextAppearance.Small">
+        <item name="fontPath">fonts/textRegular.otf</item>
+    </style>
+    
     <style name="textSemibold">
         <item name="fontPath">fonts/textSemibold.otf</item>
     </style>
