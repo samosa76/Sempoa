@@ -115,6 +115,7 @@ public class Login extends BaseActivitySempoa {
                                             intent.putExtra("resultHp", hp);
                                             intent.putExtra("resultPwd", pwd);
                                             startActivity(intent);
+//                                            finish();
                                         }
 
 //                                        ParentPref.getInstance(Login.this).setBoolean(ParentPref.PARENT_IS_LOGGED_IN, true);
