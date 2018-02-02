@@ -21,6 +21,17 @@ public class Result {
     @SerializedName("notification_updated")
     private String mNotificationUpdated;
 
+    public Result(String mNotificationBelongsId, String mNotificationContent, String mNotificationCreated, String mNotificationId,
+                  String mNotificationTitle, String mNotificationType, String mNotificationUpdated) {
+        this.mNotificationBelongsId = mNotificationBelongsId;
+        this.mNotificationContent = mNotificationContent;
+        this.mNotificationCreated = mNotificationCreated;
+        this.mNotificationId = mNotificationId;
+        this.mNotificationTitle = mNotificationTitle;
+        this.mNotificationType = mNotificationType;
+        this.mNotificationUpdated = mNotificationUpdated;
+    }
+
     public String getNotificationBelongsId() {
         return mNotificationBelongsId;
     }
