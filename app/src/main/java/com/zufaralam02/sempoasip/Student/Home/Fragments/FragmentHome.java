@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.zufaralam02.sempoasip.R;
+import com.zufaralam02.sempoasip.Student.Home.Activities.Attandance;
 import com.zufaralam02.sempoasip.Student.Home.Activities.Notification;
+import com.zufaralam02.sempoasip.Student.Home.Activities.Wallet;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -59,11 +61,14 @@ public class FragmentHome extends Fragment {
         switch (view.getId()) {
             case R.id.notificationHomeStudent:
                 startActivity(new Intent(getActivity(), Notification.class));
+                break;
             case R.id.ImageProfileStudent:
                 break;
             case R.id.cardAttendance:
+                startActivity(new Intent(getActivity(), Attandance.class));
                 break;
             case R.id.cardStudentWallet:
+                startActivity(new Intent(getActivity(), Wallet.class));
                 break;
         }
     }
