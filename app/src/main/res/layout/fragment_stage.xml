@@ -15,7 +15,7 @@
 
         <TextView
             android:id="@+id/tvLeftStage"
-            style="@style/textRegularLarge"
+            style="@style/textLarge"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -24,7 +24,7 @@
 
         <TextView
             android:id="@+id/tvCenterStage"
-            style="@style/textRegularLarge"
+            style="@style/textLarge"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -33,7 +33,7 @@
 
         <TextView
             android:id="@+id/tvRightStage"
-            style="@style/textRegularLarge"
+            style="@style/textLarge"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"

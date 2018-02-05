@@ -48,14 +48,14 @@
 
                             <TextView
                                 android:id="@+id/tvWeeklyChallenge"
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="100 Coin"
                                 android:textColor="#fff" />
 
                             <TextView
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Weekly Challenge"
@@ -72,14 +72,14 @@
 
                             <TextView
                                 android:id="@+id/tvNationalChallenge"
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="200 Coin"
                                 android:textColor="#fff" />
 
                             <TextView
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="National Challenge"
@@ -103,14 +103,14 @@
 
                             <TextView
                                 android:id="@+id/tvRegionalChallenge"
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="150 Coin"
                                 android:textColor="#fff" />
 
                             <TextView
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Regional Challenge"
@@ -127,14 +127,14 @@
 
                             <TextView
                                 android:id="@+id/tvSouvenirSempoa1"
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="250 Coin"
                                 android:textColor="#fff" />
 
                             <TextView
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Souvenir Sempoa"
@@ -158,14 +158,14 @@
 
                             <TextView
                                 android:id="@+id/tvSouvenirSempoa2"
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="300 Coin"
                                 android:textColor="#fff" />
 
                             <TextView
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Souvenir Sempoa"
@@ -182,14 +182,14 @@
 
                             <TextView
                                 android:id="@+id/tvSouvenirSempoa3"
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="350 Coin"
                                 android:textColor="#fff" />
 
                             <TextView
-                                style="@style/textRegularSmall"
+                                style="@style/textMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Souvenir Sempoa"
@@ -216,7 +216,7 @@
                     android:padding="@dimen/activity_vertical_margin">
 
                     <TextView
-                        style="@style/textRegularSmall"
+                        style="@style/textMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Ammount To Buy" />
@@ -237,7 +237,7 @@
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/edtAmountToBuy"
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_gravity="center_vertical"
@@ -248,7 +248,7 @@
                     </LinearLayout>
 
                     <TextView
-                        style="@style/textRegularSmall"
+                        style="@style/textMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -269,7 +269,7 @@
                             android:src="@drawable/ic_name_blue" />
 
                         <android.support.design.widget.TextInputEditText
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_gravity="center_vertical"
@@ -280,7 +280,7 @@
                     </LinearLayout>
 
                     <TextView
-                        style="@style/textRegularSmall"
+                        style="@style/textMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -301,7 +301,7 @@
                             android:src="@drawable/ic_payment_method_blue" />
 
                         <android.support.design.widget.TextInputEditText
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_gravity="center_vertical"
@@ -312,14 +312,14 @@
                     </LinearLayout>
 
                     <TextView
-                        style="@style/textRegularSmall"
+                        style="@style/textMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/activity_vertical_margin"
                         android:text="Price" />
 
                     <TextView
-                        style="@style/textRegularSmall"
+                        style="@style/textMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Rp 250.000"
@@ -327,7 +327,7 @@
 
                     <Button
                         android:id="@+id/btnPayNow"
-                        style="@style/textRegularSmall"
+                        style="@style/textSmall"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/margin_small"

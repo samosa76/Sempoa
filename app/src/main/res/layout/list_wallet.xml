@@ -32,7 +32,7 @@
 
                 <TextView
                     android:id="@+id/tvWalletName"
-                    style="@style/textRegularSmall"
+                    style="@style/textMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -44,7 +44,7 @@
 
             <TextView
                 android:id="@+id/tvWalletCoin"
-                style="@style/textRegularSmall"
+                style="@style/textMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -53,7 +53,7 @@
 
             <Button
                 android:id="@+id/btnWalletTopup"
-                style="@style/textRegularSmall"
+                style="@style/textSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -67,7 +67,7 @@
 
             <Button
                 android:id="@+id/btnWalletPending"
-                style="@style/textRegularSmall"
+                style="@style/textSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_med"

@@ -18,9 +18,9 @@ import retrofit2.http.Query;
 public interface BaseApiService {
 
     @FormUrlEncoded
-    @POST("loginParent")
-    Call<ResponseBody> loginRequest(@Field("parent_email") String parentEmail,
-                                    @Field("parent_pwd") String parentPwd);
+    @POST("login")
+    Call<ResponseBody> loginRequest(@Field("user_id") String parentEmail,
+                                    @Field("pwd") String parentPwd);
 
     @FormUrlEncoded
     @POST("registerParent")
@@ -29,11 +29,7 @@ public interface BaseApiService {
                                        @Field("parent_hp_nr") String parentHpNr,
                                        @Field("parent_pwd") String parentPwd);
 
-//    @POST("getNotificationByID")
-//    Call<ModelNotificationn> getNotification(@Query("parent_id") String parentId);
+    @POST("getNotificationByID")
+    Call<ModelNotificationn> getNotification(@Query("parent_id") String parentId);
 
-//    @GET("movie/top_rated")
-//    Call<MoviesResponse> getTopRatedMovies(@Query("api_key") String apiKey);
-//    @GET("movie/{id}")
-//    Call<MoviesResponse> getMovieDetails(@Path("id") int id, @Query("api_key") String apiKey);
 }

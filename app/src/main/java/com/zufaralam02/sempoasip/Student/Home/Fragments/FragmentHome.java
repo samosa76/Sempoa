@@ -23,7 +23,6 @@ import butterknife.Unbinder;
  */
 public class FragmentHome extends Fragment {
 
-
     @BindView(R.id.notificationHomeStudent)
     ImageView notificationHomeStudent;
     @BindView(R.id.ImageProfileStudent)

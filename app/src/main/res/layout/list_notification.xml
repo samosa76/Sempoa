@@ -19,7 +19,7 @@
 
             <TextView
                 android:id="@+id/tvTitleNotification"
-                style="@style/textRegularSmall"
+                style="@style/textMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:lines="1"
@@ -27,7 +27,7 @@
 
             <TextView
                 android:id="@+id/tvDetailNotification"
-                style="@style/textRegularSmall"
+                style="@style/textMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:lines="1"
@@ -35,12 +35,12 @@
 
             <TextView
                 android:id="@+id/tvTimeNotification"
-                style="@style/textRegularSmall"
+                style="@style/textMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:lines="1"
                 android:text="Time Notification"
-                android:textColor="#dedede" />
+                android:textColor="@color/text_secondary" />
 
         </LinearLayout>
 
