@@ -135,6 +135,7 @@
     <color name="SteelBlue">#4682B4</color>
     <color name="Tan">#D2B48C</color>
     <color name="Teal">#008080</color>
+    <color name="ThinOrange">#ffd65a</color>
     <color name="Thistle">#D8BFD8</color>
     <color name="Tomato">#FF6347</color>
     <color name="Turquoise">#40E0D0</color>
@@ -334,7 +335,7 @@ Suspendisse vitae dui eget nisi sodales semper. Pellentesque fringilla a orci no
     <style name="text" parent="android:Widget.TextView">
         <item name="android:textColor">@color/text</item>
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
-        <!--<item name="android:textColor">@color/text</item>-->
+        
     </style>
     <style name="textBold" parent="text">
         <item name="android:textStyle">bold</item>
@@ -349,7 +350,7 @@ Suspendisse vitae dui eget nisi sodales semper. Pellentesque fringilla a orci no
     <style name="textLarge" parent="android:Widget.TextView">
         <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
         <item name="android:textSize">24sp</item>
-        <!--<item name="android:textColor">@color/text</item>-->
+        
         <item name="android:textColor">@color/text</item>
     </style>
     <style name="textLargeBold" parent="textLargeLightBold">

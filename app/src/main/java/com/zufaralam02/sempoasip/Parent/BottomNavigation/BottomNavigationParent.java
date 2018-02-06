@@ -43,6 +43,7 @@ public class BottomNavigationParent extends BaseActivitySempoa {
         }
     }
 
+
 //    private TextView mTextMessage;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
