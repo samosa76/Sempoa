@@ -35,22 +35,21 @@
                     android:padding="@dimen/activity_vertical_margin">
 
                     <TextView
-                        style="@style/textRegularSmall"
+                        style="@style/textMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Current Name" />
 
                     <TextView
                         android:id="@+id/tvNameChangeName"
-                        style="@style/textRegularSmall"
+                        style="@style/textLarge"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:text="Meisy Hayati"
-                        android:textColor="#000000" />
+                        android:text="Meisy Hayati" />
 
                     <TextView
-                        style="@style/textRegularSmall"
+                        style="@style/textMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -72,7 +71,7 @@
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/edtNameChangeName"
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_gravity="center_vertical"
@@ -83,7 +82,7 @@
                     </LinearLayout>
 
                     <TextView
-                        style="@style/textRegularSmall"
+                        style="@style/textMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -105,7 +104,7 @@
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/edtPassChangeName"
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_gravity="center_vertical"
@@ -119,7 +118,7 @@
 
                     <Button
                         android:id="@+id/btnSaveChangeName"
-                        style="@style/textRegularSmall"
+                        style="@style/textSmall"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/margin_small"

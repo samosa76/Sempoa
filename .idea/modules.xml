@@ -3,11 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Sempoa.iml" filepath="$PROJECT_DIR$/Sempoa.iml" />
-      <module fileurl="file://D:\My-First-GitLab\Sempoa\SempoaSip.iml" filepath="D:\My-First-GitLab\Sempoa\SempoaSip.iml" />
       <module fileurl="file://$PROJECT_DIR$/Teacher/Teacher.iml" filepath="$PROJECT_DIR$/Teacher/Teacher.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/common_androidmaster/common_androidmaster.iml" filepath="$PROJECT_DIR$/common_androidmaster/common_androidmaster.iml" />
-      <module fileurl="file://D:\My-First-GitLab\Sempoa\Teacher\myapplication.iml" filepath="D:\My-First-GitLab\Sempoa\Teacher\myapplication.iml" />
     </modules>
   </component>
 </project>

@@ -9,6 +9,14 @@
     <string name="title_profil">Profil</string>
     <string name="title_notification">Notification</string>
 
+    <string name="home_student_name_1">1. Mark Henry</string>
+    <string name="home_student_name_2">2. Mark Henry</string>
+    <string name="home_student_name_3">3. Mark Henry</string>
+    <string name="home_student_name_4">4. Mark Henry</string>
+    <string name="home_student_name_5">5. Mark Henry</string>
+
+    <string name="home_student_foundation">Foundation 1</string>
+
     <string name="title_notif1">New Rp1000 Reward From Weekly Challenge 1</string>
     <string name="title_notif2">Weekly Challenge 2 Will Be Open In Two Days</string>
     <string name="title_notif3">Your Parent Approved Your Coin Request</string>
@@ -17,13 +25,13 @@
 
     <string name="date">22 oct 2017</string>
 
-    <string name="lv_name_1">Class</string>
-    <string name="lv_name_2">Class asd</string>
-    <string name="lv_name_3">Class asfdasdf</string>
+    <string name="lv_name_1">Class 1</string>
+    <string name="lv_name_2">Class 2</string>
+    <string name="lv_name_3">Class 3</string>
 
-    <string name="lv_date_1">22 oct 2017 sadas</string>
-    <string name="lv_date_2">22 oct 2017 asdga</string>
-    <string name="lv_date_3">22 oct 2017 asdgaweq</string>
+    <string name="lv_date_1">16.00 - 17.00</string>
+    <string name="lv_date_2">16.00 - 17.00</string>
+    <string name="lv_date_3">16.00 - 17.00</string>
 
 
     <string name="detail_notif1">
@@ -60,10 +68,28 @@
     <string name="time_notif4">24 Sept 2017, 14.00</string>
     <string name="time_notif5">24 Sept 2017, 14.00</string>
 
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="pass">Password</string>
+
     <string name="profil_reward">My Reward</string>
+    <string name="profil_reward_value">Rp200.000</string>
+    <string name="profil_reward_name">Withdrawal</string>
+    <string name="profil_reward_date">25 Desc 2017</string>
+    <string name="profil_reward_form_name">Ammount to withdraw</string>
+    <string name="profil_reward_form_name_bank">Bank account number</string>
+    <string name="profil_reward_form_pass">Your Password</string>
+
     <string name="profil_value">1.000.000</string>
     <string name="profil_setting">Account Setting</string>
-    <string name="profil_contac">Contac</string>
+    <string name="profil_contac">Contact</string>
     <string name="profil_logout">Log Out</string>
+    <string name="profil_name">Meisy Henry</string>
+    <string name="profil_email">meisyhenry@gmail.com</string>
+    <string name="profil_phone_number">0813 3180 0813 </string>
+    <string name="profil_name_change">CHANGE</string>
+    <string name="profil_photo_change">CHANGE PHOTO PROFIL</string>
+
 
 </resources>

@@ -15,7 +15,7 @@
         tools:ignore="ExtraText,InnerclassSeparator">
         <activity
             android:name=".BottomNavigation"
-            android:label="@string/title_activity_bottom_navigation">
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,8 +24,16 @@
         </activity>
         <activity android:name=".Login.Login" />
         <activity android:name=".Login.ForgotPassword" />
-        <activity android:name=".Home.Activity.DetailHomeTeacher" />
-        <activity android:name=".Notification.Activity.DetailNotif"></activity>
+        <activity android:name=".Notification.Activity.DetailNotif" />
+        <activity android:name=".Profile.Fragment.Activity.DetailProfil" />
+        <activity android:name=".Profile.Fragment.Activity.Contac" />
+        <activity android:name=".Profile.Fragment.Activity.Rewards" />
+        <activity android:name=".Profile.Fragment.Activity.ChangeName" />
+        <activity android:name=".Profile.Fragment.Activity.ChangeEmail" />
+        <activity android:name=".Profile.Fragment.Activity.ChangePhonenumber" />
+        <activity android:name=".Profile.Fragment.Activity.ChangePassword" />
+        <activity android:name=".Profile.Fragment.AlertDialog.History" />
+        <activity android:name=".Profile.Fragment.AlertDialog.Withdraw"></activity>
     </application>
 
 </manifest>

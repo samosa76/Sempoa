@@ -15,14 +15,14 @@
 
         <TextView
             android:id="@+id/tvNameWalletHistory"
-            style="@style/textRegularSmall"
+            style="@style/textMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Topup for Mark" />
 
         <TextView
             android:id="@+id/tvPendingWalletHistory"
-            style="@style/textRegularSmall"
+            style="@style/textMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -43,15 +43,15 @@
 
         <TextView
             android:id="@+id/tvTimeWalletHistory"
-            style="@style/textRegularSmall"
+            style="@style/textMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="12 Aug 2017"
-            android:textColor="#dedede" />
+            android:textColor="@color/text_secondary" />
 
         <TextView
             android:id="@+id/tvCoinWalletHistory"
-            style="@style/textRegularSmall"
+            style="@style/textMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"

@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.zufaralam02.sempoasip.Student.Home.Activities.Attandance">
+    android:orientation="vertical"
+    tools:context="com.zufaralam02.sempoasip.Student.Home.Activities.Attandance"
+    android:background="#fdb17e">
 
-</android.support.constraint.ConstraintLayout>
+    <include layout="@layout/back_navigation"/>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_header">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="Go to your class room and scan the \nQR Code"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:textColor="#fff"
+            style="@style/textMedium"/>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

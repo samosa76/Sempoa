@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 import com.iapps.libs.helpers.BaseHelper;
 import com.zufaralam02.myapplication.Home.Adapter.AHome;
 import com.zufaralam02.myapplication.Home.Model.MHome;
-import com.zufaralam02.myapplication.Profile.FragmentProfilTeacher;
+import com.zufaralam02.myapplication.Profile.Fragment.FragmentProfilTeacher;
 import com.zufaralam02.myapplication.R;
 
 import java.util.ArrayList;
@@ -85,12 +85,6 @@ public class FragmentHomeTeacher extends Fragment {
     public void setNavigation(BottomNavigationView navigation) {
         this.navigation = navigation;
     }
-
-    @OnClick(R.id.llhomep)
-    public void onClick() {
-
-    }
-
 
     @OnClick({R.id.llhomep, R.id.rvHome})
     public void onClick(View view) {

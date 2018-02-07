@@ -40,11 +40,10 @@
                     android:orientation="vertical">
 
                     <TextView
-                        style="@style/textRegularSmall"
+                        style="@style/textMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Username"
-                        android:textColor="#dedede" />
+                        android:text="Username" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -62,7 +61,7 @@
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/edtEmailLogin"
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_gravity="center_vertical"
@@ -73,12 +72,11 @@
                     </LinearLayout>
 
                     <TextView
-                        style="@style/textRegularSmall"
+                        style="@style/textMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_med"
-                        android:text="Password"
-                        android:textColor="#dedede" />
+                        android:text="Password" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -96,7 +94,7 @@
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/edtPassLogin"
-                            style="@style/textRegularSmall"
+                            style="@style/textMedium"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_gravity="center_vertical"
@@ -110,7 +108,7 @@
 
                     <TextView
                         android:id="@+id/tvForgotPassword"
-                        style="@style/textRegularSmall"
+                        style="@style/textMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_med"
@@ -119,7 +117,7 @@
 
                     <Button
                         android:id="@+id/btnLoginLogin"
-                        style="@style/textRegularSmall"
+                        style="@style/textSmall"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/margin_med"
@@ -134,7 +132,7 @@
 
             <Button
                 android:id="@+id/btnRegisterLogin"
-                style="@style/textRegularSmall"
+                style="@style/textSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"

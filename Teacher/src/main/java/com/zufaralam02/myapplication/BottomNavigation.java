@@ -6,16 +6,14 @@ import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.iapps.libs.helpers.BaseHelper;
+import com.zufaralam02.myapplication.Attandance.AttandanceFragment;
 import com.zufaralam02.myapplication.Base.BaseActivityTeacher;
 import com.zufaralam02.myapplication.Home.FragmentHomeTeacher;
 import com.zufaralam02.myapplication.Notification.FragmentNotificationTeacher;
-import com.zufaralam02.myapplication.Profile.FragmentProfilTeacher;
+import com.zufaralam02.myapplication.Profile.Fragment.FragmentProfilTeacher;
 
 import java.lang.reflect.Field;
 

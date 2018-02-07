@@ -335,7 +335,7 @@ Suspendisse vitae dui eget nisi sodales semper. Pellentesque fringilla a orci no
     <style name="text" parent="android:Widget.TextView">
         <item name="android:textColor">@color/text</item>
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
-        
+        <!--<item name="android:textColor">@color/text</item>-->
     </style>
     <style name="textBold" parent="text">
         <item name="android:textStyle">bold</item>
@@ -350,7 +350,7 @@ Suspendisse vitae dui eget nisi sodales semper. Pellentesque fringilla a orci no
     <style name="textLarge" parent="android:Widget.TextView">
         <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
         <item name="android:textSize">24sp</item>
-        
+        <!--<item name="android:textColor">@color/text</item>-->
         <item name="android:textColor">@color/text</item>
     </style>
     <style name="textLargeBold" parent="textLargeLightBold">

@@ -77,11 +77,11 @@ public class Login extends BaseActivitySempoa {
     private void requestLogin() {
         String edtEmail = edtEmailLogin.getText().toString();
         String edtPass = edtPassLogin.getText().toString();
-        if (edtEmail.isEmpty()) {
-            Toast.makeText(context, "Email Harus Diisi", Toast.LENGTH_SHORT).show();
-        } else if (edtPass.isEmpty()) {
-            Toast.makeText(context, "Password Harus Diisi", Toast.LENGTH_SHORT).show();
-        } else {
+//        if (edtEmail.isEmpty()) {
+//            Toast.makeText(context, "Email Harus Diisi", Toast.LENGTH_SHORT).show();
+//        } else if (edtPass.isEmpty()) {
+//            Toast.makeText(context, "Password Harus Diisi", Toast.LENGTH_SHORT).show();
+//        } else {
             baseApiService.loginRequest(edtEmailLogin.getText().toString(),
                     edtPassLogin.getText().toString())
                     .enqueue(new Callback<ResponseBody>() {
@@ -140,6 +140,6 @@ public class Login extends BaseActivitySempoa {
 
                         }
                     });
-        }
+//        }
     }
 }
