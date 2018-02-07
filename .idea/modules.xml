@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Sempoa.iml" filepath="$PROJECT_DIR$/Sempoa.iml" />
+      <module fileurl="file://F:\IndoMegaByte\SempoaSip\Sempoa.iml" filepath="F:\IndoMegaByte\SempoaSip\Sempoa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SempoaSip.iml" filepath="$PROJECT_DIR$/SempoaSip.iml" />
       <module fileurl="file://A:\Project\SempoaSip\Sempoa\SempoaSip.iml" filepath="A:\Project\SempoaSip\Sempoa\SempoaSip.iml" />
       <module fileurl="file://$PROJECT_DIR$/Teacher/Teacher.iml" filepath="$PROJECT_DIR$/Teacher/Teacher.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
