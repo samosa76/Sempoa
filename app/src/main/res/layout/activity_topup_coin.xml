@@ -243,7 +243,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/margin_small"
                             android:background="@color/transparent"
-                            android:lines="1" />
+                            android:singleLine="true" />
 
                     </LinearLayout>
 
@@ -275,7 +275,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/margin_small"
                             android:background="@color/transparent"
-                            android:lines="1" />
+                            android:singleLine="true" />
 
                     </LinearLayout>
 
@@ -307,7 +307,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/margin_small"
                             android:background="@color/transparent"
-                            android:lines="1" />
+                            android:singleLine="true" />
 
                     </LinearLayout>
 

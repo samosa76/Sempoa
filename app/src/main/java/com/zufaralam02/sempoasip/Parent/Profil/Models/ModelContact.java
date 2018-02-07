@@ -1,25 +1,26 @@
 
-package com.zufaralam02.sempoasip.Parent.Notification.Models;
+package com.zufaralam02.sempoasip.Parent.Profil.Models;
 
-import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 @SuppressWarnings("unused")
-public class ModelNotificationn {
+public class ModelContact {
 
     @SerializedName("result")
-    private List<ResultNotification> mResultNotification;
+    private List<ResultContact> mResultContact;
     @SerializedName("status_code")
     private Long mStatusCode;
     @SerializedName("status_message")
     private String mStatusMessage;
 
-    public List<ResultNotification> getResult() {
-        return mResultNotification;
+    public List<ResultContact> getResult() {
+        return mResultContact;
     }
 
-    public void setResult(List<ResultNotification> resultNotification) {
-        mResultNotification = resultNotification;
+    public void setResult(List<ResultContact> resultContact) {
+        mResultContact = resultContact;
     }
 
     public Long getStatusCode() {

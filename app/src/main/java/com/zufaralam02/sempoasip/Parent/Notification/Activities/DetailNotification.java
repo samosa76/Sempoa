@@ -1,89 +1,91 @@
 package com.zufaralam02.sempoasip.Parent.Notification.Activities;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
+import com.zufaralam02.sempoasip.Parent.Notification.Fragments.FragmentNotificationParent;
+import com.zufaralam02.sempoasip.Parent.Utils.Helper;
 import com.zufaralam02.sempoasip.R;
 
-public class DetailNotification extends BaseActivitySempoa implements View.OnClickListener {
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+public class DetailNotification extends BaseActivitySempoa {
+
+    @BindView(R.id.ivDetailNotif)
     ImageView ivDetailNotif;
-    TextView tvTitleDetailNotif, tvTimeDetailNotif, tvDetailDetailNotif;
+    @BindView(R.id.tvTitleDetailNotif)
+    TextView tvTitleDetailNotif;
+    @BindView(R.id.tvTimeDetailNotif)
+    TextView tvTimeDetailNotif;
+    @BindView(R.id.tvDetailDetailNotif)
+    TextView tvDetailDetailNotif;
+    @BindView(R.id.btnDetailNotif)
     Button btnDetailNotif;
-    String title, time, detail, image;
+
+    String title, time, content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_notification);
+        ButterKnife.bind(this);
 
         setupNav("Notification");
-        initialization();
-        setupWidget();
-
-//        title = getIntent().getStringExtra("titleNotif");
-//        time = getIntent().getStringExtra("timeNotif");
-//        detail = getIntent().getStringExtra("detailNotif");
-//        tvTitleDetailNotif.setText(title);
-//        tvTimeDetailNotif.setText(time);
-//        tvDetailDetailNotif.setText(detail);
-
-//        image = getIntent().getIntExtra("imageNotif", 0);
-//        Picasso.with(getApplicationContext()).load(image)
-//                .placeholder(android.R.drawable.ic_menu_gallery)
-//                .error(android.R.drawable.ic_menu_report_image)
-//                .into(ivDetailNotif);
-
-        tvTitleDetailNotif.setText(getIntent().getIntExtra("titleNotif", 0));
-        tvTimeDetailNotif.setText(getIntent().getIntExtra("timeNotif", 0));
-        tvDetailDetailNotif.setText(getIntent().getIntExtra("detailNotif", 0));
-        ivDetailNotif.setImageResource(getIntent().getIntExtra("imageNotif", 0));
-
-//        Bundle bundle = new Bundle();
-//        tvTitleDetailNotif.setText(String.valueOf(bundle.getString("titleNotif")));
-//        tvTimeDetailNotif.setText(String.valueOf(bundle.getString("timeNotif")));
-//        tvDetailDetailNotif.setText(String.valueOf(bundle.getString("detailNotif")));
-//        ivDetailNotif.setImageResource(bundle.getInt("imageNotif"));
+        detailNotif();
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
+    private void detailNotif() {
+        HTTPImb httpImb = new HTTPImb(this, true) {
+            @Override
+            public String url() {
+                return "http://sandbox-sempoa.indomegabyte.com/WSSempoaApp/readNotificationByID";
+            }
+
+            @Override
+            public void onSuccess(JSONObject j) {
+                try {
+//                    j = j.getJSONObject("result");
+//                    title = j.getString("notification_title");
+//                    time = j.getString("notification_created");
+//                    content = j.getString("notification_content");
+                    JSONArray jsonArray = new JSONArray("result");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        String title = jsonObject.getString("notification_title");
+                        String time = jsonObject.getString("notification_created");
+                        String content = jsonObject.getString("notification_content");
+                        tvTitleDetailNotif.setText(title);
+                        tvTimeDetailNotif.setText(time);
+                        tvDetailDetailNotif.setText(content);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        httpImb.setPostParams("parent_id", "1")
+                .setPostParams("notif_id", "1")
+                .setDisplayError(true)
+                .execute();
 
     }
 
-    private void initialization() {
-        ivDetailNotif = findViewById(R.id.ivDetailNotif);
-        tvTitleDetailNotif = findViewById(R.id.tvTitleDetailNotif);
-        tvTimeDetailNotif = findViewById(R.id.tvTimeDetailNotif);
-        tvDetailDetailNotif = findViewById(R.id.tvDetailDetailNotif);
-        btnDetailNotif = findViewById(R.id.btnDetailNotif);
+    @OnClick(R.id.btnDetailNotif)
+    public void onClick() {
+        startActivity(new Intent(getApplicationContext(), FragmentNotificationParent.class));
     }
-
-    private void setupWidget() {
-        btnDetailNotif.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btnDetailNotif:
-
-                break;
-        }
-
-    }
-
-//    public void getDetail(String title, String time, String detail) {
-//        this.title = title;
-//        this.time = time;
-//        this.detail = detail;
-//    }
-
 }

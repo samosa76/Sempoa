@@ -77,7 +77,8 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/margin_small"
                             android:background="@color/transparent"
-                            android:lines="1" />
+                            android:hint="Full name"
+                            android:singleLine="true" />
 
                     </LinearLayout>
 
@@ -110,7 +111,8 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/margin_small"
                             android:background="@color/transparent"
-                            android:lines="1" />
+                            android:hint="Email"
+                            android:singleLine="true" />
 
                     </LinearLayout>
 
@@ -143,8 +145,9 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/margin_small"
                             android:background="@color/transparent"
+                            android:hint="Phone"
                             android:inputType="phone"
-                            android:lines="1" />
+                            android:singleLine="true" />
 
                     </LinearLayout>
 
@@ -177,8 +180,9 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/margin_small"
                             android:background="@color/transparent"
+                            android:hint="Password"
                             android:inputType="textPassword"
-                            android:lines="1" />
+                            android:singleLine="true" />
 
                     </LinearLayout>
 

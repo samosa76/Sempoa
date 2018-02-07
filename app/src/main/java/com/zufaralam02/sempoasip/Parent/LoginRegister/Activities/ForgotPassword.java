@@ -1,54 +1,41 @@
 package com.zufaralam02.sempoasip.Parent.LoginRegister.Activities;
 
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
+import com.zufaralam02.sempoasip.Parent.Utils.Helper;
 import com.zufaralam02.sempoasip.R;
 
-public class ForgotPassword extends BaseActivitySempoa implements View.OnClickListener {
-    EditText edtPassForgot;
+import org.json.JSONObject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+public class ForgotPassword extends BaseActivitySempoa {
+
+    @BindView(R.id.edtPassForgot)
+    TextInputEditText edtPassForgot;
+    @BindView(R.id.btnResetForgot)
     Button btnResetForgot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
+        ButterKnife.bind(this);
 
         setupNav("Forgot Password");
-        initialization();
-        setUpWidget();
-
-    }
-
-    private void initialization() {
-        edtPassForgot = findViewById(R.id.edtPassForgot);
-        btnResetForgot = findViewById(R.id.btnResetForgot);
-    }
-
-    private void setUpWidget() {
-        btnResetForgot.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-
-        switch (v.getId()) {
-
-            case R.id.btnResetForgot:
-//                String edtPass = edtPassForgot.getText().toString();
-//                if (edtPass.isEmpty()) {
-
-//                } else {
-                customDialogForgot();
-//                }
-                break;
-        }
 
     }
 
@@ -62,11 +49,35 @@ public class ForgotPassword extends BaseActivitySempoa implements View.OnClickLi
         view.findViewById(R.id.btnOkForgot).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Login.class));
-                finish();
+                requestForgot();
             }
         });
         builder.show();
     }
 
+    private void requestForgot() {
+        if (!Helper.validateEditTexts(new EditText[]{edtPassForgot})) {
+            return;
+        }
+        HTTPImb httpImb = new HTTPImb(this, true) {
+            @Override
+            public String url() {
+                return "http://sandbox-sempoa.indomegabyte.com/WSSempoaApp/resetPwdParent";
+            }
+
+            @Override
+            public void onSuccess(JSONObject j) {
+                startActivity(new Intent(getApplicationContext(), Login.class));
+                Toast.makeText(ForgotPassword.this, "Success", Toast.LENGTH_SHORT).show();
+            }
+        };
+        httpImb.setPostParams("parent_email", edtPassForgot)
+                .setDisplayError(true)
+                .execute();
+    }
+
+    @OnClick(R.id.btnResetForgot)
+    public void onClick() {
+        customDialogForgot();
+    }
 }

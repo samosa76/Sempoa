@@ -4,7 +4,7 @@ package com.zufaralam02.sempoasip.Parent.Notification.Models;
 import com.google.gson.annotations.SerializedName;
 
 @SuppressWarnings("unused")
-public class Result {
+public class ResultNotification {
 
     @SerializedName("notification_belongs_id")
     private String mNotificationBelongsId;
@@ -20,17 +20,6 @@ public class Result {
     private String mNotificationType;
     @SerializedName("notification_updated")
     private String mNotificationUpdated;
-
-    public Result(String mNotificationBelongsId, String mNotificationContent, String mNotificationCreated, String mNotificationId,
-                  String mNotificationTitle, String mNotificationType, String mNotificationUpdated) {
-        this.mNotificationBelongsId = mNotificationBelongsId;
-        this.mNotificationContent = mNotificationContent;
-        this.mNotificationCreated = mNotificationCreated;
-        this.mNotificationId = mNotificationId;
-        this.mNotificationTitle = mNotificationTitle;
-        this.mNotificationType = mNotificationType;
-        this.mNotificationUpdated = mNotificationUpdated;
-    }
 
     public String getNotificationBelongsId() {
         return mNotificationBelongsId;

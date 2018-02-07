@@ -1,34 +1,34 @@
 package com.zufaralam02.sempoasip.Parent.Notification.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import com.iapps.libs.helpers.BaseApi;
+import com.iapps.adapters.BaseRecyclerAdapter;
 import com.iapps.libs.helpers.BaseHelper;
-import com.zufaralam02.sempoasip.ApiHelper.BaseApiService;
-import com.zufaralam02.sempoasip.ApiHelper.RetrofitClient;
+import com.iapps.libs.helpers.HTTPImb;
+import com.zufaralam02.sempoasip.Parent.Notification.Activities.DetailNotification;
 import com.zufaralam02.sempoasip.Parent.Notification.Adapters.AdapterNotification;
-import com.zufaralam02.sempoasip.Parent.Notification.Models.ModelNotification;
-import com.zufaralam02.sempoasip.Parent.Notification.Models.ModelNotificationn;
-import com.zufaralam02.sempoasip.Parent.Notification.Models.Result;
+import com.zufaralam02.sempoasip.Parent.Notification.Models.ResultNotification;
 import com.zufaralam02.sempoasip.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,7 +37,11 @@ public class FragmentNotificationParent extends Fragment {
     @BindView(R.id.recyclerNotification)
     RecyclerView recyclerNotification;
     Unbinder unbinder;
-    private AdapterNotification adapterNotification;
+    @BindView(R.id.tvNotification)
+    TextView tvNotification;
+
+    String id, name, email, hp, pass;
+    String notifId, notifTitle, notifTime, notifContent;
 
     public FragmentNotificationParent() {
         // Required empty public constructor
@@ -50,47 +54,63 @@ public class FragmentNotificationParent extends Fragment {
         View view = inflater.inflate(R.layout.fragment_notification_parent, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        BaseApiService baseApiService = RetrofitClient.getClient().create(BaseApiService.class);
+        id = getActivity().getIntent().getStringExtra("parent_id");
+        name = getActivity().getIntent().getStringExtra("parent_fullname");
+        email = getActivity().getIntent().getStringExtra("parent_email");
+        hp = getActivity().getIntent().getStringExtra("parent_hp_nr");
+        pass = getActivity().getIntent().getStringExtra("parent_pwd");
 
-        Call<ModelNotificationn> call = baseApiService.getNotification("1");
-        call.enqueue(new Callback<ModelNotificationn>() {
-            @Override
-            public void onResponse(Call<ModelNotificationn> call, Response<ModelNotificationn> response) {
-                if (response.isSuccessful()) {
-                    notificationData((ArrayList<Result>) response.body().getResult());
-                }
-            }
+        ArrayList<ResultNotification> resultNotification = notifData();
+        AdapterNotification adapterNotification = new AdapterNotification(getActivity(), resultNotification, R.layout.list_notification);
+        BaseHelper.setupRecyclerView(recyclerNotification, adapterNotification);
 
-            @Override
-            public void onFailure(Call<ModelNotificationn> call, Throwable t) {
-                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-            }
-        });
 //        ArrayList<ModelNotification> modelNotification = notificationData();
 //        AdapterNotification adapterNotification = new AdapterNotification(getActivity(), modelNotification, R.layout.list_notification);
 //        BaseHelper.setupRecyclerView(recyclerNotification, adapterNotification);
 //        adapterNotification.setModelNotification(modelNotification);
-
         return view;
     }
 
-    private void notificationData(ArrayList<Result> result) {
+    private ArrayList<ResultNotification> notifData() {
+        final ArrayList<ResultNotification> resultNotification = new ArrayList<>();
+        HTTPImb httpImb = new HTTPImb(this, true) {
+            @Override
+            public String url() {
+                return "http://sandbox-sempoa.indomegabyte.com/WSSempoaApp/getNotificationByID";
+            }
 
-        adapterNotification = new AdapterNotification(result);
+            @Override
+            public void onSuccess(JSONObject j) {
+                try {
+//                    JSONObject jsonObject = new JSONObject();
+//                    JSONArray jsonArray = new JSONArray();
+                    JSONArray jsonArray = j.getJSONArray("result");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        j = jsonArray.getJSONObject(i);
+                        notifId = j.getString("notification_id");
+                        notifTitle = j.getString("notification_title");
+                        notifTime = j.getString("notification_created");
+                        notifContent = j.getString("notification_content");
+                        ResultNotification resultNotification1 = new ResultNotification();
+                        resultNotification1.setNotificationId(notifId);
+                        resultNotification1.setNotificationTitle(notifTitle);
+                        resultNotification1.setNotificationCreated(notifTime);
+                        resultNotification1.setNotificationContent(notifContent);
+                        resultNotification.add(resultNotification1);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        httpImb.setPostParams("parent_id", id)
+                .setDisplayError(true)
+                .execute();
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        recyclerNotification.setLayoutManager(layoutManager);
-        recyclerNotification.setAdapter(adapterNotification);
-
+        return resultNotification;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
-
-//    private ArrayList<ModelNotification> notificationData() {
+    //    private ArrayList<ModelNotification> notificationData() {
 //
 //        ArrayList<ModelNotification> modelNotification = new ArrayList<>();
 //
@@ -117,5 +137,16 @@ public class FragmentNotificationParent extends Fragment {
 //
 //        return modelNotification;
 //    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
+    @OnClick(R.id.tvNotification)
+    public void onClick() {
+        startActivity(new Intent(getActivity(), DetailNotification.class));
+    }
 
 }
