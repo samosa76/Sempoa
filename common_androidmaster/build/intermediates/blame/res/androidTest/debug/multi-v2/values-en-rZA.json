@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\IndoMegaByte\\SempoaSip\\common_androidmaster\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-en-rZA\\values-en-rZA.xml",
+            "outputFile": "A:\\Project\\SempoaSip\\Sempoa\\common_androidmaster\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-en-rZA\\values-en-rZA.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.9.1.aar\\26510ec938f78e6c75e3a53657caa5c7\\res\\values-en-rZA\\values-en-rZA.xml",
+                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.9.1.aar\\7cb7ef1d7b40997dfcb992a54aa7d070\\res\\values-en-rZA\\values-en-rZA.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
