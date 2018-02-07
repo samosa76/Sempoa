@@ -16,4 +16,5 @@ public class Attandance extends BaseActivitySempoa{
         setupNav("Attandance");
 
     }
+
 }

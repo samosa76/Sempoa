@@ -119,7 +119,7 @@
                         android:layout_height="wrap_content"
                         style="@style/textMedium"
                         android:layout_gravity="center"
-                        android:text="Contact"
+                        android:text="Log Out"
                         android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
 
                     <RelativeLayout

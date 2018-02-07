@@ -1,5 +1,6 @@
 package com.zufaralam02.sempoasip.Parent.Notification.Adapters;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.zufaralam02.sempoasip.Parent.Notification.Models.Result;
 import com.zufaralam02.sempoasip.R;
+import com.zufaralam02.sempoasip.Student.Home.Model.ModelNotificationStudent;
 
 import java.util.ArrayList;
 
@@ -25,6 +27,9 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
 
     public AdapterNotification(ArrayList<Result> result) {
         this.result = result;
+    }
+
+    public AdapterNotification(Context applicationContext, ArrayList<ModelNotificationStudent> modelNotificationStudents, int list_notification_student) {
     }
 
     @Override
