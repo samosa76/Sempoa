@@ -45,8 +45,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:text="Title Notification" />
+                        android:layout_marginTop="@dimen/activity_vertical_margin" />
 
                     <TextView
                         android:id="@+id/tvTimeDetailNotif"
@@ -55,7 +54,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:text="Time Notification"
                         android:textColor="@color/text_secondary" />
 
                     <View
@@ -70,8 +68,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:text="Detail Notification" />
+                        android:layout_marginTop="@dimen/activity_vertical_margin" />
 
                     <Button
                         android:id="@+id/btnDetailNotif"

@@ -17,12 +17,14 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
                 android:layout_alignParentRight="true"
                 android:layout_gravity="right"
                 android:id="@+id/notificationHomeStudent"
-                android:src="@drawable/ic_notif" />
+                android:src="@drawable/ic_notif_yellow" />
 
             <TextView
                 android:layout_width="wrap_content"

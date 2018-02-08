@@ -5,27 +5,29 @@ package com.zufaralam02.myapplication.Home.Model;
  */
 
 public class MHome {
-    public int getSetStudentName() {
-        return setStudentName;
+    public int getNameHome() {
+        return nameHome;
     }
 
-    public void setSetStudentName(int setStudentName) {
-        this.setStudentName = setStudentName;
+    public void setNameHome(int nameHome) {
+        this.nameHome = nameHome;
     }
 
-    public int getSetFoundation() {
-        return setFoundation;
+    public int getDateHome() {
+        return dateHome;
     }
 
-    public void setSetFoundation(int setFoundation) {
-        this.setFoundation = setFoundation;
+    public void setDateHome(int dateHome) {
+        this.dateHome = dateHome;
     }
 
-    public MHome(int setStudentName, int setFoundation) {
-        setSetFoundation(setFoundation);
-        setSetFoundation(setStudentName);
+    public MHome(int nameHome, int dateHome) {
+        setNameHome(nameHome);
+        setDateHome(dateHome);
     }
 
-    private int setStudentName;
-   private int setFoundation;
+    private int nameHome;
+    private int dateHome;
+
+
 }

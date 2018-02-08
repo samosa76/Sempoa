@@ -35,7 +35,6 @@ public class AdapterContact extends BaseRecyclerAdapter {
     @Override
     public void setView(RecyclerView.ViewHolder objectHolder, int position) {
         AdapterContact.Holder holder = (AdapterContact.Holder) objectHolder;
-        ModelContact modelContact = (ModelContact) getItem(position);
         ResultContact resultContact = (ResultContact) getItem(position);
 
         holder.tvContact.setText(resultContact.getNama());

@@ -34,7 +34,7 @@ public class DetailNotification extends BaseActivitySempoa {
     @BindView(R.id.btnDetailNotif)
     Button btnDetailNotif;
 
-    String title, time, content;
+    String notifId, notifTitle, notifContent, notifTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,24 +57,21 @@ public class DetailNotification extends BaseActivitySempoa {
             @Override
             public void onSuccess(JSONObject j) {
                 try {
-//                    j = j.getJSONObject("result");
-//                    title = j.getString("notification_title");
-//                    time = j.getString("notification_created");
-//                    content = j.getString("notification_content");
-                    JSONArray jsonArray = new JSONArray("result");
+                    JSONArray jsonArray = j.getJSONArray("result");
                     for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        String title = jsonObject.getString("notification_title");
-                        String time = jsonObject.getString("notification_created");
-                        String content = jsonObject.getString("notification_content");
-                        tvTitleDetailNotif.setText(title);
-                        tvTimeDetailNotif.setText(time);
-                        tvDetailDetailNotif.setText(content);
+                        j = jsonArray.getJSONObject(i);
+                        notifId = j.getString("notification_id");
+                        notifTitle = j.getString("notification_title");
+                        notifContent = j.getString("notification_content");
+                        notifTime = j.getString("notification_created");
                     }
-
+                    tvTitleDetailNotif.setText(notifTitle);
+                    tvDetailDetailNotif.setText(notifContent);
+                    tvTimeDetailNotif.setText(notifTime);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
             }
         };
         httpImb.setPostParams("parent_id", "1")

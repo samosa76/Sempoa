@@ -37,11 +37,9 @@ public class FragmentNotificationParent extends Fragment {
     @BindView(R.id.recyclerNotification)
     RecyclerView recyclerNotification;
     Unbinder unbinder;
-    @BindView(R.id.tvNotification)
-    TextView tvNotification;
 
     String id, name, email, hp, pass;
-    String notifId, notifTitle, notifTime, notifContent;
+    AdapterNotification adapterNotification;
 
     public FragmentNotificationParent() {
         // Required empty public constructor
@@ -61,7 +59,7 @@ public class FragmentNotificationParent extends Fragment {
         pass = getActivity().getIntent().getStringExtra("parent_pwd");
 
         ArrayList<ResultNotification> resultNotification = notifData();
-        AdapterNotification adapterNotification = new AdapterNotification(getActivity(), resultNotification, R.layout.list_notification);
+        adapterNotification = new AdapterNotification(getActivity(), resultNotification, R.layout.list_notification);
         BaseHelper.setupRecyclerView(recyclerNotification, adapterNotification);
 
 //        ArrayList<ModelNotification> modelNotification = notificationData();
@@ -82,15 +80,14 @@ public class FragmentNotificationParent extends Fragment {
             @Override
             public void onSuccess(JSONObject j) {
                 try {
-//                    JSONObject jsonObject = new JSONObject();
-//                    JSONArray jsonArray = new JSONArray();
                     JSONArray jsonArray = j.getJSONArray("result");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         j = jsonArray.getJSONObject(i);
-                        notifId = j.getString("notification_id");
-                        notifTitle = j.getString("notification_title");
-                        notifTime = j.getString("notification_created");
-                        notifContent = j.getString("notification_content");
+                        String notifId = j.getString("notification_id");
+                        String notifTitle = j.getString("notification_title");
+                        String notifTime = j.getString("notification_created");
+                        String notifContent = j.getString("notification_content");
+
                         ResultNotification resultNotification1 = new ResultNotification();
                         resultNotification1.setNotificationId(notifId);
                         resultNotification1.setNotificationTitle(notifTitle);
@@ -98,6 +95,7 @@ public class FragmentNotificationParent extends Fragment {
                         resultNotification1.setNotificationContent(notifContent);
                         resultNotification.add(resultNotification1);
                     }
+                    adapterNotification.notifyDataSetChanged();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -142,11 +140,6 @@ public class FragmentNotificationParent extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
-    }
-
-    @OnClick(R.id.tvNotification)
-    public void onClick() {
-        startActivity(new Intent(getActivity(), DetailNotification.class));
     }
 
 }

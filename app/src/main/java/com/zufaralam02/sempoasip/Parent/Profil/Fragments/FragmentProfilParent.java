@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import com.zufaralam02.sempoasip.Parent.LoginRegister.Activities.Login;
 import com.zufaralam02.sempoasip.Parent.Profil.Activities.AccountSetting;
 import com.zufaralam02.sempoasip.Parent.Profil.Activities.Contact;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.R;
 
 import butterknife.BindView;
@@ -33,6 +35,7 @@ public class FragmentProfilParent extends Fragment {
     Unbinder unbinder;
 
     String id, name, email, hp, pass;
+    SharedPrefManager sharedPrefManager;
 
     public FragmentProfilParent() {
         // Required empty public constructor
@@ -51,6 +54,13 @@ public class FragmentProfilParent extends Fragment {
         email = getActivity().getIntent().getStringExtra("parent_email");
         hp = getActivity().getIntent().getStringExtra("parent_hp_nr");
         pass = getActivity().getIntent().getStringExtra("parent_pwd");
+
+        sharedPrefManager = new SharedPrefManager(getActivity());
+//        if (sharedPrefManager.getSPIsLogin()) {
+//            startActivity(new Intent(getActivity(), Login.class)
+//                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+//            getActivity().finish();
+//        }
 
         return view;
     }
@@ -83,6 +93,10 @@ public class FragmentProfilParent extends Fragment {
                 startActivity(intent1);
                 break;
             case R.id.cardLogout:
+                sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_IS_LOGIN, false);
+                startActivity(new Intent(getActivity(), Login.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                getActivity().finish();
                 startActivity(new Intent(getActivity(), Login.class));
                 break;
         }

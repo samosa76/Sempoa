@@ -24,6 +24,7 @@
         </activity>
         <activity android:name=".Login.Login" />
         <activity android:name=".Login.ForgotPassword" />
+        <activity android:name=".Home.Activity.DetailHome" />
         <activity android:name=".Notification.Activity.DetailNotif" />
         <activity android:name=".Profile.Fragment.Activity.DetailProfil" />
         <activity android:name=".Profile.Fragment.Activity.Contac" />

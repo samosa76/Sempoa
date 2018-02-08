@@ -60,7 +60,7 @@ public class AHome extends BaseRecyclerAdapter {
             public void onClick(View v) {
                 Intent a = new Intent(getContext(), DetailHome.class);
                 a.putExtra("name",modelNotification.getNameHome());
-                a.putExtra("name",modelNotification.getDateHome());
+                a.putExtra("date",modelNotification.getDateHome());
                 getContext().startActivity(a);
             }
         });
