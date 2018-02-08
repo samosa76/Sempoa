@@ -9,7 +9,6 @@ import com.iapps.libs.helpers.BaseHelper;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
 import com.zufaralam02.sempoasip.Parent.Notification.Adapters.AdapterNotification;
 import com.zufaralam02.sempoasip.Parent.Notification.Models.ModelNotification;
-import com.zufaralam02.sempoasip.Parent.Notification.Models.Result;
 import com.zufaralam02.sempoasip.R;
 import com.zufaralam02.sempoasip.Student.Home.Adapters.AdapterNotificationStudent;
 import com.zufaralam02.sempoasip.Student.Home.Model.ModelNotificationStudent;

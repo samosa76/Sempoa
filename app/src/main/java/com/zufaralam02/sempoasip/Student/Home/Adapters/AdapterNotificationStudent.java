@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.iapps.adapters.BaseRecyclerAdapter;
 import com.squareup.picasso.Picasso;
-import com.zufaralam02.sempoasip.Parent.Notification.Models.Result;
 import com.zufaralam02.sempoasip.R;
 import com.zufaralam02.sempoasip.Student.Home.Model.ModelNotificationStudent;
 

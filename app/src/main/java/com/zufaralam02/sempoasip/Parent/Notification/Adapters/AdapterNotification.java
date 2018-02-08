@@ -29,9 +29,6 @@ public class AdapterNotification extends BaseRecyclerAdapter {
         return new ViewHolder(v);
     }
 
-    public AdapterNotification(Context applicationContext, ArrayList<ModelNotificationStudent> modelNotificationStudents, int list_notification_student) {
-    }
-
     @Override
     public RecyclerView.ViewHolder headerHolder(View v) {
         return null;

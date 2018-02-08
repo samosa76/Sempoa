@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fdb17e"
+    android:orientation="vertical"
+    tools:context="com.zufaralam02.sempoasip.Student.Home.Activities.DetailRequestCoin">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_header">
+
+        <include layout="@layout/back_navigation"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_success" />
+
+            <TextView
+                android:id="@+id/textcoin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="@style/textMedium"
+                android:textColor="@color/White"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="Request 250 Coin Success!"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/White"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                style="@style/textSmall"
+                android:text="Request will be canceled in \n9 hours 59 Minutes if your parents doesen't \napproved your request"
+                android:layout_marginTop="@dimen/margin_med"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
