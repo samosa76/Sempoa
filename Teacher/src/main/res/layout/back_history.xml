@@ -10,22 +10,21 @@
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="15dp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_close_white_small" />
+            android:src="@drawable/ic_close_small" />
 
         <TextView
             android:id="@+id/tvBack"
-            style="@style/textRegular"
+            style="@style/textMedium"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/iapps__horizontal_margin"
             android:gravity="center_vertical"
             android:text="Back Navigation"
             android:textColor="#fff" />

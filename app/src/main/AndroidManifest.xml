@@ -33,17 +33,14 @@
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".Student.Journey.Activities.Rank"
-            android:parentActivityName=".Student.Journey.Activities.DetailJourney"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".Student.Journey.Activities.StageJourney"
-            android:parentActivityName=".Student.Journey.Activities.DetailJourney"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".Student.Journey.Activities.NewStageJourney"
-            android:parentActivityName=".Student.Journey.Activities.DetailJourney"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
@@ -131,7 +128,10 @@
         <activity android:name=".Student.Home.Activities.Notification" />
         <activity android:name=".Student.Home.Activities.Attandance" />
         <activity android:name=".Student.Home.Activities.Wallet" />
-        <activity android:name=".Student.Profil.Activities.ContactStudent"></activity>
+        <activity android:name=".Student.Profil.Activities.ContactStudent" />
+        <activity android:name=".Student.Home.Activities.RequestCoin" />
+        <activity android:name=".Student.Home.Activities.WithDraw" />
+        <activity android:name=".Student.Home.Activities.DetailWithDraw"></activity>
     </application>
 
 </manifest>

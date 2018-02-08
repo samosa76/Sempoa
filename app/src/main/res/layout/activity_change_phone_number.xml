@@ -76,7 +76,9 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/margin_small"
                             android:background="@color/transparent"
-                            android:lines="1" />
+                            android:hint="New Phone Number"
+                            android:inputType="number"
+                            android:singleLine="true" />
 
                     </LinearLayout>
 
@@ -109,9 +111,9 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/margin_small"
                             android:background="@color/transparent"
+                            android:hint="Password"
                             android:inputType="textPassword"
-                            android:lines="1"
-                            android:maxLines="1" />
+                            android:singleLine="true" />
 
                     </LinearLayout>
 

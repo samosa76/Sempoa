@@ -5,40 +5,27 @@ package com.zufaralam02.myapplication.Home.Model;
  */
 
 public class MHome {
-    private int titleNotif;
-    private int detailNotif;
-    private int timeNotif;
-    private int imageNotif;
-    private boolean isReaded;
-
-    public MHome(int titleNotif, int detailNotif, int imageNotif) {
-        setTitleNotif(titleNotif);
-        setTimeNotif(timeNotif);
-        setDetailNotif(detailNotif);
-        setImageNotif(imageNotif);
+    public int getSetStudentName() {
+        return setStudentName;
     }
 
-    public int getTitleNotif() {
-        return titleNotif;
+    public void setSetStudentName(int setStudentName) {
+        this.setStudentName = setStudentName;
     }
 
-    public void setTitleNotif(int titleNotif) {
-        this.titleNotif = titleNotif;
+    public int getSetFoundation() {
+        return setFoundation;
     }
 
-    public int getDetailNotif() {
-        return detailNotif;
+    public void setSetFoundation(int setFoundation) {
+        this.setFoundation = setFoundation;
     }
 
-    public void setDetailNotif(int detailNotif) {
-        this.detailNotif = detailNotif;
+    public MHome(int setStudentName, int setFoundation) {
+        setSetFoundation(setFoundation);
+        setSetFoundation(setStudentName);
     }
 
-    public void setTimeNotif(int timeNotif) {
-        this.timeNotif = timeNotif;
-    }
-
-    public void setImageNotif(int imageNotif) {
-        this.imageNotif = imageNotif;
-    }
+    private int setStudentName;
+   private int setFoundation;
 }

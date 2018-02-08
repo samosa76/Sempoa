@@ -32,6 +32,8 @@ public class FragmentProfilParent extends Fragment {
     CardView cardLogout;
     Unbinder unbinder;
 
+    String id, name, email, hp, pass;
+
     public FragmentProfilParent() {
         // Required empty public constructor
     }
@@ -43,6 +45,12 @@ public class FragmentProfilParent extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profil_parent, container, false);
         unbinder = ButterKnife.bind(this, view);
+
+        id = getActivity().getIntent().getStringExtra("parent_id");
+        name = getActivity().getIntent().getStringExtra("parent_fullname");
+        email = getActivity().getIntent().getStringExtra("parent_email");
+        hp = getActivity().getIntent().getStringExtra("parent_hp_nr");
+        pass = getActivity().getIntent().getStringExtra("parent_pwd");
 
         return view;
     }
@@ -58,18 +66,21 @@ public class FragmentProfilParent extends Fragment {
         switch (view.getId()) {
             case R.id.cardAccountSetting:
                 Intent intent = new Intent(getActivity(), AccountSetting.class);
-                String name = getActivity().getIntent().getStringExtra("resultName");
-                String email = getActivity().getIntent().getStringExtra("resultEmail");
-                String hp = getActivity().getIntent().getStringExtra("resultHp");
-                String pass = getActivity().getIntent().getStringExtra("resultPwd");
-                intent.putExtra("resultName", name);
-                intent.putExtra("resultEmail", email);
-                intent.putExtra("resultHp", hp);
-                intent.putExtra("resultPwd", pass);
+                intent.putExtra("parent_id", id);
+                intent.putExtra("parent_fullname", name);
+                intent.putExtra("parent_email", email);
+                intent.putExtra("parent_hp_nr", hp);
+                intent.putExtra("parent_pwd", pass);
                 startActivity(intent);
                 break;
             case R.id.cardContact:
-                startActivity(new Intent(getActivity(), Contact.class));
+                Intent intent1 = new Intent(getActivity(), Contact.class);
+                intent1.putExtra("parent_id", id);
+                intent1.putExtra("parent_fullname", name);
+                intent1.putExtra("parent_email", email);
+                intent1.putExtra("parent_hp_nr", hp);
+                intent1.putExtra("parent_pwd", pass);
+                startActivity(intent1);
                 break;
             case R.id.cardLogout:
                 startActivity(new Intent(getActivity(), Login.class));

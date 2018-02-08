@@ -19,95 +19,11 @@
 
             <include layout="@layout/back_navigation" />
 
-            <android.support.v7.widget.CardView
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerContact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                app:cardCornerRadius="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/activity_vertical_margin">
-
-                    <TextView
-                        style="@style/textMedium"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Contact TC Pejaten Village" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/textMedium"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            android:text="021 - 123 123 123" />
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:src="@drawable/ic_call_yellow" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                app:cardCornerRadius="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/activity_vertical_margin">
-
-                    <TextView
-                        style="@style/textMedium"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Contact Sempoa SIP Office" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/textMedium"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            android:text="021 - 123 123 123" />
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:src="@drawable/ic_call_yellow" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
+                android:clipToPadding="false" />
 
         </LinearLayout>
 

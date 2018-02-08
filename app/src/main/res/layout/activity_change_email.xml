@@ -71,12 +71,13 @@
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/edtEmailChangeEmail"
                             style="@style/textMedium"
+                            android:hint="New Email"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/margin_small"
                             android:background="@color/transparent"
-                            android:lines="1" />
+                            android:singleLine="true" />
 
                     </LinearLayout>
 
@@ -105,13 +106,13 @@
                             android:id="@+id/edtPassChangeEmail"
                             style="@style/textMedium"
                             android:layout_width="match_parent"
+                            android:hint="Password"
                             android:layout_height="30dp"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/margin_small"
                             android:background="@color/transparent"
                             android:inputType="textPassword"
-                            android:lines="1"
-                            android:maxLines="1" />
+                            android:singleLine="true" />
 
                     </LinearLayout>
 

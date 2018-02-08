@@ -7,6 +7,8 @@ import android.support.v7.widget.RecyclerView;
 
 import com.iapps.libs.helpers.BaseHelper;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
+import com.zufaralam02.sempoasip.Parent.Notification.Adapters.AdapterNotification;
+import com.zufaralam02.sempoasip.Parent.Notification.Models.ModelNotification;
 import com.zufaralam02.sempoasip.Parent.Notification.Models.Result;
 import com.zufaralam02.sempoasip.R;
 import com.zufaralam02.sempoasip.Student.Home.Adapters.AdapterNotificationStudent;
@@ -22,7 +24,7 @@ public class Notification extends BaseActivitySempoa {
 
     @BindView(R.id.rvNotificationStudent)
     RecyclerView rvNotificationStudent;
-    AdapterNotificationStudent adapterNotificationStudent;
+    private AdapterNotificationStudent adapterNotificationStudent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,28 +34,29 @@ public class Notification extends BaseActivitySempoa {
         setupNav("Notification");
         ButterKnife.bind(this);
 
-//        ArrayList<ModelNotificationStudent> modelNotificationStudents = notificationDataStudent();
-//        AdapterNotificationStudent adapterNotificationStudent = new AdapterNotificationStudent(getApplicationContext(), modelNotificationStudents, R.layout.list_notification);
-//        BaseHelper.setupRecyclerView(rvNotificationStudent, adapterNotificationStudent);
-//        adapterNotificationStudent.setModelNotificationStudent(modelNotificationStudents);
+        ArrayList<ModelNotificationStudent> modelNotificationStudents = notificationDataStudent();
+        AdapterNotificationStudent adapterNotificationStudent = new AdapterNotificationStudent(getApplicationContext(), modelNotificationStudents,R.layout.list_notification_student);
+        BaseHelper.setupRecyclerView(rvNotificationStudent, adapterNotificationStudent);
+        adapterNotificationStudent.setModelNotificationStudents(modelNotificationStudents);
 
     }
 
-    private void notificationDaraStudent(ArrayList<Result> results){
+    private ArrayList<ModelNotificationStudent> notificationDataStudent() {
 
-        adapterNotificationStudent = new AdapterNotificationStudent(results);
+        ArrayList<ModelNotificationStudent> modelNotificationStudent = new ArrayList<>();
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        rvNotificationStudent.setLayoutManager(layoutManager);
-        rvNotificationStudent.setAdapter(adapterNotificationStudent);
+        modelNotificationStudent.add(new ModelNotificationStudent(R.string.title_notif1, R.string.detail_notif1, R.string.time_notif1,
+                R.drawable.ic_notif, true));
+        modelNotificationStudent.add(new ModelNotificationStudent(R.string.title_notif2, R.string.detail_notif2, R.string.time_notif2,
+                R.drawable.ic_comment, true));
+        modelNotificationStudent.add(new ModelNotificationStudent(R.string.title_notif3, R.string.detail_notif3, R.string.time_notif3,
+                R.drawable.ic_wallet, false));
+        modelNotificationStudent.add(new ModelNotificationStudent(R.string.title_notif4, R.string.detail_notif4, R.string.time_notif4,
+                R.drawable.ic_announcement, false));
+        modelNotificationStudent.add(new ModelNotificationStudent(R.string.title_notif5, R.string.detail_notif5, R.string.time_notif5,
+                R.drawable.ic_call, false));
+
+        return modelNotificationStudent;
 
     }
-
-//    private ArrayList<ModelNotificationStudent> notificationDataStudent() {
-//
-//        ArrayList<ModelNotificationStudent> modelNotificationStudents = new ArrayList<>();
-//
-////        modelNotificationStudents.add(new ModelNotificationStudent(R.string.title_notif1))
-//
-//    }
 }

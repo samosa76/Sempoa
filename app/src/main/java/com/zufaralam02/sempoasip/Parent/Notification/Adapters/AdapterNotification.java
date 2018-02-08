@@ -1,67 +1,75 @@
 package com.zufaralam02.sempoasip.Parent.Notification.Adapters;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.zufaralam02.sempoasip.Parent.Notification.Models.Result;
+import com.iapps.adapters.BaseRecyclerAdapter;
+import com.zufaralam02.sempoasip.Parent.Notification.Models.ResultNotification;
 import com.zufaralam02.sempoasip.R;
+import com.zufaralam02.sempoasip.Student.Home.Model.ModelNotificationStudent;
 
-import java.util.ArrayList;
-
-import butterknife.BindView;
+import java.util.List;
 
 /**
  * Created by user on 18/01/2018.
  */
 
-public class AdapterNotification extends RecyclerView.Adapter<AdapterNotification.ViewHolder> {
+public class AdapterNotification extends BaseRecyclerAdapter {
 
-    private ArrayList<Result> result;
-
-    public AdapterNotification(ArrayList<Result> result) {
-        this.result = result;
+    public AdapterNotification(Context context, List<?> items, int cellLayout) {
+        super(context, items, cellLayout);
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.list_notification, parent, false);
-        return new ViewHolder(view);
+    public RecyclerView.ViewHolder objectHolder(View v) {
+        return new ViewHolder(v);
+    }
+
+    public AdapterNotification(Context applicationContext, ArrayList<ModelNotificationStudent> modelNotificationStudents, int list_notification_student) {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.tvTitleNotification.setText(result.get(position).getNotificationTitle());
-        holder.tvTimeNotification.setText(result.get(position).getNotificationCreated());
-        holder.tvDetailNotification.setText(result.get(position).getNotificationContent());
+    public RecyclerView.ViewHolder headerHolder(View v) {
+        return null;
+    }
+
+    @Override
+    public void setView(RecyclerView.ViewHolder objectHolder, int position) {
+        AdapterNotification.ViewHolder viewHolder = (AdapterNotification.ViewHolder) objectHolder;
+        ResultNotification resultNotification = (ResultNotification) getItem(position);
+
+        viewHolder.tvTitleNotification.setText(resultNotification.getNotificationTitle());
+        viewHolder.tvTimeNotificcation.setText(resultNotification.getNotificationCreated());
+        viewHolder.tvDetailNotification.setText(resultNotification.getNotificationContent());
 
     }
 
     @Override
-    public int getItemCount() {
-        return result.size();
+    public void setHeaderView(RecyclerView.ViewHolder objectHolder) {
+
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    @Override
+    public void itemSelected(int position) {
 
-        @BindView(R.id.tvTitleNotification)
-        TextView tvTitleNotification;
-        @BindView(R.id.tvDetailNotification)
-        TextView tvDetailNotification;
-        @BindView(R.id.tvTimeNotification)
-        TextView tvTimeNotification;
-        @BindView(R.id.ivNotification)
+    }
+
+    private class ViewHolder extends RecyclerView.ViewHolder {
+        TextView tvTitleNotification, tvDetailNotification, tvTimeNotificcation;
         ImageView ivNotification;
-        @BindView(R.id.linearNotif)
-        LinearLayout linearNotif;
+        LinearLayout linearNotification;
 
-        public ViewHolder(View itemView) {
-            super(itemView);
+        public ViewHolder(View v) {
+            super(v);
+            tvTitleNotification = v.findViewById(R.id.tvTitleNotification);
+            tvDetailNotification = v.findViewById(R.id.tvDetailNotification);
+            tvTimeNotificcation = v.findViewById(R.id.tvTimeNotification);
+            ivNotification = v.findViewById(R.id.ivNotification);
+            linearNotification = v.findViewById(R.id.linearNotification);
 
         }
     }
@@ -114,28 +122,11 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
 //            @Override
 //            public void onClick(View v) {
 //                Intent intent = new Intent(getContext(), DetailNotification.class);
-////                ModelNotification modelNotification1 = modelNotification.get
 //
 //                intent.putExtra("titleNotif", modelNotification.getTitleNotif());
 //                intent.putExtra("timeNotif", modelNotification.getTimeNotif());
 //                intent.putExtra("detailNotif", modelNotification.getDetailNotif());
 //                intent.putExtra("imageNotif", modelNotification.getImageNotif());
-//
-////                Bundle bundle = new Bundle();
-////                bundle.putString("titleNotif", String.valueOf(modelNotification.getTitleNotif()));
-////                bundle.putString("timeNotif", String.valueOf(modelNotification.getTimeNotif()));
-////                bundle.putString("detailNotif", String.valueOf(modelNotification.getDetailNotif()));
-////                bundle.putString("imageNotif", String.valueOf(modelNotification.getImageNotif()));
-//
-////                String title = intent.getExtras().getString("titleNotif");
-////                String time = intent.getExtras().getString("timeNotif");
-////                String detail = intent.getExtras().getString("detailNotif");
-////                int image = intent.getExtras().getInt("imageNotif");
-////
-////                if (title != null && time != null && detail != null) {
-////                    DetailNotification detailNotification = new DetailNotification();
-////                    detailNotification.getDetail(title, time, detail);
-////                }
 //
 //                getContext().startActivity(intent);
 //            }

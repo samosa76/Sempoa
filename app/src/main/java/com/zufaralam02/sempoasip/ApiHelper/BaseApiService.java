@@ -6,10 +6,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 /**
  * Created by user on 26/01/2018.
@@ -29,7 +26,14 @@ public interface BaseApiService {
                                        @Field("parent_hp_nr") String parentHpNr,
                                        @Field("parent_pwd") String parentPwd);
 
+    @FormUrlEncoded
+    @POST("changeParentName")
+    Call<ResponseBody> changeName(@Field("parent_id") String parentId,
+                                  @Field("parent_fullname") String parentFullName,
+                                  @Field("parent_newname") String parentNewName,
+                                  @Field("parent_pwd") String parentPwd);
+
     @POST("getNotificationByID")
-    Call<ModelNotificationn> getNotification(@Query("parent_id") String parentId);
+    Call<ModelNotificationn> getNotification();
 
 }

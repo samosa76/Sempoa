@@ -60,12 +60,9 @@ public class FragmentHomeTeacher extends Fragment {
     private ArrayList<MHome> notificationData() {
         ArrayList<MHome> modelNotification = new ArrayList<>();
 
-        modelNotification.add(new MHome(R.string.lv_name_1, R.string.lv_date_1,
-                R.drawable.ic_arrow_home_teacher));
-        modelNotification.add(new MHome(R.string.lv_name_2, R.string.lv_date_2,
-                R.drawable.ic_arrow_home_teacher));
-        modelNotification.add(new MHome(R.string.lv_name_3, R.string.lv_date_3,
-                R.drawable.ic_arrow_home_teacher));
+        modelNotification.add(new MHome(R.string.lv_name_1, R.string.lv_date_1));
+        modelNotification.add(new MHome(R.string.lv_name_2, R.string.lv_date_2));
+        modelNotification.add(new MHome(R.string.lv_name_3, R.string.lv_date_3));
 
         return modelNotification;
     }
@@ -86,14 +83,12 @@ public class FragmentHomeTeacher extends Fragment {
         this.navigation = navigation;
     }
 
-    @OnClick({R.id.llhomep, R.id.rvHome})
+    @OnClick({R.id.llhomep})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.llhomep:
                 FragmentProfilTeacher fmProf = new FragmentProfilTeacher();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_teacher,fmProf).commit();
-                break;
-            case R.id.rvHome:
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_teacher, fmProf).commit();
                 break;
         }
     }

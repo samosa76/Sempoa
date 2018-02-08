@@ -8,18 +8,18 @@ import com.google.gson.annotations.SerializedName;
 public class ModelNotificationn {
 
     @SerializedName("result")
-    private List<Result> mResult;
+    private List<ResultNotification> mResultNotification;
     @SerializedName("status_code")
     private Long mStatusCode;
     @SerializedName("status_message")
     private String mStatusMessage;
 
-    public List<Result> getResult() {
-        return mResult;
+    public List<ResultNotification> getResult() {
+        return mResultNotification;
     }
 
-    public void setResult(List<Result> result) {
-        mResult = result;
+    public void setResult(List<ResultNotification> resultNotification) {
+        mResultNotification = resultNotification;
     }
 
     public Long getStatusCode() {
