@@ -61,9 +61,6 @@ public class BottomNavigationStudent extends BaseActivitySempoa {
                 case R.id.navigation_challenge:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame, new FragmentChallenge()).commit();
                     return true;
-                case R.id.navigation_shop:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame, new FragmentShop()).commit();
-                    return true;
                 case R.id.navigation_profil:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame, new FragmentProfil()).commit();
                     return true;
@@ -81,9 +78,9 @@ public class BottomNavigationStudent extends BaseActivitySempoa {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         BottomNavigationStudent.disableShiftMode(navigation);
-        navigation.setSelectedItemId(R.id.navigation_journey);
+        navigation.setSelectedItemId(R.id.navigation_home);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame, new FragmentJourney()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame, new FragmentHome()).commit();
     }
 
 }

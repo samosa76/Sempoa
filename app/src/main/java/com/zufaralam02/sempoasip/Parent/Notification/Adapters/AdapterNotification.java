@@ -29,7 +29,11 @@ public class AdapterNotification extends BaseRecyclerAdapter {
 
     @Override
     public RecyclerView.ViewHolder objectHolder(View v) {
+<<<<<<< HEAD
         return new AdapterNotification.Holder(v);
+=======
+        return new ViewHolder(v);
+>>>>>>> f60af6bcaca078402b7f34e8f946c2388e5892dd
     }
 
     @Override

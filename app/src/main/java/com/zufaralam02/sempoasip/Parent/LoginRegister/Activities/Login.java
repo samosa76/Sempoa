@@ -1,7 +1,6 @@
 package com.zufaralam02.sempoasip.Parent.LoginRegister.Activities;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.view.View;

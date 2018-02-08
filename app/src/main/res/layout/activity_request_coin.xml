@@ -24,8 +24,8 @@
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:scrollbars="none"
-                android:background="#e88b4f">
+                android:background="#e88b4f"
+                android:scrollbars="none">
 
 
                 <LinearLayout
@@ -39,6 +39,7 @@
                         android:orientation="vertical">
 
                         <LinearLayout
+                            android:id="@+id/request1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
@@ -67,40 +68,7 @@
 
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                style="@style/textSmall"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                                android:layout_marginTop="@dimen/activity_vertical_margin"
-                                android:text="100 Coin"
-                                android:textColor="@color/White" />
-
-                            <TextView
-                                style="@style/textSmall"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                                android:layout_marginTop="@dimen/margin_med"
-                                android:text="Weekly Challange"
-                                android:textColor="@color/White" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
+                            android:id="@+id/request2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
@@ -122,13 +90,20 @@
                                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                                 android:layout_marginTop="@dimen/margin_med"
-                                android:text="Regional Challange"
+                                android:text="Weekly Challange"
                                 android:textColor="@color/White" />
 
                         </LinearLayout>
 
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
                         <LinearLayout
+                            android:id="@+id/request3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
@@ -140,7 +115,36 @@
                                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                                 android:layout_marginTop="@dimen/activity_vertical_margin"
-                                android:text="150 Coin"
+                                android:text="200 Coin"
+                                android:textColor="@color/White" />
+
+                            <TextView
+                                style="@style/textSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                                android:layout_marginTop="@dimen/margin_med"
+                                android:text="Regional Challange"
+                                android:textColor="@color/White" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/request4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/textSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                                android:layout_marginTop="@dimen/activity_vertical_margin"
+                                android:text="250 Coin"
                                 android:textColor="@color/White" />
 
                             <TextView
@@ -163,6 +167,7 @@
                         android:orientation="vertical">
 
                         <LinearLayout
+                            android:id="@+id/request5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
@@ -174,7 +179,7 @@
                                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                                 android:layout_marginTop="@dimen/activity_vertical_margin"
-                                android:text="100 Coin"
+                                android:text="300 Coin"
                                 android:textColor="@color/White" />
 
                             <TextView
@@ -191,6 +196,7 @@
 
 
                         <LinearLayout
+                            android:id="@+id/request6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
@@ -202,7 +208,7 @@
                                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                                 android:layout_marginTop="@dimen/activity_vertical_margin"
-                                android:text="100 Coin"
+                                android:text="350 Coin"
                                 android:textColor="@color/White" />
 
                             <TextView
@@ -220,6 +226,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/request7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -236,7 +243,7 @@
                                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                                 android:layout_marginTop="@dimen/activity_vertical_margin"
-                                android:text="100 Coin"
+                                android:text="400 Coin"
                                 android:textColor="@color/White" />
 
                             <TextView
@@ -253,6 +260,7 @@
 
 
                         <LinearLayout
+                            android:id="@+id/request8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
@@ -264,7 +272,7 @@
                                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                                 android:layout_marginTop="@dimen/activity_vertical_margin"
-                                android:text="100 Coin"
+                                android:text="450 Coin"
                                 android:textColor="@color/White" />
 
                             <TextView
@@ -331,6 +339,7 @@
                                 android:src="@drawable/ic_rewards" />
 
                             <EditText
+                                android:id="@+id/edtRequestCoin"
                                 style="@style/textMedium"
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
@@ -345,6 +354,7 @@
                     </LinearLayout>
 
                     <Button
+                        android:id="@+id/btnRequestCoin"
                         style="@style/textSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
