@@ -40,7 +40,7 @@ public class ForgotPassword extends BaseActivitySempoa {
     }
 
     private void customDialogForgot() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(R.layout.custom_dialog_forgot, null);
         builder.setView(view);
@@ -56,9 +56,6 @@ public class ForgotPassword extends BaseActivitySempoa {
     }
 
     private void requestForgot() {
-        if (!Helper.validateEditTexts(new EditText[]{edtPassForgot})) {
-            return;
-        }
         HTTPImb httpImb = new HTTPImb(this, true) {
             @Override
             public String url() {
@@ -69,6 +66,14 @@ public class ForgotPassword extends BaseActivitySempoa {
             public void onSuccess(JSONObject j) {
                 startActivity(new Intent(getApplicationContext(), Login.class));
                 Toast.makeText(ForgotPassword.this, "Success", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+
+            @Override
+            public void onFail(int code, JSONObject j) {
+                super.onFail(code, j);
+                startActivity(new Intent(getApplicationContext(), ForgotPassword.class));
+                finish();
             }
         };
         httpImb.setPostParams("parent_email", edtPassForgot)
@@ -78,6 +83,9 @@ public class ForgotPassword extends BaseActivitySempoa {
 
     @OnClick(R.id.btnResetForgot)
     public void onClick() {
+        if (!Helper.validateEditTexts(new EditText[]{edtPassForgot})) {
+            return;
+        }
         customDialogForgot();
     }
 }

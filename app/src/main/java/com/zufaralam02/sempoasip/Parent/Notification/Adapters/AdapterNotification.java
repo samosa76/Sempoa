@@ -1,6 +1,7 @@
 package com.zufaralam02.sempoasip.Parent.Notification.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -8,7 +9,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.iapps.adapters.BaseRecyclerAdapter;
+import com.zufaralam02.sempoasip.Parent.Notification.Activities.DetailNotification;
 import com.zufaralam02.sempoasip.Parent.Notification.Models.ResultNotification;
+import com.zufaralam02.sempoasip.Parent.Profil.Adapters.AdapterContact;
 import com.zufaralam02.sempoasip.R;
 import com.zufaralam02.sempoasip.Student.Home.Model.ModelNotificationStudent;
 
@@ -26,10 +29,7 @@ public class AdapterNotification extends BaseRecyclerAdapter {
 
     @Override
     public RecyclerView.ViewHolder objectHolder(View v) {
-        return new ViewHolder(v);
-    }
-
-    public AdapterNotification(Context applicationContext, ArrayList<ModelNotificationStudent> modelNotificationStudents, int list_notification_student) {
+        return new AdapterNotification.Holder(v);
     }
 
     @Override
@@ -39,12 +39,23 @@ public class AdapterNotification extends BaseRecyclerAdapter {
 
     @Override
     public void setView(RecyclerView.ViewHolder objectHolder, int position) {
-        AdapterNotification.ViewHolder viewHolder = (AdapterNotification.ViewHolder) objectHolder;
-        ResultNotification resultNotification = (ResultNotification) getItem(position);
+        AdapterNotification.Holder holder = (AdapterNotification.Holder) objectHolder;
+        final ResultNotification resultNotification = (ResultNotification) getItem(position);
 
-        viewHolder.tvTitleNotification.setText(resultNotification.getNotificationTitle());
-        viewHolder.tvTimeNotificcation.setText(resultNotification.getNotificationCreated());
-        viewHolder.tvDetailNotification.setText(resultNotification.getNotificationContent());
+        holder.tvTitleNotification.setText(resultNotification.getNotificationTitle());
+        holder.tvDetailNotification.setText(resultNotification.getNotificationContent());
+        holder.tvTimeNotification.setText(resultNotification.getNotificationCreated());
+
+        holder.linearNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DetailNotification.class);
+                intent.putExtra("notifTitle", resultNotification.getNotificationTitle());
+                intent.putExtra("notifContent", resultNotification.getNotificationContent());
+                intent.putExtra("notifTime", resultNotification.getNotificationCreated());
+                getContext().startActivity(intent);
+            }
+        });
 
     }
 
@@ -58,19 +69,18 @@ public class AdapterNotification extends BaseRecyclerAdapter {
 
     }
 
-    private class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTitleNotification, tvDetailNotification, tvTimeNotificcation;
+    private class Holder extends RecyclerView.ViewHolder {
+        TextView tvTitleNotification, tvDetailNotification, tvTimeNotification;
         ImageView ivNotification;
         LinearLayout linearNotification;
 
-        public ViewHolder(View v) {
+        public Holder(View v) {
             super(v);
             tvTitleNotification = v.findViewById(R.id.tvTitleNotification);
             tvDetailNotification = v.findViewById(R.id.tvDetailNotification);
-            tvTimeNotificcation = v.findViewById(R.id.tvTimeNotification);
+            tvTimeNotification = v.findViewById(R.id.tvTimeNotification);
             ivNotification = v.findViewById(R.id.ivNotification);
             linearNotification = v.findViewById(R.id.linearNotification);
-
         }
     }
 

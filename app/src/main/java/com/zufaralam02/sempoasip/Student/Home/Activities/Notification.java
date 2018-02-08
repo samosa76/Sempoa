@@ -1,15 +1,10 @@
 package com.zufaralam02.sempoasip.Student.Home.Activities;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.iapps.libs.helpers.BaseHelper;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
-import com.zufaralam02.sempoasip.Parent.Notification.Adapters.AdapterNotification;
-import com.zufaralam02.sempoasip.Parent.Notification.Models.ModelNotification;
-import com.zufaralam02.sempoasip.Parent.Notification.Models.Result;
 import com.zufaralam02.sempoasip.R;
 import com.zufaralam02.sempoasip.Student.Home.Adapters.AdapterNotificationStudent;
 import com.zufaralam02.sempoasip.Student.Home.Model.ModelNotificationStudent;
@@ -18,7 +13,6 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 public class Notification extends BaseActivitySempoa {
 

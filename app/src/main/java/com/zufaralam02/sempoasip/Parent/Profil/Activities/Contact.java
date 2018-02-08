@@ -25,6 +25,7 @@ public class Contact extends BaseActivitySempoa {
     RecyclerView recyclerContact;
 
     String id, name, email, hp, pass;
+    AdapterContact adapterContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class Contact extends BaseActivitySempoa {
         pass = getIntent().getStringExtra("parent_pwd");
 
         ArrayList<ResultContact> resultContact = contactData();
-        AdapterContact adapterContact = new AdapterContact(this, resultContact, R.layout.list_contact);
+        adapterContact = new AdapterContact(this, resultContact, R.layout.list_contact);
         BaseHelper.setupRecyclerView(recyclerContact, adapterContact);
 
     }
@@ -67,12 +68,13 @@ public class Contact extends BaseActivitySempoa {
                         resultContact1.setNomorTelp(contactNumber);
                         resultContact.add(resultContact1);
                     }
+                    adapterContact.notifyDataSetChanged();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         };
-        httpImb.setPostParams("parent_id", "1")
+        httpImb.setPostParams("parent_id", id)
                 .setDisplayError(true)
                 .execute();
 
