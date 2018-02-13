@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "A:\\Project\\Sempoa\\common_androidmaster\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ms\\values-ms.xml",
+            "outputFile": "D:\\My-First-GitLab\\Sempoa\\common_androidmaster\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ms\\values-ms.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-10.0.1.aar\\af5c65df1059a1f7dce6ce0214937485\\res\\values-ms\\values.xml",
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-10.0.1.aar\\55ade74683a4d5f5539e3ec8c137bbc6\\res\\values-ms\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.9.1.aar\\7cb7ef1d7b40997dfcb992a54aa7d070\\res\\values-ms\\values-ms.xml",
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-10.0.1.aar\\c5725889e7fb0519205e7ae03972fd8d\\res\\values-ms\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "285",
+                        "endColumns": "204",
+                        "endOffsets": "489"
+                    },
+                    "to": {
+                        "startLines": "85",
+                        "startColumns": "4",
+                        "startOffsets": "6061",
+                        "endColumns": "204",
+                        "endOffsets": "6261"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.9.1.aar\\55683ab5d04000dea624f719f9dee1e8\\res\\values-ms\\values-ms.xml",
                     "from": {
                         "startLines": "2,6,10,14,18,22,26,30,34,38,42,46,50,54,58,62,66,70,74,78,79,80,81",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -37,23 +54,6 @@
                         "endLines": "5,9,13,17,21,25,29,33,37,41,45,49,53,57,61,65,69,73,77,95,96,97,98",
                         "endColumns": "14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,65,129,129,150",
                         "endOffsets": "352,611,875,1138,1398,1666,1939,2211,2453,2701,2947,3192,3443,3701,3957,4209,4470,4737,5002,7763,7893,8023,8174"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-10.0.1.aar\\2badd98f449486758d12a17b49e8f0f5\\res\\values-ms\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "285",
-                        "endColumns": "204",
-                        "endOffsets": "489"
-                    },
-                    "to": {
-                        "startLines": "85",
-                        "startColumns": "4",
-                        "startOffsets": "6061",
-                        "endColumns": "204",
-                        "endOffsets": "6261"
                     }
                 }
             ]

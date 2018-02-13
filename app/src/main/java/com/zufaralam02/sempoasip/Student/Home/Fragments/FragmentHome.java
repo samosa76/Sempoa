@@ -12,7 +12,7 @@ import android.widget.ImageView;
 
 import com.zufaralam02.sempoasip.R;
 import com.zufaralam02.sempoasip.Student.Home.Activities.Attandance;
-import com.zufaralam02.sempoasip.Student.Notification.Activities.Notification;
+import com.zufaralam02.sempoasip.Student.Home.Activities.Notification;
 import com.zufaralam02.sempoasip.Student.Home.Activities.Wallet;
 
 import butterknife.BindView;

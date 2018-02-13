@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "A:\\Project\\Sempoa\\common_androidmaster\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-zh\\values-zh.xml",
+            "outputFile": "D:\\My-First-GitLab\\Sempoa\\common_androidmaster\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-zh\\values-zh.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\6b4e7c186bc6bba397dcd8314ba6715a\\res\\values-zh\\values-zh.xml",
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\d95420406894fd3060280c3a06f1648b\\res\\values-zh\\values-zh.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",

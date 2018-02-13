@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "A:\\Project\\Sempoa\\common_androidmaster\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-el\\values-el.xml",
+            "outputFile": "D:\\My-First-GitLab\\Sempoa\\common_androidmaster\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-el\\values-el.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-10.0.1.aar\\af5c65df1059a1f7dce6ce0214937485\\res\\values-el\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "283,392,610,740,849,1089,1212,1342,1590,1696,1897,2024,2261,2432,2527,2615",
-                        "endColumns": "108,217,129,108,239,122,129,247,105,200,126,236,170,94,87,107",
-                        "endOffsets": "391,609,739,848,1088,1211,1341,1589,1695,1896,2023,2260,2431,2526,2614,2722"
-                    },
-                    "to": {
-                        "startLines": "97,98,99,100,101,102,103,105,106,107,108,109,110,111,112,113",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "7066,7179,7397,7531,7644,7884,8011,8368,8616,8726,8927,9058,9295,9470,9569,9661",
-                        "endColumns": "112,217,133,112,239,126,133,247,109,200,130,236,174,98,91,111",
-                        "endOffsets": "7174,7392,7526,7639,7879,8006,8140,8611,8721,8922,9053,9290,9465,9564,9656,9768"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\3aa07a0e793469e7954e9649b9f783fb\\res\\values-el\\values-el.xml",
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\273ad38a2245b6eda1e8067b382367ef\\res\\values-el\\values-el.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-10.0.1.aar\\2badd98f449486758d12a17b49e8f0f5\\res\\values-el\\values.xml",
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-10.0.1.aar\\55ade74683a4d5f5539e3ec8c137bbc6\\res\\values-el\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "283,392,610,740,849,1089,1212,1342,1590,1696,1897,2024,2261,2432,2527,2615",
+                        "endColumns": "108,217,129,108,239,122,129,247,105,200,126,236,170,94,87,107",
+                        "endOffsets": "391,609,739,848,1088,1211,1341,1589,1695,1896,2023,2260,2431,2526,2614,2722"
+                    },
+                    "to": {
+                        "startLines": "97,98,99,100,101,102,103,105,106,107,108,109,110,111,112,113",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "7066,7179,7397,7531,7644,7884,8011,8368,8616,8726,8927,9058,9295,9470,9569,9661",
+                        "endColumns": "112,217,133,112,239,126,133,247,109,200,130,236,174,98,91,111",
+                        "endOffsets": "7174,7392,7526,7639,7879,8006,8140,8611,8721,8922,9053,9290,9465,9564,9656,9768"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-10.0.1.aar\\c5725889e7fb0519205e7ae03972fd8d\\res\\values-el\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -55,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.9.1.aar\\7cb7ef1d7b40997dfcb992a54aa7d070\\res\\values-el\\values-el.xml",
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.9.1.aar\\55683ab5d04000dea624f719f9dee1e8\\res\\values-el\\values-el.xml",
                     "from": {
                         "startLines": "2,6,10,14,18,22,26,30,34,38,42,46,50,54,58,62,66,70,74,78,79,80,81",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

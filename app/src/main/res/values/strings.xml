@@ -92,6 +92,5 @@
     <string name="wallet_history_coin3">+500 Coin</string>
     <string name="wallet_history_coin4">+1.000 Coin</string>
     <string name="wallet_history_coin5">+500 Coin</string>
-    <string name="title_activity_history_student">HistoryStudent</string>
 
 </resources>

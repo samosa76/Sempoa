@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "A:\\Project\\Sempoa\\common_androidmaster\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-kn\\values-kn.xml",
+            "outputFile": "D:\\My-First-GitLab\\Sempoa\\common_androidmaster\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-kn\\values-kn.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-10.0.1.aar\\2badd98f449486758d12a17b49e8f0f5\\res\\values-kn\\values.xml",
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-10.0.1.aar\\c5725889e7fb0519205e7ae03972fd8d\\res\\values-kn\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-10.0.1.aar\\af5c65df1059a1f7dce6ce0214937485\\res\\values-kn\\values.xml",
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-10.0.1.aar\\55ade74683a4d5f5539e3ec8c137bbc6\\res\\values-kn\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",

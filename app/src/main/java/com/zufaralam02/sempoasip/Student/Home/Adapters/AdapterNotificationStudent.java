@@ -1,7 +1,6 @@
-package com.zufaralam02.sempoasip.Student.Notification.Adapters;
+package com.zufaralam02.sempoasip.Student.Home.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,8 +10,7 @@ import android.widget.TextView;
 import com.iapps.adapters.BaseRecyclerAdapter;
 import com.squareup.picasso.Picasso;
 import com.zufaralam02.sempoasip.R;
-import com.zufaralam02.sempoasip.Student.Notification.Activities.DetailNotificationStudent;
-import com.zufaralam02.sempoasip.Student.Notification.Model.ModelNotificationStudent;
+import com.zufaralam02.sempoasip.Student.Home.Model.ModelNotificationStudent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,15 +54,6 @@ public class AdapterNotificationStudent extends BaseRecyclerAdapter {
         holder.tvDetailNotificationStudent.setText(modelNotification.getDetailNotifStudent());
         holder.tvTimeNotificationStudent.setText(modelNotification.getTimeNotifStudent());
         Picasso.with(getContext()).load(modelNotification.getImageNotifStudent()).into(holder.ivNotificationStudent);
-        holder.linearNotifStudent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getContext(),DetailNotificationStudent.class);
-                i.putExtra("title", modelNotification.getTitleNotifStudent());
-                i.putExtra("detail", modelNotification.getDetailNotifStudent());
-                getContext().startActivity(i);
-            }
-        });
     }
 
     @Override

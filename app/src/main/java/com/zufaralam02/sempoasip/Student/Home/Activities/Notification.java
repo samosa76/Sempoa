@@ -1,13 +1,18 @@
-package com.zufaralam02.sempoasip.Student.Notification.Activities;
+package com.zufaralam02.sempoasip.Student.Home.Activities;
 
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 
 import com.iapps.libs.helpers.BaseHelper;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
+<<<<<<< HEAD
+=======
+import com.zufaralam02.sempoasip.Parent.Notification.Adapters.AdapterNotification;
+import com.zufaralam02.sempoasip.Parent.Notification.Models.ModelNotification;
+>>>>>>> f60af6bcaca078402b7f34e8f946c2388e5892dd
 import com.zufaralam02.sempoasip.R;
-import com.zufaralam02.sempoasip.Student.Notification.Adapters.AdapterNotificationStudent;
-import com.zufaralam02.sempoasip.Student.Notification.Model.ModelNotificationStudent;
+import com.zufaralam02.sempoasip.Student.Home.Adapters.AdapterNotificationStudent;
+import com.zufaralam02.sempoasip.Student.Home.Model.ModelNotificationStudent;
 
 import java.util.ArrayList;
 

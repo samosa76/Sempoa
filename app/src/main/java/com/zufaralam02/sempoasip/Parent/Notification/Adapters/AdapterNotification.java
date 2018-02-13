@@ -11,7 +11,9 @@ import android.widget.TextView;
 import com.iapps.adapters.BaseRecyclerAdapter;
 import com.zufaralam02.sempoasip.Parent.Notification.Activities.DetailNotification;
 import com.zufaralam02.sempoasip.Parent.Notification.Models.ResultNotification;
+import com.zufaralam02.sempoasip.Parent.Profil.Adapters.AdapterContact;
 import com.zufaralam02.sempoasip.R;
+import com.zufaralam02.sempoasip.Student.Home.Model.ModelNotificationStudent;
 
 import java.util.List;
 
@@ -27,7 +29,11 @@ public class AdapterNotification extends BaseRecyclerAdapter {
 
     @Override
     public RecyclerView.ViewHolder objectHolder(View v) {
+<<<<<<< HEAD
         return new AdapterNotification.Holder(v);
+=======
+        return new ViewHolder(v);
+>>>>>>> f60af6bcaca078402b7f34e8f946c2388e5892dd
     }
 
     @Override
