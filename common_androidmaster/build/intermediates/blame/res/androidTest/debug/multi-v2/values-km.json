@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\My-First-GitLab\\Sempoa\\common_androidmaster\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-km\\values-km.xml",
+            "outputFile": "A:\\Project\\Sempoa\\common_androidmaster\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-km\\values-km.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-10.0.1.aar\\55ade74683a4d5f5539e3ec8c137bbc6\\res\\values-km\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "283,383,570,689,792,1013,1135,1269,1486,1590,1792,1915,2119,2303,2393,2477",
-                        "endColumns": "99,186,118,102,220,121,133,216,103,201,122,203,183,89,83,101",
-                        "endOffsets": "382,569,688,791,1012,1134,1268,1485,1589,1791,1914,2118,2302,2392,2476,2578"
-                    },
-                    "to": {
-                        "startLines": "78,79,80,81,82,83,84,86,87,88,89,90,91,92,93,94",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "5026,5130,5317,5440,5547,5768,5894,6240,6457,6565,6767,6894,7098,7286,7380,7468",
-                        "endColumns": "103,186,122,106,220,125,137,216,107,201,126,203,187,93,87,105",
-                        "endOffsets": "5125,5312,5435,5542,5763,5889,6027,6452,6560,6762,6889,7093,7281,7375,7463,7569"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-10.0.1.aar\\c5725889e7fb0519205e7ae03972fd8d\\res\\values-km\\values.xml",
+                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-10.0.1.aar\\2badd98f449486758d12a17b49e8f0f5\\res\\values-km\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -38,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.9.1.aar\\55683ab5d04000dea624f719f9dee1e8\\res\\values-km\\values-km.xml",
+                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-10.0.1.aar\\af5c65df1059a1f7dce6ce0214937485\\res\\values-km\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "283,383,570,689,792,1013,1135,1269,1486,1590,1792,1915,2119,2303,2393,2477",
+                        "endColumns": "99,186,118,102,220,121,133,216,103,201,122,203,183,89,83,101",
+                        "endOffsets": "382,569,688,791,1012,1134,1268,1485,1589,1791,1914,2118,2302,2392,2476,2578"
+                    },
+                    "to": {
+                        "startLines": "78,79,80,81,82,83,84,86,87,88,89,90,91,92,93,94",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "5026,5130,5317,5440,5547,5768,5894,6240,6457,6565,6767,6894,7098,7286,7380,7468",
+                        "endColumns": "103,186,122,106,220,125,137,216,107,201,126,203,187,93,87,105",
+                        "endOffsets": "5125,5312,5435,5542,5763,5889,6027,6452,6560,6762,6889,7093,7281,7375,7463,7569"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.9.1.aar\\7cb7ef1d7b40997dfcb992a54aa7d070\\res\\values-km\\values-km.xml",
                     "from": {
                         "startLines": "2,6,10,14,18,22,26,30,34,38,42,46,50,54,58,62,66,70,74,78,79,80",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

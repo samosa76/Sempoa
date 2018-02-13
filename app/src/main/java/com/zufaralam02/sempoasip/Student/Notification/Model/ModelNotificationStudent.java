@@ -1,4 +1,4 @@
-package com.zufaralam02.sempoasip.Student.Home.Model;
+package com.zufaralam02.sempoasip.Student.Notification.Model;
 
 /**
  * Created by Asus on 2/5/2018.

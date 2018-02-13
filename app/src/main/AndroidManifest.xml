@@ -125,14 +125,19 @@
             android:name=".Parent.Home.Activities.FeedbackChild"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity android:name=".Student.Home.Activities.Notification" />
+        <activity android:name=".Student.Notification.Activities.Notification" />
         <activity android:name=".Student.Home.Activities.Attandance" />
         <activity android:name=".Student.Home.Activities.Wallet" />
         <activity android:name=".Student.Profil.Activities.ContactStudent" />
         <activity android:name=".Student.Home.Activities.RequestCoin" />
         <activity android:name=".Student.Home.Activities.WithDraw" />
         <activity android:name=".Student.Home.Activities.DetailWithDraw" />
-        <activity android:name=".Student.Home.Activities.DetailRequestCoin"></activity>
+        <activity android:name=".Student.Home.Activities.DetailRequestCoin" />
+        <activity android:name=".Student.Notification.Activities.DetailNotificationStudent" />
+        <activity
+            android:name=".Student.Home.Activities.HistoryStudent"
+            android:label="@string/title_activity_history_student"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
