@@ -16,6 +16,7 @@ import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Parent.Notification.Activities.DetailNotification;
 import com.zufaralam02.sempoasip.Parent.Notification.Adapters.AdapterNotification;
 import com.zufaralam02.sempoasip.Parent.Notification.Models.ResultNotification;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.R;
 
 import org.json.JSONArray;
@@ -24,6 +25,7 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,7 +40,8 @@ public class FragmentNotificationParent extends Fragment {
     RecyclerView recyclerNotification;
     Unbinder unbinder;
 
-    String id, name, email, hp, pass;
+    SharedPrefManager sharedPrefManager;
+    String id, name, email, phone, pass;
     AdapterNotification adapterNotification;
 
     public FragmentNotificationParent() {
@@ -52,11 +55,13 @@ public class FragmentNotificationParent extends Fragment {
         View view = inflater.inflate(R.layout.fragment_notification_parent, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        id = getActivity().getIntent().getStringExtra("parent_id");
-        name = getActivity().getIntent().getStringExtra("parent_fullname");
-        email = getActivity().getIntent().getStringExtra("parent_email");
-        hp = getActivity().getIntent().getStringExtra("parent_hp_nr");
-        pass = getActivity().getIntent().getStringExtra("parent_pwd");
+        sharedPrefManager = new SharedPrefManager(getActivity());
+        HashMap<String, String> user = sharedPrefManager.getUserDetail();
+        id = user.get(SharedPrefManager.SP_ID);
+        name = user.get(SharedPrefManager.SP_NAME);
+        email = user.get(SharedPrefManager.SP_EMAIL);
+        phone = user.get(SharedPrefManager.SP_PHONE);
+        pass = user.get(SharedPrefManager.SP_PASS);
 
         ArrayList<ResultNotification> resultNotification = notifData();
         adapterNotification = new AdapterNotification(getActivity(), resultNotification, R.layout.list_notification);
@@ -103,6 +108,7 @@ public class FragmentNotificationParent extends Fragment {
         };
         httpImb.setPostParams("parent_id", id)
                 .setDisplayError(true)
+                .setDisplayProgress(false)
                 .execute();
 
         return resultNotification;

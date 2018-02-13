@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="ExtraText,InnerclassSeparator">
         <activity
-            android:name=".Parent.LoginRegister.Activities.Login"
+            android:name=".Parent.Utils.Splash"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
@@ -55,8 +55,44 @@
             android:name=".Student.BottomNavigation.BottomNavigationStudent"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".Student.Home.Activities.Notification"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".Student.Home.Activities.Attandance"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".Student.Home.Activities.Wallet"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".Student.Profil.Activities.ContactStudent"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".Student.Home.Activities.RequestCoin"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".Student.Home.Activities.WithDraw"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".Student.Home.Activities.DetailWithDraw"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".Student.Home.Activities.DetailRequestCoin"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <!-- Parent -->
+        <activity
+            android:name=".Parent.LoginRegister.Activities.Login"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".Parent.BottomNavigation.BottomNavigationParent"
             android:screenOrientation="portrait"
@@ -125,14 +161,6 @@
             android:name=".Parent.Home.Activities.FeedbackChild"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity android:name=".Student.Home.Activities.Notification" />
-        <activity android:name=".Student.Home.Activities.Attandance" />
-        <activity android:name=".Student.Home.Activities.Wallet" />
-        <activity android:name=".Student.Profil.Activities.ContactStudent" />
-        <activity android:name=".Student.Home.Activities.RequestCoin" />
-        <activity android:name=".Student.Home.Activities.WithDraw" />
-        <activity android:name=".Student.Home.Activities.DetailWithDraw" />
-        <activity android:name=".Student.Home.Activities.DetailRequestCoin"></activity>
     </application>
 
 </manifest>

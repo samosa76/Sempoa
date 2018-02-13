@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -21,22 +21,22 @@
             android:text="Topup for Mark" />
 
         <TextView
-            android:id="@+id/tvPendingWalletHistory"
+            android:id="@+id/tvTypeWalletHistory"
             style="@style/textMedium"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:gravity="right"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:text="PENDING"
-            android:textColor="#8ed1fc" />
+            android:textColor="#8ed1fc"
+            android:visibility="gone" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_small"
-        android:orientation="horizontal"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin">
@@ -52,12 +52,13 @@
         <TextView
             android:id="@+id/tvCoinWalletHistory"
             style="@style/textMedium"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:text="+ 1.000 Coin" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <View
         android:layout_width="match_parent"

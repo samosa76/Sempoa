@@ -60,7 +60,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:background="#fdb17e" />
+                        android:background="@color/soft_grey" />
 
                     <TextView
                         android:id="@+id/tvDetailDetailNotif"

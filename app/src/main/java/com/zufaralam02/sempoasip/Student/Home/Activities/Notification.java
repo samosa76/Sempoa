@@ -5,11 +5,6 @@ import android.support.v7.widget.RecyclerView;
 
 import com.iapps.libs.helpers.BaseHelper;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
-<<<<<<< HEAD
-=======
-import com.zufaralam02.sempoasip.Parent.Notification.Adapters.AdapterNotification;
-import com.zufaralam02.sempoasip.Parent.Notification.Models.ModelNotification;
->>>>>>> f60af6bcaca078402b7f34e8f946c2388e5892dd
 import com.zufaralam02.sempoasip.R;
 import com.zufaralam02.sempoasip.Student.Home.Adapters.AdapterNotificationStudent;
 import com.zufaralam02.sempoasip.Student.Home.Model.ModelNotificationStudent;
@@ -34,7 +29,7 @@ public class Notification extends BaseActivitySempoa {
         ButterKnife.bind(this);
 
         ArrayList<ModelNotificationStudent> modelNotificationStudents = notificationDataStudent();
-        AdapterNotificationStudent adapterNotificationStudent = new AdapterNotificationStudent(getApplicationContext(), modelNotificationStudents,R.layout.list_notification_student);
+        AdapterNotificationStudent adapterNotificationStudent = new AdapterNotificationStudent(getApplicationContext(), modelNotificationStudents, R.layout.list_notification_student);
         BaseHelper.setupRecyclerView(rvNotificationStudent, adapterNotificationStudent);
         adapterNotificationStudent.setModelNotificationStudents(modelNotificationStudents);
 

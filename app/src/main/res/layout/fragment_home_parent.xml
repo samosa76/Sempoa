@@ -81,6 +81,7 @@
                             android:text="Foundation" />
 
                         <TextView
+                            android:id="@+id/tvProgressHome"
                             style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -92,45 +93,21 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                        android:layout_marginRight="@dimen/activity_horizontal_margin"
-                        android:layout_marginTop="@dimen/activity_vertical_margin">
+                        android:layout_margin="@dimen/activity_vertical_margin">
 
                         <TextView
                             style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Book 1A" />
+                            android:text="Book" />
 
                         <TextView
+                            android:id="@+id/tvPageBookHome"
                             style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:text="Page 20" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
-                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                        android:layout_marginRight="@dimen/activity_horizontal_margin"
-                        android:layout_marginTop="@dimen/margin_med">
-
-                        <TextView
-                            style="@style/textMedium"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Book 1B" />
-
-                        <TextView
-                            style="@style/textMedium"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:text="Page 9" />
 
                     </RelativeLayout>
 
@@ -197,13 +174,14 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/tvChildWallet"
+                            android:id="@+id/tvWalletNameHome"
                             style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Middlestone's Wallet" />
 
                         <TextView
+                            android:id="@+id/tvWalletCoinHome"
                             style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -252,13 +230,14 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/tvChildRank"
+                            android:id="@+id/tvRankNameHome"
                             style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Middlestone's Rank" />
 
                         <TextView
+                            android:id="@+id/tvRankTypeHome"
                             style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

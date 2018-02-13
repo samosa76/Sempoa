@@ -10,15 +10,20 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
+import com.zufaralam02.sempoasip.Parent.Home.Adapters.AdapterChildHome;
 import com.zufaralam02.sempoasip.Parent.Home.Fragments.FragmentHomeParent;
 import com.zufaralam02.sempoasip.Parent.Notification.Fragments.FragmentNotificationParent;
 import com.zufaralam02.sempoasip.Parent.Profil.Fragments.FragmentProfilParent;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.Parent.Wallet.Fragments.FragmentWalletParent;
 import com.zufaralam02.sempoasip.R;
 
 import java.lang.reflect.Field;
 
 public class BottomNavigationParent extends BaseActivitySempoa {
+    BottomNavigationView navigation;
+
+    SharedPrefManager sharedPrefManager;
 
     @SuppressLint("RestrictedApi")
     public static void disableShiftMode(BottomNavigationView view) {
@@ -74,15 +79,15 @@ public class BottomNavigationParent extends BaseActivitySempoa {
         setContentView(R.layout.bottom_navigation_parent);
 
 //        mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         BottomNavigationParent.disableShiftMode(navigation);
         navigation.setSelectedItemId(R.id.navigation_home_parent);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frameParent, new FragmentHomeParent()).commit();
 
-        FragmentHomeParent fragmentHomeParent = new FragmentHomeParent();
-        fragmentHomeParent.setNavigation(navigation);
+        sharedPrefManager = new SharedPrefManager(getApplicationContext());
+
     }
 
 }

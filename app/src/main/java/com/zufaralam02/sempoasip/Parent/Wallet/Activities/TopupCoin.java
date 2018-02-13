@@ -1,15 +1,28 @@
 package com.zufaralam02.sempoasip.Parent.Wallet.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
-import android.view.View;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
+import com.zufaralam02.sempoasip.Parent.Wallet.Adapters.AdapterCoin;
+import com.zufaralam02.sempoasip.Parent.Wallet.Adapters.AdapterHistory;
+import com.zufaralam02.sempoasip.Parent.Wallet.Models.ResultCoin;
 import com.zufaralam02.sempoasip.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -17,34 +30,22 @@ import butterknife.OnClick;
 
 public class TopupCoin extends BaseActivitySempoa {
 
-    @BindView(R.id.tvWeeklyChallenge)
-    TextView tvWeeklyChallenge;
-    @BindView(R.id.llWeeklyChallenge)
-    LinearLayout llWeeklyChallenge;
-    @BindView(R.id.tvNationalChallenge)
-    TextView tvNationalChallenge;
-    @BindView(R.id.llNationalChallenge)
-    LinearLayout llNationalChallenge;
-    @BindView(R.id.tvRegionalChallenge)
-    TextView tvRegionalChallenge;
-    @BindView(R.id.llRegionalChallenge)
-    LinearLayout llRegionalChallenge;
-    @BindView(R.id.tvSouvenirSempoa1)
-    TextView tvSouvenirSempoa1;
-    @BindView(R.id.llSouvenirSempoa1)
-    LinearLayout llSouvenirSempoa1;
-    @BindView(R.id.tvSouvenirSempoa2)
-    TextView tvSouvenirSempoa2;
-    @BindView(R.id.llSouvenirSempoa2)
-    LinearLayout llSouvenirSempoa2;
-    @BindView(R.id.tvSouvenirSempoa3)
-    TextView tvSouvenirSempoa3;
-    @BindView(R.id.llSouvenirSempoa3)
-    LinearLayout llSouvenirSempoa3;
+    @BindView(R.id.recyclerCoin)
+    RecyclerView recyclerCoin;
     @BindView(R.id.edtAmountToBuy)
     TextInputEditText edtAmountToBuy;
+    @BindView(R.id.edtSendTo)
+    TextInputEditText edtSendTo;
+    @BindView(R.id.edtPaymentMethod)
+    TextInputEditText edtPaymentMethod;
+    @BindView(R.id.tvPriceTopup)
+    TextView tvPriceTopup;
     @BindView(R.id.btnPayNow)
     Button btnPayNow;
+
+    SharedPrefManager sharedPrefManager;
+    String id, name, email, phone, pass;
+    AdapterCoin adapterCoin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,32 +54,64 @@ public class TopupCoin extends BaseActivitySempoa {
         ButterKnife.bind(this);
 
         setupNav("Topup Coin");
+
+        sharedPrefManager = new SharedPrefManager(getApplicationContext());
+        HashMap<String, String> user = sharedPrefManager.getUserDetail();
+        id = user.get(SharedPrefManager.SP_ID);
+        name = user.get(SharedPrefManager.SP_NAME);
+        email = user.get(SharedPrefManager.SP_EMAIL);
+        phone = user.get(SharedPrefManager.SP_PHONE);
+        pass = user.get(SharedPrefManager.SP_PASS);
+
+        String namaSiswa = getIntent().getStringExtra("namaSiswa");
+        edtSendTo.setText(namaSiswa);
+
+        ArrayList<ResultCoin> resultCoin = coinData();
+        adapterCoin = new AdapterCoin(this, resultCoin, R.layout.list_coin);
+        adapterCoin.setEdtAmountToBuy(edtAmountToBuy);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 2, GridLayoutManager.HORIZONTAL, false);
+        recyclerCoin.setLayoutManager(layoutManager);
+        recyclerCoin.setAdapter(adapterCoin);
     }
 
-    @OnClick({R.id.llWeeklyChallenge, R.id.llNationalChallenge, R.id.llRegionalChallenge, R.id.llSouvenirSempoa1, R.id.llSouvenirSempoa2, R.id.llSouvenirSempoa3, R.id.btnPayNow})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.llWeeklyChallenge:
-                edtAmountToBuy.setText(tvWeeklyChallenge.getText().toString());
-                break;
-            case R.id.llNationalChallenge:
-                edtAmountToBuy.setText(tvNationalChallenge.getText().toString());
-                break;
-            case R.id.llRegionalChallenge:
-                edtAmountToBuy.setText(tvRegionalChallenge.getText().toString());
-                break;
-            case R.id.llSouvenirSempoa1:
-                edtAmountToBuy.setText(tvSouvenirSempoa1.getText().toString());
-                break;
-            case R.id.llSouvenirSempoa2:
-                edtAmountToBuy.setText(tvSouvenirSempoa2.getText().toString());
-                break;
-            case R.id.llSouvenirSempoa3:
-                edtAmountToBuy.setText(tvSouvenirSempoa3.getText().toString());
-                break;
-            case R.id.btnPayNow:
-                startActivity(new Intent(getApplicationContext(), TopupCoinDetail.class));
-                break;
-        }
+    private ArrayList<ResultCoin> coinData() {
+        final ArrayList<ResultCoin> resultCoin = new ArrayList<>();
+        HTTPImb httpImb = new HTTPImb(this, true) {
+            @Override
+            public String url() {
+                return "http://sandbox-sempoa.indomegabyte.com/WSSempoaApp/getSettingCoin";
+            }
+
+            @Override
+            public void onSuccess(JSONObject j) {
+                try {
+                    JSONArray jsonArray = j.getJSONArray("result");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        j = jsonArray.getJSONObject(i);
+                        String jumlahCoin = j.getString("setting_jumlah_coin");
+                        String keteranganCoin = j.getString("setting_keterangan");
+
+                        ResultCoin resultCoin1 = new ResultCoin();
+                        resultCoin1.setSettingJumlahCoin(jumlahCoin);
+                        resultCoin1.setSettingKeterangan(keteranganCoin);
+                        resultCoin.add(resultCoin1);
+                    }
+                    adapterCoin.notifyDataSetChanged();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        };
+        httpImb.setDisplayError(true)
+                .setDisplayProgress(false)
+                .execute();
+
+
+        return resultCoin;
+    }
+
+    @OnClick(R.id.btnPayNow)
+    public void onClick() {
     }
 }

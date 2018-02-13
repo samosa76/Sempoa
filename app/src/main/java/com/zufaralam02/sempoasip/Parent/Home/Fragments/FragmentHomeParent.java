@@ -4,9 +4,7 @@ package com.zufaralam02.sempoasip.Parent.Home.Fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
@@ -16,13 +14,21 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.iapps.libs.helpers.HTTPImb;
+import com.zufaralam02.sempoasip.Parent.BottomNavigation.BottomNavigationParent;
 import com.zufaralam02.sempoasip.Parent.Home.Activities.ProgressChild;
 import com.zufaralam02.sempoasip.Parent.Home.Adapters.AdapterChildHome;
 import com.zufaralam02.sempoasip.Parent.LoginRegister.Activities.AddChild;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.Parent.Wallet.Fragments.FragmentWalletParent;
 import com.zufaralam02.sempoasip.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
@@ -53,33 +59,39 @@ public class FragmentHomeParent extends Fragment {
             "555666",
             "Depok"
     };
+
     @BindView(R.id.btnAddChildHome)
     Button btnAddChildHome;
     @BindView(R.id.viewPagerChildHome)
     ViewPager viewPagerChildHome;
+    @BindView(R.id.tvProgressHome)
+    TextView tvProgressHome;
+    @BindView(R.id.tvPageBookHome)
+    TextView tvPageBookHome;
     @BindView(R.id.cardProgressHomeParent)
     CardView cardProgressHomeParent;
+    @BindView(R.id.tvWalletNameHome)
+    TextView tvWalletNameHome;
+    @BindView(R.id.tvWalletCoinHome)
+    TextView tvWalletCoinHome;
     @BindView(R.id.cardWalletHomeParent)
     CardView cardWalletHomeParent;
+    @BindView(R.id.tvRankNameHome)
+    TextView tvRankNameHome;
+    @BindView(R.id.tvRankTypeHome)
+    TextView tvRankTypeHome;
     @BindView(R.id.cardRankHomeParent)
     CardView cardRankHomeParent;
     @BindView(R.id.frameHomeParent)
     FrameLayout frameHomeParent;
     Unbinder unbinder;
-    @BindView(R.id.tvChildWallet)
-    TextView tvChildWallet;
-    @BindView(R.id.tvChildRank)
-    TextView tvChildRank;
+
     AdapterChildHome adapterChildHome;
+    SharedPrefManager sharedPrefManager;
+    String id, name, email, phone, pass;
 
     public FragmentHomeParent() {
         // Required empty public constructor
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -89,17 +101,13 @@ public class FragmentHomeParent extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home_parent, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-//        ArrayList<ModelChildHome> modelChildHome = childHomeData();
-//        AdapterChildHome adapterChildHome = new AdapterChildHome(getActivity().getSupportFragmentManager());
-//        viewPagerChildHome.setAdapter(adapterChildHome);
-
-        return view;
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        setReenterTransition(true);
+        sharedPrefManager = new SharedPrefManager(getActivity());
+        HashMap<String, String> user = sharedPrefManager.getUserDetail();
+        id = user.get(SharedPrefManager.SP_ID);
+        name = user.get(SharedPrefManager.SP_NAME);
+        email = user.get(SharedPrefManager.SP_EMAIL);
+        phone = user.get(SharedPrefManager.SP_PHONE);
+        pass = user.get(SharedPrefManager.SP_PASS);
 
         if (adapterChildHome == null) {
             adapterChildHome = new AdapterChildHome(getActivity().getSupportFragmentManager());
@@ -107,45 +115,63 @@ public class FragmentHomeParent extends Fragment {
             listChild.add(childTwo);
             listChild.add(childThree);
             adapterChildHome.setListChild(listChild);
-            adapterChildHome.setTvChildRank(tvChildRank);
-            adapterChildHome.setTvChildWallet(tvChildRank);
+//            adapterChildHome.setTvChildRank(tvChildRank);
+//            adapterChildHome.setTvChildWallet(tvChildRank);
 
             viewPagerChildHome.setClipToPadding(false);
             viewPagerChildHome.setPadding(100, 0, 100, 0);
             viewPagerChildHome.setPageMargin(20);
             viewPagerChildHome.setSaveFromParentEnabled(false);
-        } else {
 
         }
+        adapterChildHome.notifyDataSetChanged();
         viewPagerChildHome.setAdapter(adapterChildHome);
 
+//        dataHome();
+
+        return view;
     }
 
-    //    private ArrayList<ModelChildHome> childHomeData() {
-//        ArrayList<ModelChildHome> modelChildHome = new ArrayList<>();
+//    private void dataHome() {
+//        HTTPImb httpImb = new HTTPImb(this, true) {
+//            @Override
+//            public String url() {
+//                return "http://sandbox-sempoa.indomegabyte.com/WSSempoaApp/loadHomeParent";
+//            }
 //
-//        modelChildHome.add(new ModelChildHome("Middletone Henry", "123123", "Tangerang"));
-//        modelChildHome.add(new ModelChildHome("Mark Henry", "234234", "Jakarta"));
-//        modelChildHome.add(new ModelChildHome("Martin Henry", "345345", "Depok"));
+//            @Override
+//            public void onSuccess(JSONObject j) {
+//                try {
+//                    j = j.getJSONObject("result");
+//                    JSONArray jsonArray = j.getJSONArray("list murid");
+//                    for (int i = 0; i < jsonArray.length(); i++) {
+//                        j = jsonArray.getJSONObject(i);
+//                        String namaSiswa = j.getString("nama_siswa");
 //
-//        return modelChildHome;
+//                        JSONArray jsonArray1 = j.getJSONArray("Wallet");
+//                        for (int a = 0; a < jsonArray1.length(); a++) {
+//                            j = jsonArray1.getJSONObject(i);
+//                            String wallet = String.valueOf(j.getJSONArray("Wallet"));
+//                        }
+//
+//                    }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        };
+//        httpImb.setPostParams("parent_id", id)
+//                .setDisplayError(true)
+//                .execute();
+//
 //    }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-//        unbinder.unbind();
+        unbinder.unbind();
     }
-
-    public BottomNavigationView getNavigation() {
-        return navigation;
-    }
-
-    public void setNavigation(BottomNavigationView navigation) {
-        this.navigation = navigation;
-    }
-
-    BottomNavigationView navigation;
 
     @OnClick({R.id.btnAddChildHome, R.id.cardProgressHomeParent, R.id.cardWalletHomeParent, R.id.cardRankHomeParent})
     public void onClick(View view) {
@@ -157,11 +183,11 @@ public class FragmentHomeParent extends Fragment {
                 startActivity(new Intent(getActivity(), ProgressChild.class));
                 break;
             case R.id.cardWalletHomeParent:
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameParent, new FragmentWalletParent()).commit();
-//                navigation.setSelectedItemId(R.id.navigation_wallet_parent);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameHomeParent, new FragmentWalletParent()).commit();
                 break;
             case R.id.cardRankHomeParent:
                 break;
         }
     }
+
 }
