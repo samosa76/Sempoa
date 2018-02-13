@@ -1,10 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\My-First-GitLab\\Sempoa\\common_androidmaster\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ka\\values-ka.xml",
+            "outputFile": "A:\\Project\\Sempoa\\common_androidmaster\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ka\\values-ka.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.9.1.aar\\55683ab5d04000dea624f719f9dee1e8\\res\\values-ka\\values-ka.xml",
+                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-10.0.1.aar\\af5c65df1059a1f7dce6ce0214937485\\res\\values-ka\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "283,386,567,693,801,1014,1146,1279,1511,1617,1803,1929,2149,2314,2406,2493",
+                        "endColumns": "102,180,125,107,212,131,132,231,105,185,125,219,164,91,86,100",
+                        "endOffsets": "385,566,692,800,1013,1145,1278,1510,1616,1802,1928,2148,2313,2405,2492,2593"
+                    },
+                    "to": {
+                        "startLines": "78,79,80,81,82,83,84,86,87,88,89,90,91,92,93,94",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4875,4982,5163,5293,5405,5618,5754,6093,6325,6435,6621,6751,6971,7140,7236,7327",
+                        "endColumns": "106,180,129,111,212,135,136,231,109,185,129,219,168,95,90,104",
+                        "endOffsets": "4977,5158,5288,5400,5613,5749,5886,6320,6430,6616,6746,6966,7135,7231,7322,7427"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.9.1.aar\\7cb7ef1d7b40997dfcb992a54aa7d070\\res\\values-ka\\values-ka.xml",
                     "from": {
                         "startLines": "2,6,10,14,18,22,26,30,34,38,42,46,50,54,58,62,66,70,74,78,79,80",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,24 +40,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-10.0.1.aar\\55ade74683a4d5f5539e3ec8c137bbc6\\res\\values-ka\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "283,386,567,693,801,1014,1146,1279,1511,1617,1803,1929,2149,2314,2406,2493",
-                        "endColumns": "102,180,125,107,212,131,132,231,105,185,125,219,164,91,86,100",
-                        "endOffsets": "385,566,692,800,1013,1145,1278,1510,1616,1802,1928,2148,2313,2405,2492,2593"
-                    },
-                    "to": {
-                        "startLines": "78,79,80,81,82,83,84,86,87,88,89,90,91,92,93,94",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "4875,4982,5163,5293,5405,5618,5754,6093,6325,6435,6621,6751,6971,7140,7236,7327",
-                        "endColumns": "106,180,129,111,212,135,136,231,109,185,129,219,168,95,90,104",
-                        "endOffsets": "4977,5158,5288,5400,5613,5749,5886,6320,6430,6616,6746,6966,7135,7231,7322,7427"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-10.0.1.aar\\c5725889e7fb0519205e7ae03972fd8d\\res\\values-ka\\values.xml",
+                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-10.0.1.aar\\2badd98f449486758d12a17b49e8f0f5\\res\\values-ka\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

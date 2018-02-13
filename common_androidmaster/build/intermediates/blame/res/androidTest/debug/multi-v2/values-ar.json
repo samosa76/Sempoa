@@ -1,27 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\My-First-GitLab\\Sempoa\\common_androidmaster\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ar\\values-ar.xml",
+            "outputFile": "A:\\Project\\Sempoa\\common_androidmaster\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ar\\values-ar.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-10.0.1.aar\\c5725889e7fb0519205e7ae03972fd8d\\res\\values-ar\\values.xml",
+                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-10.0.1.aar\\af5c65df1059a1f7dce6ce0214937485\\res\\values-ar\\values.xml",
                     "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "285",
-                        "endColumns": "189",
-                        "endOffsets": "474"
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "283,385,561,681,784,981,1107,1234,1430,1532,1713,1833,2031,2203,2293,2385",
+                        "endColumns": "101,175,119,102,196,125,126,195,101,180,119,197,171,89,91,108",
+                        "endOffsets": "384,560,680,783,980,1106,1233,1429,1531,1712,1832,2030,2202,2292,2384,2493"
                     },
                     "to": {
-                        "startLines": "104",
-                        "startColumns": "4",
-                        "startOffsets": "7863",
-                        "endColumns": "189",
-                        "endOffsets": "8048"
+                        "startLines": "97,98,99,100,101,102,103,105,106,107,108,109,110,111,112,113",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "6892,6998,7174,7298,7405,7602,7732,8053,8249,8355,8536,8660,8858,9034,9128,9224",
+                        "endColumns": "105,175,123,106,196,129,130,195,105,180,123,197,175,93,95,112",
+                        "endOffsets": "6993,7169,7293,7400,7597,7727,7858,8244,8350,8531,8655,8853,9029,9123,9219,9332"
                     }
                 },
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\273ad38a2245b6eda1e8067b382367ef\\res\\values-ar\\values-ar.xml",
+                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\3aa07a0e793469e7954e9649b9f783fb\\res\\values-ar\\values-ar.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.9.1.aar\\55683ab5d04000dea624f719f9dee1e8\\res\\values-ar\\values-ar.xml",
+                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.9.1.aar\\7cb7ef1d7b40997dfcb992a54aa7d070\\res\\values-ar\\values-ar.xml",
                     "from": {
                         "startLines": "2,6,10,14,18,22,26,30,34,38,42,46,50,54,58,62,66,70,74,78,79,80,81",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -57,20 +57,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-10.0.1.aar\\55ade74683a4d5f5539e3ec8c137bbc6\\res\\values-ar\\values.xml",
+                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-10.0.1.aar\\2badd98f449486758d12a17b49e8f0f5\\res\\values-ar\\values.xml",
                     "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "283,385,561,681,784,981,1107,1234,1430,1532,1713,1833,2031,2203,2293,2385",
-                        "endColumns": "101,175,119,102,196,125,126,195,101,180,119,197,171,89,91,108",
-                        "endOffsets": "384,560,680,783,980,1106,1233,1429,1531,1712,1832,2030,2202,2292,2384,2493"
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "285",
+                        "endColumns": "189",
+                        "endOffsets": "474"
                     },
                     "to": {
-                        "startLines": "97,98,99,100,101,102,103,105,106,107,108,109,110,111,112,113",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "6892,6998,7174,7298,7405,7602,7732,8053,8249,8355,8536,8660,8858,9034,9128,9224",
-                        "endColumns": "105,175,123,106,196,129,130,195,105,180,123,197,175,93,95,112",
-                        "endOffsets": "6993,7169,7293,7400,7597,7727,7858,8244,8350,8531,8655,8853,9029,9123,9219,9332"
+                        "startLines": "104",
+                        "startColumns": "4",
+                        "startOffsets": "7863",
+                        "endColumns": "189",
+                        "endOffsets": "8048"
                     }
                 }
             ]
