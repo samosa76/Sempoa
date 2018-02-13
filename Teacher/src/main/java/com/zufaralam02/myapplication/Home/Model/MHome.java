@@ -21,7 +21,7 @@ public class MHome {
         this.dateHome = dateHome;
     }
 
-    public MHome(int nameHome, int dateHome) {
+    public MHome(int nameHome, int dateHome){
         setNameHome(nameHome);
         setDateHome(dateHome);
     }

@@ -7,10 +7,8 @@ import android.widget.TextView;
 
 import com.iapps.libs.helpers.BaseHelper;
 import com.zufaralam02.myapplication.Base.BaseActivityTeacher;
-import com.zufaralam02.myapplication.Home.Adapter.AHome;
 import com.zufaralam02.myapplication.Home.Adapter.AdptDetailHome;
-import com.zufaralam02.myapplication.Home.Model.MDetailHome;
-import com.zufaralam02.myapplication.Home.Model.MHome;
+import com.zufaralam02.myapplication.Home.Model.MDetailHeader;
 import com.zufaralam02.myapplication.R;
 
 import java.util.ArrayList;
@@ -29,6 +27,8 @@ public class DetailHome extends BaseActivityTeacher {
     TextView tvNameDetail;
     @BindView(R.id.tvDateDetail)
     TextView tvDateDetail;
+
+    String setNama,setDate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,24 +36,23 @@ public class DetailHome extends BaseActivityTeacher {
         setupNav("Class");
         ButterKnife.bind(this);
 
-        tvNameDetail.setText(getIntent().getStringExtra("name"));
-        tvDateDetail.setText(getIntent().getStringExtra("date"));
-
-        ArrayList<MDetailHome>mDetailHomes= notificationData();
-        AdptDetailHome adapter = new AdptDetailHome(getApplicationContext(), mDetailHomes, R.layout.lv_detail_home);
-        adapter.setmDetailHomes(mDetailHomes);
+        tvNameDetail.setText(getIntent().getIntExtra("name", 0));
+        tvDateDetail.setText(getIntent().getIntExtra("date",0));
+        ArrayList<MDetailHeader> mDetailHeaders = notificationData();
+        AdptDetailHome adapter = new AdptDetailHome(getApplicationContext(), mDetailHeaders, R.layout.lv_detail_home);
+        adapter.setmDetailHeaders(mDetailHeaders);
         BaseHelper.setupRecyclerView(rvDetailHome, adapter);
     }
 
-    private ArrayList<MDetailHome> notificationData() {
+    private ArrayList<MDetailHeader> notificationData() {
 
-        ArrayList<MDetailHome>mDetailHomes = new ArrayList<>();
-        mDetailHomes.add(new MDetailHome(R.string.home_student_name_1,R.string.home_student_foundation));
-        mDetailHomes.add(new MDetailHome(R.string.home_student_name_2,R.string.home_student_foundation));
-        mDetailHomes.add(new MDetailHome(R.string.home_student_name_3,R.string.home_student_foundation));
-        mDetailHomes.add(new MDetailHome(R.string.home_student_name_4,R.string.home_student_foundation));
-        mDetailHomes.add(new MDetailHome(R.string.home_student_name_5,R.string.home_student_foundation));
-        return mDetailHomes;
+        ArrayList<MDetailHeader> mDetailHeaders = new ArrayList<>();
+        mDetailHeaders.add(new MDetailHeader(R.string.home_student_name_1,R.string.home_student_foundation, false));
+        mDetailHeaders.add(new MDetailHeader(R.string.home_student_name_2,R.string.home_student_foundation, false));
+        mDetailHeaders.add(new MDetailHeader(R.string.home_student_name_3,R.string.home_student_foundation, false));
+        mDetailHeaders.add(new MDetailHeader(R.string.home_student_name_4,R.string.home_student_foundation, false));
+        mDetailHeaders.add(new MDetailHeader(R.string.home_student_name_5,R.string.home_student_foundation, false));
+        return mDetailHeaders;
     }
 
 

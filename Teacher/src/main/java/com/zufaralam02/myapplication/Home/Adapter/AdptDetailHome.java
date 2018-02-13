@@ -3,11 +3,11 @@ package com.zufaralam02.myapplication.Home.Adapter;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.iapps.adapters.BaseRecyclerAdapter;
-import com.zufaralam02.myapplication.Home.Model.MDetailHome;
-import com.zufaralam02.myapplication.Profile.Fragment.Model.MReward;
+import com.zufaralam02.myapplication.Home.Model.MDetailHeader;
 import com.zufaralam02.myapplication.R;
 
 import java.util.ArrayList;
@@ -19,18 +19,19 @@ import java.util.List;
 
 public class AdptDetailHome extends BaseRecyclerAdapter {
 
-    public ArrayList<MDetailHome> getmDetailHomes() {
-        return mDetailHomes;
+    public ArrayList<MDetailHeader> getmDetailHeaders() {
+        return mDetailHeaders;
     }
+
     public AdptDetailHome(Context context, List<?> items, int cellLayout) {
         super(context, items, cellLayout);
     }
 
-    public void setmDetailHomes(ArrayList<MDetailHome> mDetailHomes) {
-        this.mDetailHomes = mDetailHomes;
+    public void setmDetailHeaders(ArrayList<MDetailHeader> mDetailHeaders) {
+        this.mDetailHeaders = mDetailHeaders;
     }
 
-    ArrayList<MDetailHome>mDetailHomes= new ArrayList<>();
+    ArrayList<MDetailHeader> mDetailHeaders = new ArrayList<>();
 
     @Override
     public RecyclerView.ViewHolder objectHolder(View v) {
@@ -45,11 +46,27 @@ public class AdptDetailHome extends BaseRecyclerAdapter {
     @Override
     public void setView(RecyclerView.ViewHolder objectHolder, int position) {
 
-        AdptDetailHome.Holder holder = (AdptDetailHome.Holder)objectHolder;
-        final MDetailHome mDetailHome = (MDetailHome)getItem(position);
+        final AdptDetailHome.Holder holder = (AdptDetailHome.Holder) objectHolder;
+        final MDetailHeader mDetailHeader = (MDetailHeader) getItem(position);
 
-        holder.tvNamaHome.setText(mDetailHome.getStudentName());
-        holder.tvFoundation.setText(mDetailHome.getFoundation());
+        holder.tvNamaHome.setText(mDetailHeader.getStudentName());
+        holder.tvFoundation.setText(mDetailHeader.getFoundation());
+
+        if (!mDetailHeader.isActive()) {
+            holder.llDetail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    holder.llButton.setVisibility(View.VISIBLE);
+                }
+            });
+        } else {
+            holder.llDetail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    holder.llButton.setVisibility(View.GONE);
+                }
+            });
+        }
     }
 
     @Override
@@ -63,12 +80,16 @@ public class AdptDetailHome extends BaseRecyclerAdapter {
     }
 
     private class Holder extends RecyclerView.ViewHolder {
-        TextView tvNamaHome,tvFoundation;
+        TextView tvNamaHome, tvFoundation;
+        LinearLayout llDetail, llButton;
+
         public Holder(View v) {
             super(v);
 
-            tvNamaHome = (TextView)v.findViewById(R.id.tvNameStudent);
-            tvFoundation = (TextView)v.findViewById(R.id.tvFoundationStudent);
+            tvNamaHome = (TextView) v.findViewById(R.id.tvNameStudent);
+            tvFoundation = (TextView) v.findViewById(R.id.tvFoundationStudent);
+            llDetail = (LinearLayout) v.findViewById(R.id.llDetailHome);
+            llButton = (LinearLayout) v.findViewById(R.id.llButtonHide);
 
         }
     }
