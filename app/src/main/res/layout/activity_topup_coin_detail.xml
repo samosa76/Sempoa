@@ -52,9 +52,11 @@
                             android:text="Amount" />
 
                         <TextView
+                            android:id="@+id/tvAmountTopupCoinDetail"
                             style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
                             android:text="250 Coin" />
 
@@ -77,9 +79,11 @@
                             android:text="Price" />
 
                         <TextView
+                            android:id="@+id/tvPriceTopupCoinDetail"
                             style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
                             android:text="Rp 250.000" />
 
@@ -102,9 +106,11 @@
                             android:text="Payment Method" />
 
                         <TextView
+                            android:id="@+id/tvPaymentMethod"
                             style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
                             android:text="Bank Transfer" />
 
@@ -131,6 +137,7 @@
                             style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
                             android:text="BCA 751121313" />
 
@@ -138,6 +145,7 @@
                             style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
                             android:layout_below="@+id/tvBankTopupCoin"
                             android:text="(Sempoa SIP)" />
@@ -155,6 +163,7 @@
                         android:padding="@dimen/activity_vertical_margin">
 
                         <TextView
+                            android:id="@+id/tvNameTopupCoinDetail"
                             style="@style/textMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

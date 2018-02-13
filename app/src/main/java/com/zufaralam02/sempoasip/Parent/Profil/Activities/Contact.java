@@ -50,9 +50,8 @@ public class Contact extends BaseActivitySempoa {
 
         ArrayList<ResultContact> resultContact = contactData();
         adapterContact = new AdapterContact(this, resultContact, R.layout.list_contact);
-        adapterContact.setNumGrid(2);
+//        adapterContact.setNumGrid(2);
         BaseHelper.setupRecyclerView(recyclerContact, adapterContact);
-//        BaseHelper.setupDragGrid(recyclerContact, adapterContact, 2);
 
     }
 

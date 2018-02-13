@@ -1,5 +1,6 @@
 package com.zufaralam02.sempoasip.Parent.Wallet.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -100,7 +101,6 @@ public class TopupCoin extends BaseActivitySempoa {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
             }
         };
         httpImb.setDisplayError(true)
@@ -113,5 +113,6 @@ public class TopupCoin extends BaseActivitySempoa {
 
     @OnClick(R.id.btnPayNow)
     public void onClick() {
+        startActivity(new Intent(getApplicationContext(), TopupCoinDetail.class));
     }
 }
