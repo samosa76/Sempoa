@@ -1,24 +1,24 @@
 
-package com.zufaralam02.sempoasip.Parent.Wallet.Models;
+package com.zufaralam02.sempoasip.Parent.Home.Models;
 
 import com.google.gson.annotations.SerializedName;
 
 @SuppressWarnings("unused")
-public class ModelWallett {
+public class ModelChildSettingg {
 
     @SerializedName("result")
-    private ResultWallet mResultWallet;
+    private ResultChildSetting mResultChildSetting;
     @SerializedName("status_code")
     private Long mStatusCode;
     @SerializedName("status_message")
     private String mStatusMessage;
 
-    public ResultWallet getResult() {
-        return mResultWallet;
+    public ResultChildSetting getResult() {
+        return mResultChildSetting;
     }
 
-    public void setResult(ResultWallet resultWallet) {
-        mResultWallet = resultWallet;
+    public void setResult(ResultChildSetting resultChildSetting) {
+        mResultChildSetting = resultChildSetting;
     }
 
     public Long getStatusCode() {

@@ -1,5 +1,5 @@
 
-package com.zufaralam02.sempoasip.Parent.Wallet.Models;
+package com.zufaralam02.sempoasip.Parent.Home.Models;
 
 import com.google.gson.annotations.SerializedName;
 

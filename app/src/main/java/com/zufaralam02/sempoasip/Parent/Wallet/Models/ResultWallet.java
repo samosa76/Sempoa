@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 @SuppressWarnings("unused")
-public class ResultWalet {
+public class ResultWallet {
 
     @SerializedName("list murid")
     private List<ListMurid> mListMurid;

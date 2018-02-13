@@ -7,96 +7,110 @@ import android.view.View;
 import android.widget.Button;
 
 import com.iapps.libs.helpers.BaseHelper;
+import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
 import com.zufaralam02.sempoasip.Parent.Home.Adapters.AdapterChildSetting;
-import com.zufaralam02.sempoasip.Parent.Home.Models.ModelChildSetting;
+import com.zufaralam02.sempoasip.Parent.Home.Models.ListMurid;
 import com.zufaralam02.sempoasip.Parent.LoginRegister.Activities.AddChild;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public class ChildSetting extends BaseActivitySempoa implements View.OnClickListener {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+public class ChildSetting extends BaseActivitySempoa {
+
+    @BindView(R.id.recyclerChildSetting)
     RecyclerView recyclerChildSetting;
-    Button btnAddChildSetting, btnGoToHome;
-    ArrayList<ModelChildSetting> modelChildSetting;
-    AdapterChildSetting adapterChildSetting;
+    @BindView(R.id.btnAddChildSetting)
+    Button btnAddChildSetting;
+    @BindView(R.id.btnGoToHome)
+    Button btnGoToHome;
 
-    private final String childName[] = {
-            "Middleston Henry"
-    };
-    private final String childNumber[] = {
-            "11121300"
-    };
-    private final String childPlace[] = {
-            "Pejaten Village"
-    };
-    private final String childTitlePass[] = {
-            "Password for Middleston"
-    };
-    private final String childPass[] = {
-            "Mid123"
-    };
+    SharedPrefManager sharedPrefManager;
+    String id, name, email, phone, pass;
+    AdapterChildSetting adapterChildSetting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_child_setting);
+        ButterKnife.bind(this);
 
         setupNav("Child Setting");
-        initialization();
-        setupWidget();
-        setupRecycler();
-    }
 
-    private void initialization() {
-        recyclerChildSetting = findViewById(R.id.recyclerChildSetting);
-        btnAddChildSetting = findViewById(R.id.btnAddChildSetting);
-        btnGoToHome = findViewById(R.id.btnGoToHome);
-    }
+        sharedPrefManager = new SharedPrefManager(getApplicationContext());
+        HashMap<String, String> user = sharedPrefManager.getUserDetail();
+        id = user.get(SharedPrefManager.SP_ID);
+        name = user.get(SharedPrefManager.SP_NAME);
+        email = user.get(SharedPrefManager.SP_EMAIL);
+        phone = user.get(SharedPrefManager.SP_PHONE);
+        pass = user.get(SharedPrefManager.SP_PASS);
 
-    private void setupWidget() {
-        btnAddChildSetting.setOnClickListener(this);
-        btnGoToHome.setOnClickListener(this);
-
-    }
-
-    private void setupRecycler() {
-        modelChildSetting = AddChildSettingData();
-        adapterChildSetting = new AdapterChildSetting(this, modelChildSetting, R.layout.list_child_setting);
+        ArrayList<ListMurid> listMurid = childSettingData();
+        adapterChildSetting = new AdapterChildSetting(this, listMurid, R.layout.list_child_setting);
         BaseHelper.setupRecyclerView(recyclerChildSetting, adapterChildSetting);
-        adapterChildSetting.setModelChildSetting1(modelChildSetting);
-
     }
 
-    private ArrayList<ModelChildSetting> AddChildSettingData() {
-        modelChildSetting = new ArrayList<>();
+    private ArrayList<ListMurid> childSettingData() {
+        final ArrayList<ListMurid> listMurid = new ArrayList<>();
+        HTTPImb httpImb = new HTTPImb(this, true) {
+            @Override
+            public String url() {
+                return "http://sandbox-sempoa.indomegabyte.com/WSSempoaApp/loadHomeParent";
+            }
 
-        for (int i = 0; i < childName.length; i++) {
+            @Override
+            public void onSuccess(JSONObject j) {
+                try {
+                    j = j.getJSONObject("result");
+                    JSONArray jsonArray = j.getJSONArray("list murid");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        j = jsonArray.getJSONObject(i);
+                        String name = j.getString("nama_siswa");
+                        String code = j.getString("kode_siswa");
+                        String place = j.getString("alamat");
+                        String pass = j.getString("murid_app_pwd");
 
-            ModelChildSetting modelChildSetting1 = new ModelChildSetting();
-            modelChildSetting1.setChildName(childName[i]);
-            modelChildSetting1.setChildNumber(childNumber[i]);
-            modelChildSetting1.setChildPlace(childPlace[i]);
-            modelChildSetting1.setChildTitlePass(childTitlePass[i]);
-            modelChildSetting1.setChildPass(childPass[i]);
-            modelChildSetting.add(modelChildSetting1);
-        }
+                        ListMurid listMurid1 = new ListMurid();
+                        listMurid1.setNamaSiswa(name);
+                        listMurid1.setKodeSiswa(code);
+                        listMurid1.setAlamat(place);
+                        listMurid1.setMuridAppPwd(pass);
+                        listMurid.add(listMurid1);
 
-        return modelChildSetting;
+                    }
+                    adapterChildSetting.notifyDataSetChanged();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        httpImb.setPostParams("parent_id", id)
+                .setDisplayError(true)
+                .setDisplayProgress(false)
+                .execute();
+
+        return listMurid;
     }
 
-    @Override
-    public void onClick(View v) {
-
-        switch (v.getId()) {
+    @OnClick({R.id.btnAddChildSetting, R.id.btnGoToHome})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btnAddChildSetting:
+                startActivity(new Intent(getApplicationContext(), AddChild.class));
+                break;
             case R.id.btnGoToHome:
-//                startActivity(new Intent(this, FragmentHomeParent.class));
                 finish();
                 break;
-            case R.id.btnAddChildSetting:
-                startActivity(new Intent(this, AddChild.class));
-                break;
         }
-
     }
 }
