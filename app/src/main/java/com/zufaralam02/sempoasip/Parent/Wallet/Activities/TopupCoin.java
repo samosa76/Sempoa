@@ -64,15 +64,17 @@ public class TopupCoin extends BaseActivitySempoa {
         phone = user.get(SharedPrefManager.SP_PHONE);
         pass = user.get(SharedPrefManager.SP_PASS);
 
-        String namaSiswa = getIntent().getStringExtra("namaSiswa");
-        edtSendTo.setText(namaSiswa);
-
         ArrayList<ResultCoin> resultCoin = coinData();
         adapterCoin = new AdapterCoin(this, resultCoin, R.layout.list_coin);
         adapterCoin.setEdtAmountToBuy(edtAmountToBuy);
+        adapterCoin.setTvPriceTopup(tvPriceTopup);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2, GridLayoutManager.HORIZONTAL, false);
         recyclerCoin.setLayoutManager(layoutManager);
         recyclerCoin.setAdapter(adapterCoin);
+
+        String namaSiswa = getIntent().getStringExtra("namaSiswa");
+        edtSendTo.setText(namaSiswa);
+
     }
 
     private ArrayList<ResultCoin> coinData() {
@@ -107,12 +109,17 @@ public class TopupCoin extends BaseActivitySempoa {
                 .setDisplayProgress(false)
                 .execute();
 
-
         return resultCoin;
     }
 
     @OnClick(R.id.btnPayNow)
     public void onClick() {
-        startActivity(new Intent(getApplicationContext(), TopupCoinDetail.class));
+        Intent intent = new Intent(getApplicationContext(), TopupCoinDetail.class);
+        intent.putExtra("amount", edtAmountToBuy.getText().toString());
+        intent.putExtra("price", tvPriceTopup.getText().toString());
+        intent.putExtra("payment", edtPaymentMethod.getText().toString());
+        intent.putExtra("name", edtSendTo.getText().toString());
+        startActivity(intent);
+        finish();
     }
 }

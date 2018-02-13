@@ -161,7 +161,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:text="Rp 250.000"
                         android:textColor="#8ed1fc" />
 
                     <Button

@@ -1,19 +1,18 @@
 package com.zufaralam02.sempoasip.Parent.Notification.Fragments;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.iapps.adapters.BaseRecyclerAdapter;
 import com.iapps.libs.helpers.BaseHelper;
 import com.iapps.libs.helpers.HTTPImb;
-import com.zufaralam02.sempoasip.Parent.Notification.Activities.DetailNotification;
 import com.zufaralam02.sempoasip.Parent.Notification.Adapters.AdapterNotification;
 import com.zufaralam02.sempoasip.Parent.Notification.Models.ResultNotification;
 import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
@@ -23,13 +22,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
@@ -43,6 +40,12 @@ public class FragmentNotificationParent extends Fragment {
     SharedPrefManager sharedPrefManager;
     String id, name, email, phone, pass;
     AdapterNotification adapterNotification;
+    @BindView(R.id.ivNotif)
+    ImageView ivNotif;
+    @BindView(R.id.tvNotif)
+    TextView tvNotif;
+    @BindView(R.id.rvIsNull)
+    RelativeLayout rvIsNull;
 
     public FragmentNotificationParent() {
         // Required empty public constructor
@@ -93,12 +96,17 @@ public class FragmentNotificationParent extends Fragment {
                         String notifTime = j.getString("notification_created");
                         String notifContent = j.getString("notification_content");
 
+                        if (jsonArray.length() == jsonArray.length()) {
+                            rvIsNull.setVisibility(View.GONE);
+                        }
+
                         ResultNotification resultNotification1 = new ResultNotification();
                         resultNotification1.setNotificationId(notifId);
                         resultNotification1.setNotificationTitle(notifTitle);
                         resultNotification1.setNotificationCreated(notifTime);
                         resultNotification1.setNotificationContent(notifContent);
                         resultNotification.add(resultNotification1);
+
                     }
                     adapterNotification.notifyDataSetChanged();
                 } catch (JSONException e) {

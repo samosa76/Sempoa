@@ -1,5 +1,6 @@
 package com.zufaralam02.sempoasip.Parent.Wallet.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -18,6 +19,8 @@ import java.util.List;
  */
 
 public class AdapterCoin extends BaseRecyclerAdapter {
+    EditText edtAmountToBuy;
+
     public EditText getEdtAmountToBuy() {
         return edtAmountToBuy;
     }
@@ -26,7 +29,15 @@ public class AdapterCoin extends BaseRecyclerAdapter {
         this.edtAmountToBuy = edtAmountToBuy;
     }
 
-    EditText edtAmountToBuy;
+    TextView tvPriceTopup;
+
+    public TextView getTvPriceTopup() {
+        return tvPriceTopup;
+    }
+
+    public void setTvPriceTopup(TextView tvPriceTopup) {
+        this.tvPriceTopup = tvPriceTopup;
+    }
 
     public AdapterCoin(Context context, List<?> items, int cellLayout) {
         super(context, items, cellLayout);
@@ -51,17 +62,12 @@ public class AdapterCoin extends BaseRecyclerAdapter {
         holder.tvJumlahCoin.setText(resultCoin.getSettingJumlahCoin());
         holder.tvKeteranganCoin.setText(resultCoin.getSettingKeterangan());
 
-//        holder.tvJumlahCoin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                edtAmountToBuy.setText(holder.tvJumlahCoin.getText().toString());
-//            }
-//        });
-
         holder.linearCoin.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                edtAmountToBuy.setText(holder.tvJumlahCoin.getText().toString());
+                edtAmountToBuy.setText(holder.tvJumlahCoin.getText().toString() + " Coin");
+                tvPriceTopup.setText("Rp " + holder.tvJumlahCoin.getText().toString() + ".000");
             }
         });
 
