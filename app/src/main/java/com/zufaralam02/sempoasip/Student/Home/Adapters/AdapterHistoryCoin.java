@@ -63,10 +63,10 @@ public class AdapterHistoryCoin extends BaseRecyclerAdapter {
         public Holder(View v) {
             super(v);
 
-            tvNameWalletHistoryStudent = v.findViewById(R.id.tvNameWalletHistory);
-            tvTimeWalletHistoryStudent = v.findViewById(R.id.tvTimeWalletHistory);
-            tvCoinWalletHistoryStudent = v.findViewById(R.id.tvCoinWalletHistory);
-//            tvPendingWalletHistoryStudent = v.findViewById(R.id.tvPendingWalletHistory);
+            tvNameWalletHistoryStudent = v.findViewById(R.id.tvNameWalletHistoryStudent);
+            tvTimeWalletHistoryStudent = v.findViewById(R.id.tvTimeWalletHistoryStudent);
+            tvCoinWalletHistoryStudent = v.findViewById(R.id.tvCoinWalletHistoryStudent);
+            tvPendingWalletHistoryStudent = v.findViewById(R.id.tvPendingWalletHistoryStudent);
 
         }
     }

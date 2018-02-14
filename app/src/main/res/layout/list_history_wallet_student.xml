@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <TextView
+            android:id="@+id/tvNameWalletHistoryStudent"
+            style="@style/textMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Topup for Mark" />
+
+        <TextView
+            android:id="@+id/tvPendingWalletHistoryStudent"
+            style="@style/textMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:text="PENDING"
+            android:textColor="#8ed1fc" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:id="@+id/tvTimeWalletHistoryStudent"
+            style="@style/textMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 Aug 2017"
+            android:textColor="@color/text_secondary" />
+
+        <TextView
+            android:id="@+id/tvCoinWalletHistoryStudent"
+            style="@style/textMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="+ 1.000 Coin" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#dedede" />
+
+</LinearLayout>

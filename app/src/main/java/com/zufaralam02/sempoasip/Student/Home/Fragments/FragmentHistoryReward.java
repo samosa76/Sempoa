@@ -48,7 +48,7 @@ public class FragmentHistoryReward extends Fragment {
 
     private void setUpRecylerView() {
         ArrayList<ModelHistoryReward> modelHistoryReward = walletHistoryData();
-        AdapterHistoryReward adapterHistoryReward = new AdapterHistoryReward(getActivity(), modelHistoryReward, R.layout.list_history_wallet);
+        AdapterHistoryReward adapterHistoryReward = new AdapterHistoryReward(getActivity(), modelHistoryReward, R.layout.list_history_wallet_student);
         BaseHelper.setupRecyclerView(recyclerWalletHistoryStudent, adapterHistoryReward);
     }
 

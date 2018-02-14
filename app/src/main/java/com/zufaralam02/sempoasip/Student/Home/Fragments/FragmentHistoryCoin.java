@@ -49,7 +49,7 @@ public class FragmentHistoryCoin extends Fragment {
     private void setUpRecylerView() {
 
         ArrayList<ModelHistoryCoin> modelHistoryCoin = walletHistoryData();
-        AdapterHistoryCoin adapterHistoryCoin = new AdapterHistoryCoin(getActivity(), modelHistoryCoin, R.layout.list_history_wallet);
+        AdapterHistoryCoin adapterHistoryCoin = new AdapterHistoryCoin(getActivity(), modelHistoryCoin, R.layout.list_history_wallet_student);
         BaseHelper.setupRecyclerView(recyclerWalletHistoryStudent, adapterHistoryCoin);
 
     }
