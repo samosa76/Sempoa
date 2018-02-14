@@ -34,7 +34,8 @@
         <activity android:name=".Profile.Fragment.Activity.ChangePhonenumber" />
         <activity android:name=".Profile.Fragment.Activity.ChangePassword" />
         <activity android:name=".Profile.Fragment.AlertDialog.History" />
-        <activity android:name=".Profile.Fragment.AlertDialog.Withdraw"></activity>
+        <activity android:name=".Profile.Fragment.AlertDialog.Withdraw" />
+        <activity android:name=".Home.Activity.AddStudent"></activity>
     </application>
 
 </manifest>
