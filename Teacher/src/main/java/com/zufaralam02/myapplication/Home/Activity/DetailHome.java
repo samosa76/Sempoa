@@ -1,14 +1,18 @@
 package com.zufaralam02.myapplication.Home.Activity;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.iapps.libs.helpers.BaseHelper;
+import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
 import com.zufaralam02.myapplication.Base.BaseActivityTeacher;
-import com.zufaralam02.myapplication.Home.Adapter.AdptDetailHome;
-import com.zufaralam02.myapplication.Home.Model.MDetailHeader;
+import com.zufaralam02.myapplication.Home.Adapter.ExpandableAdapter;
+import com.zufaralam02.myapplication.Home.Model.Book;
+import com.zufaralam02.myapplication.Home.Model.MHeader;
+import com.zufaralam02.myapplication.Home.ViewHolder.HeaderViewHolder;
 import com.zufaralam02.myapplication.R;
 
 import java.util.ArrayList;
@@ -27,8 +31,15 @@ public class DetailHome extends BaseActivityTeacher {
     TextView tvNameDetail;
     @BindView(R.id.tvDateDetail)
     TextView tvDateDetail;
+    @BindView(R.id.tvBack)
+    TextView tvBack;
+    @BindView(R.id.llBack)
+    LinearLayout llBack;
+    @BindView(R.id.llhomep)
+    LinearLayout llhomep;
 
-    String setNama,setDate;
+    private ArrayList<MHeader>mHeaders;
+    private ExpandableAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,25 +47,32 @@ public class DetailHome extends BaseActivityTeacher {
         setupNav("Class");
         ButterKnife.bind(this);
 
-        tvNameDetail.setText(getIntent().getIntExtra("name", 0));
-        tvDateDetail.setText(getIntent().getIntExtra("date",0));
-        ArrayList<MDetailHeader> mDetailHeaders = notificationData();
-        AdptDetailHome adapter = new AdptDetailHome(getApplicationContext(), mDetailHeaders, R.layout.lv_detail_home);
-        adapter.setmDetailHeaders(mDetailHeaders);
-        BaseHelper.setupRecyclerView(rvDetailHome, adapter);
+        mHeaders = new ArrayList<>();
+        setData();
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        rvDetailHome.setLayoutManager(layoutManager);
+
+        adapter = new ExpandableAdapter(this,mHeaders);
+        rvDetailHome.setAdapter(adapter);
     }
 
-    private ArrayList<MDetailHeader> notificationData() {
+    private void setData() {
+        ArrayList<Book> iphones = new ArrayList<>();
+        iphones.add(new Book("Book 1A"));
+        iphones.add(new Book("Book 1B"));
 
-        ArrayList<MDetailHeader> mDetailHeaders = new ArrayList<>();
-        mDetailHeaders.add(new MDetailHeader(R.string.home_student_name_1,R.string.home_student_foundation, false));
-        mDetailHeaders.add(new MDetailHeader(R.string.home_student_name_2,R.string.home_student_foundation, false));
-        mDetailHeaders.add(new MDetailHeader(R.string.home_student_name_3,R.string.home_student_foundation, false));
-        mDetailHeaders.add(new MDetailHeader(R.string.home_student_name_4,R.string.home_student_foundation, false));
-        mDetailHeaders.add(new MDetailHeader(R.string.home_student_name_5,R.string.home_student_foundation, false));
-        return mDetailHeaders;
+        ArrayList<Book> nexus = new ArrayList<>();
+        nexus.add(new Book("Book 1A"));
+        nexus.add(new Book("Book 1B"));
+
+        ArrayList<Book> windowPhones = new ArrayList<>();
+        windowPhones.add(new Book("Book 1A"));
+        windowPhones.add(new Book("Book 1B"));
+
+        mHeaders.add(new MHeader("1. Mark", iphones));
+        mHeaders.add(new MHeader("2. Denny", nexus));
+        mHeaders.add(new MHeader("1. Luis", windowPhones));
     }
-
 
     @OnClick(R.id.btnAddStudent)
     public void onClick() {
