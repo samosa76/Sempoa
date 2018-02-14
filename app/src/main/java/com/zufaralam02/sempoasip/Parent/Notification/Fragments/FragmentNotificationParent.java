@@ -12,6 +12,7 @@ import com.iapps.libs.helpers.BaseHelper;
 import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Parent.Notification.Adapters.AdapterNotification;
 import com.zufaralam02.sempoasip.Parent.Notification.Models.ResultNotification;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.R;
 
 import org.json.JSONArray;
@@ -32,6 +33,7 @@ public class FragmentNotificationParent extends Fragment {
     RecyclerView recyclerNotification;
     Unbinder unbinder;
 
+    SharedPrefManager sharedPrefManager;
     String id, name, email, hp, pass;
     AdapterNotification adapterNotification;
 
