@@ -13,7 +13,6 @@ import com.zufaralam02.sempoasip.Parent.Utils.Helper;
 import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.R;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -50,7 +49,7 @@ public class ChangeName extends BaseActivitySempoa {
         name = user.get(SharedPrefManager.SP_NAME);
         email = user.get(SharedPrefManager.SP_EMAIL);
         phone = user.get(SharedPrefManager.SP_PHONE);
-        pass = user.get(SharedPrefManager.SP_PASS);
+//        pass = user.get(SharedPrefManager.SP_PASS);
 
         tvNameChangeName.setText(name);
 

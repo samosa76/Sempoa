@@ -3,7 +3,6 @@ package com.zufaralam02.sempoasip.Parent.Home.Fragments;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;

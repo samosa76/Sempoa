@@ -4,11 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import com.zufaralam02.sempoasip.Parent.BottomNavigation.BottomNavigationParent;
 import com.zufaralam02.sempoasip.Parent.LoginRegister.Activities.Login;
-import com.zufaralam02.sempoasip.Student.BottomNavigation.BottomNavigationStudent;
 
 import java.util.HashMap;
 
@@ -29,8 +27,7 @@ public class SharedPrefManager {
     public static final String SP_NAME = "spName";
     public static final String SP_EMAIL = "spEmail";
     public static final String SP_PHONE = "spPhone";
-    public static final String SP_PASS = "spPass";
-
+//    public static final String SP_PASS = "spPass";
 
     @SuppressLint("CommitPrefEdits")
     public SharedPrefManager(Context context) {
@@ -39,13 +36,13 @@ public class SharedPrefManager {
         editor = sharedPreferences.edit();
     }
 
-    public void sessionLogin(String id, String name, String email, String phone, String pass) {
+    public void sessionLogin(String id, String name, String email, String phone) {
         editor.putBoolean(SP_IS_LOGIN, true);
         editor.putString(SP_ID, id);
         editor.putString(SP_NAME, name);
         editor.putString(SP_EMAIL, email);
         editor.putString(SP_PHONE, phone);
-        editor.putString(SP_PASS, pass);
+//        editor.putString(SP_PASS, pass);
         editor.commit();
     }
 
@@ -83,7 +80,7 @@ public class SharedPrefManager {
         user.put(SP_NAME, sharedPreferences.getString(SP_NAME, null));
         user.put(SP_EMAIL, sharedPreferences.getString(SP_EMAIL, null));
         user.put(SP_PHONE, sharedPreferences.getString(SP_PHONE, null));
-        user.put(SP_PASS, sharedPreferences.getString(SP_PASS, null));
+//        user.put(SP_PASS, sharedPreferences.getString(SP_PASS, null));
         return user;
     }
 
