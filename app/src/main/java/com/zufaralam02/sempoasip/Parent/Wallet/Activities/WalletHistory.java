@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import com.iapps.libs.helpers.BaseHelper;
 import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
-import com.zufaralam02.sempoasip.Parent.Notification.Adapters.AdapterNotification;
 import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.Parent.Wallet.Adapters.AdapterHistory;
 import com.zufaralam02.sempoasip.Parent.Wallet.Models.ResultHistory;
@@ -45,7 +44,7 @@ public class WalletHistory extends BaseActivitySempoa {
         name = user.get(SharedPrefManager.SP_NAME);
         email = user.get(SharedPrefManager.SP_EMAIL);
         phone = user.get(SharedPrefManager.SP_PHONE);
-        pass = user.get(SharedPrefManager.SP_PASS);
+//        pass = user.get(SharedPrefManager.SP_PASS);
 
         ArrayList<ResultHistory> resultHistory = historyWallet();
         adapterHistory = new AdapterHistory(this, resultHistory, R.layout.list_history_wallet);
