@@ -347,7 +347,7 @@
                                 android:layout_marginLeft="@dimen/margin_small"
                                 android:background="@color/transparent"
                                 android:singleLine="true"
-                                android:text="200.000" />
+                                android:text="" />
 
                         </LinearLayout>
 

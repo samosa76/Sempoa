@@ -7,15 +7,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.iapps.libs.helpers.BaseHelper;
 import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Parent.Notification.Adapters.AdapterNotification;
 import com.zufaralam02.sempoasip.Parent.Notification.Models.ResultNotification;
-import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.R;
 
 import org.json.JSONArray;
@@ -23,7 +19,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,15 +32,8 @@ public class FragmentNotificationParent extends Fragment {
     RecyclerView recyclerNotification;
     Unbinder unbinder;
 
-    SharedPrefManager sharedPrefManager;
-    String id, name, email, phone, pass;
+    String id, name, email, hp, pass;
     AdapterNotification adapterNotification;
-    @BindView(R.id.ivNotif)
-    ImageView ivNotif;
-    @BindView(R.id.tvNotif)
-    TextView tvNotif;
-    @BindView(R.id.rvIsNull)
-    RelativeLayout rvIsNull;
 
     public FragmentNotificationParent() {
         // Required empty public constructor
@@ -58,13 +46,11 @@ public class FragmentNotificationParent extends Fragment {
         View view = inflater.inflate(R.layout.fragment_notification_parent, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        sharedPrefManager = new SharedPrefManager(getActivity());
-        HashMap<String, String> user = sharedPrefManager.getUserDetail();
-        id = user.get(SharedPrefManager.SP_ID);
-        name = user.get(SharedPrefManager.SP_NAME);
-        email = user.get(SharedPrefManager.SP_EMAIL);
-        phone = user.get(SharedPrefManager.SP_PHONE);
-        pass = user.get(SharedPrefManager.SP_PASS);
+        id = getActivity().getIntent().getStringExtra("parent_id");
+        name = getActivity().getIntent().getStringExtra("parent_fullname");
+        email = getActivity().getIntent().getStringExtra("parent_email");
+        hp = getActivity().getIntent().getStringExtra("parent_hp_nr");
+        pass = getActivity().getIntent().getStringExtra("parent_pwd");
 
         ArrayList<ResultNotification> resultNotification = notifData();
         adapterNotification = new AdapterNotification(getActivity(), resultNotification, R.layout.list_notification);
@@ -96,17 +82,12 @@ public class FragmentNotificationParent extends Fragment {
                         String notifTime = j.getString("notification_created");
                         String notifContent = j.getString("notification_content");
 
-                        if (jsonArray.length() == jsonArray.length()) {
-                            rvIsNull.setVisibility(View.GONE);
-                        }
-
                         ResultNotification resultNotification1 = new ResultNotification();
                         resultNotification1.setNotificationId(notifId);
                         resultNotification1.setNotificationTitle(notifTitle);
                         resultNotification1.setNotificationCreated(notifTime);
                         resultNotification1.setNotificationContent(notifContent);
                         resultNotification.add(resultNotification1);
-
                     }
                     adapterNotification.notifyDataSetChanged();
                 } catch (JSONException e) {
@@ -116,7 +97,6 @@ public class FragmentNotificationParent extends Fragment {
         };
         httpImb.setPostParams("parent_id", id)
                 .setDisplayError(true)
-                .setDisplayProgress(false)
                 .execute();
 
         return resultNotification;

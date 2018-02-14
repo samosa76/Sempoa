@@ -1,8 +1,9 @@
 
 package com.zufaralam02.sempoasip.Parent.Notification.Models;
 
-import java.util.List;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 @SuppressWarnings("unused")
 public class ModelNotificationn {

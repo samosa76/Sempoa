@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/llDetailHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin_med">
+        <TextView
+            android:id="@+id/tvNameStudent"
+            style="@style/textMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/iapps__vertical_margin"
+            android:layout_weight="1"
+            android:text="@string/home_student_name_1" />
+
+        <TextView
+            android:id="@+id/tvFoundationStudent"
+            style="@style/textMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="@string/home_student_foundation" />
+
+        <ImageView
+            android:id="@+id/imgDownDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:src="@drawable/ic_arrow_down" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llButtonHide"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/textMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="@string/home_student_foundation" />
+        <TextView
+            style="@style/textMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="@string/home_student_foundation" />
+
+    </LinearLayout>
+</LinearLayout>
