@@ -9,11 +9,14 @@ import android.widget.TextView;
 import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
 import com.zufaralam02.sempoasip.Parent.Notification.Fragments.FragmentNotificationParent;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,7 +35,9 @@ public class DetailNotification extends BaseActivitySempoa {
     @BindView(R.id.btnDetailNotif)
     Button btnDetailNotif;
 
-    String notifId, notifTitle, notifContent, notifTime;
+    SharedPrefManager sharedPrefManager;
+    String id, name, email, phone, pass;
+    String idNotif;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,16 @@ public class DetailNotification extends BaseActivitySempoa {
         ButterKnife.bind(this);
 
         setupNav("Notification");
+        sharedPrefManager = new SharedPrefManager(getApplicationContext());
+        HashMap<String, String> user = sharedPrefManager.getUserDetail();
+        id = user.get(SharedPrefManager.SP_ID);
+        name = user.get(SharedPrefManager.SP_NAME);
+        email = user.get(SharedPrefManager.SP_EMAIL);
+        phone = user.get(SharedPrefManager.SP_PHONE);
+//        pass = user.get(SharedPrefManager.SP_PASS);
+
+        idNotif = getIntent().getStringExtra("notifId");
+
         detailNotif();
 
     }
@@ -58,22 +73,23 @@ public class DetailNotification extends BaseActivitySempoa {
                     JSONArray jsonArray = j.getJSONArray("result");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         j = jsonArray.getJSONObject(i);
-                        notifId = j.getString("notification_id");
-                        notifTitle = j.getString("notification_title");
-                        notifContent = j.getString("notification_content");
-                        notifTime = j.getString("notification_created");
+                        String notifId = j.getString("notification_id");
+                        String notifTitle = j.getString("notification_title");
+                        String notifContent = j.getString("notification_content");
+                        String notifTime = j.getString("notification_created");
+                        tvTitleDetailNotif.setText(notifTitle);
+                        tvDetailDetailNotif.setText(notifContent);
+                        tvTimeDetailNotif.setText(notifTime);
                     }
-                    tvTitleDetailNotif.setText(notifTitle);
-                    tvDetailDetailNotif.setText(notifContent);
-                    tvTimeDetailNotif.setText(notifTime);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         };
-        httpImb.setPostParams("parent_id", "1")
-                .setPostParams("notif_id", "1")
+        httpImb.setPostParams("parent_id", id)
+                .setPostParams("notif_id", idNotif)
                 .setDisplayError(true)
+                .setDisplayProgress(false)
                 .execute();
 
     }

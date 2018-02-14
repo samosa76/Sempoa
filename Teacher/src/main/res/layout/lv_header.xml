@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/margin_med">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvStudent"
+            style="@style/textSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/margin_med" />
+
+        <TextView
+            android:id="@+id/tvFoundation"
+            style="@style/textSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:drawableRight="@drawable/ic_arrow_down"
+            android:gravity="center|left"
+            android:padding="@dimen/margin_med"
+            android:text="@string/home_student_foundation" />
+
+    </LinearLayout>
+
+</RelativeLayout>

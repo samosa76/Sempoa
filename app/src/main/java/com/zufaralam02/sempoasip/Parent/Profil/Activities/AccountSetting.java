@@ -55,7 +55,7 @@ public class AccountSetting extends BaseActivitySempoa {
         name = user.get(SharedPrefManager.SP_NAME);
         email = user.get(SharedPrefManager.SP_EMAIL);
         phone = user.get(SharedPrefManager.SP_PHONE);
-        pass = user.get(SharedPrefManager.SP_PASS);
+//        pass = user.get(SharedPrefManager.SP_PASS);
 
 //        tvNameAccountSetting.setText(name);
 //        tvEmailAccountSetting.setText(email);
@@ -86,7 +86,7 @@ public class AccountSetting extends BaseActivitySempoa {
                     tvNameAccountSetting.setText(name);
                     tvEmailAccountSetting.setText(email);
                     tvPhoneAccountSetting.setText(phone);
-                    tvPassAccountSetting.setText(pass);
+//                    tvPassAccountSetting.setText(pass);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

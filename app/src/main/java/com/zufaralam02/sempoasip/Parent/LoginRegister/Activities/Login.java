@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
@@ -76,21 +77,42 @@ public class Login extends BaseActivitySempoa {
             public void onSuccess(JSONObject j) {
                 try {
                     j = j.getJSONObject("result");
-                    String id = j.getString("parent_id");
-                    String name = j.getString("parent_fullname");
-                    String email = j.getString("parent_email");
-                    String hp = j.getString("parent_hp_nr");
-                    String pass = j.getString("parent_pwd");
+                    String type = j.getString("type");
 
-                    if (email.trim().equalsIgnoreCase("yupi@gmail.com")) {
-                        sharedPrefManager.sessionLogin(id, name, email, hp, pass);
-                        startActivity(new Intent(getApplicationContext(), BottomNavigationStudent.class));
-                        finish();
-                    } else {
-                        sharedPrefManager.sessionLogin(id, name, email, hp, pass);
+                    if (type.trim().equalsIgnoreCase("1")) {
+                        String id = j.getString("parent_id");
+                        String name = j.getString("parent_fullname");
+                        String email = j.getString("parent_email");
+                        String hp = j.getString("parent_hp_nr");
+                        String pass = j.getString("parent_pwd");
+                        Toast.makeText(Login.this, name, Toast.LENGTH_SHORT).show();
+
+//                        sharedPrefManager.sessionLogin(id, name, email, hp);
                         startActivity(new Intent(getApplicationContext(), BottomNavigationParent.class));
                         finish();
+                    } else {
+                        String idMurid = j.getString("id_murid");
+                        Toast.makeText(Login.this, idMurid, Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(), BottomNavigationStudent.class));
+                        finish();
                     }
+//                    String id = j.getString("parent_id");
+//                    String name = j.getString("parent_fullname");
+//                    String email = j.getString("parent_email");
+//                    String hp = j.getString("parent_hp_nr");
+//                    String pass = j.getString("parent_pwd");
+//                    String idMurid = j.getString("id_murid");
+
+//                    if (email.trim().equalsIgnoreCase("1706039035")) {
+////                        sharedPrefManager.sessionLogin(id, name, email, hp);
+//                        startActivity(new Intent(getApplicationContext(), BottomNavigationStudent.class));
+//                        finish();
+//                    } else {
+//                        sharedPrefManager.sessionLogin(id, name, email, hp);
+//                        Toast.makeText(Login.this, idMurid, Toast.LENGTH_SHORT).show();
+//                        startActivity(new Intent(getApplicationContext(), BottomNavigationParent.class));
+//                        finish();
+//                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

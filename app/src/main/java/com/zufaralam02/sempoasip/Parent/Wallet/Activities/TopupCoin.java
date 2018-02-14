@@ -3,9 +3,7 @@ package com.zufaralam02.sempoasip.Parent.Wallet.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,7 +12,6 @@ import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
 import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.Parent.Wallet.Adapters.AdapterCoin;
-import com.zufaralam02.sempoasip.Parent.Wallet.Adapters.AdapterHistory;
 import com.zufaralam02.sempoasip.Parent.Wallet.Models.ResultCoin;
 import com.zufaralam02.sempoasip.R;
 
@@ -62,7 +59,7 @@ public class TopupCoin extends BaseActivitySempoa {
         name = user.get(SharedPrefManager.SP_NAME);
         email = user.get(SharedPrefManager.SP_EMAIL);
         phone = user.get(SharedPrefManager.SP_PHONE);
-        pass = user.get(SharedPrefManager.SP_PASS);
+//        pass = user.get(SharedPrefManager.SP_PASS);
 
         ArrayList<ResultCoin> resultCoin = coinData();
         adapterCoin = new AdapterCoin(this, resultCoin, R.layout.list_coin);
