@@ -1,15 +1,12 @@
 package com.zufaralam02.sempoasip.Parent.Wallet.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.iapps.adapters.BaseRecyclerAdapter;
-import com.zufaralam02.sempoasip.Parent.Wallet.Activities.TopupCoin;
-import com.zufaralam02.sempoasip.Parent.Wallet.Models.ModelHistory;
-import com.zufaralam02.sempoasip.Parent.Wallet.Models.ModelWallet;
+import com.zufaralam02.sempoasip.Parent.Wallet.Models.ResultHistory;
 import com.zufaralam02.sempoasip.R;
 
 import java.util.List;
@@ -36,19 +33,12 @@ public class AdapterHistory extends BaseRecyclerAdapter {
 
     @Override
     public void setView(RecyclerView.ViewHolder objectHolder, int position) {
-
         AdapterHistory.Holder holder = (AdapterHistory.Holder) objectHolder;
-        ModelHistory modelHistory = (ModelHistory) getItem(position);
+        ResultHistory resultHistory = (ResultHistory) getItem(position);
 
-        holder.tvNameWalletHistory.setText(modelHistory.getHistoryName());
-        holder.tvTimeWalletHistory.setText(modelHistory.getHistoryTime());
-        holder.tvCoinWalletHistory.setText(modelHistory.getHistoryCoin());
-
-        if (modelHistory.isPending()) {
-            holder.tvPendingWalletHistory.setVisibility(View.VISIBLE);
-        } else {
-            holder.tvPendingWalletHistory.setVisibility(View.GONE);
-        }
+        holder.tvNameWalletHistory.setText(resultHistory.getTopupKodesiswa());
+        holder.tvTimeWalletHistory.setText(resultHistory.getTopupCreatedDate());
+        holder.tvCoinWalletHistory.setText(resultHistory.getTopupJumlah());
 
     }
 
@@ -63,15 +53,14 @@ public class AdapterHistory extends BaseRecyclerAdapter {
     }
 
     private class Holder extends RecyclerView.ViewHolder {
-        TextView tvNameWalletHistory, tvTimeWalletHistory, tvCoinWalletHistory, tvPendingWalletHistory;
+        TextView tvNameWalletHistory, tvTypeWalletHistory, tvTimeWalletHistory, tvCoinWalletHistory;
 
         public Holder(View v) {
             super(v);
-
             tvNameWalletHistory = v.findViewById(R.id.tvNameWalletHistory);
+            tvTypeWalletHistory = v.findViewById(R.id.tvTypeWalletHistory);
             tvTimeWalletHistory = v.findViewById(R.id.tvTimeWalletHistory);
             tvCoinWalletHistory = v.findViewById(R.id.tvCoinWalletHistory);
-            tvPendingWalletHistory = v.findViewById(R.id.tvPendingWalletHistory);
         }
     }
 }

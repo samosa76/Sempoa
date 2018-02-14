@@ -2,18 +2,14 @@ package com.zufaralam02.sempoasip.Parent.Wallet.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.iapps.adapters.BaseRecyclerAdapter;
-import com.squareup.picasso.Picasso;
-import com.zufaralam02.sempoasip.Parent.Notification.Adapters.AdapterNotification;
-import com.zufaralam02.sempoasip.Parent.Notification.Models.ModelNotification;
 import com.zufaralam02.sempoasip.Parent.Wallet.Activities.TopupCoin;
-import com.zufaralam02.sempoasip.Parent.Wallet.Models.ModelWallet;
+import com.zufaralam02.sempoasip.Parent.Wallet.Models.ListMurid;
 import com.zufaralam02.sempoasip.R;
 
 import java.util.List;
@@ -40,30 +36,20 @@ public class AdapterWallet extends BaseRecyclerAdapter {
 
     @Override
     public void setView(RecyclerView.ViewHolder objectHolder, int position) {
-
         AdapterWallet.Holder holder = (AdapterWallet.Holder) objectHolder;
-        ModelWallet modelWallet = (ModelWallet) getItem(position);
+        final ListMurid listMurid = (ListMurid) getItem(position);
 
-        holder.tvWalletName.setText(modelWallet.getWalletName());
-        holder.tvWalletCoin.setText(modelWallet.getWalletCoin());
+        holder.tvWalletName.setText(listMurid.getNamaSiswa());
+        holder.tvWalletCoin.setText(listMurid.getWallet());
+
         holder.btnWalletTopup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getContext().startActivity(new Intent(getContext(), TopupCoin.class));
+                Intent intent = new Intent(getContext(), TopupCoin.class);
+                intent.putExtra("namaSiswa", listMurid.getNamaSiswa());
+                getContext().startActivity(intent);
             }
         });
-
-        if (modelWallet.isPeding()) {
-            holder.btnWalletPending.setVisibility(View.VISIBLE);
-            holder.btnWalletPending.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    getContext().startActivity(new Intent(getContext(), TopupCoin.class));
-                }
-            });
-        } else {
-            holder.btnWalletPending.setVisibility(View.GONE);
-        }
 
     }
 
@@ -83,11 +69,11 @@ public class AdapterWallet extends BaseRecyclerAdapter {
 
         public Holder(View v) {
             super(v);
-
             tvWalletName = v.findViewById(R.id.tvWalletName);
             tvWalletCoin = v.findViewById(R.id.tvWalletCoin);
             btnWalletTopup = v.findViewById(R.id.btnWalletTopup);
             btnWalletPending = v.findViewById(R.id.btnWalletPending);
         }
     }
+
 }

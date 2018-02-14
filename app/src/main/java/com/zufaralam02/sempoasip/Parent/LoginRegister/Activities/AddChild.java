@@ -8,6 +8,8 @@ import android.widget.Button;
 
 import com.iapps.libs.helpers.BaseHelper;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
+import com.zufaralam02.sempoasip.Parent.BottomNavigation.BottomNavigationParent;
+import com.zufaralam02.sempoasip.Parent.Home.Fragments.FragmentHomeParent;
 import com.zufaralam02.sempoasip.Parent.LoginRegister.Adapters.AdapterAddChild;
 import com.zufaralam02.sempoasip.Parent.LoginRegister.Models.ModelAddChild;
 import com.zufaralam02.sempoasip.R;
@@ -17,7 +19,7 @@ import java.util.ArrayList;
 public class AddChild extends BaseActivitySempoa implements View.OnClickListener {
     RecyclerView recyclerAddChild;
     Button btnAddAddChild, btnSaveAddChild;
-//    Button btnDeleteChild;
+    //    Button btnDeleteChild;
     ArrayList<ModelAddChild> modelAddChild;
     AdapterAddChild adapterAddChild;
 
@@ -98,7 +100,7 @@ public class AddChild extends BaseActivitySempoa implements View.OnClickListener
 //                }
 
             case R.id.btnSaveAddChild:
-                startActivity(new Intent(getApplicationContext(), Login.class));
+                startActivity(new Intent(getApplicationContext(), BottomNavigationParent.class));
                 break;
         }
     }

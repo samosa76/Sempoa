@@ -8,14 +8,58 @@
     android:background="#fdb17e"
     tools:context="com.zufaralam02.sempoasip.Student.Home.Activities.DetailWithDraw">
 
-    <android.support.v4.widget.NestedScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:background="@drawable/ic_header">
 
+        <include layout="@layout/back_navigation"/>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true">
 
-    </android.support.v4.widget.NestedScrollView>
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_success" />
+
+            <TextView
+                android:id="@+id/textWithDraw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="@style/textMedium"
+                android:textColor="@color/White"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="WithDraw 250 Coin Success!"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/White"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                style="@style/textSmall"
+                android:text="We'll proccess your request within \n 60 minutes"
+                android:layout_marginTop="@dimen/margin_med"/>
+
+            <Button
+                android:id="@+id/btnFinishWithDraw"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/margin_med"
+                android:text="Okay"
+                android:layout_gravity="center"
+                android:textColor="@color/Orange"
+                android:background="@drawable/rectangle_white_button"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

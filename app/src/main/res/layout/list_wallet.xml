@@ -74,7 +74,8 @@
                 android:background="@color/transparent"
                 android:gravity="center_vertical"
                 android:text="Pending (1.000 Coin)"
-                android:textColor="#8ed1fc" />
+                android:textColor="#8ed1fc"
+                android:visibility="gone" />
 
         </LinearLayout>
 

@@ -3,14 +3,12 @@ package com.zufaralam02.sempoasip.Parent.Notification.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
 import com.zufaralam02.sempoasip.Parent.Notification.Fragments.FragmentNotificationParent;
-import com.zufaralam02.sempoasip.Parent.Utils.Helper;
 import com.zufaralam02.sempoasip.R;
 
 import org.json.JSONArray;
@@ -71,7 +69,6 @@ public class DetailNotification extends BaseActivitySempoa {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
             }
         };
         httpImb.setPostParams("parent_id", "1")

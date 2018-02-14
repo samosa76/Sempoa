@@ -1,6 +1,8 @@
 package com.zufaralam02.sempoasip.Parent.Profil.Activities;
 
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.iapps.libs.helpers.BaseHelper;
@@ -8,6 +10,7 @@ import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
 import com.zufaralam02.sempoasip.Parent.Profil.Adapters.AdapterContact;
 import com.zufaralam02.sempoasip.Parent.Profil.Models.ResultContact;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.R;
 
 import org.json.JSONArray;
@@ -15,6 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,7 +28,8 @@ public class Contact extends BaseActivitySempoa {
     @BindView(R.id.recyclerContact)
     RecyclerView recyclerContact;
 
-    String id, name, email, hp, pass;
+    SharedPrefManager sharedPrefManager;
+    String id, name, email, phone, pass;
     AdapterContact adapterContact;
 
     @Override
@@ -34,14 +39,18 @@ public class Contact extends BaseActivitySempoa {
         ButterKnife.bind(this);
 
         setupNav("Contact");
-        id = getIntent().getStringExtra("parent_id");
-        name = getIntent().getStringExtra("parent_fullname");
-        email = getIntent().getStringExtra("parent_email");
-        hp = getIntent().getStringExtra("parent_hp_nr");
-        pass = getIntent().getStringExtra("parent_pwd");
+
+        sharedPrefManager = new SharedPrefManager(getApplicationContext());
+        HashMap<String, String> user = sharedPrefManager.getUserDetail();
+        id = user.get(SharedPrefManager.SP_ID);
+        name = user.get(SharedPrefManager.SP_NAME);
+        email = user.get(SharedPrefManager.SP_EMAIL);
+        phone = user.get(SharedPrefManager.SP_PHONE);
+        pass = user.get(SharedPrefManager.SP_PASS);
 
         ArrayList<ResultContact> resultContact = contactData();
         adapterContact = new AdapterContact(this, resultContact, R.layout.list_contact);
+//        adapterContact.setNumGrid(2);
         BaseHelper.setupRecyclerView(recyclerContact, adapterContact);
 
     }
@@ -76,6 +85,7 @@ public class Contact extends BaseActivitySempoa {
         };
         httpImb.setPostParams("parent_id", id)
                 .setDisplayError(true)
+                .setDisplayProgress(false)
                 .execute();
 
         return resultContact;

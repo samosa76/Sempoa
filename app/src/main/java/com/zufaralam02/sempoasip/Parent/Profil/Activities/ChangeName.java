@@ -10,10 +10,13 @@ import android.widget.TextView;
 import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
 import com.zufaralam02.sempoasip.Parent.Utils.Helper;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,7 +33,8 @@ public class ChangeName extends BaseActivitySempoa {
     @BindView(R.id.btnSaveChangeName)
     Button btnSaveChangeName;
 
-    String id, name, email, hp, pass;
+    SharedPrefManager sharedPrefManager;
+    String id, name, email, phone, pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +44,14 @@ public class ChangeName extends BaseActivitySempoa {
 
         setupNav("Change Name");
 
-        id = getIntent().getStringExtra("parent_id");
-        name = getIntent().getStringExtra("parent_fullname");
-        email = getIntent().getStringExtra("parent_email");
-        hp = getIntent().getStringExtra("parent_hp_nr");
-        pass = getIntent().getStringExtra("parent_pwd");
+        sharedPrefManager = new SharedPrefManager(getApplicationContext());
+        HashMap<String, String> user = sharedPrefManager.getUserDetail();
+        id = user.get(SharedPrefManager.SP_ID);
+        name = user.get(SharedPrefManager.SP_NAME);
+        email = user.get(SharedPrefManager.SP_EMAIL);
+        phone = user.get(SharedPrefManager.SP_PHONE);
+        pass = user.get(SharedPrefManager.SP_PASS);
+
         tvNameChangeName.setText(name);
 
     }
@@ -66,24 +73,7 @@ public class ChangeName extends BaseActivitySempoa {
 
             @Override
             public void onSuccess(JSONObject j) {
-//                try {
-////                    j = j.getJSONObject("result");
-//                    String id = j.getString("parent_id");
-//                    String name = j.getString("parent_fullname");
-//                    String email = j.getString("parent_email");
-//                    String hp = j.getString("parent_hp_nr");
-//                    String pass = j.getString("parent_pwd");
-//
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-                Intent intent = new Intent(getApplicationContext(), AccountSetting.class);
-                intent.putExtra("parent_id", id);
-                intent.putExtra("parent_fullname", name);
-                intent.putExtra("parent_email", email);
-                intent.putExtra("parent_hp_nr", hp);
-                intent.putExtra("parent_pwd", pass);
-                startActivity(intent);
+                startActivity(new Intent(getApplicationContext(), AccountSetting.class));
                 finish();
             }
         };

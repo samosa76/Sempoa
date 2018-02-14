@@ -5,8 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.R;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,7 +38,8 @@ public class AccountSetting extends BaseActivitySempoa {
     @BindView(R.id.tvChangePassAccountSetting)
     TextView tvChangePassAccountSetting;
 
-    String id, name, email, hp, pass;
+    SharedPrefManager sharedPrefManager;
+    String id, name, email, phone, pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,80 +49,75 @@ public class AccountSetting extends BaseActivitySempoa {
 
         setupNav("Account Setting");
 
-//        id = getIntent().getStringExtra("parent_id");
-//        name = getIntent().getStringExtra("parent_fullname");
-//        email = getIntent().getStringExtra("parent_email");
-//        hp = getIntent().getStringExtra("parent_hp_nr");
-//        pass = getIntent().getStringExtra("parent_pwd");
-//
+        sharedPrefManager = new SharedPrefManager(getApplicationContext());
+        HashMap<String, String> user = sharedPrefManager.getUserDetail();
+        id = user.get(SharedPrefManager.SP_ID);
+        name = user.get(SharedPrefManager.SP_NAME);
+        email = user.get(SharedPrefManager.SP_EMAIL);
+        phone = user.get(SharedPrefManager.SP_PHONE);
+        pass = user.get(SharedPrefManager.SP_PASS);
+
 //        tvNameAccountSetting.setText(name);
 //        tvEmailAccountSetting.setText(email);
-//        tvPhoneAccountSetting.setText(hp);
+//        tvPhoneAccountSetting.setText(phone);
 //        tvPassAccountSetting.setText(pass);
 
+        updateData();
+
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        id = getIntent().getStringExtra("parent_id");
-        name = getIntent().getStringExtra("parent_fullname");
-        email = getIntent().getStringExtra("parent_email");
-        hp = getIntent().getStringExtra("parent_hp_nr");
-        pass = getIntent().getStringExtra("parent_pwd");
+    private void updateData() {
+        HTTPImb httpImb = new HTTPImb(this, true) {
+            @Override
+            public String url() {
+                return "http://sandbox-sempoa.indomegabyte.com/WSSempoaApp/dataLogin";
+            }
 
-        tvNameAccountSetting.setText(name);
-        tvEmailAccountSetting.setText(email);
-        tvPhoneAccountSetting.setText(hp);
-        tvPassAccountSetting.setText(pass);
+            @Override
+            public void onSuccess(JSONObject j) {
+                try {
+                    j = j.getJSONObject("result");
+                    String id = j.getString("parent_id");
+                    String name = j.getString("parent_fullname");
+                    String email = j.getString("parent_email");
+                    String phone = j.getString("parent_hp_nr");
+                    String pass = j.getString("parent_pwd");
+
+                    tvNameAccountSetting.setText(name);
+                    tvEmailAccountSetting.setText(email);
+                    tvPhoneAccountSetting.setText(phone);
+                    tvPassAccountSetting.setText(pass);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        httpImb.setPostParams("parent_id", id)
+                .setDisplayError(true)
+                .setDisplayProgress(false)
+                .execute();
     }
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//    }
 
     @OnClick({R.id.tvChangeNameAccountSetting, R.id.tvChangeEmailAccountSetting, R.id.tvChangePhoneAccountSetting, R.id.tvChangePassAccountSetting})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tvChangeNameAccountSetting:
                 startActivity(new Intent(getApplicationContext(), ChangeName.class));
-                Intent intent1 = new Intent(getApplicationContext(), ChangeName.class);
-                intent1.putExtra("parent_id", id);
-                intent1.putExtra("parent_fullname", name);
-                intent1.putExtra("parent_email", email);
-                intent1.putExtra("parent_hp_nr", hp);
-                intent1.putExtra("parent_pwd", pass);
-                startActivity(intent1);
-//                finish();
                 break;
             case R.id.tvChangeEmailAccountSetting:
                 startActivity(new Intent(getApplicationContext(), ChangeEmail.class));
-                Intent intent2 = new Intent(getApplicationContext(), ChangeEmail.class);
-                intent2.putExtra("parent_id", id);
-                intent2.putExtra("parent_fullname", name);
-                intent2.putExtra("parent_email", email);
-                intent2.putExtra("parent_hp_nr", hp);
-                intent2.putExtra("parent_pwd", pass);
-                startActivity(intent2);
-//                finish();
                 break;
             case R.id.tvChangePhoneAccountSetting:
                 startActivity(new Intent(getApplicationContext(), ChangePhoneNumber.class));
-                Intent intent3 = new Intent(getApplicationContext(), ChangePhoneNumber.class);
-                intent3.putExtra("parent_id", id);
-                intent3.putExtra("parent_fullname", name);
-                intent3.putExtra("parent_email", email);
-                intent3.putExtra("parent_hp_nr", hp);
-                intent3.putExtra("parent_pwd", pass);
-                startActivity(intent3);
-//                finish();
                 break;
             case R.id.tvChangePassAccountSetting:
                 startActivity(new Intent(getApplicationContext(), ChangePassword.class));
-                Intent intent4 = new Intent(getApplicationContext(), ChangePassword.class);
-                intent4.putExtra("parent_id", id);
-                intent4.putExtra("parent_fullname", name);
-                intent4.putExtra("parent_email", email);
-                intent4.putExtra("parent_hp_nr", hp);
-                intent4.putExtra("parent_pwd", pass);
-                startActivity(intent4);
-//                finish();
                 break;
         }
     }

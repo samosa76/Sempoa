@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fdb17e"
-    tools:context="com.zufaralam02.sempoasip.Student.Home.Activities.Notification">
+    tools:context="com.zufaralam02.sempoasip.Student.Notification.Activities.Notification">
 
 
 

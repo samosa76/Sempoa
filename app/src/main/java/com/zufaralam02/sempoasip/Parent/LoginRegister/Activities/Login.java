@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
@@ -45,13 +44,7 @@ public class Login extends BaseActivitySempoa {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-        sharedPrefManager = new SharedPrefManager(this);
-        if (sharedPrefManager.getSPIsLogin()) {
-            startActivity(new Intent(Login.this, BottomNavigationParent.class)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-            finish();
-        }
-
+        sharedPrefManager = new SharedPrefManager(getApplicationContext());
     }
 
     @OnClick({R.id.tvForgotPassword, R.id.btnLoginLogin, R.id.btnRegisterLogin})
@@ -88,27 +81,14 @@ public class Login extends BaseActivitySempoa {
                     String email = j.getString("parent_email");
                     String hp = j.getString("parent_hp_nr");
                     String pass = j.getString("parent_pwd");
-                    sharedPrefManager.saveSPString(SharedPrefManager.SP_NAME, name);
 
                     if (email.trim().equalsIgnoreCase("yupi@gmail.com")) {
-                        sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_IS_LOGIN, true);
-                        startActivity(new Intent(getApplicationContext(), BottomNavigationStudent.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                        finish();
+                        sharedPrefManager.sessionLogin(id, name, email, hp, pass);
                         startActivity(new Intent(getApplicationContext(), BottomNavigationStudent.class));
-                    } else {
-                        sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_IS_LOGIN, true);
-                        startActivity(new Intent(getApplicationContext(), BottomNavigationParent.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                         finish();
-                        Intent intent = new Intent(getApplicationContext(), BottomNavigationParent.class);
-                        Toast.makeText(Login.this, "Welcome", Toast.LENGTH_SHORT).show();
-                        intent.putExtra("parent_id", id);
-                        intent.putExtra("parent_fullname", name);
-                        intent.putExtra("parent_email", email);
-                        intent.putExtra("parent_hp_nr", hp);
-                        intent.putExtra("parent_pwd", pass);
-                        startActivity(intent);
+                    } else {
+                        sharedPrefManager.sessionLogin(id, name, email, hp, pass);
+                        startActivity(new Intent(getApplicationContext(), BottomNavigationParent.class));
                         finish();
                     }
                 } catch (JSONException e) {

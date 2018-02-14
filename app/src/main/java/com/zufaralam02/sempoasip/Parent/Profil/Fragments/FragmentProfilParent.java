@@ -16,6 +16,8 @@ import com.zufaralam02.sempoasip.Parent.Profil.Activities.Contact;
 import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.R;
 
+import java.util.HashMap;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -34,7 +36,6 @@ public class FragmentProfilParent extends Fragment {
     CardView cardLogout;
     Unbinder unbinder;
 
-    String id, name, email, hp, pass;
     SharedPrefManager sharedPrefManager;
 
     public FragmentProfilParent() {
@@ -49,18 +50,7 @@ public class FragmentProfilParent extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profil_parent, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        id = getActivity().getIntent().getStringExtra("parent_id");
-        name = getActivity().getIntent().getStringExtra("parent_fullname");
-        email = getActivity().getIntent().getStringExtra("parent_email");
-        hp = getActivity().getIntent().getStringExtra("parent_hp_nr");
-        pass = getActivity().getIntent().getStringExtra("parent_pwd");
-
         sharedPrefManager = new SharedPrefManager(getActivity());
-//        if (sharedPrefManager.getSPIsLogin()) {
-//            startActivity(new Intent(getActivity(), Login.class)
-//                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-//            getActivity().finish();
-//        }
 
         return view;
     }
@@ -75,29 +65,15 @@ public class FragmentProfilParent extends Fragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.cardAccountSetting:
-                Intent intent = new Intent(getActivity(), AccountSetting.class);
-                intent.putExtra("parent_id", id);
-                intent.putExtra("parent_fullname", name);
-                intent.putExtra("parent_email", email);
-                intent.putExtra("parent_hp_nr", hp);
-                intent.putExtra("parent_pwd", pass);
-                startActivity(intent);
+                startActivity(new Intent(getActivity(), AccountSetting.class));
                 break;
             case R.id.cardContact:
-                Intent intent1 = new Intent(getActivity(), Contact.class);
-                intent1.putExtra("parent_id", id);
-                intent1.putExtra("parent_fullname", name);
-                intent1.putExtra("parent_email", email);
-                intent1.putExtra("parent_hp_nr", hp);
-                intent1.putExtra("parent_pwd", pass);
-                startActivity(intent1);
+                startActivity(new Intent(getActivity(), Contact.class));
                 break;
             case R.id.cardLogout:
-                sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_IS_LOGIN, false);
-                startActivity(new Intent(getActivity(), Login.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                getActivity().finish();
+                sharedPrefManager.logout();
                 startActivity(new Intent(getActivity(), Login.class));
+                getActivity().finish();
                 break;
         }
     }

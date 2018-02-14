@@ -1,58 +1,95 @@
 package com.zufaralam02.sempoasip.Parent.Wallet.Activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 
 import com.iapps.libs.helpers.BaseHelper;
+import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
+import com.zufaralam02.sempoasip.Parent.Notification.Adapters.AdapterNotification;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.Parent.Wallet.Adapters.AdapterHistory;
-import com.zufaralam02.sempoasip.Parent.Wallet.Adapters.AdapterWallet;
-import com.zufaralam02.sempoasip.Parent.Wallet.Models.ModelHistory;
-import com.zufaralam02.sempoasip.Parent.Wallet.Models.ModelWallet;
+import com.zufaralam02.sempoasip.Parent.Wallet.Models.ResultHistory;
 import com.zufaralam02.sempoasip.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class WalletHistory extends BaseActivitySempoa {
+
+    @BindView(R.id.recyclerWalletHistory)
     RecyclerView recyclerWalletHistory;
+
+    SharedPrefManager sharedPrefManager;
+    String id, name, email, phone, pass;
+    AdapterHistory adapterHistory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallet_history);
+        ButterKnife.bind(this);
 
         setupNav("SIP Wallet History");
-        initialization();
-        setupRecyclerView();
-    }
 
-    private void initialization() {
-        recyclerWalletHistory = findViewById(R.id.recyclerWalletHistory);
-    }
+        sharedPrefManager = new SharedPrefManager(getApplicationContext());
+        HashMap<String, String> user = sharedPrefManager.getUserDetail();
+        id = user.get(SharedPrefManager.SP_ID);
+        name = user.get(SharedPrefManager.SP_NAME);
+        email = user.get(SharedPrefManager.SP_EMAIL);
+        phone = user.get(SharedPrefManager.SP_PHONE);
+        pass = user.get(SharedPrefManager.SP_PASS);
 
-    private void setupRecyclerView() {
-        ArrayList<ModelHistory> modelHistory = walletHistoryData();
-        AdapterHistory adapterHistory = new AdapterHistory(this, modelHistory, R.layout.list_history_wallet);
+        ArrayList<ResultHistory> resultHistory = historyWallet();
+        adapterHistory = new AdapterHistory(this, resultHistory, R.layout.list_history_wallet);
         BaseHelper.setupRecyclerView(recyclerWalletHistory, adapterHistory);
-    }
-
-    private ArrayList<ModelHistory> walletHistoryData() {
-
-        ArrayList<ModelHistory> modelHistory = new ArrayList<>();
-
-        modelHistory.add(new ModelHistory(R.string.wallet_history_name1, R.string.wallet_history_time1,
-                R.string.wallet_history_coin1, true));
-        modelHistory.add(new ModelHistory(R.string.wallet_history_name2, R.string.wallet_history_time2,
-                R.string.wallet_history_coin2, false));
-        modelHistory.add(new ModelHistory(R.string.wallet_history_name3, R.string.wallet_history_time3,
-                R.string.wallet_history_coin3, false));
-        modelHistory.add(new ModelHistory(R.string.wallet_history_name4, R.string.wallet_history_time4,
-                R.string.wallet_history_coin4, false));
-        modelHistory.add(new ModelHistory(R.string.wallet_history_name5, R.string.wallet_history_time5,
-                R.string.wallet_history_coin5, true));
-
-        return modelHistory;
 
     }
+
+    private ArrayList<ResultHistory> historyWallet() {
+        final ArrayList<ResultHistory> resultHistory = new ArrayList<>();
+        HTTPImb httpImb = new HTTPImb(this, true) {
+            @Override
+            public String url() {
+                return "http://sandbox-sempoa.indomegabyte.com/WSSempoaApp/topUpHistory";
+            }
+
+            @Override
+            public void onSuccess(JSONObject j) {
+                try {
+                    JSONArray jsonArray = j.getJSONArray("result");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        j = jsonArray.getJSONObject(i);
+                        String historyName = j.getString("topup_kodesiswa");
+                        String historyTime = j.getString("topup_created_date");
+                        String historyCoin = j.getString("topup_jumlah");
+
+                        ResultHistory resultHistory1 = new ResultHistory();
+                        resultHistory1.setTopupKodesiswa(historyName);
+                        resultHistory1.setTopupCreatedDate(historyTime);
+                        resultHistory1.setTopupJumlah(historyCoin);
+                        resultHistory.add(resultHistory1);
+                    }
+                    adapterHistory.notifyDataSetChanged();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        };
+        httpImb.setPostParams("parent_id", id)
+                .setDisplayProgress(true)
+                .setDisplayProgress(false)
+                .execute();
+
+        return resultHistory;
+    }
+
 }
