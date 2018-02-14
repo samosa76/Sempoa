@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<merger version="3"><dataSet config="main"><source path="A:\Project\Sempoa\common_androidmaster\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="A:\Project\Sempoa\common_androidmaster\src\debug\jniLibs"/></dataSet></merger>
+
 <merger version="3"><dataSet config="main"><source path="F:\IndoMegaByte\Sempoa\common_androidmaster\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="F:\IndoMegaByte\Sempoa\common_androidmaster\src\debug\jniLibs"/></dataSet></merger>
