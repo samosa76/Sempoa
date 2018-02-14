@@ -69,7 +69,6 @@ public class DetailNotification extends BaseActivitySempoa {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
             }
         };
         httpImb.setPostParams("parent_id", "1")

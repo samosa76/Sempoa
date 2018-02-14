@@ -2,16 +2,19 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Sempoa.iml" filepath="$PROJECT_DIR$/Sempoa.iml" />
       <module fileurl="file://F:\IndoMegaByte\SempoaSip\.idea\Sempoa.iml" filepath="F:\IndoMegaByte\SempoaSip\.idea\Sempoa.iml" />
       <module fileurl="file://A:\Project\Sempoa\Sempoa.iml" filepath="A:\Project\Sempoa\Sempoa.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SempoaSip.iml" filepath="$PROJECT_DIR$/SempoaSip.iml" />
+      <module fileurl="file://F:\IndoMegaByte\Sempoa\SempoaSip.iml" filepath="F:\IndoMegaByte\Sempoa\SempoaSip.iml" />
       <module fileurl="file://$PROJECT_DIR$/Teacher/Teacher.iml" filepath="$PROJECT_DIR$/Teacher/Teacher.iml" />
       <module fileurl="file://A:\Project\Sempoa\Teacher\Teacher.iml" filepath="A:\Project\Sempoa\Teacher\Teacher.iml" />
+      <module fileurl="file://F:\IndoMegaByte\Sempoa\Teacher\Teacher.iml" filepath="F:\IndoMegaByte\Sempoa\Teacher\Teacher.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://F:\IndoMegaByte\Sempoa\app\app.iml" filepath="F:\IndoMegaByte\Sempoa\app\app.iml" />
       <module fileurl="file://A:\Project\Sempoa\app\app.iml" filepath="A:\Project\Sempoa\app\app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/common_androidmaster/common_androidmaster.iml" filepath="$PROJECT_DIR$/common_androidmaster/common_androidmaster.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../SempoaSip/common_androidmaster/common_androidmaster.iml" filepath="$PROJECT_DIR$/../SempoaSip/common_androidmaster/common_androidmaster.iml" />
+      <module fileurl="file://F:\IndoMegaByte\Sempoa\common_androidmaster\common_androidmaster.iml" filepath="F:\IndoMegaByte\Sempoa\common_androidmaster\common_androidmaster.iml" />
       <module fileurl="file://A:\Project\Sempoa\common_androidmaster\common_androidmaster.iml" filepath="A:\Project\Sempoa\common_androidmaster\common_androidmaster.iml" />
-      <module fileurl="file://F:\IndoMegaByte\SempoaSip\common_androidmaster\common_androidmaster.iml" filepath="F:\IndoMegaByte\SempoaSip\common_androidmaster\common_androidmaster.iml" />
     </modules>
   </component>
 </project>
