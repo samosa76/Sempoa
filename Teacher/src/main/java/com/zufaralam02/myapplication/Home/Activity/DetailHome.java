@@ -1,5 +1,6 @@
 package com.zufaralam02.myapplication.Home.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -38,8 +39,9 @@ public class DetailHome extends BaseActivityTeacher {
     @BindView(R.id.llhomep)
     LinearLayout llhomep;
 
-    private ArrayList<MHeader>mHeaders;
+    private ArrayList<MHeader> mHeaders;
     private ExpandableAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +54,7 @@ public class DetailHome extends BaseActivityTeacher {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         rvDetailHome.setLayoutManager(layoutManager);
 
-        adapter = new ExpandableAdapter(this,mHeaders);
+        adapter = new ExpandableAdapter(this, mHeaders);
         rvDetailHome.setAdapter(adapter);
     }
 
@@ -76,5 +78,6 @@ public class DetailHome extends BaseActivityTeacher {
 
     @OnClick(R.id.btnAddStudent)
     public void onClick() {
+        startActivity(new Intent(getApplicationContext(), AddStudent.class));
     }
 }
