@@ -7,7 +7,6 @@ import android.widget.TextView;
 
 import com.zufaralam02.sempoasip.Parent.Home.Fragments.FragmentChildHome;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

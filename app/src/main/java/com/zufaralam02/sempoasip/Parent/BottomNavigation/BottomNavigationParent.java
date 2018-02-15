@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
-import com.zufaralam02.sempoasip.Parent.Home.Adapters.AdapterChildHome;
 import com.zufaralam02.sempoasip.Parent.Home.Fragments.FragmentHomeParent;
 import com.zufaralam02.sempoasip.Parent.Notification.Fragments.FragmentNotificationParent;
 import com.zufaralam02.sempoasip.Parent.Profil.Fragments.FragmentProfilParent;
@@ -47,7 +46,6 @@ public class BottomNavigationParent extends BaseActivitySempoa {
             Log.e("BNVHelper", "Unable to change value of shift mode", e);
         }
     }
-
 
 //    private TextView mTextMessage;
 

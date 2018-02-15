@@ -77,7 +77,7 @@ public class FragmentWalletParent extends Fragment {
         name = user.get(SharedPrefManager.SP_NAME);
         email = user.get(SharedPrefManager.SP_EMAIL);
         phone = user.get(SharedPrefManager.SP_PHONE);
-        pass = user.get(SharedPrefManager.SP_PASS);
+//        pass = user.get(SharedPrefManager.SP_PASS);
 
         ArrayList<ListMurid> listMurid = walletData();
         adapterWallet = new AdapterWallet(getActivity(), listMurid, R.layout.list_wallet);

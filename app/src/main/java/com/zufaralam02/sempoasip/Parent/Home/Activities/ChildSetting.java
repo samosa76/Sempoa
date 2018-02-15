@@ -53,7 +53,7 @@ public class ChildSetting extends BaseActivitySempoa {
         name = user.get(SharedPrefManager.SP_NAME);
         email = user.get(SharedPrefManager.SP_EMAIL);
         phone = user.get(SharedPrefManager.SP_PHONE);
-        pass = user.get(SharedPrefManager.SP_PASS);
+//        pass = user.get(SharedPrefManager.SP_PASS);
 
         ArrayList<ListMurid> listMurid = childSettingData();
         adapterChildSetting = new AdapterChildSetting(this, listMurid, R.layout.list_child_setting);

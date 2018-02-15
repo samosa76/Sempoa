@@ -1,15 +1,12 @@
 package com.zufaralam02.sempoasip.Parent.Wallet.Activities;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
-import com.zufaralam02.sempoasip.Parent.BottomNavigation.BottomNavigationParent;
 import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
-import com.zufaralam02.sempoasip.Parent.Wallet.Fragments.FragmentWalletParent;
 import com.zufaralam02.sempoasip.R;
 
 import java.util.HashMap;
@@ -52,7 +49,7 @@ public class TopupCoinDetail extends BaseActivitySempoa {
         name = user.get(SharedPrefManager.SP_NAME);
         email = user.get(SharedPrefManager.SP_EMAIL);
         phone = user.get(SharedPrefManager.SP_PHONE);
-        pass = user.get(SharedPrefManager.SP_PASS);
+//        pass = user.get(SharedPrefManager.SP_PASS);
 
         amount = getIntent().getStringExtra("amount");
         price = getIntent().getStringExtra("price");

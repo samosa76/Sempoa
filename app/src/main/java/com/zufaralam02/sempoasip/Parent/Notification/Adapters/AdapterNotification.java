@@ -48,6 +48,7 @@ public class AdapterNotification extends BaseRecyclerAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), DetailNotification.class);
+                intent.putExtra("notifId", resultNotification.getNotificationId());
                 intent.putExtra("notifTitle", resultNotification.getNotificationTitle());
                 intent.putExtra("notifContent", resultNotification.getNotificationContent());
                 intent.putExtra("notifTime", resultNotification.getNotificationCreated());
@@ -156,7 +157,6 @@ public class AdapterNotification extends BaseRecyclerAdapter {
 //        TextView tvTitleNotification, tvDetailNotification, tvTimeNotification;
 //        ImageView ivNotification;
 //        LinearLayout linearNotif;
-//
 //        public Holder(View v) {
 //            super(v);
 //

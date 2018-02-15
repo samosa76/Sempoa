@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.iapps.adapters.BaseRecyclerAdapter;
-import com.zufaralam02.sempoasip.Parent.Profil.Models.ModelContact;
 import com.zufaralam02.sempoasip.Parent.Profil.Models.ResultContact;
 import com.zufaralam02.sempoasip.R;
 

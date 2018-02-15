@@ -3,7 +3,6 @@ package com.zufaralam02.sempoasip.Parent.Home.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
@@ -14,18 +13,12 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.iapps.libs.helpers.HTTPImb;
-import com.zufaralam02.sempoasip.Parent.BottomNavigation.BottomNavigationParent;
 import com.zufaralam02.sempoasip.Parent.Home.Activities.ProgressChild;
 import com.zufaralam02.sempoasip.Parent.Home.Adapters.AdapterChildHome;
 import com.zufaralam02.sempoasip.Parent.LoginRegister.Activities.AddChild;
 import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.Parent.Wallet.Fragments.FragmentWalletParent;
 import com.zufaralam02.sempoasip.R;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -107,7 +100,7 @@ public class FragmentHomeParent extends Fragment {
         name = user.get(SharedPrefManager.SP_NAME);
         email = user.get(SharedPrefManager.SP_EMAIL);
         phone = user.get(SharedPrefManager.SP_PHONE);
-        pass = user.get(SharedPrefManager.SP_PASS);
+//        pass = user.get(SharedPrefManager.SP_PASS);
 
         if (adapterChildHome == null) {
             adapterChildHome = new AdapterChildHome(getActivity().getSupportFragmentManager());
@@ -122,50 +115,12 @@ public class FragmentHomeParent extends Fragment {
             viewPagerChildHome.setPadding(100, 0, 100, 0);
             viewPagerChildHome.setPageMargin(20);
             viewPagerChildHome.setSaveFromParentEnabled(false);
-
         }
-        adapterChildHome.notifyDataSetChanged();
         viewPagerChildHome.setAdapter(adapterChildHome);
-
-//        dataHome();
+        adapterChildHome.notifyDataSetChanged();
 
         return view;
     }
-
-//    private void dataHome() {
-//        HTTPImb httpImb = new HTTPImb(this, true) {
-//            @Override
-//            public String url() {
-//                return "http://sandbox-sempoa.indomegabyte.com/WSSempoaApp/loadHomeParent";
-//            }
-//
-//            @Override
-//            public void onSuccess(JSONObject j) {
-//                try {
-//                    j = j.getJSONObject("result");
-//                    JSONArray jsonArray = j.getJSONArray("list murid");
-//                    for (int i = 0; i < jsonArray.length(); i++) {
-//                        j = jsonArray.getJSONObject(i);
-//                        String namaSiswa = j.getString("nama_siswa");
-//
-//                        JSONArray jsonArray1 = j.getJSONArray("Wallet");
-//                        for (int a = 0; a < jsonArray1.length(); a++) {
-//                            j = jsonArray1.getJSONObject(i);
-//                            String wallet = String.valueOf(j.getJSONArray("Wallet"));
-//                        }
-//
-//                    }
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//        };
-//        httpImb.setPostParams("parent_id", id)
-//                .setDisplayError(true)
-//                .execute();
-//
-//    }
 
     @Override
     public void onDestroyView() {

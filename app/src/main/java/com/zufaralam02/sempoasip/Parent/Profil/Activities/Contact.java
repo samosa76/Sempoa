@@ -1,8 +1,6 @@
 package com.zufaralam02.sempoasip.Parent.Profil.Activities;
 
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.iapps.libs.helpers.BaseHelper;
@@ -46,7 +44,7 @@ public class Contact extends BaseActivitySempoa {
         name = user.get(SharedPrefManager.SP_NAME);
         email = user.get(SharedPrefManager.SP_EMAIL);
         phone = user.get(SharedPrefManager.SP_PHONE);
-        pass = user.get(SharedPrefManager.SP_PASS);
+//        pass = user.get(SharedPrefManager.SP_PASS);
 
         ArrayList<ResultContact> resultContact = contactData();
         adapterContact = new AdapterContact(this, resultContact, R.layout.list_contact);
