@@ -1,5 +1,6 @@
 package com.zufaralam02.sempoasip.Parent.Wallet.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -31,6 +32,7 @@ public class AdapterHistory extends BaseRecyclerAdapter {
         return null;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void setView(RecyclerView.ViewHolder objectHolder, int position) {
         AdapterHistory.Holder holder = (AdapterHistory.Holder) objectHolder;
@@ -38,7 +40,7 @@ public class AdapterHistory extends BaseRecyclerAdapter {
 
         holder.tvNameWalletHistory.setText(resultHistory.getTopupKodesiswa());
         holder.tvTimeWalletHistory.setText(resultHistory.getTopupCreatedDate());
-        holder.tvCoinWalletHistory.setText(resultHistory.getTopupJumlah());
+        holder.tvCoinWalletHistory.setText("+ " + resultHistory.getTopupJumlah() + " Coin");
 
     }
 
