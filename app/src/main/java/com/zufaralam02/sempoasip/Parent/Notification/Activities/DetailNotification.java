@@ -1,6 +1,5 @@
 package com.zufaralam02.sempoasip.Parent.Notification.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -8,7 +7,6 @@ import android.widget.TextView;
 
 import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
-import com.zufaralam02.sempoasip.Parent.Notification.Fragments.FragmentNotificationParent;
 import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.R;
 
@@ -96,6 +94,6 @@ public class DetailNotification extends BaseActivitySempoa {
 
     @OnClick(R.id.btnDetailNotif)
     public void onClick() {
-        startActivity(new Intent(getApplicationContext(), FragmentNotificationParent.class));
+        finish();
     }
 }
