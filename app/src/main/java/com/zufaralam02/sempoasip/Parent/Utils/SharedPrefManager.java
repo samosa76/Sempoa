@@ -29,7 +29,7 @@ public class SharedPrefManager {
     public static final String SP_NAME = "spName";
     public static final String SP_EMAIL = "spEmail";
     public static final String SP_PHONE = "spPhone";
-    //    public static final String SP_PASS = "spPass";
+    public static final String SP_PASS = "spPass";
     public static final String SP_KODE_SISWA = "spKodeSiswa";
 
     @SuppressLint("CommitPrefEdits")
@@ -39,15 +39,14 @@ public class SharedPrefManager {
         editor = sharedPreferences.edit();
     }
 
-    //    public void sessionLogin(String id, String name, String email, String phone, String type) {
-    public void sessionLogin(String id, String name, String type) {
+    public void sessionLogin(String id, String name, String email, String phone, String pass, String type) {
         editor.putBoolean(SP_IS_LOGIN, true);
         editor.putString(SP_ID, id);
         editor.putString(SP_NAME, name);
-//        editor.putString(SP_EMAIL, email);
-//        editor.putString(SP_PHONE, phone);
+        editor.putString(SP_EMAIL, email);
+        editor.putString(SP_PHONE, phone);
+        editor.putString(SP_PASS, pass);
         editor.putString(SP_TYPE, type);
-//        editor.putString(SP_PASS, pass);
         editor.commit();
     }
 
@@ -126,7 +125,8 @@ public class SharedPrefManager {
         user.put(SP_EMAIL, sharedPreferences.getString(SP_EMAIL, null));
         user.put(SP_PHONE, sharedPreferences.getString(SP_PHONE, null));
         user.put(SP_TYPE, sharedPreferences.getString(SP_TYPE, null));
-//        user.put(SP_PASS, sharedPreferences.getString(SP_PASS, null));
+        user.put(SP_PASS, sharedPreferences.getString(SP_PASS, null));
+        user.put(SP_KODE_SISWA, sharedPreferences.getString(SP_KODE_SISWA, null));
         return user;
     }
 

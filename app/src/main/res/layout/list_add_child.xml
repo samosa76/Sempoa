@@ -106,7 +106,8 @@
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:background="@color/transparent"
                 android:text="DELETE CHILD"
-                android:textColor="#fdb17e" />
+                android:textColor="#fdb17e"
+                android:visibility="gone" />
 
         </LinearLayout>
 
