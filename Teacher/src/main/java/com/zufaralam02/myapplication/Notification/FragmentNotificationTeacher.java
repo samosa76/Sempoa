@@ -69,48 +69,48 @@ public class FragmentNotificationTeacher extends Fragment {
     }
 
     private ArrayList<ResultNotifTeacher> notifData() {
-        final ArrayList<ResultNotifTeacher>resultNotifTeachers = new ArrayList<>();
-        HTTPImb httpImb = new HTTPImb(this,true) {
-            @Override
-            public String url() {
-                return "http://sandbox-sempoa.indomegabyte.com/WSTeacher/getNotificationByID";
-            }
-
-            @Override
-            public void onSuccess(JSONObject j) {
-                try {
-                    JSONArray jsonArray = j.getJSONArray("result");
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        j = jsonArray.getJSONObject(i);
-                        String notifId = j.getString("notification_id");
-                        String notifTitle = j.getString("notification_title");
-                        String notifTime = j.getString("notification_created");
-                        String notifContent = j.getString("notification_content");
-
-                        if (jsonArray.length() == jsonArray.length()) {
-                            recyclerNotification.setVisibility(View.GONE);
-                        }
-
-                        ResultNotifTeacher resultNotification1 = new ResultNotifTeacher();
-                        resultNotification1.setNotificationId(notifId);
-                        resultNotification1.setNotificationTitle(notifTitle);
-                        resultNotification1.setNotificationCreated(notifTime);
-                        resultNotification1.setNotificationContent(notifContent);
-                        resultNotifTeachers.add(resultNotification1);
-
-                    }
-                    adapter.notifyDataSetChanged();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        httpImb.setPostParams("kode_guru", "140607602")
-                .setDisplayError(true)
-                .setDisplayProgress(false)
-                .execute();
-
-        return resultNotifTeachers;
+//        final ArrayList<ResultNotifTeacher>resultNotifTeachers = new ArrayList<>();
+//        HTTPImb httpImb = new HTTPImb(this,true) {
+//            @Override
+//            public String url() {
+//                return "http://sandbox-sempoa.indomegabyte.com/WSTeacher/getNotificationByID";
+//            }
+//
+//            @Override
+//            public void onSuccess(JSONObject j) {
+//                try {
+//                    JSONArray jsonArray = j.getJSONArray("result");
+//                    for (int i = 0; i < jsonArray.length(); i++) {
+//                        j = jsonArray.getJSONObject(i);
+//                        String notifId = j.getString("notification_id");
+//                        String notifTitle = j.getString("notification_title");
+//                        String notifTime = j.getString("notification_created");
+//                        String notifContent = j.getString("notification_content");
+//
+//                        if (jsonArray.length() == jsonArray.length()) {
+//                            recyclerNotification.setVisibility(View.GONE);
+//                        }
+//
+//                        ResultNotifTeacher resultNotification1 = new ResultNotifTeacher();
+//                        resultNotification1.setNotificationId(notifId);
+//                        resultNotification1.setNotificationTitle(notifTitle);
+//                        resultNotification1.setNotificationCreated(notifTime);
+//                        resultNotification1.setNotificationContent(notifContent);
+//                        resultNotifTeachers.add(resultNotification1);
+//
+//                    }
+//                    adapter.notifyDataSetChanged();
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        };
+//        httpImb.setPostParams("kode_guru", "140607602")
+//                .setDisplayError(true)
+//                .setDisplayProgress(false)
+//                .execute();
+//
+        return null;
     }
 
     @Override
