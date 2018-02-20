@@ -1,6 +1,5 @@
 package com.zufaralam02.sempoasip.Student.Home.Fragments;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,11 +8,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.iapps.libs.helpers.HTTPImb;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.R;
 import com.zufaralam02.sempoasip.Student.Home.Activities.Attandance;
-import com.zufaralam02.sempoasip.Student.Notification.Activities.Notification;
 import com.zufaralam02.sempoasip.Student.Home.Activities.Wallet;
+import com.zufaralam02.sempoasip.Student.Notification.Activities.Notification;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,7 +41,19 @@ public class FragmentHome extends Fragment {
     CardView cardAttendance;
     @BindView(R.id.cardStudentWallet)
     CardView cardStudentWallet;
+
+    String kodeSiswa,namaSiswa,alamatSiswa;
+    SharedPrefManager sharedPrefManager;
+
     Unbinder unbinder;
+    @BindView(R.id.tvNamaSiswa)
+    TextView tvNamaSiswa;
+    @BindView(R.id.tvkodeSiswa)
+    TextView tvkodeSiswa;
+    @BindView(R.id.tvalamat)
+    TextView tvalamat;
+    @BindView(R.id.tvChildWallet)
+    TextView tvChildWallet;
 
     public FragmentHome() {
         // Required empty public constructor
@@ -44,11 +64,56 @@ public class FragmentHome extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home, container, false);
-
         unbinder = ButterKnife.bind(this, v);
-        return v;
 
+        sharedPrefManager = new SharedPrefManager(getActivity());
+        HashMap<String, String> key = sharedPrefManager.getUserDetail();
+
+        kodeSiswa = key.get(sharedPrefManager.SP_KODE_SISWA);
+        namaSiswa = key.get(sharedPrefManager.SP_NAME);
+
+        loadData();
+
+        return v;
     }
+
+
+    private void loadData() {
+        HTTPImb httpImb = new HTTPImb(this, true) {
+            @Override
+            public String url() {
+                return "http://sandbox-sempoa.indomegabyte.com/WSChild/homeChild";
+            }
+
+            @Override
+            public void onSuccess(JSONObject j) {
+                try {
+                    JSONArray jsonArray = j.getJSONArray("result");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        j = jsonArray.getJSONObject(i);
+
+                        String kodeSiswa = j.getString("kode_siswa");
+                        String namaSiswa = j.getString("nama_siswa");
+                        String alamat = j.getString("alamat");
+
+                        tvNamaSiswa.setText(namaSiswa);
+                        tvChildWallet.setText(namaSiswa+ "'s Wallet");
+                        tvalamat.setText(alamat);
+                        tvkodeSiswa.setText(kodeSiswa);
+
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        httpImb.setPostParams("kode_siswa", kodeSiswa)
+                .setDisplayError(true)
+                .setDisplayProgress(false)
+                .execute();
+    }
+
 
     @Override
     public void onDestroyView() {

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.zufaralam02.sempoasip.Parent.LoginRegister.Activities.Login;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.R;
 import com.zufaralam02.sempoasip.Student.Notification.Activities.Notification;
 import com.zufaralam02.sempoasip.Student.Profil.Activities.ContactStudent;
@@ -34,6 +35,8 @@ public class FragmentProfil extends Fragment {
     CardView cvLogoutStudent;
     Unbinder unbinder;
 
+    SharedPrefManager sharedPrefManager;
+
     public FragmentProfil() {
         // Required empty public constructor
     }
@@ -45,6 +48,9 @@ public class FragmentProfil extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profil, container, false);
         unbinder = ButterKnife.bind(this, view);
+
+        sharedPrefManager = new SharedPrefManager(getActivity());
+
         return view;
     }
 
@@ -64,7 +70,7 @@ public class FragmentProfil extends Fragment {
                 startActivity(new Intent(getActivity(), ContactStudent.class));
                 break;
             case R.id.cvLogoutStudent:
-                startActivity(new Intent(getActivity(), Login.class));
+                sharedPrefManager.logout();
                 break;
         }
     }
