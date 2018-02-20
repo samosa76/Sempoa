@@ -1,26 +1,25 @@
-
-package com.zufaralam02.sempoasip.Student.Notification.Model;
+package com.zufaralam02.sempoasip.Student.Home.Model;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
 @SuppressWarnings("unused")
-public class ModelNotificationStudent {
+public class ModelRequestCoin {
 
     @SerializedName("result")
-    private List<ResultNotificationStudent> mResultNotificationStudent;
+    private List<ResultRequestCoin> mResultRequestCoin;
     @SerializedName("status_code")
     private Long mStatusCode;
     @SerializedName("status_message")
     private String mStatusMessage;
 
-    public List<ResultNotificationStudent> getResult() {
-        return mResultNotificationStudent;
+    public List<ResultRequestCoin> getResult() {
+        return mResultRequestCoin;
     }
 
-    public void setResult(List<ResultNotificationStudent> resultNotificationStudent) {
-        mResultNotificationStudent = resultNotificationStudent;
+    public void setResult(List<ResultRequestCoin> resultRequestCoin) {
+        mResultRequestCoin = resultRequestCoin;
     }
 
     public Long getStatusCode() {

@@ -2,14 +2,24 @@ package com.zufaralam02.sempoasip.Student.Notification.Activities;
 
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.iapps.libs.helpers.BaseHelper;
+import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.R;
 import com.zufaralam02.sempoasip.Student.Notification.Adapters.AdapterNotificationStudent;
-import com.zufaralam02.sempoasip.Student.Notification.Model.ModelNotificationStudent;
+import com.zufaralam02.sempoasip.Student.Notification.Model.ResultNotificationStudent;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import javax.xml.transform.Result;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,37 +30,69 @@ public class Notification extends BaseActivitySempoa {
     RecyclerView rvNotificationStudent;
     private AdapterNotificationStudent adapterNotificationStudent;
 
+    SharedPrefManager sharedPrefManager;
+
+    String kodeSiswa;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
 
+        sharedPrefManager = new SharedPrefManager(getApplicationContext());
+        HashMap<String, String> key = sharedPrefManager.getUserDetail();
+
+        kodeSiswa = key.get(sharedPrefManager.SP_KODE_SISWA);
+
         setupNav("Notification");
         ButterKnife.bind(this);
 
-        ArrayList<ModelNotificationStudent> modelNotificationStudents = notificationDataStudent();
-        AdapterNotificationStudent adapterNotificationStudent = new AdapterNotificationStudent(getApplicationContext(), modelNotificationStudents, R.layout.list_notification_student);
+        ArrayList<ResultNotificationStudent> modelNotificationStudents = notificationDataStudent();
+        adapterNotificationStudent = new AdapterNotificationStudent(getApplicationContext(), modelNotificationStudents, R.layout.list_notification_student);
         BaseHelper.setupRecyclerView(rvNotificationStudent, adapterNotificationStudent);
-        adapterNotificationStudent.setModelNotificationStudents(modelNotificationStudents);
 
     }
 
-    private ArrayList<ModelNotificationStudent> notificationDataStudent() {
+    private ArrayList<ResultNotificationStudent> notificationDataStudent() {
+        final ArrayList<ResultNotificationStudent> modelNotificationStudent = new ArrayList<>();
+        HTTPImb httpImb = new HTTPImb(this, true) {
+            @Override
+            public String url() {
+                return "http://sandbox-sempoa.indomegabyte.com/WSChild/getNotificationByID";
+            }
 
-        ArrayList<ModelNotificationStudent> modelNotificationStudent = new ArrayList<>();
+            @Override
+            public void onSuccess(JSONObject j) {
+                try {
+                    JSONArray jsonArray = j.getJSONArray("result");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        j = jsonArray.getJSONObject(i);
 
-        modelNotificationStudent.add(new ModelNotificationStudent(R.string.title_notif1, R.string.detail_notif1, R.string.time_notif1,
-                R.drawable.ic_notif, true));
-        modelNotificationStudent.add(new ModelNotificationStudent(R.string.title_notif2, R.string.detail_notif2, R.string.time_notif2,
-                R.drawable.ic_comment, true));
-        modelNotificationStudent.add(new ModelNotificationStudent(R.string.title_notif3, R.string.detail_notif3, R.string.time_notif3,
-                R.drawable.ic_wallet, false));
-        modelNotificationStudent.add(new ModelNotificationStudent(R.string.title_notif4, R.string.detail_notif4, R.string.time_notif4,
-                R.drawable.ic_announcement, false));
-        modelNotificationStudent.add(new ModelNotificationStudent(R.string.title_notif5, R.string.detail_notif5, R.string.time_notif5,
-                R.drawable.ic_call, false));
+                        String notifId = j.getString("notification_id");
+                        String notifTitle = j.getString("notification_title");
+                        String notifContent = j.getString("notification_content");
+                        String notiTime = j.getString("notification_created");
+
+                        ResultNotificationStudent resultNotificationStudent = new ResultNotificationStudent();
+
+                        resultNotificationStudent.setNotificationId(notifId);
+                        resultNotificationStudent.setNotificationTitle(notifTitle);
+                        resultNotificationStudent.setNotificationContent(notifContent);
+                        resultNotificationStudent.setNotificationCreated(notiTime);
+                        modelNotificationStudent.add(resultNotificationStudent);
+                    }
+                    adapterNotificationStudent.notifyDataSetChanged();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        httpImb.setPostParams("kode_siswa" , kodeSiswa)
+                .setDisplayError(true)
+                .setDisplayProgress(false)
+                .execute();
 
         return modelNotificationStudent;
-
     }
 }
