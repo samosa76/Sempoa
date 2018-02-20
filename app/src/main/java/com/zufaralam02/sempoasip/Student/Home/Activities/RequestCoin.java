@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
+import com.zufaralam02.sempoasip.Parent.Utils.Helper;
 import com.zufaralam02.sempoasip.Parent.Wallet.Models.ResultCoin;
 import com.zufaralam02.sempoasip.R;
 import com.zufaralam02.sempoasip.Student.Home.Adapters.AdapterRequestCoin;
@@ -98,6 +99,10 @@ public class RequestCoin extends BaseActivitySempoa {
 
     @OnClick(R.id.btnRequestCoin)
     public void onClick() {
+
+        Intent i = new Intent(getApplicationContext(),DetailRequestCoin.class);
+        i.putExtra("coin",edtRequestCoin.getText().toString());
+        startActivity(i);
 
     }
 }

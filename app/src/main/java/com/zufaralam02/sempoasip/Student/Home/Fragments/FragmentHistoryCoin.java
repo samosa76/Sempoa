@@ -83,6 +83,9 @@ public class FragmentHistoryCoin extends Fragment {
                     for(int i = 0; i <jsonArray.length(); i++ ){
                         j = jsonArray.getJSONObject(i);
 
+//                        meggunakan dua json array
+//                        JSONArray jsonArray1 = j.getJSONArray("")
+
                         String topupId = j.getString("topup_id");
                         String topupCreatedDate = j.getString("topup_created_date");
                         String topupChangStatus = j.getString("topup_changed_status_by");
