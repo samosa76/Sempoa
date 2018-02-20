@@ -35,7 +35,7 @@ public class DetailNotification extends BaseActivitySempoa {
 
     SharedPrefManager sharedPrefManager;
     String id, name, email, phone, pass;
-    String idNotif;
+    String idNotif, titleNotif, timeNotif, contentNotif;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,44 +53,51 @@ public class DetailNotification extends BaseActivitySempoa {
 //        pass = user.get(SharedPrefManager.SP_PASS);
 
         idNotif = getIntent().getStringExtra("notifId");
+        titleNotif = getIntent().getStringExtra("notifTitle");
+        timeNotif = getIntent().getStringExtra("notifTime");
+        contentNotif = getIntent().getStringExtra("notifContent");
 
-        detailNotif();
+        tvTitleDetailNotif.setText(titleNotif);
+        tvTimeDetailNotif.setText(timeNotif);
+        tvDetailDetailNotif.setText(contentNotif);
 
-    }
-
-    private void detailNotif() {
-        HTTPImb httpImb = new HTTPImb(this, true) {
-            @Override
-            public String url() {
-                return "http://sandbox-sempoa.indomegabyte.com/WSSempoaApp/readNotificationByID";
-            }
-
-            @Override
-            public void onSuccess(JSONObject j) {
-                try {
-                    JSONArray jsonArray = j.getJSONArray("result");
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        j = jsonArray.getJSONObject(i);
-                        String notifId = j.getString("notification_id");
-                        String notifTitle = j.getString("notification_title");
-                        String notifContent = j.getString("notification_content");
-                        String notifTime = j.getString("notification_created");
-                        tvTitleDetailNotif.setText(notifTitle);
-                        tvDetailDetailNotif.setText(notifContent);
-                        tvTimeDetailNotif.setText(notifTime);
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        httpImb.setPostParams("parent_id", id)
-                .setPostParams("notif_id", idNotif)
-                .setDisplayError(true)
-                .setDisplayProgress(false)
-                .execute();
+//        detailNotif();
 
     }
+
+//    private void detailNotif() {
+//        HTTPImb httpImb = new HTTPImb(this, true) {
+//            @Override
+//            public String url() {
+//                return "http://sandbox-sempoa.indomegabyte.com/WSSempoaApp/readNotificationByID";
+//            }
+//
+//            @Override
+//            public void onSuccess(JSONObject j) {
+//                try {
+//                    JSONArray jsonArray = j.getJSONArray("result");
+//                    for (int i = 0; i < jsonArray.length(); i++) {
+//                        j = jsonArray.getJSONObject(i);
+//                        String notifId = j.getString("notification_id");
+//                        String notifTitle = j.getString("notification_title");
+//                        String notifContent = j.getString("notification_content");
+//                        String notifTime = j.getString("notification_created");
+//                        tvTitleDetailNotif.setText(notifTitle);
+//                        tvDetailDetailNotif.setText(notifContent);
+//                        tvTimeDetailNotif.setText(notifTime);
+//                    }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        };
+//        httpImb.setPostParams("parent_id", id)
+//                .setPostParams("notif_id", idNotif)
+//                .setDisplayError(true)
+//                .setDisplayProgress(false)
+//                .execute();
+//
+//    }
 
     @OnClick(R.id.btnDetailNotif)
     public void onClick() {
