@@ -103,10 +103,12 @@ public class FragmentWalletParent extends Fragment {
                         j = jsonArray.getJSONObject(i);
                         String namaSiswa = j.getString("nama_siswa");
                         String wallet = j.getString("wallet");
+                        String kodeSiswa = j.getString("kode_siswa");
 
                         ListMurid listMurid1 = new ListMurid();
                         listMurid1.setNamaSiswa(namaSiswa);
                         listMurid1.setWallet(wallet);
+                        listMurid1.setKodeSiswa(kodeSiswa);
                         listMurid.add(listMurid1);
                     }
                     adapterWallet.notifyDataSetChanged();
