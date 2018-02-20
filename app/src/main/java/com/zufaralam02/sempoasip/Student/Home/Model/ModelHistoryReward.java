@@ -1,53 +1,42 @@
+
 package com.zufaralam02.sempoasip.Student.Home.Model;
 
-/**
- * Created by Asus on 2/12/2018.
- */
+import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
+@SuppressWarnings("unused")
 public class ModelHistoryReward {
 
-    private int historyNameReward;
-    private int historyTimeReward;
-    private int historyCoinReward;
-    private boolean isPending;
+    @SerializedName("result")
+    private List<ResultHistoryReward> mResultHistoryReward;
+    @SerializedName("status_code")
+    private Long mStatusCode;
+    @SerializedName("status_message")
+    private String mStatusMessage;
 
-    public int getHistoryNameReward() {
-        return historyNameReward;
+    public List<ResultHistoryReward> getResult() {
+        return mResultHistoryReward;
     }
 
-    public void setHistoryNameReward(int historyNameReward) {
-        this.historyNameReward = historyNameReward;
+    public void setResult(List<ResultHistoryReward> resultHistoryReward) {
+        mResultHistoryReward = resultHistoryReward;
     }
 
-    public int getHistoryTimeReward() {
-        return historyTimeReward;
+    public Long getStatusCode() {
+        return mStatusCode;
     }
 
-    public void setHistoryTimeReward(int historyTimeReward) {
-        this.historyTimeReward = historyTimeReward;
+    public void setStatusCode(Long statusCode) {
+        mStatusCode = statusCode;
     }
 
-    public int getHistoryCoinReward() {
-        return historyCoinReward;
+    public String getStatusMessage() {
+        return mStatusMessage;
     }
 
-    public void setHistoryCoinReward(int historyCoinReward) {
-        this.historyCoinReward = historyCoinReward;
-    }
-
-    public boolean isPending() {
-        return isPending;
-    }
-
-    public void setPending(boolean pending) {
-        isPending = pending;
-    }
-
-    public ModelHistoryReward(int historyName, int historyTime, int historyCoin, boolean isPending) {
-        setHistoryNameReward(historyName);
-        setHistoryTimeReward(historyTime);
-        setHistoryCoinReward(historyCoin);
-        setPending(isPending);
+    public void setStatusMessage(String statusMessage) {
+        mStatusMessage = statusMessage;
     }
 
 }

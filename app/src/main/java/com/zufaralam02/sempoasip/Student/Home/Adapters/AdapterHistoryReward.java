@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.iapps.adapters.BaseRecyclerAdapter;
 import com.zufaralam02.sempoasip.R;
-import com.zufaralam02.sempoasip.Student.Home.Model.ModelHistoryReward;
+import com.zufaralam02.sempoasip.Student.Home.Model.ResultHistoryReward;
 
 import java.util.List;
 
@@ -34,11 +34,11 @@ public class AdapterHistoryReward extends BaseRecyclerAdapter {
     public void setView(RecyclerView.ViewHolder objectHolder, int position) {
 
         AdapterHistoryReward.Holder holder = (AdapterHistoryReward.Holder) objectHolder;
-        ModelHistoryReward modelHistory = (ModelHistoryReward) getItem(position);
+        ResultHistoryReward modelHistory = (ResultHistoryReward) getItem(position);
 
-        holder.tvNameWalletHistoryStudent.setText(modelHistory.getHistoryNameReward());
-        holder.tvTimeWalletHistoryStudent.setText(modelHistory.getHistoryTimeReward());
-        holder.tvCoinWalletHistoryStudent.setText(modelHistory.getHistoryCoinReward());
+//        holder.tvNameWalletHistoryStudent.setText(modelHistory.get());
+        holder.tvTimeWalletHistoryStudent.setText(modelHistory.getWithdrawCreatedDate());
+        holder.tvCoinWalletHistoryStudent.setText(modelHistory.getWithdrawJumlah());
 
         if (modelHistory.isPending()) {
             holder.tvPendingWalletHistoryStudent.setVisibility(View.VISIBLE);
