@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
 import com.zufaralam02.sempoasip.Parent.Utils.Helper;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.Parent.Wallet.Models.ResultCoin;
 import com.zufaralam02.sempoasip.R;
 import com.zufaralam02.sempoasip.Student.Home.Adapters.AdapterRequestCoin;
@@ -22,6 +23,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,7 +37,10 @@ public class RequestCoin extends BaseActivitySempoa {
     EditText edtRequestCoin;
     @BindView(R.id.rvCoinStudent)
     RecyclerView rvCoinStudent;
-    String data;
+
+    SharedPrefManager sharedPrefManager;
+
+    String kodeSiswa;
 
     AdapterRequestCoin adapterRequestCoin;
 
@@ -44,6 +49,11 @@ public class RequestCoin extends BaseActivitySempoa {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_coin);
         ButterKnife.bind(this);
+
+        sharedPrefManager = new SharedPrefManager(getApplicationContext());
+        HashMap<String,String>key = sharedPrefManager.getUserDetail();
+
+        kodeSiswa = key.get(sharedPrefManager.SP_KODE_SISWA);
 
         setupNav("RequestCoin");
 
@@ -100,9 +110,29 @@ public class RequestCoin extends BaseActivitySempoa {
     @OnClick(R.id.btnRequestCoin)
     public void onClick() {
 
-        Intent i = new Intent(getApplicationContext(),DetailRequestCoin.class);
-        i.putExtra("coin",edtRequestCoin.getText().toString());
-        startActivity(i);
+        if (!Helper.validateEditTexts(new EditText[]{edtRequestCoin})){
+            return;
+        }
+
+        HTTPImb httpImb = new HTTPImb(this, true) {
+            @Override
+            public String url() {
+                return "http://sandbox-sempoa.indomegabyte.com/WSChild/requestCoinMuridtoParent";
+            }
+
+            @Override
+            public void onSuccess(JSONObject j) {
+
+                Intent i = new Intent(getApplicationContext(),DetailRequestCoin.class);
+                i.putExtra("coin",edtRequestCoin.getText().toString());
+                startActivity(i);
+
+            }
+        };
+        httpImb.setPostParams("kode_siswa",kodeSiswa)
+                .setPostParams("jumlah_coin",edtRequestCoin)
+                .setDisplayError(true)
+                .execute();
 
     }
 }

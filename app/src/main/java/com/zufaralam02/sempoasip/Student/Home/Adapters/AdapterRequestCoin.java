@@ -46,7 +46,7 @@ public class AdapterRequestCoin extends BaseRecyclerAdapter {
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                edtCoin.setText(holder.tvRequestCoinStudent.getText().toString() + " Coin");
+                edtCoin.setText(holder.tvRequestCoinStudent.getText().toString());
             }
         });
 
