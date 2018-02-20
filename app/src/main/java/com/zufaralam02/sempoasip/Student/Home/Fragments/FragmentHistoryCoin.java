@@ -9,11 +9,19 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.iapps.libs.helpers.BaseHelper;
+import com.iapps.libs.helpers.HTTPImb;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.R;
 import com.zufaralam02.sempoasip.Student.Home.Adapters.AdapterHistoryCoin;
 import com.zufaralam02.sempoasip.Student.Home.Model.ModelHistoryCoin;
+import com.zufaralam02.sempoasip.Student.Home.Model.ResultHistoryCoin;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,10 +37,10 @@ public class FragmentHistoryCoin extends Fragment {
     RecyclerView recyclerWalletHistoryStudent;
     Unbinder unbinder;
 
-    public FragmentHistoryCoin() {
-        // Required empty public constructor
-    }
+    String kodeSiswa;
 
+    SharedPrefManager sharedPrefManager;
+    AdapterHistoryCoin adapterHistoryCoin;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,6 +49,11 @@ public class FragmentHistoryCoin extends Fragment {
         View view = inflater.inflate(R.layout.fragment_fragment_history_coin, container, false);
         unbinder = ButterKnife.bind(this, view);
 
+        sharedPrefManager = new SharedPrefManager(getActivity());
+        HashMap<String,String> key = sharedPrefManager.getUserDetail();
+
+        kodeSiswa = key.get(sharedPrefManager.SP_KODE_SISWA);
+
         setUpRecylerView();
 
         return view;
@@ -48,26 +61,53 @@ public class FragmentHistoryCoin extends Fragment {
 
     private void setUpRecylerView() {
 
-        ArrayList<ModelHistoryCoin> modelHistoryCoin = walletHistoryData();
-        AdapterHistoryCoin adapterHistoryCoin = new AdapterHistoryCoin(getActivity(), modelHistoryCoin, R.layout.list_history_wallet_student);
+        ArrayList<ResultHistoryCoin> modelHistoryCoin = walletHistoryData();
+        adapterHistoryCoin = new AdapterHistoryCoin(getActivity(), modelHistoryCoin, R.layout.list_history_wallet_student);
         BaseHelper.setupRecyclerView(recyclerWalletHistoryStudent, adapterHistoryCoin);
 
     }
 
-    private ArrayList<ModelHistoryCoin> walletHistoryData() {
+    private ArrayList<ResultHistoryCoin> walletHistoryData() {
 
-        ArrayList<ModelHistoryCoin> modelHistoryCoin = new ArrayList<>();
+        final ArrayList<ResultHistoryCoin> modelHistoryCoin = new ArrayList<>();
+        HTTPImb httpImb = new HTTPImb(this,true) {
+            @Override
+            public String url() {
+                return "http://sandbox-sempoa.indomegabyte.com/WSChild/coinsHistory";
+            }
 
-        modelHistoryCoin.add(new ModelHistoryCoin(R.string.wallet_history_name1, R.string.wallet_history_time1,
-                R.string.wallet_history_coin1, true));
-        modelHistoryCoin.add(new ModelHistoryCoin(R.string.wallet_history_name2, R.string.wallet_history_time2,
-                R.string.wallet_history_coin2, false));
-        modelHistoryCoin.add(new ModelHistoryCoin(R.string.wallet_history_name3, R.string.wallet_history_time3,
-                R.string.wallet_history_coin3, false));
-        modelHistoryCoin.add(new ModelHistoryCoin(R.string.wallet_history_name4, R.string.wallet_history_time4,
-                R.string.wallet_history_coin4, false));
-        modelHistoryCoin.add(new ModelHistoryCoin(R.string.wallet_history_name5, R.string.wallet_history_time5,
-                R.string.wallet_history_coin5, true));
+            @Override
+            public void onSuccess(JSONObject j) {
+                try {
+                    JSONArray jsonArray = j.getJSONArray("result");
+                    for(int i = 0; i <jsonArray.length(); i++ ){
+                        j = jsonArray.getJSONObject(i);
+
+                        String topupId = j.getString("topup_id");
+                        String topupCreatedDate = j.getString("topup_created_date");
+                        String topupChangStatus = j.getString("topup_changed_status_by");
+                        String jumlahCoin = j.getString("topup_jumlah");
+
+                        ResultHistoryCoin resultHistoryCoin = new ResultHistoryCoin();
+
+                        resultHistoryCoin.setTopupId(topupId);
+                        resultHistoryCoin.setTopupCreatedDate(topupCreatedDate);
+                        resultHistoryCoin.setTopupChangedStatusBy(topupChangStatus);
+                        resultHistoryCoin.setTopupJumlah(jumlahCoin);
+
+                        modelHistoryCoin.add(resultHistoryCoin);
+                    }
+                    adapterHistoryCoin.notifyDataSetChanged();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        httpImb.setPostParams("kode_siswa" , kodeSiswa)
+                .setDisplayError(true)
+                .setDisplayProgress(false)
+                .execute();
 
         return modelHistoryCoin;
     }

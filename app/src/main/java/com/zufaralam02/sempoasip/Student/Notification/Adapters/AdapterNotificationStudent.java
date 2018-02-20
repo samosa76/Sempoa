@@ -12,7 +12,7 @@ import com.iapps.adapters.BaseRecyclerAdapter;
 import com.squareup.picasso.Picasso;
 import com.zufaralam02.sempoasip.R;
 import com.zufaralam02.sempoasip.Student.Notification.Activities.DetailNotificationStudent;
-import com.zufaralam02.sempoasip.Student.Notification.Model.ModelNotificationStudent;
+import com.zufaralam02.sempoasip.Student.Notification.Model.ResultNotificationStudent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ import java.util.List;
 
 public class AdapterNotificationStudent extends BaseRecyclerAdapter {
 
-    public ArrayList<ModelNotificationStudent>getModelNotificationStudent(){
+    public ArrayList<ResultNotificationStudent>getModelNotificationStudent(){
         return modelNotificationStudent;
     }
 
@@ -31,11 +31,7 @@ public class AdapterNotificationStudent extends BaseRecyclerAdapter {
         super(context, items, cellLayout);
     }
 
-    public void setModelNotificationStudents(ArrayList<ModelNotificationStudent> modelNotificationStudents) {
-        this.modelNotificationStudent= modelNotificationStudents;
-    }
-
-    ArrayList<ModelNotificationStudent>modelNotificationStudent;
+    ArrayList<ResultNotificationStudent>modelNotificationStudent;
 
     @Override
     public RecyclerView.ViewHolder objectHolder(View v) {
@@ -50,18 +46,17 @@ public class AdapterNotificationStudent extends BaseRecyclerAdapter {
     @Override
     public void setView(RecyclerView.ViewHolder objectHolder, int position) {
         AdapterNotificationStudent.Holder holder =  (AdapterNotificationStudent.Holder) objectHolder;
-        final ModelNotificationStudent modelNotification = (ModelNotificationStudent) getItem(position);
+        final ResultNotificationStudent modelNotification = (ResultNotificationStudent) getItem(position);
 
-        holder.tvTitleNotificationStudent.setText(modelNotification.getTitleNotifStudent());
-        holder.tvDetailNotificationStudent.setText(modelNotification.getDetailNotifStudent());
-        holder.tvTimeNotificationStudent.setText(modelNotification.getTimeNotifStudent());
-        Picasso.with(getContext()).load(modelNotification.getImageNotifStudent()).into(holder.ivNotificationStudent);
+        holder.tvTitleNotificationStudent.setText(modelNotification.getNotificationTitle());
+        holder.tvDetailNotificationStudent.setText(modelNotification.getNotificationContent());
+        holder.tvTimeNotificationStudent.setText(modelNotification.getNotificationCreated());
         holder.linearNotifStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getContext(),DetailNotificationStudent.class);
-                i.putExtra("title", modelNotification.getTitleNotifStudent());
-                i.putExtra("detail", modelNotification.getDetailNotifStudent());
+                i.putExtra("title", modelNotification.getNotificationTitle());
+                i.putExtra("detail", modelNotification.getNotificationContent());
                 getContext().startActivity(i);
             }
         });
@@ -76,6 +71,7 @@ public class AdapterNotificationStudent extends BaseRecyclerAdapter {
     public void itemSelected(int position) {
 
     }
+
 
     public class Holder extends RecyclerView.ViewHolder {
 

@@ -1,54 +1,41 @@
+
 package com.zufaralam02.sempoasip.Student.Home.Model;
 
-/**
- * Created by Asus on 2/12/2018.
- */
+import java.util.List;
+import com.google.gson.annotations.SerializedName;
 
+@SuppressWarnings("unused")
 public class ModelHistoryCoin {
 
-    private int historyNameCoin;
-    private int historyTimeCoin;
-    private int historyCoinCoin;
+    @SerializedName("result")
+    private List<ResultHistoryCoin> mResultHistoryCoin;
+    @SerializedName("status_code")
+    private Long mStatusCode;
+    @SerializedName("status_message")
+    private String mStatusMessage;
 
-    public boolean isPending() {
-        return isPending;
+    public List<ResultHistoryCoin> getResult() {
+        return mResultHistoryCoin;
     }
 
-    public void setPending(boolean pending) {
-        isPending = pending;
+    public void setResult(List<ResultHistoryCoin> resultHistoryCoin) {
+        mResultHistoryCoin = resultHistoryCoin;
     }
 
-    private boolean isPending;
-
-    public int getHistoryNameCoin() {
-        return historyNameCoin;
+    public Long getStatusCode() {
+        return mStatusCode;
     }
 
-    public void setHistoryNameStudent(int historyNameStudent) {
-        this.historyNameCoin= historyNameStudent;
+    public void setStatusCode(Long statusCode) {
+        mStatusCode = statusCode;
     }
 
-    public int getHistoryTimeCoin() {
-        return historyTimeCoin;
+    public String getStatusMessage() {
+        return mStatusMessage;
     }
 
-    public void setHistoryTimeStudent(int historyTimeStudent) {
-        this.historyTimeCoin= historyTimeStudent;
-    }
-
-    public int getHistoryCoinCoin() {
-        return historyCoinCoin;
-    }
-
-    public void setHistoryCoinStudent(int historyCoinStudent) {
-        this.historyCoinCoin= historyCoinStudent;
-    }
-
-    public ModelHistoryCoin(int historyName, int historyTime, int historyCoin, boolean isPending) {
-        setHistoryNameStudent(historyName);
-        setHistoryTimeStudent(historyTime);
-        setHistoryCoinStudent(historyCoin);
-        setPending(isPending);
+    public void setStatusMessage(String statusMessage) {
+        mStatusMessage = statusMessage;
     }
 
 }

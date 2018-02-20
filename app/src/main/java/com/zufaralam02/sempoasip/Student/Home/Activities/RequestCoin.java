@@ -2,13 +2,25 @@ package com.zufaralam02.sempoasip.Student.Home.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
+import com.zufaralam02.sempoasip.Parent.Wallet.Models.ResultCoin;
 import com.zufaralam02.sempoasip.R;
+import com.zufaralam02.sempoasip.Student.Home.Adapters.AdapterRequestCoin;
+import com.zufaralam02.sempoasip.Student.Home.Model.ResultRequestCoin;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,26 +30,13 @@ public class RequestCoin extends BaseActivitySempoa {
 
     @BindView(R.id.btnRequestCoin)
     Button btnDetailRequestCoin;
-    @BindView(R.id.request1)
-    LinearLayout request1;
-    @BindView(R.id.request2)
-    LinearLayout request2;
-    @BindView(R.id.request3)
-    LinearLayout request3;
-    @BindView(R.id.request4)
-    LinearLayout request4;
-    @BindView(R.id.request5)
-    LinearLayout request5;
-    @BindView(R.id.request6)
-    LinearLayout request6;
-    @BindView(R.id.request8)
-    LinearLayout request8;
-    @BindView(R.id.request7)
-    LinearLayout request7;
     @BindView(R.id.edtRequestCoin)
     EditText edtRequestCoin;
-
+    @BindView(R.id.rvCoinStudent)
+    RecyclerView rvCoinStudent;
     String data;
+
+    AdapterRequestCoin adapterRequestCoin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,50 +46,58 @@ public class RequestCoin extends BaseActivitySempoa {
 
         setupNav("RequestCoin");
 
+        ArrayList<ResultRequestCoin> resultRequestCoins = dataCoin();
+        adapterRequestCoin = new AdapterRequestCoin(this,resultRequestCoins,R.layout.list_coin_student);
+        GridLayoutManager glm = new GridLayoutManager(this, 2, GridLayoutManager.HORIZONTAL, false);
+        rvCoinStudent.setLayoutManager(glm);
+        rvCoinStudent.setAdapter(adapterRequestCoin);
+        adapterRequestCoin.setEdtCoin(edtRequestCoin);
 
     }
 
+    private ArrayList<ResultRequestCoin> dataCoin(){
+        final ArrayList<ResultRequestCoin>resultRequestCoins = new ArrayList<>();
+        HTTPImb httpImb = new HTTPImb(this,true) {
+            @Override
+            public String url() {
+                return "http://sandbox-sempoa.indomegabyte.com/WSChild/getSettingCoin";
+            }
 
-    @OnClick({R.id.request1, R.id.request2, R.id.request3, R.id.request4, R.id.request5, R.id.request6, R.id.request8, R.id.request7})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.request1:
-                edtRequestCoin.setText("100");
-                break;
-            case R.id.request2:
-                edtRequestCoin.setText("150");
-                break;
-            case R.id.request3:
-                edtRequestCoin.setText("200");
-                break;
-            case R.id.request4:
-                edtRequestCoin.setText("250");
-                break;
-            case R.id.request5:
-                edtRequestCoin.setText("300");
-                break;
-            case R.id.request6:
-                edtRequestCoin.setText("350");
-                break;
-            case R.id.request7:
-                edtRequestCoin.setText("400");
-                break;
-            case R.id.request8:
-                edtRequestCoin.setText("450");
-                break;
-        }
+            @Override
+            public void onSuccess(JSONObject j) {
+
+                try {
+                    JSONArray jsonArray = j.getJSONArray("result");
+                    for (int i = 0; i < jsonArray.length(); i++ ){
+                        j = jsonArray.getJSONObject(i);
+                        String coin = j.getString("setting_jumlah_coin");
+                        String keterangan = j.getString("setting_keterangan");
+
+                        ResultRequestCoin resultCoinn = new ResultRequestCoin();
+                        resultCoinn.setSettingJumlahCoin(coin);
+                        resultCoinn.setSettingKeterangan(keterangan);
+                        resultRequestCoins.add(resultCoinn);
+
+                    }
+                    adapterRequestCoin.notifyDataSetChanged();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        };
+        httpImb.setDisplayError(true)
+                .setDisplayProgress(false)
+                .execute();
+
+        return resultRequestCoins;
     }
+
+
 
     @OnClick(R.id.btnRequestCoin)
     public void onClick() {
-
-        data = edtRequestCoin.getText().toString();
-
-        Intent i = new Intent(getApplicationContext(),DetailRequestCoin.class);
-
-        i.putExtra("data",data);
-
-        startActivity(i);
 
     }
 }

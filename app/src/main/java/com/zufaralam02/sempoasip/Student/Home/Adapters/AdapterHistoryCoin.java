@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.iapps.adapters.BaseRecyclerAdapter;
 import com.zufaralam02.sempoasip.R;
-import com.zufaralam02.sempoasip.Student.Home.Model.ModelHistoryCoin;
+import com.zufaralam02.sempoasip.Student.Home.Model.ResultHistoryCoin;
 
 import java.util.List;
 
@@ -34,17 +34,11 @@ public class AdapterHistoryCoin extends BaseRecyclerAdapter {
     public void setView(RecyclerView.ViewHolder objectHolder, int position) {
 
         AdapterHistoryCoin.Holder holder = (AdapterHistoryCoin.Holder) objectHolder;
-        ModelHistoryCoin modelHistory = (ModelHistoryCoin) getItem(position);
+        ResultHistoryCoin modelHistory = (ResultHistoryCoin) getItem(position);
 
-        holder.tvNameWalletHistoryStudent.setText(modelHistory.getHistoryNameCoin());
-        holder.tvTimeWalletHistoryStudent.setText(modelHistory.getHistoryTimeCoin());
-        holder.tvCoinWalletHistoryStudent.setText(modelHistory.getHistoryCoinCoin());
-
-        if (modelHistory.isPending()) {
-            holder.tvPendingWalletHistoryStudent.setVisibility(View.VISIBLE);
-        } else {
-            holder.tvPendingWalletHistoryStudent.setVisibility(View.GONE);
-        }
+        holder.tvNameWalletHistoryStudent.setText(modelHistory.getTopupChangedStatusBy());
+        holder.tvTimeWalletHistoryStudent.setText(modelHistory.getTopupCreatedDate());
+        holder.tvCoinWalletHistoryStudent.setText(modelHistory.getTopupJumlah());
 
     }
 
