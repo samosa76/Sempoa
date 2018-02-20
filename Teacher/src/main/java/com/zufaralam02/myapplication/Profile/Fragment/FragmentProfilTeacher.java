@@ -11,12 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.zufaralam02.myapplication.Notification.Activity.DetailNotif;
 import com.zufaralam02.myapplication.Profile.Fragment.Activity.Contac;
 import com.zufaralam02.myapplication.Profile.Fragment.Activity.DetailProfil;
 import com.zufaralam02.myapplication.Profile.Fragment.Activity.Rewards;
 import com.zufaralam02.myapplication.Profile.Fragment.AlertDialog.History;
-import com.zufaralam02.myapplication.Profile.Fragment.AlertDialog.Withdraw;
 import com.zufaralam02.myapplication.R;
 
 import butterknife.BindView;
@@ -103,7 +101,7 @@ public class FragmentProfilTeacher extends Fragment {
                 builder.cancel();
             }
         });
-          view.findViewById(R.id.cardCancel).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.cardCancel).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 builder.cancel();
