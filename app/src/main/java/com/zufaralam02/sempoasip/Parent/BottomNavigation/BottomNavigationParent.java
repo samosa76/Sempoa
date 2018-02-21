@@ -103,5 +103,4 @@ public class BottomNavigationParent extends BaseActivitySempoa {
         sharedPrefManager = new SharedPrefManager(getApplicationContext());
 
     }
-
 }
