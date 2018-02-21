@@ -2,6 +2,8 @@
 package com.zufaralam02.sempoasip.Student.Home.Model;
 
 import com.google.gson.annotations.SerializedName;
+import com.zufaralam02.sempoasip.Student.Profil.Model.ContactIbo;
+import com.zufaralam02.sempoasip.Student.Profil.Model.ContactTc;
 
 import java.util.List;
 

@@ -42,7 +42,7 @@ public class FragmentHome extends Fragment {
     @BindView(R.id.cardStudentWallet)
     CardView cardStudentWallet;
 
-    String kodeSiswa,namaSiswa,alamatSiswa;
+    String kodeSiswa, namaSiswa, alamatSiswa;
     SharedPrefManager sharedPrefManager;
 
     Unbinder unbinder;
@@ -54,6 +54,10 @@ public class FragmentHome extends Fragment {
     TextView tvalamat;
     @BindView(R.id.tvChildWallet)
     TextView tvChildWallet;
+    @BindView(R.id.tvAbsen)
+    TextView tvAbsen;
+    @BindView(R.id.tvCoin)
+    TextView tvCoin;
 
     public FragmentHome() {
         // Required empty public constructor
@@ -70,7 +74,6 @@ public class FragmentHome extends Fragment {
         HashMap<String, String> key = sharedPrefManager.getUserDetail();
 
         kodeSiswa = key.get(sharedPrefManager.SP_KODE_SISWA);
-        namaSiswa = key.get(sharedPrefManager.SP_NAME);
 
         loadData();
 
@@ -95,11 +98,16 @@ public class FragmentHome extends Fragment {
                         String kodeSiswa = j.getString("kode_siswa");
                         String namaSiswa = j.getString("nama_siswa");
                         String alamat = j.getString("alamat");
+                        String absen = j.getString("absen");
+                        String coin = j.getString("coin");
 
                         tvNamaSiswa.setText(namaSiswa);
-                        tvChildWallet.setText(namaSiswa+ "'s Wallet");
+                        tvChildWallet.setText(namaSiswa + "'s Wallet");
                         tvalamat.setText(alamat);
                         tvkodeSiswa.setText(kodeSiswa);
+                        tvAbsen.setText(absen);
+                        tvCoin.setText(coin);
+
 
                     }
 
@@ -133,7 +141,9 @@ public class FragmentHome extends Fragment {
                 startActivity(new Intent(getActivity(), Attandance.class));
                 break;
             case R.id.cardStudentWallet:
-                startActivity(new Intent(getActivity(), Wallet.class));
+                Intent i = new Intent(getActivity(),Wallet.class);
+//                i.putExtra()
+                startActivity(i);
                 break;
         }
     }

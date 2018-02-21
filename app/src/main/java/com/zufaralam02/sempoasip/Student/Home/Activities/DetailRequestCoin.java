@@ -22,7 +22,7 @@ public class DetailRequestCoin extends BaseActivitySempoa {
         setContentView(R.layout.activity_detail_request_coin);
         ButterKnife.bind(this);
 
-        dataCoin = getIntent().getStringExtra("data");
+        dataCoin = getIntent().getStringExtra("coin");
 
         textcoin.setText("Request "+dataCoin+ " Coin Success!");
 
