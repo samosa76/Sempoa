@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -14,30 +15,36 @@ import com.zufaralam02.myapplication.Base.BaseActivityTeacher;
 import com.zufaralam02.myapplication.Home.FragmentHomeTeacher;
 import com.zufaralam02.myapplication.Notification.FragmentNotificationTeacher;
 import com.zufaralam02.myapplication.Profile.Fragment.FragmentProfilTeacher;
+import com.zufaralam02.myapplication.Utils.SharedPrefManager;
 
 import java.lang.reflect.Field;
 
 public class BottomNavigation extends BaseActivityTeacher {
-        @SuppressLint("RestrictedApi")
-    public static void disableShiftMode(BottomNavigationView view){
-        BottomNavigationMenuView menuView = (BottomNavigationMenuView)view.getChildAt(0);
-        try{
+    BottomNavigationView navigation;
+    SharedPrefManager sharedPrefManager;
+    @SuppressLint("RestrictedApi")
+    public static void disableShiftMode(BottomNavigationView view) {
+        BottomNavigationMenuView menuView = (BottomNavigationMenuView) view.getChildAt(0);
+        try {
             Field shiftingMode = menuView.getClass().getDeclaredField("mShiftingMode");
             shiftingMode.setAccessible(true);
             shiftingMode.setBoolean(menuView, false);
             shiftingMode.setAccessible(false);
-            for (int i =0;1< menuView.getChildCount();i++ ){
-                BottomNavigationItemView item = (BottomNavigationItemView)menuView.getChildAt(i);
+            for (int i = 0; i < menuView.getChildCount(); i++) {
+                BottomNavigationItemView item = (BottomNavigationItemView) menuView.getChildAt(i);
+                //noinspection RestrictedApi
                 item.setShiftingMode(false);
+                // set once again checked value, so view will be updated
+                //noinspection RestrictedApi
                 item.setChecked(item.getItemData().isChecked());
             }
-        } catch (NoSuchFieldException e){
-
-        }catch (IllegalAccessException e){
-
+        } catch (NoSuchFieldException e) {
+            Log.e("BNVHelper", "Unable to get shift mode field", e);
+        } catch (IllegalAccessException e) {
+            Log.e("BNVHelper", "Unable to change value of shift mode", e);
         }
     }
-    BottomNavigation navigation;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -67,15 +74,13 @@ public class BottomNavigation extends BaseActivityTeacher {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_navigation);
 
-        TextView mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        BottomNavigation.disableShiftMode(navigation);
         navigation.setSelectedItemId(R.id.navigation_home);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_teacher, new FragmentHomeTeacher()).commit();
-
-        FragmentHomeTeacher fragmentHomeParent = new FragmentHomeTeacher();
-        fragmentHomeParent.setNavigation(navigation);
+        sharedPrefManager = new SharedPrefManager(getApplicationContext());
     }
 
 }

@@ -8,7 +8,19 @@
     android:orientation="vertical"
     tools:context="com.zufaralam02.myapplication.Notification.Activity.DetailNotif">
 
-    <include layout="@layout/back_navigation" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/back_navigation" />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true">
+
+        </android.support.v7.widget.Toolbar>
+    </RelativeLayout>
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
