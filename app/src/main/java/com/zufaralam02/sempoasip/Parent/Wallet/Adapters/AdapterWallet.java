@@ -47,6 +47,7 @@ public class AdapterWallet extends BaseRecyclerAdapter {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), TopupCoin.class);
                 intent.putExtra("namaSiswa", listMurid.getNamaSiswa());
+                intent.putExtra("kodeSiswa", listMurid.getKodeSiswa());
                 getContext().startActivity(intent);
             }
         });

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import com.zufaralam02.myapplication.BottomNavigation;
 import com.zufaralam02.myapplication.Login.Login;
 
 import java.util.HashMap;
@@ -28,6 +29,7 @@ public class SharedPrefManager {
     public static final String SP_PHONE = "spPhone";
     //    public static final String SP_PASS = "spPass";
     public static final String SP_KODE_SISWA = "spKodeSiswa";
+    public static final String SP_KODE_GURU = "spKodeGuru";
 
     @SuppressLint("CommitPrefEdits")
     public SharedPrefManager(Context context) {
@@ -37,13 +39,12 @@ public class SharedPrefManager {
     }
 
     //    public void sessionLogin(String id, String name, String email, String phone, String type) {
-    public void sessionLogin(String id, String name, String type) {
+    public void sessionLogin(String id, String name,String email) {
         editor.putBoolean(SP_IS_LOGIN, true);
         editor.putString(SP_ID, id);
         editor.putString(SP_NAME, name);
-//        editor.putString(SP_EMAIL, email);
-//        editor.putString(SP_PHONE, phone);
-        editor.putString(SP_TYPE, type);
+        editor.putString(SP_EMAIL, email);
+
 //        editor.putString(SP_PASS, pass);
         editor.commit();
     }
@@ -76,7 +77,7 @@ public class SharedPrefManager {
 //            context.startActivity(intent);
 //        }
         else {
-            Intent intent = new Intent(context, Login.class);
+            Intent intent = new Intent(context, BottomNavigation.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);

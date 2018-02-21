@@ -16,12 +16,11 @@
         <activity
             android:name=".BottomNavigation"
             android:label="@string/app_name">
-
         </activity>
         <activity
             android:name=".Utils.Splash"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize">
+        android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,7 +40,8 @@
         <activity android:name=".Profile.Fragment.Activity.ChangePassword" />
         <activity android:name=".Profile.Fragment.AlertDialog.History" />
         <activity android:name=".Profile.Fragment.AlertDialog.Withdraw" />
-        <activity android:name=".Home.Activity.AddStudent"></activity>
+        <activity android:name=".Home.Activity.AddStudent" />
+        <activity android:name=".Home.Activity.Reshedule"></activity>
     </application>
 
 </manifest>
