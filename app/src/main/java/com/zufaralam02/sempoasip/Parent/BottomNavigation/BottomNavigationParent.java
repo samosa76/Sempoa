@@ -46,7 +46,6 @@ public class BottomNavigationParent extends BaseActivitySempoa {
             Log.e("BNVHelper", "Unable to change value of shift mode", e);
         }
     }
-
 //    private TextView mTextMessage;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -56,16 +55,32 @@ public class BottomNavigationParent extends BaseActivitySempoa {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home_parent:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frameParent, new FragmentHomeParent()).commit();
+                    if (navigation.getSelectedItemId() == R.id.navigation_home_parent) {
+
+                    } else {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frameParent, new FragmentHomeParent()).commit();
+                    }
                     return true;
                 case R.id.navigation_wallet_parent:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frameParent, new FragmentWalletParent()).commit();
+                    if (navigation.getSelectedItemId() == R.id.navigation_wallet_parent) {
+
+                    } else {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frameParent, new FragmentWalletParent()).commit();
+                    }
                     return true;
                 case R.id.navigation_notification_parent:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frameParent, new FragmentNotificationParent()).commit();
+                    if (navigation.getSelectedItemId() == R.id.navigation_notification_parent) {
+
+                    } else {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frameParent, new FragmentNotificationParent()).commit();
+                    }
                     return true;
                 case R.id.navigation_profil_parent:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frameParent, new FragmentProfilParent()).commit();
+                    if (navigation.getSelectedItemId() == R.id.navigation_profil_parent) {
+
+                    } else {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frameParent, new FragmentProfilParent()).commit();
+                    }
                     return true;
             }
             return false;
