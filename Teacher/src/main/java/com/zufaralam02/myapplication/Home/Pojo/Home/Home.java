@@ -1,26 +1,23 @@
 
-package com.zufaralam02.myapplication.Home.Model;
-
-import java.util.List;
+package com.zufaralam02.myapplication.Home.Pojo.Home;
 
 import com.google.gson.annotations.SerializedName;
 
-
 @SuppressWarnings("unused")
-public class PojoAdd {
+public class Home {
 
     @SerializedName("result")
-    private List<Result> mResult;
+    private Result mResult;
     @SerializedName("status_code")
     private Long mStatusCode;
     @SerializedName("status_message")
     private String mStatusMessage;
 
-    public List<Result> getResult() {
+    public Result getResult() {
         return mResult;
     }
 
-    public void setResult(List<Result> result) {
+    public void setResult(Result result) {
         mResult = result;
     }
 

@@ -16,19 +16,19 @@
         android:background="@drawable/ic_header"
         android:orientation="vertical">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -46,6 +46,7 @@
                             android:id="@+id/edtSearch"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
                             android:layout_margin="@dimen/margin_med"
                             android:padding="@dimen/margin_med"
                             android:background="@drawable/rectangle_item" />
@@ -53,7 +54,7 @@
                         <android.support.v7.widget.RecyclerView
                             android:id="@+id/rvAddStudent"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="match_parent" />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
@@ -63,6 +64,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:background="@color/White">
 
                 <Button
@@ -76,7 +78,7 @@
                     android:text="ADD"
                     android:textColor="@color/White" />
             </RelativeLayout>
-        </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 
 </LinearLayout>

@@ -1,5 +1,5 @@
 
-package com.zufaralam02.myapplication.Home.Model;
+package com.zufaralam02.myapplication.Home.Pojo.AddStudent;
 
 import com.google.gson.annotations.SerializedName;
 

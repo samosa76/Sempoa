@@ -1,7 +1,6 @@
 package com.zufaralam02.myapplication.Home.Activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,7 +9,7 @@ import com.iapps.libs.helpers.BaseHelper;
 import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.myapplication.Base.BaseActivityTeacher;
 import com.zufaralam02.myapplication.Home.Adapter.AdapterAdd;
-import com.zufaralam02.myapplication.Home.Model.Result;
+import com.zufaralam02.myapplication.Home.Pojo.AddStudent.Result;
 import com.zufaralam02.myapplication.R;
 
 import org.json.JSONArray;
@@ -57,6 +56,23 @@ public class AddStudent extends BaseActivityTeacher {
 
             @Override
             public void onSuccess(JSONObject j) {
+//                try {
+//                    j = j.getJSONObject("result");
+//
+//                    JSONArray jsonArray = j.getJSONArray("Kelas");
+//                    for (int i = 0; i < jsonArray.length(); i++) {
+//                        j = jsonArray.getJSONObject(i);
+//
+//                    }
+//                    j.getJSONObject("Guru");
+//                    j.getString("kode_guru");
+//
+//
+//
+//
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
                 try {
                     JSONArray jsonArray = j.getJSONArray("result");
                     for (int i = 0; i < jsonArray.length(); i++) {
