@@ -25,10 +25,12 @@ public class SharedPrefManager {
     public static final String SP_TYPE = "spType";
     public static final String SP_ID = "spId";
     public static final String SP_NAME = "spName";
+    public static final String SP_TC = "spTC";
     public static final String SP_EMAIL = "spEmail";
-    public static final String SP_PHONE = "spPhone";
     //    public static final String SP_PASS = "spPass";
     public static final String SP_KODE_SISWA = "spKodeSiswa";
+    public static final String SP_PHONE = "spPhone";
+    public static final String GURU_ID = "spGuruId";
     public static final String SP_KODE_GURU = "spKodeGuru";
 
     @SuppressLint("CommitPrefEdits")
@@ -39,11 +41,12 @@ public class SharedPrefManager {
     }
 
     //    public void sessionLogin(String id, String name, String email, String phone, String type) {
-    public void sessionLogin(String id, String name,String email) {
+    public void sessionLogin(String name, String email, String kode, String tc) {
         editor.putBoolean(SP_IS_LOGIN, true);
-        editor.putString(SP_ID, id);
         editor.putString(SP_NAME, name);
         editor.putString(SP_EMAIL, email);
+        editor.putString(SP_TC, tc);
+        editor.putString(SP_KODE_GURU, kode);
 
 //        editor.putString(SP_PASS, pass);
         editor.commit();
@@ -124,8 +127,9 @@ public class SharedPrefManager {
         user.put(SP_ID, sharedPreferences.getString(SP_ID, null));
         user.put(SP_NAME, sharedPreferences.getString(SP_NAME, null));
         user.put(SP_EMAIL, sharedPreferences.getString(SP_EMAIL, null));
-        user.put(SP_PHONE, sharedPreferences.getString(SP_PHONE, null));
-        user.put(SP_TYPE, sharedPreferences.getString(SP_TYPE, null));
+        user.put(SP_KODE_GURU, sharedPreferences.getString(SP_KODE_GURU, null));
+        user.put(SP_TC, sharedPreferences.getString(SP_TC, null));
+//        user.put(SP_PHONE, sharedPreferences.getString(SP_PHONE, null));
 //        user.put(SP_PASS, sharedPreferences.getString(SP_PASS, null));
         return user;
     }
