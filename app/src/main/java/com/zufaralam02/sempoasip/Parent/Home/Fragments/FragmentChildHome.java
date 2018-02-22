@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.zufaralam02.sempoasip.Parent.Home.Activities.ChildSetting;
+import com.zufaralam02.sempoasip.Parent.Home.Activities.LocationChild;
 import com.zufaralam02.sempoasip.R;
 
 import butterknife.BindView;
@@ -75,6 +76,7 @@ public class FragmentChildHome extends Fragment {
 //        tvNumberChildHome.setText(childNumber.trim());
 //        tvPlaceChildHome.setText(childLocation.trim());
         }
+
         return view;
     }
 
@@ -88,6 +90,7 @@ public class FragmentChildHome extends Fragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ivLocationChildHome:
+                startActivity(new Intent(getActivity(), LocationChild.class));
                 break;
             case R.id.ivSettingChildHome:
                 startActivity(new Intent(getActivity(), ChildSetting.class));
