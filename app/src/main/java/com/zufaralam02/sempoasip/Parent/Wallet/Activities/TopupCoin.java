@@ -144,8 +144,8 @@ public class TopupCoin extends BaseActivitySempoa {
         };
         httpImb.setPostParams("parent_id", id)
                 .setPostParams("kode_siswa", kodeSiswa)
-                .setPostParams("jumlah_yg_di_beli", tvPriceTopup.getText().toString())
-                .setPostParams("cara_pembayaran", "2")
+                .setPostParams("jumlah_yg_di_beli", edtAmountToBuy)
+                .setPostParams("cara_pembayaran", edtPaymentMethod)
                 .setDisplayError(true)
                 .execute();
     }
