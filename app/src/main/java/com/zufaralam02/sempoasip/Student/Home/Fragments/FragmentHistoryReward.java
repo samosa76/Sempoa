@@ -9,11 +9,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.iapps.libs.helpers.BaseHelper;
+import com.iapps.libs.helpers.HTTPImb;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.R;
 import com.zufaralam02.sempoasip.Student.Home.Adapters.AdapterHistoryReward;
-import com.zufaralam02.sempoasip.Student.Home.Model.ModelHistoryReward;
+import com.zufaralam02.sempoasip.Student.Home.Model.ResultHistoryReward;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,12 +34,13 @@ public class FragmentHistoryReward extends Fragment {
 
     @BindView(R.id.recyclerWalletHistoryStudent)
     RecyclerView recyclerWalletHistoryStudent;
+
+    String kodeSiswa;
+
     Unbinder unbinder;
 
-    public FragmentHistoryReward() {
-        // Required empty public constructor
-    }
-
+    SharedPrefManager sharedPrefManager;
+    AdapterHistoryReward adapterHistoryReward;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,33 +49,63 @@ public class FragmentHistoryReward extends Fragment {
         View view = inflater.inflate(R.layout.fragment_fragment_history_reward, container, false);
         unbinder = ButterKnife.bind(this, view);
 
+        sharedPrefManager = new SharedPrefManager(getActivity());
+        HashMap<String,String> key = sharedPrefManager.getUserDetail();
+
+        kodeSiswa = key.get(sharedPrefManager.SP_KODE_SISWA);
+
         setUpRecylerView();
 
         return view;
     }
 
     private void setUpRecylerView() {
-        ArrayList<ModelHistoryReward> modelHistoryReward = walletHistoryData();
-        AdapterHistoryReward adapterHistoryReward = new AdapterHistoryReward(getActivity(), modelHistoryReward, R.layout.list_history_wallet_student);
+        ArrayList<ResultHistoryReward> modelHistoryReward = walletHistoryData();
+        adapterHistoryReward = new AdapterHistoryReward(getActivity(), modelHistoryReward, R.layout.list_history_wallet_student);
         BaseHelper.setupRecyclerView(recyclerWalletHistoryStudent, adapterHistoryReward);
     }
 
-    private ArrayList<ModelHistoryReward> walletHistoryData() {
+    private ArrayList<ResultHistoryReward> walletHistoryData() {
+        final ArrayList<ResultHistoryReward> modelHistoryReward= new ArrayList<>();
+        HTTPImb httpImb = new HTTPImb(this,true) {
+            @Override
+            public String url() {
+                return "http://sandbox-sempoa.indomegabyte.com/WSChild/withdrawHistory";
+            }
 
-        ArrayList<ModelHistoryReward> modelHistoryCoin = new ArrayList<>();
+            @Override
+            public void onSuccess(JSONObject j) {
+                try {
+                    JSONArray jsonArray = j.getJSONArray("result");
+                    for (int i = 0; i < jsonArray.length(); i++){
+                        j = jsonArray.getJSONObject(i);
 
-        modelHistoryCoin.add(new ModelHistoryReward(R.string.wallet_history_name1, R.string.wallet_history_time1,
-                R.string.wallet_history_coin1, true));
-        modelHistoryCoin.add(new ModelHistoryReward(R.string.wallet_history_name2, R.string.wallet_history_time2,
-                R.string.wallet_history_coin2, false));
-        modelHistoryCoin.add(new ModelHistoryReward(R.string.wallet_history_name3, R.string.wallet_history_time3,
-                R.string.wallet_history_coin3, false));
-        modelHistoryCoin.add(new ModelHistoryReward(R.string.wallet_history_name4, R.string.wallet_history_time4,
-                R.string.wallet_history_coin4, false));
-        modelHistoryCoin.add(new ModelHistoryReward(R.string.wallet_history_name5, R.string.wallet_history_time5,
-                R.string.wallet_history_coin5, true));
+                        String withdrawId = j.getString("withdraw_id");
+                        String jumlahWithDraw = j.getString("withdraw_jumlah");
+                        String createdDate = j.getString("withdraw_created_date");
 
-        return modelHistoryCoin;
+                        ResultHistoryReward resultHistoryReward = new ResultHistoryReward();
+
+                        resultHistoryReward.setWithdrawId(withdrawId);
+                        resultHistoryReward.setWithdrawJumlah(jumlahWithDraw);
+                        resultHistoryReward.setWithdrawCreatedDate(createdDate);
+
+                        modelHistoryReward.add(resultHistoryReward);
+                    }
+                    adapterHistoryReward.notifyDataSetChanged();
+                }
+                catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        httpImb.setPostParams("kode_siswa" , kodeSiswa)
+                .setDisplayError(true)
+                .setDisplayProgress(false)
+                .execute();
+
+        return modelHistoryReward;
     }
 
     @Override

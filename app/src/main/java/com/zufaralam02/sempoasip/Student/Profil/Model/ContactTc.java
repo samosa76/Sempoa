@@ -1,10 +1,10 @@
 
-package com.zufaralam02.sempoasip.Student.Home.Model;
+package com.zufaralam02.sempoasip.Student.Profil.Model;
 
 import com.google.gson.annotations.SerializedName;
 
 @SuppressWarnings("unused")
-public class ContactIbo {
+public class ContactTc {
 
     @SerializedName("nama")
     private String mNama;

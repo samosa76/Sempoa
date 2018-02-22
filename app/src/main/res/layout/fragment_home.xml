@@ -86,13 +86,13 @@
                                 style="@style/textMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Dena Dani" />
+                                android:text="" />
 
                             <TextView
                                 android:id="@+id/tvkodeSiswa"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="11124872"
+                                android:text=""
                                 style="@style/textMedium"
                                 android:layout_marginTop="30dp"/>
 
@@ -101,7 +101,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 style="@style/textMedium"
-                                android:text="Bandung Vilage"/>
+                                android:text=""/>
 
                         </LinearLayout>
                         <RelativeLayout
@@ -255,11 +255,12 @@
 
                                 <TextView
                                     style="@style/textSmall"
+                                    android:id="@+id/tvAbsen"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/margin_small"
                                     android:textColor="#ddd"
-                                    android:text="Last attandance : 02 sep 17" />
+                                    android:text="" />
 
                             </LinearLayout>
 
@@ -315,7 +316,7 @@
                                     style="@style/textMedium"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Middlestone's Wallet"
+                                    android:text=""
                                     />
 
                                 <TextView
@@ -324,7 +325,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/margin_small"
                                     android:textColor="#ddd"
-                                    android:text="1000 Coin" />
+                                    android:id="@+id/tvCoin"
+                                    android:text="" />
 
                             </LinearLayout>
 

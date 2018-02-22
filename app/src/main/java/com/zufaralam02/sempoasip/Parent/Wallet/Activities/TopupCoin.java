@@ -6,10 +6,13 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
+import com.zufaralam02.sempoasip.Parent.Utils.Helper;
 import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.Parent.Wallet.Adapters.AdapterCoin;
 import com.zufaralam02.sempoasip.Parent.Wallet.Models.ResultCoin;
@@ -44,6 +47,7 @@ public class TopupCoin extends BaseActivitySempoa {
     SharedPrefManager sharedPrefManager;
     String id, name, email, phone, pass;
     AdapterCoin adapterCoin;
+    String namaSiswa, kodeSiswa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +73,8 @@ public class TopupCoin extends BaseActivitySempoa {
         recyclerCoin.setLayoutManager(layoutManager);
         recyclerCoin.setAdapter(adapterCoin);
 
-        String namaSiswa = getIntent().getStringExtra("namaSiswa");
+        kodeSiswa = getIntent().getStringExtra("kodeSiswa");
+        namaSiswa = getIntent().getStringExtra("namaSiswa");
         edtSendTo.setText(namaSiswa);
 
     }
@@ -111,12 +116,37 @@ public class TopupCoin extends BaseActivitySempoa {
 
     @OnClick(R.id.btnPayNow)
     public void onClick() {
-        Intent intent = new Intent(getApplicationContext(), TopupCoinDetail.class);
-        intent.putExtra("amount", edtAmountToBuy.getText().toString());
-        intent.putExtra("price", tvPriceTopup.getText().toString());
-        intent.putExtra("payment", edtPaymentMethod.getText().toString());
-        intent.putExtra("name", edtSendTo.getText().toString());
-        startActivity(intent);
-        finish();
+        requestTopup();
+    }
+
+    private void requestTopup() {
+        if (!Helper.validateEditTexts(new EditText[]{edtAmountToBuy, edtSendTo, edtPaymentMethod})) {
+            return;
+        }
+
+        HTTPImb httpImb = new HTTPImb(this, true) {
+            @Override
+            public String url() {
+                return "http://sandbox-sempoa.indomegabyte.com/WSSempoaApp/topUpParent";
+            }
+
+            @Override
+            public void onSuccess(JSONObject j) {
+                Intent intent = new Intent(getApplicationContext(), TopupCoinDetail.class);
+                intent.putExtra("amount", edtAmountToBuy.getText().toString());
+                intent.putExtra("price", tvPriceTopup.getText().toString());
+                intent.putExtra("payment", edtPaymentMethod.getText().toString());
+                intent.putExtra("name", edtSendTo.getText().toString());
+                startActivity(intent);
+                Toast.makeText(TopupCoin.this, "Success", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        };
+        httpImb.setPostParams("parent_id", id)
+                .setPostParams("kode_siswa", kodeSiswa)
+                .setPostParams("jumlah_yg_di_beli", edtAmountToBuy)
+                .setPostParams("cara_pembayaran", edtPaymentMethod)
+                .setDisplayError(true)
+                .execute();
     }
 }

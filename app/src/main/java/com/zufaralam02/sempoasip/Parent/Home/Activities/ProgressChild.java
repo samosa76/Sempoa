@@ -3,10 +3,15 @@ package com.zufaralam02.sempoasip.Parent.Home.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
-import android.view.View;
+import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.zufaralam02.sempoasip.Base.BaseActivitySempoa;
+import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.R;
+
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -14,12 +19,16 @@ import butterknife.OnClick;
 
 public class ProgressChild extends BaseActivitySempoa {
 
-    @BindView(R.id.cardFeedback1)
-    CardView cardFeedback1;
-    @BindView(R.id.cardFeedback2)
-    CardView cardFeedback2;
-    @BindView(R.id.cardFeedback3)
-    CardView cardFeedback3;
+    SharedPrefManager sharedPrefManager;
+    String id, name, email, phone, pass;
+    @BindView(R.id.recyclerProgress)
+    RecyclerView recyclerProgress;
+    @BindView(R.id.tvTimeProgress)
+    TextView tvTimeProgress;
+    @BindView(R.id.ivArrow1)
+    ImageView ivArrow1;
+    @BindView(R.id.cardFeedback)
+    CardView cardFeedback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,20 +37,20 @@ public class ProgressChild extends BaseActivitySempoa {
         ButterKnife.bind(this);
 
         setupNav("Progress");
+
+        sharedPrefManager = new SharedPrefManager(this);
+        HashMap<String, String> user = sharedPrefManager.getUserDetail();
+        id = user.get(SharedPrefManager.SP_ID);
+        name = user.get(SharedPrefManager.SP_NAME);
+        email = user.get(SharedPrefManager.SP_EMAIL);
+        phone = user.get(SharedPrefManager.SP_PHONE);
+//        pass = user.get(SharedPrefManager.SP_PASS);
+
     }
 
-    @OnClick({R.id.cardFeedback1, R.id.cardFeedback2, R.id.cardFeedback3})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.cardFeedback1:
-                startActivity(new Intent(this, FeedbackChild.class));
-                break;
-            case R.id.cardFeedback2:
-                startActivity(new Intent(this, FeedbackChild.class));
-                break;
-            case R.id.cardFeedback3:
-                startActivity(new Intent(this, FeedbackChild.class));
-                break;
-        }
+    @OnClick(R.id.cardFeedback)
+    public void onClick() {
+        startActivity(new Intent(getApplicationContext(), FeedbackChild.class));
     }
 }
+

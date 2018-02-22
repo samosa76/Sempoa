@@ -22,9 +22,9 @@ public class AdapterChildHome extends FragmentPagerAdapter {
         this.listChild = listChild;
     }
 
-    List<String[]> listChild;
+    private List<String[]> listChild;
 
-    TextView tvChildRank, tvChildWallet;
+    private TextView tvChildRank, tvChildWallet;
 
     public TextView getTvChildRank() {
         return tvChildRank;

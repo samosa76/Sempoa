@@ -94,6 +94,7 @@
                                 android:layout_height="30dp"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginLeft="@dimen/margin_small"
+                                android:inputType="number"
                                 android:background="@color/transparent"
                                 android:singleLine="true"
                                 android:text="" />

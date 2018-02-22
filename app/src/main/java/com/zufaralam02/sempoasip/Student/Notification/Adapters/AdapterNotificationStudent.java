@@ -55,6 +55,8 @@ public class AdapterNotificationStudent extends BaseRecyclerAdapter {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getContext(),DetailNotificationStudent.class);
+                i.putExtra("id",modelNotification.getNotificationId());
+                i.putExtra("time",modelNotification.getNotificationCreated());
                 i.putExtra("title", modelNotification.getNotificationTitle());
                 i.putExtra("detail", modelNotification.getNotificationContent());
                 getContext().startActivity(i);
