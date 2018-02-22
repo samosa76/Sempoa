@@ -59,13 +59,14 @@
                             android:orientation="vertical">
 
                             <TextView
-                                style="@style/textMedium"
+                                style="@style/textSmall"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textColor="#dedede"
                                 android:text="@string/profil_reward" />
 
                             <TextView
-                                style="@style/textRegular"
+                                style="@style/textMedium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/profil_value" />

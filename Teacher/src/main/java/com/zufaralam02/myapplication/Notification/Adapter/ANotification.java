@@ -13,6 +13,7 @@ import com.iapps.adapters.BaseRecyclerAdapter;
 import com.squareup.picasso.Picasso;
 import com.zufaralam02.myapplication.Notification.Activity.DetailNotif;
 import com.zufaralam02.myapplication.Notification.Model.MNotif;
+import com.zufaralam02.myapplication.Notification.Model.ResultNotifTeacher;
 import com.zufaralam02.myapplication.R;
 
 import java.util.ArrayList;
@@ -48,12 +49,12 @@ public class ANotification extends BaseRecyclerAdapter{
     @Override
     public void setView(RecyclerView.ViewHolder objectHolder, int position) {
         ANotification.Holder holder = (ANotification.Holder) objectHolder;
-        final MNotif modelNotification = (MNotif) getItem(position);
+        final ResultNotifTeacher modelNotification = (ResultNotifTeacher) getItem(position);
 
-        holder.tvTitleNotification.setText(modelNotification.getTitleNotif());
-        holder.tvDetailNotification.setText(modelNotification.getDetailNotif());
-        holder.tvTimeNotification.setText(modelNotification.getTimeNotif());
-        Picasso.with(getContext()).load(modelNotification.getImageNotif()).into(holder.ivNotification);
+        holder.tvTitleNotification.setText(modelNotification.getNotificationTitle());
+        holder.tvDetailNotification.setText(modelNotification.getNotificationContent());
+        holder.tvTimeNotification.setText(modelNotification.getNotificationCreated());
+
 
     }
 

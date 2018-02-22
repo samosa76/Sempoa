@@ -64,11 +64,12 @@
                     try {
                         j = j.getJSONObject("results");
 
-                        String id = j.getString("guru_id");
                         String name = j.getString("nama_guru");
+                        String kode = j.getString("kode_guru");
+                        String tc = j.getJSONObject("TC").getString("nama");
                         String email = j.getString("email_guru");
                         Toast.makeText(Login.this, name, Toast.LENGTH_SHORT).show();
-                        sharedPrefManager.sessionLogin(id, name,email);
+                        sharedPrefManager.sessionLogin(name,email,kode,tc);
 //                        startActivity(new Intent(getApplicationContext(), BottomNavigation.class));
                         finish();
                     } catch (JSONException e) {

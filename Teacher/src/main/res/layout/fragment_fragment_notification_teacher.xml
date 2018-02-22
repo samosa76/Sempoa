@@ -5,8 +5,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
     tools:context="com.zufaralam02.myapplication.Notification.FragmentNotificationTeacher">
+    <RelativeLayout
+        android:id="@+id/rlNotif"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+        <TextView
+            style="@style/textLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/White"
+            android:layout_centerInParent="true"
+            android:text="Sedang load data...."/>
+
+    </RelativeLayout>
 
     <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedNotif"
+        android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/ic_header">

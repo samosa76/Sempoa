@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.iapps.adapters.BaseRecyclerAdapter;
-import com.zufaralam02.myapplication.Home.Model.Result;
+import com.zufaralam02.myapplication.Home.Pojo.AddStudent.Result;
 import com.zufaralam02.myapplication.R;
 
 import java.util.List;

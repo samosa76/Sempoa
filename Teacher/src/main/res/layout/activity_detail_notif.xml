@@ -44,13 +44,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/dark_background"
-
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/margin_med"
+                        android:layout_margin="@dimen/activity_vertical_margin"
                         android:layout_weight="1"
                         android:orientation="vertical">
 
@@ -84,6 +83,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:layout_margin="@dimen/activity_vertical_margin"
                         android:background="@drawable/rectangle_white_button"
                         android:padding="@dimen/margin_med"
                         android:text="Add Student"
