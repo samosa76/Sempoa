@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://F:\IndoMegaByte\SempoaSip\Sempoa.iml" filepath="F:\IndoMegaByte\SempoaSip\Sempoa.iml" />
-      <module fileurl="file://N:\Project\Android Project\Sempoa\Sempoa.iml" filepath="N:\Project\Android Project\Sempoa\Sempoa.iml" />
-      <module fileurl="file://F:\IndoMegaByte\SempoaSip\.idea\Sempoa.iml" filepath="F:\IndoMegaByte\SempoaSip\.idea\Sempoa.iml" />
-<<<<<<< HEAD
-=======
-      <module fileurl="file://$PROJECT_DIR$/SempoaSip.iml" filepath="$PROJECT_DIR$/SempoaSip.iml" />
->>>>>>> f06d5ea6cc4180ba89e1006b63790fb74dadfd19
-      <module fileurl="file://A:\Project\Sempoa\.idea\SempoaSip.iml" filepath="A:\Project\Sempoa\.idea\SempoaSip.iml" />
-      <module fileurl="file://F:\IndoMegaByte\Sempoa\SempoaSip.iml" filepath="F:\IndoMegaByte\Sempoa\SempoaSip.iml" />
-      <module fileurl="file://A:\Project\Sempoa\SempoaSip.iml" filepath="A:\Project\Sempoa\SempoaSip.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sempoa.iml" filepath="$PROJECT_DIR$/Sempoa.iml" />
       <module fileurl="file://$PROJECT_DIR$/Teacher/Teacher.iml" filepath="$PROJECT_DIR$/Teacher/Teacher.iml" />
-      <module fileurl="file://F:\IndoMegaByte\SempoaSip\Teacher\Teacher.iml" filepath="F:\IndoMegaByte\SempoaSip\Teacher\Teacher.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://F:\IndoMegaByte\SempoaSip\app\app.iml" filepath="F:\IndoMegaByte\SempoaSip\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/common_androidmaster/common_androidmaster.iml" filepath="$PROJECT_DIR$/common_androidmaster/common_androidmaster.iml" />
-      <module fileurl="file://F:\IndoMegaByte\Sempoa\common_androidmaster\common_androidmaster.iml" filepath="F:\IndoMegaByte\Sempoa\common_androidmaster\common_androidmaster.iml" />
-      <module fileurl="file://D:\My-First-GitLab\SempoaSip\common_androidmaster\common_androidmaster.iml" filepath="D:\My-First-GitLab\SempoaSip\common_androidmaster\common_androidmaster.iml" />
     </modules>
   </component>
 </project>

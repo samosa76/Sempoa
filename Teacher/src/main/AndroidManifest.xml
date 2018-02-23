@@ -12,7 +12,9 @@
         android:roundIcon="@drawable/icon_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="ExtraText,InnerclassSeparator">
+        tools:ignore="ExtraText,InnerclassSeparator"
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="stateHidden|adjustResize">
         <activity
             android:name=".BottomNavigation"
             android:label="@string/app_name"></activity>
