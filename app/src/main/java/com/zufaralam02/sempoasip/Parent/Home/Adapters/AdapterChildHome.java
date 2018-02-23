@@ -64,4 +64,5 @@ public class AdapterChildHome extends FragmentPagerAdapter {
     public int getCount() {
         return listChild.size();
     }
+
 }
