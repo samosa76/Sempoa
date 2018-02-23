@@ -7,17 +7,17 @@ import com.google.gson.annotations.SerializedName;
 public class Home {
 
     @SerializedName("result")
-    private Result mResult;
+    private PojoHome mResult;
     @SerializedName("status_code")
     private Long mStatusCode;
     @SerializedName("status_message")
     private String mStatusMessage;
 
-    public Result getResult() {
+    public PojoHome getResult() {
         return mResult;
     }
 
-    public void setResult(Result result) {
+    public void setResult(PojoHome result) {
         mResult = result;
     }
 
