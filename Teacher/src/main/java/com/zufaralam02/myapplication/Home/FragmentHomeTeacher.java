@@ -59,6 +59,8 @@ public class FragmentHomeTeacher extends Fragment {
     RelativeLayout rlHome;
     @BindView(R.id.nestedHome)
     NestedScrollView nestedHome;
+    @BindView(R.id.tvDateHome)
+    TextView tvDateHome;
 
     public FragmentHomeTeacher() {
         // Required empty public constructor
@@ -102,6 +104,7 @@ public class FragmentHomeTeacher extends Fragment {
 
                 try {
                     j = j.getJSONObject("result");
+                    String date = j.getString("Date");
                     JSONArray array = j.getJSONArray("Kelas");
                     for (int i = 0; i < array.length(); i++) {
 
@@ -126,6 +129,7 @@ public class FragmentHomeTeacher extends Fragment {
                     }
 
                     //
+                    tvDateHome.setText(date);
                     tvNamaGuru.setText(name);
                     tvKodeGuru.setText(kode);
                     tvTc.setText(tc);

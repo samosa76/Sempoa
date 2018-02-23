@@ -44,6 +44,10 @@ public class DetailHome extends BaseActivityTeacher {
     LinearLayout llhomep;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+    @BindView(R.id.tvTimeDetailOn)
+    TextView tvTimeDetailOn;
+    @BindView(R.id.tvTimeDetailOut)
+    TextView tvTimeDetailOut;
 
     private ArrayList<MHeader> mHeaders;
     private ExpandableAdapter adapter;
@@ -51,13 +55,19 @@ public class DetailHome extends BaseActivityTeacher {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_notif);
+        setContentView(R.layout.activity_detail_home_teacher);
         setupNav("Class");
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         mHeaders = new ArrayList<>();
+
+        tvNameDetail.setText(getIntent().getStringExtra("namaKelas"));
+        tvDateDetail.setText(getIntent().getStringExtra("date"));
+        tvTimeDetailOn.setText(getIntent().getStringExtra("dateOn"));
+        tvTimeDetailOut.setText(getIntent().getStringExtra("dateOut"));
+
         setData();
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         rvDetailHome.setLayoutManager(layoutManager);

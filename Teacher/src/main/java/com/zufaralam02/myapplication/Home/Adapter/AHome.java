@@ -16,6 +16,8 @@ import com.zufaralam02.myapplication.Home.Model.MHome;
 import com.zufaralam02.myapplication.Home.Pojo.AddStudent.Result;
 import com.zufaralam02.myapplication.Home.Pojo.Home.Guru;
 import com.zufaralam02.myapplication.Home.Pojo.Home.Kela;
+import com.zufaralam02.myapplication.Home.Pojo.Home.PojoHome;
+import com.zufaralam02.myapplication.Notification.Activity.DetailNotif;
 import com.zufaralam02.myapplication.R;
 
 import java.util.ArrayList;
@@ -49,11 +51,26 @@ public class AHome extends BaseRecyclerAdapter {
 
 
         //instansiasi objek Kela
-        Kela kela = (Kela)getItem(position);
+        final Kela kela = (Kela)getItem(position);
+//        final PojoHome home = (PojoHome)getItem(position);
+//        final com.zufaralam02.myapplication.Home.Pojo.Home.PojoHome home = (com.zufaralam02.myapplication.Home.Pojo.Home.PojoHome)getItem(position);
 
         holder.tvName.setText(kela.getIdRoom());
         holder.tvDateOn.setText(kela.getJamMulaiKelas());
         holder.tvDateOut.setText(kela.getJamAkhirKelas());
+
+        holder.cvHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(), DetailHome .class);
+                i.putExtra("namaKelas",kela.getIdRoom());
+                i.putExtra("dateOn",kela.getJamMulaiKelas());
+                i.putExtra("dateOut",kela.getJamAkhirKelas());
+//                i.putExtra("date",home.
+//                        getDate());
+                getContext().startActivity(i);
+            }
+        });
 
 
 
@@ -101,11 +118,6 @@ public class AHome extends BaseRecyclerAdapter {
             tvDateOn = v.findViewById(R.id.tvDateOn);
             tvDateOut = v.findViewById(R.id.tvDateOut);
             cvHome = v.findViewById(R.id.cvHome);
-
-            // inisialisasi id in layout fragment_fragment_home
-            tvNamaGuru = v.findViewById(R.id.tvNamaGuru);
-            tvKodeGuru = v.findViewById(R.id.tvKodeGuru);
-            tvTc = v.findViewById(R.id.tvTc);
 
             imgProfHome = v.findViewById(R.id.imgProfHome);
 

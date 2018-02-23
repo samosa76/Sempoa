@@ -8,230 +8,242 @@
     android:orientation="vertical"
     tools:context="com.zufaralam02.myapplication.Profile.Fragment.Activity.DetailProfil">
 
-    <include layout="@layout/back_navigation" />
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/margin_med"
-        android:layout_marginTop="@dimen/iapps__vertical_margin_big"
         android:background="@drawable/ic_header">
 
-        <android.support.v7.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_med"
-            app:cardCornerRadius="5dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <include layout="@layout/back_navigation" />
+
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                app:cardCornerRadius="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/iapps__vertical_margin"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_profile" />
-
-                    <TextView
-                        style="@style/textMedium"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_marginTop="@dimen/iapps__vertical_margin"
-                        android:padding="@dimen/margin_med"
-                        android:text="@string/profil_photo_change"
-                        android:textColor="@color/background" />
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#dedede" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/margin_med"
                         android:orientation="vertical">
 
-                        <TextView
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="@dimen/activity_vertical_margin"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:src="@drawable/ic_profile" />
 
+                        <TextView
                             style="@style/textSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/name" />
-
-                        <TextView
-
-                            style="@style/textMedium"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/profil_name" />
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="@dimen/activity_vertical_margin"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:text="@string/profil_photo_change"
+                            android:textColor="@color/background" />
 
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/tvChangename"
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginRight="@dimen/iapps__vertical_margin"
-                        android:gravity="end"
-                        android:text="@string/profil_name_change"
-                        android:textColor="@color/background" />
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#dedede" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                        android:layout_height="1dp"
+                        android:background="#dedede" />
 
                     <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/margin_med"
-                        android:orientation="vertical">
+                        <LinearLayout
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/margin_med"
+                            android:orientation="vertical">
+
+                            <TextView
+
+                                style="@style/textSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/name" />
+
+                            <TextView
+                                android:id="@+id/tvNameProf"
+                                style="@style/textSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/profil_name" />
+
+                        </LinearLayout>
 
                         <TextView
-
+                            android:id="@+id/tvChangename"
                             style="@style/textSmall"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/email" />
-
-                        <TextView
-
-                            style="@style/textMedium"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/profil_email" />
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="@dimen/activity_horizontal_margin"
+                            android:gravity="end"
+                            android:text="@string/profil_name_change"
+                            android:textColor="@color/background" />
 
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/tvChangeEmail"
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginRight="@dimen/iapps__vertical_margin"
-                        android:gravity="end"
-                        android:text="@string/profil_name_change"
-                        android:textColor="@color/background" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#dedede" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                        android:layout_height="1dp"
+                        android:background="#dedede" />
 
                     <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/margin_med"
-                        android:orientation="vertical">
+                        <LinearLayout
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/margin_med"
+                            android:orientation="vertical">
+
+                            <TextView
+
+                                style="@style/textSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/email" />
+
+                            <TextView
+                                android:id="@+id/tvEmailProf"
+                                style="@style/textSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/profil_email" />
+
+                        </LinearLayout>
 
                         <TextView
-
+                            android:id="@+id/tvChangeEmail"
                             style="@style/textSmall"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/phone_number" />
-
-                        <TextView
-
-                            style="@style/textMedium"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/profil_phone_number" />
-
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="@dimen/activity_horizontal_margin"
+                            android:gravity="end"
+                            android:text="@string/profil_name_change"
+                            android:textColor="@color/background" />
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/tvChangePhone"
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginRight="@dimen/iapps__vertical_margin"
-                        android:gravity="end"
-                        android:text="@string/profil_name_change"
-                        android:textColor="@color/background" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#dedede" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                        android:layout_height="1dp"
+                        android:background="#dedede" />
 
                     <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/margin_med"
-                        android:orientation="vertical">
+                        <LinearLayout
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/margin_med"
+                            android:orientation="vertical">
+
+                            <TextView
+
+                                style="@style/textSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/phone_number" />
+
+                            <TextView
+                                android:id="@+id/tvPhoneProf"
+                                style="@style/textSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/profil_phone_number" />
+
+                        </LinearLayout>
 
                         <TextView
-
+                            android:id="@+id/tvChangePhone"
                             style="@style/textSmall"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/pass" />
-
-                        <TextView
-
-                            style="@style/textMedium"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="*********" />
-
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="@dimen/activity_horizontal_margin"
+                            android:gravity="end"
+                            android:text="@string/profil_name_change"
+                            android:textColor="@color/background" />
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/tvChangePass"
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginRight="@dimen/iapps__vertical_margin"
-                        android:gravity="end"
-                        android:text="@string/profil_name_change"
-                        android:textColor="@color/background" />
+                        android:layout_height="1dp"
+                        android:background="#dedede" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/margin_med"
+                            android:orientation="vertical">
+
+                            <TextView
+
+                                style="@style/textSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/pass" />
+
+                            <TextView
+
+                                style="@style/textSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="*********" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvChangePass"
+                            style="@style/textSmall"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="@dimen/activity_horizontal_margin"
+                            android:gravity="end"
+                            android:text="@string/profil_name_change"
+                            android:textColor="@color/background" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
-            </LinearLayout>
+            </android.support.v7.widget.CardView>
 
-        </android.support.v7.widget.CardView>
+        </LinearLayout>
 
 
     </android.support.v4.widget.NestedScrollView>
