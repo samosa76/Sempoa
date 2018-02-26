@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,6 +37,8 @@ public class FragmentChildHome extends Fragment {
     @BindView(R.id.ivSettingChildHome)
     ImageView ivSettingChildHome;
     Unbinder unbinder;
+    @BindView(R.id.frameHomeChild)
+    FrameLayout frameHomeChild;
     private int position;
     private String[] childName, childNumber, childLocation;
 
