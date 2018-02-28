@@ -1,6 +1,5 @@
 package com.zufaralam02.sempoasip.Parent.Home.Fragments;
 
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -49,7 +48,7 @@ public class FragmentChildHome extends Fragment {
         bundle.putInt("position", position);
         bundle.putStringArray("childName", childName);
 //        bundle.putString("childNumber", childNumber);
-//        bundle.putString("childLocation", childLocation);
+//        bundle.putString("childLocation", childLocation);/
         fragmentChildHome.setArguments(bundle);
         return fragmentChildHome;
 

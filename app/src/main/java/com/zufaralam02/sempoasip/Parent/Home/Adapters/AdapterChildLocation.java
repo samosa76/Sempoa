@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.zufaralam02.sempoasip.Parent.Home.Fragments.FragmentChildHome;
+import com.zufaralam02.sempoasip.Parent.Home.Fragments.FragmentChildLocation;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  * Created by user on 26/02/2018.
  */
 
-public class AdapterChildMaps extends FragmentPagerAdapter {
+public class AdapterChildLocation extends FragmentPagerAdapter {
     List<String[]> listChild;
 
     public List<String[]> getListChild() {
@@ -23,13 +24,13 @@ public class AdapterChildMaps extends FragmentPagerAdapter {
         this.listChild = listChild;
     }
 
-    public AdapterChildMaps(FragmentManager fm) {
+    public AdapterChildLocation(FragmentManager fm) {
         super(fm);
     }
 
     @Override
     public Fragment getItem(int position) {
-        return FragmentChildHome.newInstance(position, listChild.get(position));
+        return FragmentChildLocation.newInstance(position, listChild.get(position));
     }
 
     @Override

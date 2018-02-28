@@ -17,6 +17,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.iapps.libs.helpers.HTTPImb;
+import com.zufaralam02.sempoasip.Parent.Home.Activities.LocationChild;
 import com.zufaralam02.sempoasip.Parent.Home.Activities.ProgressChild;
 import com.zufaralam02.sempoasip.Parent.Home.Adapters.AdapterChildHome;
 import com.zufaralam02.sempoasip.Parent.LoginRegister.Activities.AddChild;
@@ -141,6 +142,11 @@ public class FragmentHomeParent extends Fragment {
         }
         viewPagerChildHome.setAdapter(adapterChildHome);
         adapterChildHome.notifyDataSetChanged();
+
+//        LocationChild locationChild = new LocationChild();
+//        locationChild.setChildOne(childOne);
+//        locationChild.setChildTwo(childTwo);
+//        locationChild.setChildThree(childThree);
 
         return view;
     }

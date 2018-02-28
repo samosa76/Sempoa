@@ -10,7 +10,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.zufaralam02.sempoasip.Parent.Home.Adapters.AdapterChildMaps;
+import com.zufaralam02.sempoasip.Parent.Home.Adapters.AdapterChildLocation;
 import com.zufaralam02.sempoasip.R;
 
 import java.util.ArrayList;
@@ -20,7 +20,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LocationChild extends FragmentActivity implements OnMapReadyCallback {
+    @BindView(R.id.viewPagerChildMaps)
+    ViewPager viewPagerChildMaps;
+
+    private GoogleMap mMap;
+    AdapterChildLocation adapterChildLocation;
     List<String[]> listChild = new ArrayList<String[]>();
+
     String[] childOne = {
             "Middlestone",
             "111222",
@@ -36,11 +42,32 @@ public class LocationChild extends FragmentActivity implements OnMapReadyCallbac
             "555666",
             "Depok"
     };
-    @BindView(R.id.viewPagerChildMaps)
-    ViewPager viewPagerChildMaps;
 
-    private GoogleMap mMap;
-    AdapterChildMaps adapterChildMaps;
+//    String[] childOne, childTwo, childThree;
+//
+//    public String[] getChildOne() {
+//        return childOne;
+//    }
+//
+//    public void setChildOne(String[] childOne) {
+//        this.childOne = childOne;
+//    }
+//
+//    public String[] getChildTwo() {
+//        return childTwo;
+//    }
+//
+//    public void setChildTwo(String[] childTwo) {
+//        this.childTwo = childTwo;
+//    }
+//
+//    public String[] getChildThree() {
+//        return childThree;
+//    }
+//
+//    public void setChildThree(String[] childThree) {
+//        this.childThree = childThree;
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +79,7 @@ public class LocationChild extends FragmentActivity implements OnMapReadyCallbac
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        if (adapterChildMaps == null) {
+        if (adapterChildLocation == null) {
 //            Instead of :
 //            HotelDetailPagerAdapter adapter = new HotelDetailPagerAdapter(getFragmentManager());
 //            Try :
@@ -63,11 +90,11 @@ public class LocationChild extends FragmentActivity implements OnMapReadyCallbac
 //            Try :
 //            FragmentTransaction ft = getChildFragmentManager().beginTransaction();
 //            adapterChildHome = new AdapterChildHome(getActivity().getSupportFragmentManager());
-            adapterChildMaps = new AdapterChildMaps(getSupportFragmentManager());
+            adapterChildLocation = new AdapterChildLocation(getSupportFragmentManager());
             listChild.add(childOne);
             listChild.add(childTwo);
             listChild.add(childThree);
-            adapterChildMaps.setListChild(listChild);
+            adapterChildLocation.setListChild(listChild);
 //            adapterChildHome.setTvChildRank(tvChildRank);
 //            adapterChildHome.setTvChildWallet(tvChildRank);
 
@@ -75,12 +102,10 @@ public class LocationChild extends FragmentActivity implements OnMapReadyCallbac
             viewPagerChildMaps.setPadding(100, 0, 100, 0);
             viewPagerChildMaps.setPageMargin(20);
             viewPagerChildMaps.setSaveFromParentEnabled(false);
-
         }
-        viewPagerChildMaps.setAdapter(adapterChildMaps);
-        adapterChildMaps.notifyDataSetChanged();
+        viewPagerChildMaps.setAdapter(adapterChildLocation);
+        adapterChildLocation.notifyDataSetChanged();
     }
-
 
     /**
      * Manipulates the map once available.
@@ -91,6 +116,7 @@ public class LocationChild extends FragmentActivity implements OnMapReadyCallbac
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -101,4 +127,5 @@ public class LocationChild extends FragmentActivity implements OnMapReadyCallbac
 //        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
+
 }
