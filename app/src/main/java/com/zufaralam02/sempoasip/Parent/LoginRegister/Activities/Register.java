@@ -50,7 +50,8 @@ public class Register extends BaseActivitySempoa {
                 requestRegister();
                 break;
             case R.id.tvLoginRegister:
-                startActivity(new Intent(getApplicationContext(), Login.class));
+//                startActivity(new Intent(getApplicationContext(), Login.class));
+                finish();
                 break;
         }
     }

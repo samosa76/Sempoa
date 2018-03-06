@@ -3,9 +3,7 @@ package com.zufaralam02.sempoasip.Parent.Home.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -17,7 +15,6 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.iapps.libs.helpers.HTTPImb;
-import com.zufaralam02.sempoasip.Parent.Home.Activities.LocationChild;
 import com.zufaralam02.sempoasip.Parent.Home.Activities.ProgressChild;
 import com.zufaralam02.sempoasip.Parent.Home.Adapters.AdapterChildHome;
 import com.zufaralam02.sempoasip.Parent.LoginRegister.Activities.AddChild;
