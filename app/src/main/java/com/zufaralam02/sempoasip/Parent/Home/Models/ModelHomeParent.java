@@ -1,26 +1,24 @@
 
-package com.zufaralam02.sempoasip.Parent.Wallet.Models;
+package com.zufaralam02.sempoasip.Parent.Home.Models;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
 @SuppressWarnings("unused")
-public class ModelHistoryy {
+public class ModelHomeParent {
 
     @SerializedName("result")
-    private List<ResultHistory> mResultHistory;
+    private Result mResult;
     @SerializedName("status_code")
     private Long mStatusCode;
     @SerializedName("status_message")
     private String mStatusMessage;
 
-    public List<ResultHistory> getResult() {
-        return mResultHistory;
+    public Result getResult() {
+        return mResult;
     }
 
-    public void setResult(List<ResultHistory> resultHistory) {
-        mResultHistory = resultHistory;
+    public void setResult(Result result) {
+        mResult = result;
     }
 
     public Long getStatusCode() {

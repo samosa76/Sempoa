@@ -2,6 +2,8 @@ package com.zufaralam02.sempoasip.Parent.Wallet.Activities;
 
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
 
 import com.iapps.libs.helpers.BaseHelper;
 import com.iapps.libs.helpers.HTTPImb;
@@ -25,6 +27,8 @@ public class WalletHistory extends BaseActivitySempoa {
 
     @BindView(R.id.recyclerWalletHistory)
     RecyclerView recyclerWalletHistory;
+    @BindView(R.id.tvHistoryIsNull)
+    TextView tvHistoryIsNull;
 
     SharedPrefManager sharedPrefManager;
     String id, name, email, phone, pass;
@@ -41,9 +45,9 @@ public class WalletHistory extends BaseActivitySempoa {
         sharedPrefManager = new SharedPrefManager(getApplicationContext());
         HashMap<String, String> user = sharedPrefManager.getUserDetail();
         id = user.get(SharedPrefManager.SP_ID);
-        name = user.get(SharedPrefManager.SP_NAME);
-        email = user.get(SharedPrefManager.SP_EMAIL);
-        phone = user.get(SharedPrefManager.SP_PHONE);
+//        name = user.get(SharedPrefManager.SP_NAME);
+//        email = user.get(SharedPrefManager.SP_EMAIL);
+//        phone = user.get(SharedPrefManager.SP_PHONE);
 //        pass = user.get(SharedPrefManager.SP_PASS);
 
         ArrayList<ResultHistory> resultHistory = historyWallet();
@@ -66,12 +70,16 @@ public class WalletHistory extends BaseActivitySempoa {
                     JSONArray jsonArray = j.getJSONArray("result");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         j = jsonArray.getJSONObject(i);
-                        String historyName = j.getString("topup_kodesiswa");
+                        String historyName = j.getString("nama_siswa");
                         String historyTime = j.getString("topup_created_date");
                         String historyCoin = j.getString("topup_jumlah");
 
+                        if (jsonArray.length() == jsonArray.length()) {
+                            tvHistoryIsNull.setVisibility(View.GONE);
+                        }
+
                         ResultHistory resultHistory1 = new ResultHistory();
-                        resultHistory1.setTopupKodesiswa(historyName);
+                        resultHistory1.setNamaSiswa(historyName);
                         resultHistory1.setTopupCreatedDate(historyTime);
                         resultHistory1.setTopupJumlah(historyCoin);
                         resultHistory.add(resultHistory1);

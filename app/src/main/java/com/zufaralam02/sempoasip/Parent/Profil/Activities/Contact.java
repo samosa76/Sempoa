@@ -2,6 +2,8 @@ package com.zufaralam02.sempoasip.Parent.Profil.Activities;
 
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
 
 import com.iapps.libs.helpers.BaseHelper;
 import com.iapps.libs.helpers.HTTPImb;
@@ -25,6 +27,8 @@ public class Contact extends BaseActivitySempoa {
 
     @BindView(R.id.recyclerContact)
     RecyclerView recyclerContact;
+    @BindView(R.id.tvContactIsNull)
+    TextView tvContactIsNull;
 
     SharedPrefManager sharedPrefManager;
     String id, name, email, phone, pass;
@@ -41,9 +45,9 @@ public class Contact extends BaseActivitySempoa {
         sharedPrefManager = new SharedPrefManager(getApplicationContext());
         HashMap<String, String> user = sharedPrefManager.getUserDetail();
         id = user.get(SharedPrefManager.SP_ID);
-        name = user.get(SharedPrefManager.SP_NAME);
-        email = user.get(SharedPrefManager.SP_EMAIL);
-        phone = user.get(SharedPrefManager.SP_PHONE);
+//        name = user.get(SharedPrefManager.SP_NAME);
+//        email = user.get(SharedPrefManager.SP_EMAIL);
+//        phone = user.get(SharedPrefManager.SP_PHONE);
 //        pass = user.get(SharedPrefManager.SP_PASS);
 
         ArrayList<ResultContact> resultContact = contactData();
@@ -69,6 +73,10 @@ public class Contact extends BaseActivitySempoa {
                         j = jsonArray.getJSONObject(i);
                         String contactName = j.getString("nama");
                         String contactNumber = j.getString("nomor_telp");
+
+                        if (jsonArray.length() == jsonArray.length()) {
+                            tvContactIsNull.setVisibility(View.GONE);
+                        }
 
                         ResultContact resultContact1 = new ResultContact();
                         resultContact1.setNama(contactName);

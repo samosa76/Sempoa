@@ -1,51 +1,42 @@
+
 package com.zufaralam02.sempoasip.Parent.Wallet.Models;
 
-/**
- * Created by user on 19/01/2018.
- */
+import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
+@SuppressWarnings("unused")
 public class ModelHistory {
-    private int historyName;
-    private int historyTime;
-    private int historyCoin;
-    private boolean isPending;
 
-    public int getHistoryName() {
-        return historyName;
+    @SerializedName("result")
+    private List<ResultHistory> mResultHistory;
+    @SerializedName("status_code")
+    private Long mStatusCode;
+    @SerializedName("status_message")
+    private String mStatusMessage;
+
+    public List<ResultHistory> getResult() {
+        return mResultHistory;
     }
 
-    public void setHistoryName(int historyName) {
-        this.historyName = historyName;
+    public void setResult(List<ResultHistory> resultHistory) {
+        mResultHistory = resultHistory;
     }
 
-    public int getHistoryTime() {
-        return historyTime;
+    public Long getStatusCode() {
+        return mStatusCode;
     }
 
-    public void setHistoryTime(int historyTime) {
-        this.historyTime = historyTime;
+    public void setStatusCode(Long statusCode) {
+        mStatusCode = statusCode;
     }
 
-    public int getHistoryCoin() {
-        return historyCoin;
+    public String getStatusMessage() {
+        return mStatusMessage;
     }
 
-    public void setHistoryCoin(int historyCoin) {
-        this.historyCoin = historyCoin;
+    public void setStatusMessage(String statusMessage) {
+        mStatusMessage = statusMessage;
     }
 
-    public boolean isPending() {
-        return isPending;
-    }
-
-    public void setPending(boolean pending) {
-        isPending = pending;
-    }
-
-    public ModelHistory(int historyName, int historyTime, int historyCoin, boolean isPending) {
-        setHistoryName(historyName);
-        setHistoryTime(historyTime);
-        setHistoryCoin(historyCoin);
-        setPending(isPending);
-    }
 }

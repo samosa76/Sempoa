@@ -47,9 +47,9 @@ public class DetailNotification extends BaseActivitySempoa {
         sharedPrefManager = new SharedPrefManager(getApplicationContext());
         HashMap<String, String> user = sharedPrefManager.getUserDetail();
         id = user.get(SharedPrefManager.SP_ID);
-        name = user.get(SharedPrefManager.SP_NAME);
-        email = user.get(SharedPrefManager.SP_EMAIL);
-        phone = user.get(SharedPrefManager.SP_PHONE);
+//        name = user.get(SharedPrefManager.SP_NAME);
+//        email = user.get(SharedPrefManager.SP_EMAIL);
+//        phone = user.get(SharedPrefManager.SP_PHONE);
 //        pass = user.get(SharedPrefManager.SP_PASS);
 
         idNotif = getIntent().getStringExtra("notifId");
