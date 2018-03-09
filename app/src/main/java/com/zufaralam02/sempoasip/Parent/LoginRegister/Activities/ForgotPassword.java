@@ -71,7 +71,7 @@ public class ForgotPassword extends BaseActivitySempoa {
             @Override
             public void onFail(int code, JSONObject j) {
                 super.onFail(code, j);
-                startActivity(new Intent(getApplicationContext(), ForgotPassword.class));
+//                startActivity(new Intent(getApplicationContext(), ForgotPassword.class));
                 finish();
             }
         };

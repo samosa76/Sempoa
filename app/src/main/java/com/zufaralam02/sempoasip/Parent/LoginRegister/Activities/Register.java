@@ -71,6 +71,7 @@ public class Register extends BaseActivitySempoa {
                 Intent intent = new Intent(getApplicationContext(), Login.class);
                 Toast.makeText(Register.this, "Success", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
+                finish();
             }
         };
         httpImb.setPostParams("parent_fullname", edtNameRegister)

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.iapps.libs.helpers.BaseHelper;
 import com.iapps.libs.helpers.HTTPImb;
@@ -34,6 +35,8 @@ public class ChildSetting extends BaseActivitySempoa {
     Button btnAddChildSetting;
     @BindView(R.id.btnGoToHome)
     Button btnGoToHome;
+    @BindView(R.id.tvChildSettingIsNull)
+    TextView tvChildSettingIsNull;
 
     SharedPrefManager sharedPrefManager;
     String id, name, email, phone, pass;
@@ -50,9 +53,9 @@ public class ChildSetting extends BaseActivitySempoa {
         sharedPrefManager = new SharedPrefManager(getApplicationContext());
         HashMap<String, String> user = sharedPrefManager.getUserDetail();
         id = user.get(SharedPrefManager.SP_ID);
-        name = user.get(SharedPrefManager.SP_NAME);
-        email = user.get(SharedPrefManager.SP_EMAIL);
-        phone = user.get(SharedPrefManager.SP_PHONE);
+//        name = user.get(SharedPrefManager.SP_NAME);
+//        email = user.get(SharedPrefManager.SP_EMAIL);
+//        phone = user.get(SharedPrefManager.SP_PHONE);
 //        pass = user.get(SharedPrefManager.SP_PASS);
 
         ArrayList<ListMurid> listMurid = childSettingData();
@@ -79,6 +82,10 @@ public class ChildSetting extends BaseActivitySempoa {
                         String code = j.getString("kode_siswa");
                         String place = j.getString("alamat");
                         String pass = j.getString("murid_app_pwd");
+
+                        if (jsonArray.length() == jsonArray.length()) {
+                            tvChildSettingIsNull.setVisibility(View.GONE);
+                        }
 
                         ListMurid listMurid1 = new ListMurid();
                         listMurid1.setNamaSiswa(name);

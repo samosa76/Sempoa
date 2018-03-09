@@ -136,7 +136,7 @@ public class AddChild extends BaseActivitySempoa {
             public void onSuccess(JSONObject j) {
                 startActivity(new Intent(getApplicationContext(), BottomNavigationParent.class));
                 Toast.makeText(AddChild.this, "Success", Toast.LENGTH_SHORT).show();
-
+                finish();
             }
         };
         httpImb.setPostParams("parent_id", id)

@@ -98,7 +98,6 @@ public class LocationChild extends FragmentActivity implements OnMapReadyCallbac
             adapterChildLocation.setListChild(listChild);
 //            adapterChildHome.setTvChildRank(tvChildRank);
 //            adapterChildHome.setTvChildWallet(tvChildRank);
-
             viewPagerChildMaps.setClipToPadding(false);
             viewPagerChildMaps.setPadding(100, 0, 100, 0);
             viewPagerChildMaps.setPageMargin(20);
