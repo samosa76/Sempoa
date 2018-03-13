@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.zufaralam02.sempoasip.Parent.Home.Activities.ChildSetting;
 import com.zufaralam02.sempoasip.Parent.Home.Activities.LocationChild;
+import com.zufaralam02.sempoasip.Parent.Home.Models.ListMurid;
 import com.zufaralam02.sempoasip.R;
 
 import butterknife.BindView;
@@ -39,14 +40,14 @@ public class FragmentChildHome extends Fragment {
     @BindView(R.id.frameHomeChild)
     FrameLayout frameHomeChild;
     private int position;
-    private String[] childName, childNumber, childLocation;
+    private String childName, childNumber, childLocation;
 
-    public static FragmentChildHome newInstance(int position, String[] childName) {
+    public static FragmentChildHome newInstance(int position, ListMurid childName) {
 
         FragmentChildHome fragmentChildHome = new FragmentChildHome();
         Bundle bundle = new Bundle();
         bundle.putInt("position", position);
-        bundle.putStringArray("childName", childName);
+        bundle.putString("childName", String.valueOf(childName));
 //        bundle.putString("childNumber", childNumber);
 //        bundle.putString("childLocation", childLocation);/
         fragmentChildHome.setArguments(bundle);
@@ -59,7 +60,7 @@ public class FragmentChildHome extends Fragment {
         super.onCreate(savedInstanceState);
 
         position = getArguments().getInt("position", position);
-        childName = getArguments().getStringArray("childName");
+        childName = getArguments().getString("childName");
 //        childNumber = getArguments().getString("childNumber");
 //        childLocation = getArguments().getString("childLocation");
 
@@ -73,10 +74,15 @@ public class FragmentChildHome extends Fragment {
         View view = inflater.inflate(R.layout.fragment_child_home, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        for (int a = 0; a < childName.length; a++) {
-            tvNameChildHome.append("\n" + childName[a].trim());
-//        tvNumberChildHome.setText(childNumber.trim());
-//        tvPlaceChildHome.setText(childLocation.trim());
+//        for (int a = 0; a < childName.length; a++) {
+//            tvNameChildHome.append("\n" + childName[a].trim());
+////        tvNumberChildHome.setText(childNumber.trim());
+////        tvPlaceChildHome.setText(childLocation.trim());
+//        }
+        for (int i = 0; i < childName.length(); i++) {
+            tvNameChildHome.setText(childName.trim());
+            tvNumberChildHome.setText(childNumber.trim());
+            tvPlaceChildHome.setText(childLocation.trim());
         }
 
         return view;
