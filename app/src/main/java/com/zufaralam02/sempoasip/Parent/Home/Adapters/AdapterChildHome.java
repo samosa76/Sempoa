@@ -6,7 +6,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.widget.TextView;
 
 import com.zufaralam02.sempoasip.Parent.Home.Fragments.FragmentChildHome;
+import com.zufaralam02.sempoasip.Parent.Home.Models.ListMurid;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,33 +16,15 @@ import java.util.List;
  */
 
 public class AdapterChildHome extends FragmentPagerAdapter {
-    public List<String[]> getListChild() {
-        return listChild;
+    public ArrayList<ListMurid> getListMurid() {
+        return listMurid;
     }
 
-    public void setListChild(List<String[]> listChild) {
-        this.listChild = listChild;
+    public void setListMurid(ArrayList<ListMurid> listMurid) {
+        this.listMurid = listMurid;
     }
 
-    private List<String[]> listChild;
-
-    private TextView tvChildRank, tvChildWallet;
-
-    public TextView getTvChildRank() {
-        return tvChildRank;
-    }
-
-    public void setTvChildRank(TextView tvChildRank) {
-        this.tvChildRank = tvChildRank;
-    }
-
-    public TextView getTvChildWallet() {
-        return tvChildWallet;
-    }
-
-    public void setTvChildWallet(TextView tvChildWallet) {
-        this.tvChildWallet = tvChildWallet;
-    }
+    ArrayList<ListMurid> listMurid;
 
     public AdapterChildHome(FragmentManager fm) {
         super(fm);
@@ -57,12 +41,12 @@ public class AdapterChildHome extends FragmentPagerAdapter {
 //            tvChildRank.setText(listChild.indexOf(1));
 //        }
 
-        return FragmentChildHome.newInstance(position, listChild.get(position));
+        return FragmentChildHome.newInstance(position, listMurid.get(position));
     }
 
     @Override
     public int getCount() {
-        return listChild.size();
+        return listMurid.size();
     }
 
 }

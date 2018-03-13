@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +33,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class TopupCoin extends BaseActivitySempoa {
+public class TopupCoin extends BaseActivitySempoa implements PopupMenu.OnMenuItemClickListener {
 
     @BindView(R.id.recyclerCoin)
     RecyclerView recyclerCoin;
@@ -121,7 +123,11 @@ public class TopupCoin extends BaseActivitySempoa {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.edtPaymentMethod:
-                tvPriceTopup.setText("Rp " + edtAmountToBuy.getText().toString() + "000");
+//                tvPriceTopup.setText("Rp " + edtAmountToBuy.getText().toString() + "000");
+                PopupMenu popupMenu = new PopupMenu(this, view);
+                popupMenu.setOnMenuItemClickListener(this);
+                popupMenu.inflate(R.menu.menu_popup);
+                popupMenu.show();
                 break;
             case R.id.btnPayNow:
                 if (!Helper.validateEditTexts(new EditText[]{edtAmountToBuy, edtSendTo, edtPaymentMethod})) {
@@ -140,5 +146,18 @@ public class TopupCoin extends BaseActivitySempoa {
                 finish();
                 break;
         }
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.bankTransfer:
+                edtPaymentMethod.setText("1");
+                break;
+            case R.id.creditCard:
+                edtPaymentMethod.setText("2");
+                break;
+        }
+        return true;
     }
 }

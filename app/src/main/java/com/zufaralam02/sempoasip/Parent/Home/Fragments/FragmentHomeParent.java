@@ -1,6 +1,5 @@
 package com.zufaralam02.sempoasip.Parent.Home.Fragments;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -17,6 +16,7 @@ import android.widget.TextView;
 import com.iapps.libs.helpers.HTTPImb;
 import com.zufaralam02.sempoasip.Parent.Home.Activities.ProgressChild;
 import com.zufaralam02.sempoasip.Parent.Home.Adapters.AdapterChildHome;
+import com.zufaralam02.sempoasip.Parent.Home.Models.ListMurid;
 import com.zufaralam02.sempoasip.Parent.LoginRegister.Activities.AddChild;
 import com.zufaralam02.sempoasip.Parent.Utils.SharedPrefManager;
 import com.zufaralam02.sempoasip.Parent.Wallet.Fragments.FragmentWalletParent;
@@ -28,7 +28,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,22 +41,22 @@ import butterknife.Unbinder;
  * A simple {@link Fragment} subclass.
  */
 public class FragmentHomeParent extends Fragment {
-    List<String[]> listChild = new ArrayList<String[]>();
-    String[] childOne = {
-            "Middlestone",
-            "111222",
-            "Tangerang"
-    };
-    String[] childTwo = {
-            "Mark",
-            "333444",
-            "jakarta"
-    };
-    String[] childThree = {
-            "Martin",
-            "555666",
-            "Depok"
-    };
+//    List<String[]> listChild = new ArrayList<String[]>();
+//    String[] childOne = {
+//            "Middlestone",
+//            "111222",
+//            "Tangerang"
+//    };
+//    String[] childTwo = {
+//            "Mark",
+//            "333444",
+//            "jakarta"
+//    };
+//    String[] childThree = {
+//            "Martin",
+//            "555666",
+//            "Depok"
+//    };
 
     @BindView(R.id.btnAddChildHome)
     Button btnAddChildHome;
@@ -112,43 +111,43 @@ public class FragmentHomeParent extends Fragment {
 
         requestData();
 
-        if (adapterChildHome == null) {
-//            Instead of :
-//            HotelDetailPagerAdapter adapter = new HotelDetailPagerAdapter(getFragmentManager());
-//            Try :
-//            HotelDetailPagerAdapter adapter = new HotelDetailPagerAdapter(getChildFragmentManager());
-//            and
-//            Instead of :
-//            FragmentTransaction ft = getBaseActivity().getFragmentManager().beginTransaction();
-//            Try :
-//            FragmentTransaction ft = getChildFragmentManager().beginTransaction();
-//            adapterChildHome = new AdapterChildHome(getActivity().getSupportFragmentManager());
-            adapterChildHome = new AdapterChildHome(getChildFragmentManager());
-            listChild.add(childOne);
-            listChild.add(childTwo);
-            listChild.add(childThree);
-            adapterChildHome.setListChild(listChild);
-//            adapterChildHome.setTvChildRank(tvChildRank);
-//            adapterChildHome.setTvChildWallet(tvChildRank);
-
-            viewPagerChildHome.setClipToPadding(false);
-            viewPagerChildHome.setPadding(100, 0, 100, 0);
-            viewPagerChildHome.setPageMargin(20);
-            viewPagerChildHome.setSaveFromParentEnabled(false);
-
-        }
-        viewPagerChildHome.setAdapter(adapterChildHome);
-        adapterChildHome.notifyDataSetChanged();
+//        if (adapterChildHome == null) {
+////            Instead of :
+////            HotelDetailPagerAdapter adapter = new HotelDetailPagerAdapter(getFragmentManager());
+////            Try :
+////            HotelDetailPagerAdapter adapter = new HotelDetailPagerAdapter(getChildFragmentManager());
+////            and
+////            Instead of :
+////            FragmentTransaction ft = getBaseActivity().getFragmentManager().beginTransaction();
+////            Try :
+////            FragmentTransaction ft = getChildFragmentManager().beginTransaction();
+////            adapterChildHome = new AdapterChildHome(getActivity().getSupportFragmentManager());
+//            adapterChildHome = new AdapterChildHome(getChildFragmentManager());
+//            listChild.add(childOne);
+//            listChild.add(childTwo);
+//            listChild.add(childThree);
+//            adapterChildHome.setListChild(listChild);
+////            adapterChildHome.setTvChildRank(tvChildRank);
+////            adapterChildHome.setTvChildWallet(tvChildRank);
+//
+//            viewPagerChildHome.setClipToPadding(false);
+//            viewPagerChildHome.setPadding(100, 0, 100, 0);
+//            viewPagerChildHome.setPageMargin(20);
+//            viewPagerChildHome.setSaveFromParentEnabled(false);
+//
+//        }
+//        viewPagerChildHome.setAdapter(adapterChildHome);
+//        adapterChildHome.notifyDataSetChanged();
 
 //        LocationChild locationChild = new LocationChild();
 //        locationChild.setChildOne(childOne);
 //        locationChild.setChildTwo(childTwo);
 //        locationChild.setChildThree(childThree);
-
         return view;
     }
 
     private void requestData() {
+        final ArrayList<ListMurid> listMurid = new ArrayList<>();
         HTTPImb httpImb = new HTTPImb(this, false) {
             @Override
             public String url() {
@@ -157,7 +156,36 @@ public class FragmentHomeParent extends Fragment {
 
             @Override
             public void onSuccess(JSONObject j) {
+                try {
+                    j = j.getJSONObject("result");
+                    JSONArray jsonArray = j.getJSONArray("list murid");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        j = jsonArray.getJSONObject(i);
+                        String namaSiswa = j.getString("nama_siswa");
+                        String kodeSiswa = j.getString("kode_siswa");
+                        String alamat = j.getString("alamat");
 
+                        if (adapterChildHome == null) {
+                            adapterChildHome = new AdapterChildHome(getChildFragmentManager());
+                            ListMurid listMurid1 = new ListMurid();
+                            listMurid1.setNamaSiswa(namaSiswa);
+                            listMurid1.setKodeSiswa(kodeSiswa);
+                            listMurid1.setAlamat(alamat);
+                            listMurid.add(listMurid1);
+                            adapterChildHome.setListMurid(listMurid);
+
+                            viewPagerChildHome.setClipToPadding(false);
+                            viewPagerChildHome.setPadding(100, 0, 100, 0);
+                            viewPagerChildHome.setPageMargin(20);
+                            viewPagerChildHome.setSaveFromParentEnabled(false);
+                        }
+                        viewPagerChildHome.setAdapter(adapterChildHome);
+                        adapterChildHome.notifyDataSetChanged();
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
             }
         };
@@ -183,6 +211,7 @@ public class FragmentHomeParent extends Fragment {
                 break;
             case R.id.cardWalletHomeParent:
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameHomeParent, new FragmentWalletParent()).commit();
+                startActivity(new Intent(getActivity(), FragmentWalletParent.class));
                 break;
             case R.id.cardRankHomeParent:
                 break;

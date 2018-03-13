@@ -79,6 +79,7 @@ public class BottomNavigationParent extends BaseActivitySempoa {
         }
     };
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
