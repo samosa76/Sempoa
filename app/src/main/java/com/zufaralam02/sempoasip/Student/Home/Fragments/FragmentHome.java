@@ -3,11 +3,13 @@ package com.zufaralam02.sempoasip.Student.Home.Fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.iapps.libs.helpers.HTTPImb;
@@ -58,6 +60,18 @@ public class FragmentHome extends Fragment {
     TextView tvAbsen;
     @BindView(R.id.tvCoin)
     TextView tvCoin;
+    @BindView(R.id.rvIsNull)
+    RelativeLayout rvIsNull;
+    @BindView(R.id.nestedHome)
+    NestedScrollView nestedHome;
+    @BindView(R.id.tvNamaBuku1)
+    TextView tvNamaBuku1;
+    @BindView(R.id.tvHalBuku1)
+    TextView tvHalBuku1;
+    @BindView(R.id.tvNamaBuku2)
+    TextView tvNamaBuku2;
+    @BindView(R.id.tvHalBuku2)
+    TextView tvHalBuku2;
 
     public FragmentHome() {
         // Required empty public constructor
@@ -92,8 +106,11 @@ public class FragmentHome extends Fragment {
             public void onSuccess(JSONObject j) {
                 try {
                     JSONArray jsonArray = j.getJSONArray("result");
+//                    JSONObject jsonObject = jsonArray.getJSONObject()
                     for (int i = 0; i < jsonArray.length(); i++) {
                         j = jsonArray.getJSONObject(i);
+
+//                        String namaTc  = object.getJSONObject("contact_tc").getString("nama");
 
                         String kodeSiswa = j.getString("kode_siswa");
                         String namaSiswa = j.getString("nama_siswa");
@@ -101,13 +118,29 @@ public class FragmentHome extends Fragment {
                         String absen = j.getString("absen");
                         String coin = j.getString("coin");
 
+//                        String namaBuku1  = j.getJSONObject("progress").getString("progress_total_hal_1");
+                        JSONObject object = j.getJSONObject("progress");
+
+                        String namaBuku1 = object.getString("progress_nama_buku_1");
+                        String namaBuku2 = object.getString("progress_nama_buku_2");
+                        String halamanBuku1 = object.getString("progress_hal_buku_1");
+                        String halamanBuku2 = object.getString("progress_hal_buku_2");
+
+                        if (jsonArray.length() == jsonArray.length()) {
+                            rvIsNull.setVisibility(View.GONE);
+                            nestedHome.setVisibility(View.VISIBLE);
+                        }
+
                         tvNamaSiswa.setText(namaSiswa);
                         tvChildWallet.setText(namaSiswa + "'s Wallet");
                         tvalamat.setText(alamat);
                         tvkodeSiswa.setText(kodeSiswa);
                         tvAbsen.setText(absen);
                         tvCoin.setText(coin);
-
+                        tvNamaBuku1.setText("Book : " +namaBuku1);
+                        tvNamaBuku2.setText("Book : " +namaBuku2);
+                        tvHalBuku1.setText(halamanBuku1);
+                        tvHalBuku2.setText(halamanBuku2);
 
                     }
 
@@ -141,7 +174,7 @@ public class FragmentHome extends Fragment {
                 startActivity(new Intent(getActivity(), Attandance.class));
                 break;
             case R.id.cardStudentWallet:
-                Intent i = new Intent(getActivity(),Wallet.class);
+                Intent i = new Intent(getActivity(), Wallet.class);
 //                i.putExtra()
                 startActivity(i);
                 break;

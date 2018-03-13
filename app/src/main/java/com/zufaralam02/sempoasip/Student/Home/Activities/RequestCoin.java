@@ -84,12 +84,16 @@ public class RequestCoin extends BaseActivitySempoa {
                         String coin = j.getString("setting_jumlah_coin");
                         String keterangan = j.getString("setting_keterangan");
 
+//                        cara menghilangkan tanda
+//                        coin = coin.replace("taget", "");
+
                         ResultRequestCoin resultCoinn = new ResultRequestCoin();
                         resultCoinn.setSettingJumlahCoin(coin);
                         resultCoinn.setSettingKeterangan(keterangan);
                         resultRequestCoins.add(resultCoinn);
 
                     }
+
                     adapterRequestCoin.notifyDataSetChanged();
 
                 } catch (JSONException e) {
@@ -103,6 +107,7 @@ public class RequestCoin extends BaseActivitySempoa {
                 .execute();
 
         return resultRequestCoins;
+
     }
 
 
@@ -133,6 +138,5 @@ public class RequestCoin extends BaseActivitySempoa {
                 .setPostParams("jumlah_coin",edtRequestCoin)
                 .setDisplayError(true)
                 .execute();
-
     }
 }

@@ -8,7 +8,36 @@
     android:background="#ffd65a"
     tools:context="com.zufaralam02.sempoasip.Student.Profil.Activities.ContactStudent">
 
+    <RelativeLayout
+        android:id="@+id/rvIsNull"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/activity_vertical_margin"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/ivNotif"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_notif" />
+
+        <TextView
+            android:id="@+id/tvNotif"
+            style="@style/textMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivNotif"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:gravity="center_horizontal"
+            android:text="You have no notification"
+            android:textColor="@color/White"
+            tools:ignore="HardcodedText" />
+
+    </RelativeLayout>
+
     <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedProfil"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/ic_header">
@@ -38,8 +67,7 @@
                         android:id="@+id/tvNamaTc"
                         style="@style/textMedium"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Contact TC Pejaten Village" />
+                        android:layout_height="wrap_content"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -53,8 +81,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            android:text="021 - 123 123 123" />
+                            android:layout_weight="1"/>
 
                         <ImageView
                             android:layout_width="40dp"
@@ -85,8 +112,7 @@
                         android:id="@+id/tvNamaIbo"
                         style="@style/textMedium"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Contact Sempoa SIP Office" />
+                        android:layout_height="wrap_content"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -100,8 +126,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            android:text="021 - 123 123 123" />
+                            android:layout_weight="1"/>
 
                         <ImageView
                             android:layout_width="40dp"

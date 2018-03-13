@@ -7,10 +7,41 @@
     android:background="#fdb17e"
     tools:context=".Student.Home.Fragments.FragmentHome">
 
+    <RelativeLayout
+        android:id="@+id/rvIsNull"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/activity_vertical_margin"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/ivNotif"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_notif" />
+
+        <TextView
+            android:id="@+id/tvNotif"
+            style="@style/textMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivNotif"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:gravity="center_horizontal"
+            android:text="sedang memproses data"
+            android:textColor="@color/White"
+            tools:ignore="HardcodedText" />
+
+    </RelativeLayout>
+
     <!-- TODO: Update blank fragment layout -->
     <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedHome"
+        android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:background="@drawable/ic_header">
 
         <LinearLayout
@@ -164,6 +195,7 @@
 
                     <TextView
                         style="@style/textRegular"
+                        android:id="@+id/tvNamaBuku1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="#fff"
@@ -172,6 +204,7 @@
 
                     <TextView
                         style="@style/textRegular"
+                        android:id="@+id/tvHalBuku1"
                         android:layout_marginRight="20dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -191,6 +224,7 @@
 
                     <TextView
                         style="@style/textRegular"
+                        android:id="@+id/tvNamaBuku2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="#fff"
@@ -199,6 +233,7 @@
 
                     <TextView
                         style="@style/textRegular"
+                        android:id="@+id/tvHalBuku2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
