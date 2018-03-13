@@ -2,12 +2,9 @@
 package com.zufaralam02.sempoasip.Student.Home.Model;
 
 import com.google.gson.annotations.SerializedName;
-import com.zufaralam02.sempoasip.Student.Profil.Model.ContactIbo;
+import com.zufaralam02.sempoasip.Student.Profil.Model.ModelContactIbo;
 import com.zufaralam02.sempoasip.Student.Profil.Model.ContactTc;
 
-import java.util.List;
-
-@SuppressWarnings("unused")
 public class ResultHomeStudent {
 
     @SerializedName("absen")
@@ -19,7 +16,7 @@ public class ResultHomeStudent {
     @SerializedName("coin")
     private String mCoin;
     @SerializedName("contact_ibo")
-    private ContactIbo mContactIbo;
+    private ModelContactIbo mModelContactIbo;
     @SerializedName("contact_tc")
     private ContactTc mContactTc;
     @SerializedName("id_level_sekarang")
@@ -45,7 +42,7 @@ public class ResultHomeStudent {
     @SerializedName("nama_siswa")
     private String mNamaSiswa;
     @SerializedName("progress")
-    private List<Object> mProgress;
+    private progress mProgress;
     @SerializedName("rewards")
     private String mRewards;
     @SerializedName("TC")
@@ -87,12 +84,12 @@ public class ResultHomeStudent {
         mCoin = coin;
     }
 
-    public ContactIbo getContactIbo() {
-        return mContactIbo;
+    public ModelContactIbo getContactIbo() {
+        return mModelContactIbo;
     }
 
-    public void setContactIbo(ContactIbo contactIbo) {
-        mContactIbo = contactIbo;
+    public void setContactIbo(ModelContactIbo modelContactIbo) {
+        mModelContactIbo = modelContactIbo;
     }
 
     public ContactTc getContactTc() {
@@ -191,11 +188,11 @@ public class ResultHomeStudent {
         mNamaSiswa = namaSiswa;
     }
 
-    public List<Object> getProgress() {
+    public progress getProgress() {
         return mProgress;
     }
 
-    public void setProgress(List<Object> progress) {
+    public void setProgress(progress progress) {
         mProgress = progress;
     }
 

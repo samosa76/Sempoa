@@ -83,9 +83,11 @@ public class FragmentHistoryReward extends Fragment {
                         String withdrawId = j.getString("withdraw_id");
                         String jumlahWithDraw = j.getString("withdraw_jumlah");
                         String createdDate = j.getString("withdraw_created_date");
+                        String status = j.getString("withdraw_status");
 
                         ResultHistoryReward resultHistoryReward = new ResultHistoryReward();
 
+                        resultHistoryReward.setWithdrawStatus(status);
                         resultHistoryReward.setWithdrawId(withdrawId);
                         resultHistoryReward.setWithdrawJumlah(jumlahWithDraw);
                         resultHistoryReward.setWithdrawCreatedDate(createdDate);

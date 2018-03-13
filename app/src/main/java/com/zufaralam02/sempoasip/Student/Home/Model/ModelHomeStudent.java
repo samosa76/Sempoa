@@ -1,11 +1,10 @@
 
 package com.zufaralam02.sempoasip.Student.Home.Model;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.List;
 
-@SuppressWarnings("unused")
+import com.google.gson.annotations.SerializedName;
+
 public class ModelHomeStudent {
 
     @SerializedName("result")

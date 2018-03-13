@@ -12,6 +12,6 @@ public class FeedbackChild extends BaseActivitySempoa {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback_child);
 
-        setupNav("Progress");
+        setupNav("progress");
     }
 }

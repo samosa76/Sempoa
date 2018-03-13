@@ -1,6 +1,9 @@
 package com.zufaralam02.sempoasip.Student.Profil.Activities;
 
 import android.os.Bundle;
+import android.support.v4.widget.NestedScrollView;
+import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.iapps.libs.helpers.HTTPImb;
@@ -29,6 +32,10 @@ public class ContactStudent extends BaseActivitySempoa {
     TextView tvNamaIbo;
     @BindView(R.id.tvNomorIbo)
     TextView tvNomorIbo;
+    @BindView(R.id.rvIsNull)
+    RelativeLayout rvIsNull;
+    @BindView(R.id.nestedProfil)
+    NestedScrollView nestedProfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,10 +71,15 @@ public class ContactStudent extends BaseActivitySempoa {
 
                         JSONObject object = jsonArray.getJSONObject(i);
 
-                        String namaTc = object.getJSONObject("contact_tc").getString("nama");
+                        String namaTc  = object.getJSONObject("contact_tc").getString("nama");
                         String nomorTc = object.getJSONObject("contact_tc").getString("nomor_telp");
-                        String namaIbo = object.getJSONObject("contact_ibo").getString("nama");
-                        String nomorIbo = object.getJSONObject("contact_ibo").getString("nomor_telp");
+                        String namaIbo= object.getJSONObject("contact_ibo").getString("nama");
+                        String nomorIbo=object.getJSONObject("contact_ibo").getString("nomor_telp");
+
+                        if (jsonArray.length() == jsonArray.length()) {
+                            rvIsNull.setVisibility(View.GONE);
+                            nestedProfil.setVisibility(View.VISIBLE);
+                        }
 
                         tvNamaIbo.setText(namaIbo);
                         tvNamaTc.setText(namaTc);
@@ -75,18 +87,16 @@ public class ContactStudent extends BaseActivitySempoa {
                         tvNomorIbo.setText(nomorIbo);
 
                     }
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
             }
         };
-
         httpImb.setPostParams("kode_siswa", kodeSiswa)
                 .setDisplayError(true)
                 .setDisplayProgress(false)
                 .execute();
-
     }
-
 }
