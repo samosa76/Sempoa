@@ -47,7 +47,6 @@ public class HistoryStudent extends BaseActivitySempoa {
         adapter.addFragment(new FragmentHistoryCoin(),"Coin");
         adapter.addFragment(new FragmentHistoryReward(),"Reward");
         vpHistoryStudent.setAdapter(adapter);
-
     }
 
     private class ViewPagerAdapter extends FragmentPagerAdapter{

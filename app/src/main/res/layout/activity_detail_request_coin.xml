@@ -48,6 +48,16 @@
                 android:text="Request will be canceled in \n9 hours 59 Minutes if your parents doesen't \napproved your request"
                 android:layout_marginTop="@dimen/margin_med"/>
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_white_button"
+                android:text="Okay"
+                android:textColor="@color/Orange"
+                android:id="@+id/btnOkayDetailCoin"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_med"/>
+
         </LinearLayout>
 
     </RelativeLayout>

@@ -40,7 +40,7 @@ public class AdapterHistoryReward extends BaseRecyclerAdapter {
         holder.tvTimeWalletHistoryStudent.setText(modelHistory.getWithdrawCreatedDate());
         holder.tvCoinWalletHistoryStudent.setText(modelHistory.getWithdrawJumlah());
 
-        if (modelHistory.isPending()) {
+        if (!modelHistory.getWithdrawStatus().equalsIgnoreCase("2")) {
             holder.tvPendingWalletHistoryStudent.setVisibility(View.VISIBLE);
         } else {
             holder.tvPendingWalletHistoryStudent.setVisibility(View.GONE);

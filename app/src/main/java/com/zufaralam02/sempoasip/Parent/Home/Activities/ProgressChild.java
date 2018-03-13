@@ -36,7 +36,7 @@ public class ProgressChild extends BaseActivitySempoa {
         setContentView(R.layout.activity_progress_child);
         ButterKnife.bind(this);
 
-        setupNav("Progress");
+        setupNav("progress");
 
         sharedPrefManager = new SharedPrefManager(this);
         HashMap<String, String> user = sharedPrefManager.getUserDetail();

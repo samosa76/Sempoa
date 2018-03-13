@@ -36,6 +36,12 @@ public class AdapterHistoryCoin extends BaseRecyclerAdapter {
         AdapterHistoryCoin.Holder holder = (AdapterHistoryCoin.Holder) objectHolder;
         ResultHistoryCoin modelHistory = (ResultHistoryCoin) getItem(position);
 
+        if (modelHistory.getTopupStatus().equalsIgnoreCase("2")){
+            holder.tvPendingWalletHistoryStudent.setVisibility(View.VISIBLE);
+        } else {
+            holder.tvPendingWalletHistoryStudent.setVisibility(View.GONE);
+        }
+
         holder.tvNameWalletHistoryStudent.setText(modelHistory.getTopupChangedStatusBy());
         holder.tvTimeWalletHistoryStudent.setText(modelHistory.getTopupCreatedDate());
         holder.tvCoinWalletHistoryStudent.setText(modelHistory.getTopupJumlah());

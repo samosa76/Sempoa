@@ -114,7 +114,8 @@
                             android:src="@drawable/ic_rewards" />
 
                         <EditText
-                            android:text="200.000"
+                            android:id="@+id/edtAmountStudent"
+                            android:hint="Amount"
                             style="@style/textMedium"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
@@ -146,6 +147,8 @@
                             android:src="@drawable/ic_name" />
 
                         <EditText
+                            android:id="@+id/edtNomorBankStudent"
+                            android:hint="number bank"
                             style="@style/textMedium"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
@@ -177,6 +180,8 @@
                             android:src="@drawable/ic_password" />
 
                         <EditText
+                            android:id="@+id/edtParentPass"
+                            android:hint="parent password"
                             style="@style/textMedium"
                             android:layout_width="match_parent"
                             android:inputType="textPassword"

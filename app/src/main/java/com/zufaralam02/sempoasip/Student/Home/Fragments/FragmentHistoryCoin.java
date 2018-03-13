@@ -90,6 +90,7 @@ public class FragmentHistoryCoin extends Fragment {
                         String topupCreatedDate = j.getString("topup_created_date");
                         String topupChangStatus = j.getString("topup_changed_status_by");
                         String jumlahCoin = j.getString("topup_jumlah");
+                        String topupStats = j.getString("topup_status");
 
                         ResultHistoryCoin resultHistoryCoin = new ResultHistoryCoin();
 
@@ -97,6 +98,7 @@ public class FragmentHistoryCoin extends Fragment {
                         resultHistoryCoin.setTopupCreatedDate(topupCreatedDate);
                         resultHistoryCoin.setTopupChangedStatusBy(topupChangStatus);
                         resultHistoryCoin.setTopupJumlah(jumlahCoin);
+                        resultHistoryCoin.setTopupStatus(topupStats);
 
                         modelHistoryCoin.add(resultHistoryCoin);
                     }

@@ -29,6 +29,16 @@ public class ResultHistoryCoin {
     @SerializedName("topup_status")
     private String mTopupStatus;
 
+    private boolean isPending;
+
+    public boolean isPending() {
+        return isPending;
+    }
+
+    public void setPending(boolean pending) {
+        isPending = pending;
+    }
+
     public String getTopupApprovedDate() {
         return mTopupApprovedDate;
     }

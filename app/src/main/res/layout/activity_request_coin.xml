@@ -88,6 +88,7 @@
                                 android:src="@drawable/ic_rewards" />
 
                             <EditText
+                                android:hint="coin"
                                 android:id="@+id/edtRequestCoin"
                                 style="@style/textMedium"
                                 android:layout_width="match_parent"

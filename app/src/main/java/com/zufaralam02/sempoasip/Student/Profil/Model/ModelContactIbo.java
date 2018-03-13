@@ -3,8 +3,7 @@ package com.zufaralam02.sempoasip.Student.Profil.Model;
 
 import com.google.gson.annotations.SerializedName;
 
-@SuppressWarnings("unused")
-public class ContactIbo {
+public class ModelContactIbo {
 
     @SerializedName("nama")
     private String mNama;

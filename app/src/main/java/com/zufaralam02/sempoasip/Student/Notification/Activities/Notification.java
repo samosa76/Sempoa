@@ -1,8 +1,10 @@
 package com.zufaralam02.sempoasip.Student.Notification.Activities;
 
 import android.os.Bundle;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import com.iapps.libs.helpers.BaseHelper;
 import com.iapps.libs.helpers.HTTPImb;
@@ -19,8 +21,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.xml.transform.Result;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -28,6 +28,10 @@ public class Notification extends BaseActivitySempoa {
 
     @BindView(R.id.rvNotificationStudent)
     RecyclerView rvNotificationStudent;
+    @BindView(R.id.rvIsNull)
+    RelativeLayout rvIsNull;
+    @BindView(R.id.nestedNotif)
+    NestedScrollView nestedNotif;
     private AdapterNotificationStudent adapterNotificationStudent;
 
     SharedPrefManager sharedPrefManager;
@@ -73,6 +77,11 @@ public class Notification extends BaseActivitySempoa {
                         String notifContent = j.getString("notification_content");
                         String notiTime = j.getString("notification_created");
 
+                        if (jsonArray.length() == jsonArray.length()) {
+                            rvIsNull.setVisibility(View.GONE);
+                            nestedNotif.setVisibility(View.VISIBLE);
+                        }
+
                         ResultNotificationStudent resultNotificationStudent = new ResultNotificationStudent();
 
                         resultNotificationStudent.setNotificationId(notifId);
@@ -88,7 +97,7 @@ public class Notification extends BaseActivitySempoa {
             }
         };
 
-        httpImb.setPostParams("kode_siswa" , kodeSiswa)
+        httpImb.setPostParams("kode_siswa", kodeSiswa)
                 .setDisplayError(true)
                 .setDisplayProgress(false)
                 .execute();
