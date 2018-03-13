@@ -1,42 +1,40 @@
+
 package com.zufaralam02.sempoasip.Parent.Wallet.Models;
 
-/**
- * Created by user on 19/01/2018.
- */
+import com.google.gson.annotations.SerializedName;
 
+@SuppressWarnings("unused")
 public class ModelWallet {
-    private int walletName;
-    private int walletCoin;
-    private boolean isPeding;
 
-    public int getWalletName() {
-        return walletName;
+    @SerializedName("result")
+    private ResultWallet mResultWallet;
+    @SerializedName("status_code")
+    private Long mStatusCode;
+    @SerializedName("status_message")
+    private String mStatusMessage;
+
+    public ResultWallet getResult() {
+        return mResultWallet;
     }
 
-    public void setWalletName(int walletName) {
-        this.walletName = walletName;
+    public void setResult(ResultWallet resultWallet) {
+        mResultWallet = resultWallet;
     }
 
-    public int getWalletCoin() {
-        return walletCoin;
+    public Long getStatusCode() {
+        return mStatusCode;
     }
 
-    public void setWalletCoin(int walletCoin) {
-        this.walletCoin = walletCoin;
+    public void setStatusCode(Long statusCode) {
+        mStatusCode = statusCode;
     }
 
-    public boolean isPeding() {
-        return isPeding;
+    public String getStatusMessage() {
+        return mStatusMessage;
     }
 
-    public void setPeding(boolean peding) {
-        isPeding = peding;
-    }
-
-    public ModelWallet(int walletName, int walletCoin, boolean isPeding) {
-        setWalletName(walletName);
-        setWalletCoin(walletCoin);
-        setPeding(isPeding);
+    public void setStatusMessage(String statusMessage) {
+        mStatusMessage = statusMessage;
     }
 
 }

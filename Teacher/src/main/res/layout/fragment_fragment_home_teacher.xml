@@ -6,28 +6,29 @@
     android:background="@color/background"
     tools:context="com.zufaralam02.myapplication.Home.FragmentHomeTeacher">
 
-    <!--<RelativeLayout-->
-    <!--android:id="@+id/rlHome"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:visibility="visible">-->
+    <RelativeLayout
+        android:id="@+id/rlHome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
 
-    <!--<TextView-->
-    <!--style="@style/textLarge"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_centerInParent="true"-->
-    <!--android:text="Sedang load data...."-->
-    <!--android:textColor="@color/White" />-->
+        <TextView
+            style="@style/textLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Sedang load data...."
+            android:textColor="@color/White" />
 
-    <!--</RelativeLayout>-->
+    </RelativeLayout>
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nestedHome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/ic_header">
-        <!--android:visibility="invisible"-->
+        android:background="@drawable/ic_header"
+        android:visibility="invisible">
+
 
 
         <LinearLayout
@@ -47,6 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     android:layout_marginTop="40dp"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:text="Home"
                     android:textColor="#fff" />
             </RelativeLayout>
@@ -56,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
                 app:cardCornerRadius="5dp">
 
                 <LinearLayout
@@ -79,7 +82,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/margin_med"
+                        android:layout_margin="@dimen/activity_vertical_margin"
                         android:layout_weight="1"
                         android:orientation="vertical">
 
@@ -114,21 +117,16 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-
-                >
+                android:layout_margin="@dimen/activity_vertical_margin">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Today Class"
-                    android:textColor="@color/White"
-
-                    />
+                    android:textColor="@color/White"/>
 
                 <TextView
+                    android:id="@+id/tvDateHome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"

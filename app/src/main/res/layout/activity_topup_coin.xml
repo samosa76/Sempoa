@@ -152,6 +152,7 @@
                             android:layout_marginStart="@dimen/margin_small"
                             android:background="@color/transparent"
                             android:hint="Payment Method"
+                            android:inputType="number"
                             android:singleLine="true" />
 
                     </LinearLayout>

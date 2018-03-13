@@ -48,7 +48,9 @@ public class ForgotPassword extends BaseActivitySempoa {
         view.findViewById(R.id.btnOkForgot).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requestForgot();
+                startActivity(new Intent(getApplicationContext(), Login.class));
+                Toast.makeText(ForgotPassword.this, "Success", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
         builder.show();
@@ -63,15 +65,13 @@ public class ForgotPassword extends BaseActivitySempoa {
 
             @Override
             public void onSuccess(JSONObject j) {
-                startActivity(new Intent(getApplicationContext(), Login.class));
-                Toast.makeText(ForgotPassword.this, "Success", Toast.LENGTH_SHORT).show();
-                finish();
+                customDialogForgot();
             }
 
             @Override
             public void onFail(int code, JSONObject j) {
                 super.onFail(code, j);
-                startActivity(new Intent(getApplicationContext(), ForgotPassword.class));
+//                startActivity(new Intent(getApplicationContext(), ForgotPassword.class));
                 finish();
             }
         };
@@ -85,6 +85,6 @@ public class ForgotPassword extends BaseActivitySempoa {
         if (!Helper.validateEditTexts(new EditText[]{edtPassForgot})) {
             return;
         }
-        customDialogForgot();
+        requestForgot();
     }
 }

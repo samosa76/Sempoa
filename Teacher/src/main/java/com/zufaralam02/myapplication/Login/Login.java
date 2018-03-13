@@ -67,9 +67,11 @@
                         String name = j.getString("nama_guru");
                         String kode = j.getString("kode_guru");
                         String tc = j.getJSONObject("TC").getString("nama");
+                        String phone = j.getJSONObject("TC").getString("nomor_telp");
                         String email = j.getString("email_guru");
+
                         Toast.makeText(Login.this, name, Toast.LENGTH_SHORT).show();
-                        sharedPrefManager.sessionLogin(name,email,kode,tc);
+                        sharedPrefManager.sessionLogin(name,email,kode,tc,phone);
 //                        startActivity(new Intent(getApplicationContext(), BottomNavigation.class));
                         finish();
                     } catch (JSONException e) {

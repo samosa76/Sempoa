@@ -52,10 +52,10 @@ public class AccountSetting extends BaseActivitySempoa {
         sharedPrefManager = new SharedPrefManager(getApplicationContext());
         HashMap<String, String> user = sharedPrefManager.getUserDetail();
         id = user.get(SharedPrefManager.SP_ID);
-        name = user.get(SharedPrefManager.SP_NAME);
-        email = user.get(SharedPrefManager.SP_EMAIL);
-        phone = user.get(SharedPrefManager.SP_PHONE);
-        pass = user.get(SharedPrefManager.SP_PASS);
+//        name = user.get(SharedPrefManager.SP_NAME);
+//        email = user.get(SharedPrefManager.SP_EMAIL);
+//        phone = user.get(SharedPrefManager.SP_PHONE);
+//        pass = user.get(SharedPrefManager.SP_PASS);
 
 //        tvNameAccountSetting.setText(name);
 //        tvEmailAccountSetting.setText(email);
@@ -77,7 +77,7 @@ public class AccountSetting extends BaseActivitySempoa {
             public void onSuccess(JSONObject j) {
                 try {
                     j = j.getJSONObject("result");
-                    String id = j.getString("parent_id");
+//                    String id = j.getString("parent_id");
                     String name = j.getString("parent_fullname");
                     String email = j.getString("parent_email");
                     String phone = j.getString("parent_hp_nr");
@@ -94,7 +94,6 @@ public class AccountSetting extends BaseActivitySempoa {
         };
         httpImb.setPostParams("parent_id", id)
                 .setDisplayError(true)
-                .setDisplayProgress(false)
                 .execute();
     }
 
@@ -109,15 +108,19 @@ public class AccountSetting extends BaseActivitySempoa {
         switch (view.getId()) {
             case R.id.tvChangeNameAccountSetting:
                 startActivity(new Intent(getApplicationContext(), ChangeName.class));
+                finish();
                 break;
             case R.id.tvChangeEmailAccountSetting:
                 startActivity(new Intent(getApplicationContext(), ChangeEmail.class));
+                finish();
                 break;
             case R.id.tvChangePhoneAccountSetting:
                 startActivity(new Intent(getApplicationContext(), ChangePhoneNumber.class));
+                finish();
                 break;
             case R.id.tvChangePassAccountSetting:
                 startActivity(new Intent(getApplicationContext(), ChangePassword.class));
+                finish();
                 break;
         }
     }

@@ -38,7 +38,7 @@ public class AdapterHistory extends BaseRecyclerAdapter {
         AdapterHistory.Holder holder = (AdapterHistory.Holder) objectHolder;
         ResultHistory resultHistory = (ResultHistory) getItem(position);
 
-        holder.tvNameWalletHistory.setText(resultHistory.getTopupKodesiswa());
+        holder.tvNameWalletHistory.setText(resultHistory.getNamaSiswa());
         holder.tvTimeWalletHistory.setText(resultHistory.getTopupCreatedDate());
         holder.tvCoinWalletHistory.setText("+ " + resultHistory.getTopupJumlah() + " Coin");
 

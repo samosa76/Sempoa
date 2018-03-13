@@ -67,7 +67,7 @@ public class AdapterCoin extends BaseRecyclerAdapter {
             @Override
             public void onClick(View v) {
                 edtAmountToBuy.setText(holder.tvJumlahCoin.getText().toString());
-                tvPriceTopup.setText("Rp " + holder.tvJumlahCoin.getText().toString() + ".000");
+                tvPriceTopup.setText("Rp " + holder.tvJumlahCoin.getText().toString() + "000");
             }
         });
 

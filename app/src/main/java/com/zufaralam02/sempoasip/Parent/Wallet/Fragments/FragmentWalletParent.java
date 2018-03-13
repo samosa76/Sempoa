@@ -15,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.iapps.libs.helpers.BaseHelper;
 import com.iapps.libs.helpers.HTTPImb;
@@ -44,6 +45,8 @@ public class FragmentWalletParent extends Fragment {
     Toolbar toolbarWallet;
     @BindView(R.id.recyclerWallet)
     RecyclerView recyclerWallet;
+    @BindView(R.id.rvWalletIsNull)
+    RelativeLayout rvWalletIsNull;
     Unbinder unbinder;
 
     SharedPrefManager sharedPrefManager;
@@ -74,9 +77,9 @@ public class FragmentWalletParent extends Fragment {
         sharedPrefManager = new SharedPrefManager(getActivity());
         HashMap<String, String> user = sharedPrefManager.getUserDetail();
         id = user.get(SharedPrefManager.SP_ID);
-        name = user.get(SharedPrefManager.SP_NAME);
-        email = user.get(SharedPrefManager.SP_EMAIL);
-        phone = user.get(SharedPrefManager.SP_PHONE);
+//        name = user.get(SharedPrefManager.SP_NAME);
+//        email = user.get(SharedPrefManager.SP_EMAIL);
+//        phone = user.get(SharedPrefManager.SP_PHONE);
 //        pass = user.get(SharedPrefManager.SP_PASS);
 
         ArrayList<ListMurid> listMurid = walletData();
@@ -104,6 +107,10 @@ public class FragmentWalletParent extends Fragment {
                         String namaSiswa = j.getString("nama_siswa");
                         String wallet = j.getString("wallet");
                         String kodeSiswa = j.getString("kode_siswa");
+
+                        if (jsonArray.length() == jsonArray.length()) {
+                            rvWalletIsNull.setVisibility(View.GONE);
+                        }
 
                         ListMurid listMurid1 = new ListMurid();
                         listMurid1.setNamaSiswa(namaSiswa);

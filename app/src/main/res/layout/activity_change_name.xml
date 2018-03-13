@@ -45,8 +45,7 @@
                         style="@style/textLarge"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_small"
-                        android:text="Meisy Hayati" />
+                        android:layout_marginTop="@dimen/margin_small" />
 
                     <TextView
                         style="@style/textMedium"
