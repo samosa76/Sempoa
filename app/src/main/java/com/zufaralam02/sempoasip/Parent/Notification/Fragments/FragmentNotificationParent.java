@@ -61,9 +61,9 @@ public class FragmentNotificationParent extends Fragment {
         sharedPrefManager = new SharedPrefManager(getActivity());
         HashMap<String, String> user = sharedPrefManager.getUserDetail();
         id = user.get(SharedPrefManager.SP_ID);
-        name = user.get(SharedPrefManager.SP_NAME);
-        email = user.get(SharedPrefManager.SP_EMAIL);
-        phone = user.get(SharedPrefManager.SP_PHONE);
+//        name = user.get(SharedPrefManager.SP_NAME);
+//        email = user.get(SharedPrefManager.SP_EMAIL);
+//        phone = user.get(SharedPrefManager.SP_PHONE);
 //        pass = user.get(SharedPrefManager.SP_PASS);
 
         ArrayList<ResultNotification> resultNotification = notifData();

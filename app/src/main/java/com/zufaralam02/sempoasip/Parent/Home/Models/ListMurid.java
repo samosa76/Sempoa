@@ -33,7 +33,7 @@ public class ListMurid {
     @SerializedName("nama_siswa")
     private String mNamaSiswa;
     @SerializedName("progress")
-    private List<String> mProgress;
+    private List<Progress> mProgress;
     @SerializedName("rank_Challange")
     private String mRankChallange;
     @SerializedName("tanggal_lahir")
@@ -141,11 +141,11 @@ public class ListMurid {
         mNamaSiswa = namaSiswa;
     }
 
-    public List<String> getProgress() {
+    public List<Progress> getProgress() {
         return mProgress;
     }
 
-    public void setProgress(List<String> progress) {
+    public void setProgress(List<Progress> progress) {
         mProgress = progress;
     }
 

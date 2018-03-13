@@ -76,10 +76,10 @@ public class AddChild extends BaseActivitySempoa {
         sharedPrefManager = new SharedPrefManager(getApplicationContext());
         HashMap<String, String> user = sharedPrefManager.getUserDetail();
         id = user.get(SharedPrefManager.SP_ID);
-        name = user.get(SharedPrefManager.SP_NAME);
-        email = user.get(SharedPrefManager.SP_EMAIL);
-        phone = user.get(SharedPrefManager.SP_PHONE);
-        pass = user.get(SharedPrefManager.SP_PASS);
+//        name = user.get(SharedPrefManager.SP_NAME);
+//        email = user.get(SharedPrefManager.SP_EMAIL);
+//        phone = user.get(SharedPrefManager.SP_PHONE);
+//        pass = user.get(SharedPrefManager.SP_PASS);
 
         dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -136,7 +136,7 @@ public class AddChild extends BaseActivitySempoa {
             public void onSuccess(JSONObject j) {
                 startActivity(new Intent(getApplicationContext(), BottomNavigationParent.class));
                 Toast.makeText(AddChild.this, "Success", Toast.LENGTH_SHORT).show();
-
+                finish();
             }
         };
         httpImb.setPostParams("parent_id", id)

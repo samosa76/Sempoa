@@ -1,6 +1,5 @@
 package com.zufaralam02.sempoasip.Parent.Home.Fragments;
 
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,6 +36,8 @@ public class FragmentChildHome extends Fragment {
     @BindView(R.id.ivSettingChildHome)
     ImageView ivSettingChildHome;
     Unbinder unbinder;
+    @BindView(R.id.frameHomeChild)
+    FrameLayout frameHomeChild;
     private int position;
     private String[] childName, childNumber, childLocation;
 
@@ -46,7 +48,7 @@ public class FragmentChildHome extends Fragment {
         bundle.putInt("position", position);
         bundle.putStringArray("childName", childName);
 //        bundle.putString("childNumber", childNumber);
-//        bundle.putString("childLocation", childLocation);
+//        bundle.putString("childLocation", childLocation);/
         fragmentChildHome.setArguments(bundle);
         return fragmentChildHome;
 

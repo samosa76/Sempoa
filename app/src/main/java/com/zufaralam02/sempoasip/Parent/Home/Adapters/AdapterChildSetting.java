@@ -10,10 +10,8 @@ import android.widget.TextView;
 
 import com.iapps.adapters.BaseRecyclerAdapter;
 import com.zufaralam02.sempoasip.Parent.Home.Models.ListMurid;
-import com.zufaralam02.sempoasip.Parent.Home.Models.ModelChildSetting;
 import com.zufaralam02.sempoasip.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,15 +19,6 @@ import java.util.List;
  */
 
 public class AdapterChildSetting extends BaseRecyclerAdapter {
-    public ArrayList<ModelChildSetting> getModelChildSetting1() {
-        return modelChildSetting1;
-    }
-
-    public void setModelChildSetting1(ArrayList<ModelChildSetting> modelChildSetting1) {
-        this.modelChildSetting1 = modelChildSetting1;
-    }
-
-    ArrayList<ModelChildSetting> modelChildSetting1;
 
     public AdapterChildSetting(Context context, List<?> items, int cellLayout) {
         super(context, items, cellLayout);
@@ -49,13 +38,6 @@ public class AdapterChildSetting extends BaseRecyclerAdapter {
     public void setView(RecyclerView.ViewHolder objectHolder, int position) {
 
         final AdapterChildSetting.Holder holder = (AdapterChildSetting.Holder) objectHolder;
-//        final ModelChildSetting modelChildSetting = (ModelChildSetting) getItem(position);
-//        holder.tvNameChildSetting.setText(modelChildSetting.getChildName());
-//        holder.tvNumberChildSetting.setText(modelChildSetting.getChildNumber());
-//        holder.tvPlaceChildSetting.setText(modelChildSetting.getChildPlace());
-//        holder.tvTitlePassChildSetting.setText(modelChildSetting.getChildTitlePass());
-//        holder.tvPassChildSetting.setText(modelChildSetting.getChildPass());
-
         ListMurid listMurid = (ListMurid) getItem(position);
 
         holder.tvNameChildSetting.setText(listMurid.getNamaSiswa());

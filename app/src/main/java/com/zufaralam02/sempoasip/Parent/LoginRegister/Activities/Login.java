@@ -86,7 +86,7 @@ public class Login extends BaseActivitySempoa {
                         String hp = j.getString("parent_hp_nr");
                         String pass = j.getString("parent_pwd");
                         String type1 = j.getString("type");
-                        Toast.makeText(Login.this, name, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login.this, "Success", Toast.LENGTH_SHORT).show();
                         sharedPrefManager.sessionLogin(id, name, email, hp, pass, type1);
                         startActivity(new Intent(getApplicationContext(), BottomNavigationParent.class));
                         finish();
@@ -95,7 +95,7 @@ public class Login extends BaseActivitySempoa {
                         String kode = j.getString("kode_siswa");
                         String name = j.getString("nama_siswa");
                         String type1 = j.getString("type");
-                        Toast.makeText(Login.this, name, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login.this, "Success", Toast.LENGTH_SHORT).show();
 //                        sharedPrefManager.sessionLoginStudent(id, kode, name, type1);
                         sharedPrefManager.sessionLoginStudent(id, kode, name, type1);
                         startActivity(new Intent(getApplicationContext(), BottomNavigationStudent.class));

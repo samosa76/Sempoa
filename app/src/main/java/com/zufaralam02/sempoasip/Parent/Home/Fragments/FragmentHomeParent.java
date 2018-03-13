@@ -3,9 +3,7 @@ package com.zufaralam02.sempoasip.Parent.Home.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -68,7 +66,7 @@ public class FragmentHomeParent extends Fragment {
     @BindView(R.id.tvProgressHome)
     TextView tvProgressHome;
     //    @BindView(R.id.tvPageBookHome)
-//    TextView tvPageBookHome;
+    //    TextView tvPageBookHome;
     @BindView(R.id.cardProgressHomeParent)
     CardView cardProgressHomeParent;
     @BindView(R.id.tvWalletNameHome)
@@ -107,9 +105,9 @@ public class FragmentHomeParent extends Fragment {
         sharedPrefManager = new SharedPrefManager(getActivity());
         HashMap<String, String> user = sharedPrefManager.getUserDetail();
         id = user.get(SharedPrefManager.SP_ID);
-        name = user.get(SharedPrefManager.SP_NAME);
-        email = user.get(SharedPrefManager.SP_EMAIL);
-        phone = user.get(SharedPrefManager.SP_PHONE);
+//        name = user.get(SharedPrefManager.SP_NAME);
+//        email = user.get(SharedPrefManager.SP_EMAIL);
+//        phone = user.get(SharedPrefManager.SP_PHONE);
 //        pass = user.get(SharedPrefManager.SP_PASS);
 
         requestData();
@@ -142,6 +140,11 @@ public class FragmentHomeParent extends Fragment {
         viewPagerChildHome.setAdapter(adapterChildHome);
         adapterChildHome.notifyDataSetChanged();
 
+//        LocationChild locationChild = new LocationChild();
+//        locationChild.setChildOne(childOne);
+//        locationChild.setChildTwo(childTwo);
+//        locationChild.setChildThree(childThree);
+
         return view;
     }
 
@@ -154,19 +157,8 @@ public class FragmentHomeParent extends Fragment {
 
             @Override
             public void onSuccess(JSONObject j) {
-                try {
-                    j = j.getJSONObject("result");
-                    JSONArray jsonArray = j.getJSONArray("list murid");
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        j = jsonArray.getJSONObject(i);
-                        String namaSiswa = j.getString("nama_siswa");
-                        String kodeSiswa = j.getString("kode_siswa");
-                        String alamat = j.getString("alamat");
 
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+
             }
         };
         httpImb.setPostParams("parent_id", id)

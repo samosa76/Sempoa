@@ -6,6 +6,8 @@ import com.google.gson.annotations.SerializedName;
 @SuppressWarnings("unused")
 public class ResultHistory {
 
+    @SerializedName("nama_siswa")
+    private String mNamaSiswa;
     @SerializedName("topup_approved_date")
     private String mTopupApprovedDate;
     @SerializedName("topup_canceled_date")
@@ -28,6 +30,14 @@ public class ResultHistory {
     private String mTopupPendingDate;
     @SerializedName("topup_status")
     private String mTopupStatus;
+
+    public String getNamaSiswa() {
+        return mNamaSiswa;
+    }
+
+    public void setNamaSiswa(String namaSiswa) {
+        mNamaSiswa = namaSiswa;
+    }
 
     public String getTopupApprovedDate() {
         return mTopupApprovedDate;

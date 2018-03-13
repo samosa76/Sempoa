@@ -12,18 +12,18 @@ import org.json.JSONObject;
  */
 
 public class Helper extends BaseHelper {
-    public static void saveUser (Context ctx, String jsonUser){
+    public static void saveUser(Context ctx, String jsonUser) {
         ParentPref.getInstance(ctx).setString("user", jsonUser);
     }
 
     // public static user getUser (Context ctx)
-    public static void getUser (Context ctx){
+    public static void getUser(Context ctx) {
         String jsonUser = ParentPref.getInstance(ctx).getString("user");
         try {
             JSONObject j = new JSONObject(jsonUser);
             // Convert json jadi user
 
-            //return user
+            // return user
         } catch (JSONException e) {
             e.printStackTrace();
         }

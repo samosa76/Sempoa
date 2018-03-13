@@ -41,10 +41,11 @@ public class SharedPrefManager {
     }
 
     //    public void sessionLogin(String id, String name, String email, String phone, String type) {
-    public void sessionLogin(String name, String email, String kode, String tc) {
+    public void sessionLogin(String name, String email, String kode, String tc,String phone) {
         editor.putBoolean(SP_IS_LOGIN, true);
         editor.putString(SP_NAME, name);
         editor.putString(SP_EMAIL, email);
+        editor.putString(SP_PHONE, phone);
         editor.putString(SP_TC, tc);
         editor.putString(SP_KODE_GURU, kode);
 

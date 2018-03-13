@@ -55,30 +55,22 @@ public class BottomNavigationParent extends BaseActivitySempoa {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home_parent:
-                    if (navigation.getSelectedItemId() == R.id.navigation_home_parent) {
-
-                    } else {
+                    if (navigation.getSelectedItemId() != R.id.navigation_home_parent) {
                         getSupportFragmentManager().beginTransaction().replace(R.id.frameParent, new FragmentHomeParent()).commit();
                     }
                     return true;
                 case R.id.navigation_wallet_parent:
-                    if (navigation.getSelectedItemId() == R.id.navigation_wallet_parent) {
-
-                    } else {
+                    if (navigation.getSelectedItemId() != R.id.navigation_wallet_parent) {
                         getSupportFragmentManager().beginTransaction().replace(R.id.frameParent, new FragmentWalletParent()).commit();
                     }
                     return true;
                 case R.id.navigation_notification_parent:
-                    if (navigation.getSelectedItemId() == R.id.navigation_notification_parent) {
-
-                    } else {
+                    if (navigation.getSelectedItemId() != R.id.navigation_notification_parent) {
                         getSupportFragmentManager().beginTransaction().replace(R.id.frameParent, new FragmentNotificationParent()).commit();
                     }
                     return true;
                 case R.id.navigation_profil_parent:
-                    if (navigation.getSelectedItemId() == R.id.navigation_profil_parent) {
-
-                    } else {
+                    if (navigation.getSelectedItemId() != R.id.navigation_profil_parent) {
                         getSupportFragmentManager().beginTransaction().replace(R.id.frameParent, new FragmentProfilParent()).commit();
                     }
                     return true;
