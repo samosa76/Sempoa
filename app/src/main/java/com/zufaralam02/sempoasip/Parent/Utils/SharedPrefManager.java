@@ -17,20 +17,21 @@ import java.util.HashMap;
 
 public class SharedPrefManager {
 
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
-    Context context;
-    int mode = 0;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+    private Context context;
+    private int mode = 0;
 
-    public static final String SP_SEMPOA_APP = "spSempoaApp";
-    public static final String SP_IS_LOGIN = "spIsLogin";
-    public static final String SP_TYPE = "spType";
+    private static final String SP_SEMPOA_APP = "spSempoaApp";
+    private static final String SP_IS_LOGIN = "spIsLogin";
+    private static final String SP_TYPE = "spType";
     public static final String SP_ID = "spId";
     public static final String SP_NAME = "spName";
     public static final String SP_EMAIL = "spEmail";
     public static final String SP_PHONE = "spPhone";
     public static final String SP_PASS = "spPass";
     public static final String SP_KODE_SISWA = "spKodeSiswa";
+    public static final String SP_IBO_SISWA = "spIboSiswa";
 
     @SuppressLint("CommitPrefEdits")
     public SharedPrefManager(Context context) {
@@ -50,12 +51,13 @@ public class SharedPrefManager {
         editor.commit();
     }
 
-    public void sessionLoginStudent(String id, String kode, String name, String type) {
+    public void sessionLoginStudent(String id, String kode, String name, String type, String ibo) {
         editor.putBoolean(SP_IS_LOGIN, true);
         editor.putString(SP_ID, id);
         editor.putString(SP_KODE_SISWA, kode);
         editor.putString(SP_NAME, name);
         editor.putString(SP_TYPE, type);
+        editor.putString(SP_IBO_SISWA, ibo);
         editor.commit();
     }
 

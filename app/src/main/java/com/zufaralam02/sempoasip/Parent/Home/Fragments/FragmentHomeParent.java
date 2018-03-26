@@ -147,7 +147,7 @@ public class FragmentHomeParent extends Fragment {
     }
 
     private void requestData() {
-        final ArrayList<ListMurid> listMurid = new ArrayList<>();
+        final ArrayList<String> listMurid = new ArrayList<String>();
         HTTPImb httpImb = new HTTPImb(this, false) {
             @Override
             public String url() {
@@ -171,15 +171,19 @@ public class FragmentHomeParent extends Fragment {
                             listMurid1.setNamaSiswa(namaSiswa);
                             listMurid1.setKodeSiswa(kodeSiswa);
                             listMurid1.setAlamat(alamat);
-                            listMurid.add(listMurid1);
+                            listMurid.add(listMurid1.getNamaSiswa());
+                            listMurid.add(listMurid1.getKodeSiswa());
+                            listMurid.add(listMurid1.getAlamat());
+//                            listMurid.add(String.valueOf(listMurid1));
                             adapterChildHome.setListMurid(listMurid);
 
                             viewPagerChildHome.setClipToPadding(false);
                             viewPagerChildHome.setPadding(100, 0, 100, 0);
                             viewPagerChildHome.setPageMargin(20);
                             viewPagerChildHome.setSaveFromParentEnabled(false);
+
+                            viewPagerChildHome.setAdapter(adapterChildHome);
                         }
-                        viewPagerChildHome.setAdapter(adapterChildHome);
                         adapterChildHome.notifyDataSetChanged();
 
                     }

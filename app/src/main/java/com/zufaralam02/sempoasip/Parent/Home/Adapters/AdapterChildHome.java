@@ -16,15 +16,15 @@ import java.util.List;
  */
 
 public class AdapterChildHome extends FragmentPagerAdapter {
-    public ArrayList<ListMurid> getListMurid() {
+    private ArrayList<String> listMurid;
+
+    public ArrayList<String> getListMurid() {
         return listMurid;
     }
 
-    public void setListMurid(ArrayList<ListMurid> listMurid) {
+    public void setListMurid(ArrayList<String> listMurid) {
         this.listMurid = listMurid;
     }
-
-    ArrayList<ListMurid> listMurid;
 
     public AdapterChildHome(FragmentManager fm) {
         super(fm);
@@ -32,15 +32,7 @@ public class AdapterChildHome extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-
-//        if (listChild.size() == 0) {
-//            tvChildWallet.setText(listChild.indexOf(0));
-//            tvChildRank.setText(listChild.indexOf(0));
-//        } else if (listChild.size() == 1) {
-//            tvChildWallet.setText(listChild.indexOf(1));
-//            tvChildRank.setText(listChild.indexOf(1));
-//        }
-
+//        return FragmentChildHome.newInstance(position, listMurid.get(position));
         return FragmentChildHome.newInstance(position, listMurid.get(position));
     }
 
