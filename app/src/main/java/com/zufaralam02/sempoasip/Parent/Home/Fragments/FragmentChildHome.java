@@ -36,20 +36,21 @@ public class FragmentChildHome extends Fragment {
     ImageView ivLocationChildHome;
     @BindView(R.id.ivSettingChildHome)
     ImageView ivSettingChildHome;
-    Unbinder unbinder;
     @BindView(R.id.frameHomeChild)
     FrameLayout frameHomeChild;
-    private int position;
-    private String childName, childNumber, childLocation;
+    Unbinder unbinder;
 
-    public static FragmentChildHome newInstance(int position, ListMurid childName) {
+    private String childName, childNumber, childLocation;
+    private int position;
+
+    public static FragmentChildHome newInstance(int position, String childName) {
 
         FragmentChildHome fragmentChildHome = new FragmentChildHome();
         Bundle bundle = new Bundle();
         bundle.putInt("position", position);
-        bundle.putString("childName", String.valueOf(childName));
+        bundle.putString("childName", childName);
 //        bundle.putString("childNumber", childNumber);
-//        bundle.putString("childLocation", childLocation);/
+//        bundle.putString("childLocation", childLocation);
         fragmentChildHome.setArguments(bundle);
         return fragmentChildHome;
 
@@ -59,7 +60,7 @@ public class FragmentChildHome extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        position = getArguments().getInt("position", position);
+        position = getArguments().getInt("position", 0);
         childName = getArguments().getString("childName");
 //        childNumber = getArguments().getString("childNumber");
 //        childLocation = getArguments().getString("childLocation");
@@ -81,8 +82,8 @@ public class FragmentChildHome extends Fragment {
 //        }
         for (int i = 0; i < childName.length(); i++) {
             tvNameChildHome.setText(childName.trim());
-            tvNumberChildHome.setText(childNumber.trim());
-            tvPlaceChildHome.setText(childLocation.trim());
+            tvNumberChildHome.setText(childName.trim());
+            tvPlaceChildHome.setText(childName.trim());
         }
 
         return view;
